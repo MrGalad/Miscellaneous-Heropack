@@ -57,7 +57,7 @@ function init(hero) {
     hero.addKeyBind("SLOW_MOTION", "key.slowMotion", 2);
     hero.addKeyBind("CHARGED_BEAM", "Chestburster", 3)
     hero.addKeyBind("VIBRATION", "Vibrate", 4)
-    hero.addKeyBind("CHARGE_ENERGY", "Lightning Throw", -2);
+    hero.addKeyBind("CHARGE_ENERGY", "Lightning Throw", -3);
 
     hero.setHasProperty((entity, property) => property == "MASK_TOGGLE");
 
