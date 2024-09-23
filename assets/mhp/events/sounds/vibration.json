@@ -1,0 +1,12 @@
+{
+  "parent": "fiskheroes:sound_base",
+  "sound": "fiskheroes:suit.reverseflash.vibration.loop",
+  "condition": {
+    "continue": "entity.getData('mhp:dyn/vibration')"
+  },
+  "volume": 0.29,
+  "pitch": 0.97,
+  "loop": true,
+  "fadeIn": 5,
+  "fadeOut": 10
+}

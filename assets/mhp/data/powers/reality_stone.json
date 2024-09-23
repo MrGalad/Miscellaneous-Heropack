@@ -1,0 +1,36 @@
+{
+    "name": "Reality Stone",
+    "modifiers": {
+        "fiskheroes:size_manipulation": {
+            "isInstant": false,
+            "minSize": 1,
+            "maxSize": 15.0,
+            "soundEvents": {
+                "GROW": [
+                    "fiskheroes:anti_grow_roar",
+                    "fiskheroes:anti_grow",
+                    "fiskheroes:anti_grow_antimatter"
+                ],
+                "GROW_STOP": "fiskheroes:anti_grow_stop",
+                "SHRINK": "fiskheroes:anti_shrink"
+            }
+        },
+        "fiskheroes:transformation|one": {
+            "transformation": {
+                "key": "func_GIANT_MODE",
+                "toggleData": "fiskheroes:dyn/giant_mode",
+                "timerData": "fiskheroes:dyn/giant_mode_timer",
+                "time": 20
+            }
+        },
+        "fiskheroes:spellcasting": {
+            "spells": {
+                "fiskheroes:duplication": {
+                    "sequence": "adda",
+                    "cooldown": 1200,
+                    "quantity": 5
+                }
+            }
+        }
+    }
+}

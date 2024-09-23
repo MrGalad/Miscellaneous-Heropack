@@ -1,0 +1,17 @@
+
+{body_posY} = 1.25
+
+{rightLeg_posY} = 9.5
+{rightLeg_posX} = -2
+
+{leftLeg_posY} = 9.5
+{leftLeg_posX} = 2
+
+{head_posY} = -3.5
+{head_posZ} = -0.5
+
+{rightArm_posY} = -1.8
+{rightArm_posZ} = -1
+
+{leftArm_posY} = -1.8
+{leftArm_posZ} = -1

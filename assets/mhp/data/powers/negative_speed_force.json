@@ -1,0 +1,86 @@
+{
+  "name": "Negative Speed-Force",
+  "modifiers": {
+    "fiskheroes:super_speed": {
+      "canUseTreadmill": true,
+      "soundEvents": {
+        "ENABLE": [],
+        "DISABLE": [],
+        "MOVE": "fiskheroes:super_speed_move_loop_cw",
+        "SPRINT": ["fiskheroes:super_speed_sprint_negative", "fiskheroes:super_speed_sprint_negative_roar"],
+        "STOP": ["fiskheroes:super_speed_stop_negative", "fiskheroes:super_speed_stop_negative_roar"]
+      }
+    },
+    "fiskheroes:slow_motion": {
+      "soundEvents": {
+        "ENABLE": ["fiskheroes:slow_motion_enable_cw"],
+        "DISABLE": ["fiskheroes:slow_motion_disable_cw"]
+      }
+    },
+        "fiskheroes:arrow_catching": {},
+        "fiskheroes:regeneration": {
+          "factor": 4
+        },
+        "fiskheroes:energy_manipulation": {
+          "damageProfile": {
+            "damage": 13.0,
+            "types": {
+              "ENERGY": 1.0,
+              "ELECTRICITY": 0.5
+            },
+            "properties": {
+              "COOK_ENTITY": true,
+              "LIGHTNING_STRIKE": 0.05
+            }
+          },
+          "chargeTime": 8,
+          "range": 32.0
+        },
+        "fiskheroes:damage_immunity": {
+          "damageType": "BULLET"
+        },
+        "fiskheroes:transformation": {
+          "key": "VIBRATION",
+          "transformation": {
+            "toggleData": "mhp:dyn/vibration",
+            "timerData": "mhp:dyn/vibration_timer",
+            "time": 5
+          },
+          "soundEvents": {
+            "ENABLE": "mhp:vibration"
+          }
+        },
+        "fiskheroes:potion_immunity": {
+          "potionEffects": [
+            "minecraft:nausea",
+            "minecraft:poison",
+            "minecraft:wither"
+          ]
+        },
+        "fiskheroes:charged_beam": {
+            "damageProfile": {
+                "damage": 100.0,
+                "types": {
+                    "ENERGY": 1.0
+                },
+                "properties": {
+                    "COOK_ENTITY": false,
+                    "HEAT_TRANSFER": 20
+                }
+            },
+            "chargeTime": 30,
+            "duration": 70,
+            "cooldownTime": 40,
+            "range": 1.0,
+            "radius": 0.1,
+            "soundEvents": {
+                "CHARGE": "mhp:vibration"
+            }
+        },
+        "fiskheroes:propelled_flight": {
+        },
+        "fiskheroes:flight|speed": {
+            "speed": 0.05
+        }
+      }
+    }

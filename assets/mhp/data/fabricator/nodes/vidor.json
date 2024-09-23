@@ -1,0 +1,11 @@
+{
+    "suit": "mhp:vidor",
+    "requirements": [
+      "fiskheroes:tier8_9",
+      "fiskheroes:flight",
+      "fiskheroes:defense3",
+      "fiskheroes:melee3",
+      "mhp:misc"
+    ]
+  }
+  

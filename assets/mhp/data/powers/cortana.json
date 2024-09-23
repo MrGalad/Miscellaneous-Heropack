@@ -1,0 +1,13 @@
+{
+    "name": "Cortana Assistant",
+    "modifiers": {
+        "fiskheroes:shadowdome": {
+            "chargeTime": 0,
+            "duration": 1,
+            "radius": 15.0,
+            "soundEvents": {
+              "CAST": "fiskheroes:mk50_blade_enable"
+            }
+          }
+    }
+}

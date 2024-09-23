@@ -1,0 +1,53 @@
+{
+  "name": "MA5C Rifle",
+  "permission": "USE_FISKTAG_GUN",
+  "holdingPose": "DOUBLE",
+  "isHidden": false,
+  "damage":0.0,
+  "cooldown": 40,
+  "damageProfile": {
+    "damage": 5.0,
+    "types": {
+      "BULLET": 1.0
+      },
+      "properties": {
+        "HIT_COOLDOWN": 2.0,
+        "REDUCE_KNOCKBACK": 0.5
+      }
+    
+  },
+  "fisktag": {
+    "sprintShootDelay": 0,
+    "sprintDelay": 0
+  },
+  "scope": {
+    "zoom": 0.4,
+    "allowHeadshots": true
+  },
+  "activation": {
+    "type": "AUTO",
+    "rate": 1.5,
+    "windup": 1,
+    "maxDuration": 30
+  },
+  "spread": {
+    "sprintingFactor": 1.5,
+    "fallingFactor": 1.6,
+    "scopingFactor": 0.7
+  },
+  "recoil": {
+    "amount": 0.5,
+    "cameraShake": 1.0
+  },
+  "projectiles": [
+    {
+      "type": "BEAM",
+      "amount": 1,
+      "spread": 1,
+      "trail": 1
+    }
+  ],
+  "soundEvents": {
+    "SHOOT": "fisktag:rifle_shoot"
+  }
+}

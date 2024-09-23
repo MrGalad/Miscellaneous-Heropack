@@ -1,0 +1,97 @@
+{
+    "name": "Solar Energy Absorbtion",
+    "modifiers": {
+      "fiskheroes:transformation": {
+        "key": "NANITE_TRANSFORM",
+        "transformation": {
+          "toggleData": "mhp:dyn/solar",
+          "timerData": "mhp:dyn/solar_timer",
+          "time": 5
+        },
+        "soundEvents": {
+          "ENABLE": "fiskheroes:flame_on",
+          "DISABLE": "fiskheroes:flame_off"
+        }
+      },
+      "fiskheroes:controlled_flight": {
+        "speed": 0.1,
+        "boostSpeed": 0.15,
+        "canBoost": true,
+        "canRoll": true,
+        "diveSpeedRetention": 0.5,
+        "collision": {
+          "blocks": {
+            "stopFlying": true,
+            "takeDamage": true
+          },
+          "entities": {
+            "stopFlying": true,
+            "dealDamage": true
+          }
+        },
+        "knockback": 0.7,
+        "soundEvents": {
+          "ENABLE": ["fiskheroes:flight_loop", "fiskheroes:flight_cape_loop"],
+          "BOOST": "fiskheroes:flight_boost",
+          "DIVE": "fiskheroes:flight_dive_loop"
+        }
+      },
+      "fiskheroes:energy_projection": {
+        "damageProfile": {
+          "damage": 5,
+          "types": {
+            "FIRE": 10.0
+          },
+          "properties": {
+            "COOK_ENTITY": true,
+            "HEAT_TRANSFER": 20
+          }
+        },
+        "range": 15.0,
+        "radius": 0.1,
+        "soundEvents": {
+          "SHOOT": "fiskheroes:mysterio_beam_start",
+          "SHOOT_STOP": "fiskheroes:mysterio_beam_stop",
+          "BEAM_AMBIENT": "fiskheroes:mysterio_beam_loop"
+        }
+      },
+      "fiskheroes:fireball": {
+        "damageProfile": {
+          "damage": 6.0,
+          "types": {
+            "FIRE": 1.0
+          },
+          "properties": {
+            "COOK_ENTITY": true,
+            "HEAT_TRANSFER": 20,
+            "IGNITE": 3
+          }
+        },
+        "radius": 2.5,
+        "cooldownTime": 5,
+        "soundEvents": {
+          "SHOOT": "fiskheroes:fireball"
+        }
+      },
+      "fiskheroes:flame_blast": {
+        "damageProfile": {
+          "damage": 5.0,
+          "types": {
+            "FIRE": 1.0
+          },
+          "properties": {
+            "COOK_ENTITY": true,
+            "HEAT_TRANSFER": 160,
+            "IGNITE": 2
+          }
+        },
+        "range": 10.0
+      },
+      "fiskheroes:fire_immunity": {
+      },
+      "fiskheroes:damage_weakness": {
+        "damageType": "COLD",
+        "factor": 2.0
+      }
+    }
+  }

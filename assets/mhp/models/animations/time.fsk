@@ -1,0 +1,5 @@
+{data} = curve {data}
+{leftArm_rotX} @ {data} -> 0.9({head_rotX} - pi / 2)
+{leftArm_rotY} @ {data} -'> {head_rotY} + 0.1
+{leftArm_rotZ} = sin(2*pi*data)
+

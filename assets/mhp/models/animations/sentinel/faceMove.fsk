@@ -1,0 +1,10 @@
+{data_0} = curve {data_0}
+
+{facePlateEye1_rotY} = 100' * {data_0}
+{facePlateEye2_rotY} = -100' * {data_0}
+{facePlate1_rotX} = 120' * {data_0}
+{facePlate2_rotX} = -120' * {data_0}
+{facePlate3_rotX} = -100' * {data_0}
+{facePlate4_rotX} = -100' * {data_0}
+{facePlate5_rotX} = 100' * {data_0}
+{facePlate6_rotX} = 100' * {data_0}

@@ -1,0 +1,32 @@
+{
+    "name": "Power Stone",
+    "modifiers": {
+        "fiskheroes:charged_punch": {
+            "chargeTime": 20,
+            "isToggle": true
+        },
+        "fiskheroes:charged_beam": {
+            "damageProfile": {
+                "damage": 7.0,
+                "types": {
+                    "ENERGY": 1.0
+                },
+                "properties": {
+                    "COOK_ENTITY": true,
+                    "HEAT_TRANSFER": 20
+                }
+            },
+            "chargeTime": 20,
+            "duration": 40,
+            "cooldownTime": 40,
+            "range": 32.0,
+            "radius": 0.1,
+            "soundEvents": {
+                "SHOOT": "fiskheroes:mind_stone_start",
+                "SHOOT_STOP": "fiskheroes:mind_stone_stop",
+                "BEAM_AMBIENT": "fiskheroes:mind_stone_loop",
+                "CHARGE": "fiskheroes:mind_stone_charge"
+            }
+        }
+    }
+}

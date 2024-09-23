@@ -1,0 +1,228 @@
+{
+    "particles": [
+      {
+        "condition": "entity.getData('fiskheroes:heat_vision_length') >= 1",
+        "type": "FLAME",
+        "anchor": "rightArm",
+        "amount": 2,
+        "offset": {
+          "tp": [0, 16, 0],
+          "fp": [5, 5, -16]
+        },
+        "randOffset": [0.35, 0.35, 0.35],
+  
+        "mirror": false,
+        "lockFPYaw": true
+      },
+      {
+        "condition": "entity.getData('fiskheroes:heat_vision_length') >= 2",
+        "type": "FLAME",
+        "anchor": "rightArm",
+        "amount": 2,
+        "offset": {
+          "tp": [0, 32, 0],
+          "fp": [5, 5, -32]
+        },
+        "randOffset": [0.35, 0.35, 0.35],
+  
+        "mirror": false,
+        "lockFPYaw": true
+      },
+      {
+        "condition": "entity.getData('fiskheroes:heat_vision_length') >= 3",
+        "type": "FLAME",
+        "anchor": "rightArm",
+        "amount": 2,
+        "offset": {
+          "tp": [0, 48, 0],
+          "fp": [5, 5, -48]
+        },
+        "randOffset": [0.35, 0.35, 0.35],
+  
+        "mirror": false,
+        "lockFPYaw": true
+      },
+      {
+        "condition": "entity.getData('fiskheroes:heat_vision_length') >= 4",
+        "type": "FLAME",
+        "anchor": "rightArm",
+        "amount": 2,
+        "offset": {
+          "tp": [0, 64, 0],
+          "fp": [5, 5, -64]
+        },
+        "randOffset": [0.35, 0.35, 0.35],
+  
+        "mirror": false,
+        "lockFPYaw": true
+      },
+      {
+        "condition": "entity.getData('fiskheroes:heat_vision_length') >= 5",
+        "type": "FLAME",
+        "anchor": "rightArm",
+        "amount": 2,
+        "offset": {
+          "tp": [0, 80, 0],
+          "fp": [5, 5, -80]
+        },
+        "randOffset": [0.35, 0.35, 0.35],
+  
+        "mirror": false,
+        "lockFPYaw": true
+      },
+      {
+        "condition": "entity.getData('fiskheroes:heat_vision_length') >= 6",
+        "type": "FLAME",
+        "anchor": "rightArm",
+        "amount": 2,
+        "offset": {
+          "tp": [0, 96, 0],
+          "fp": [5, 5, -96]
+        },
+        "randOffset": [0.35, 0.35, 0.35],
+  
+        "mirror": false,
+        "lockFPYaw": true
+      },
+      {
+        "condition": "entity.getData('fiskheroes:heat_vision_length') >= 7",
+        "type": "FLAME",
+        "anchor": "rightArm",
+        "amount": 2,
+        "offset": {
+          "tp": [0, 112, 0],
+          "fp": [5, 5, -112]
+        },
+        "randOffset": [0.35, 0.35, 0.35],
+  
+        "mirror": false,
+        "lockFPYaw": true
+      },
+      {
+        "condition": "entity.getData('fiskheroes:heat_vision_length') >= 8",
+        "type": "FLAME",
+        "anchor": "rightArm",
+        "amount": 2,
+        "offset": {
+          "tp": [0, 128, 0],
+          "fp": [5, 5, -128]
+        },
+        "randOffset": [0.35, 0.35, 0.35],
+  
+        "mirror": false,
+        "lockFPYaw": true
+      },
+      {
+        "condition": "entity.getData('fiskheroes:heat_vision_length') >= 9",
+        "type": "FLAME",
+        "anchor": "rightArm",
+        "amount": 2,
+        "offset": {
+          "tp": [0, 144, 0],
+          "fp": [5, 5, -144]
+        },
+        "randOffset": [0.35, 0.35, 0.35],
+  
+        "mirror": false,
+        "lockFPYaw": true
+      },
+      {
+        "condition": "entity.getData('fiskheroes:heat_vision_length') >= 10",
+        "type": "FLAME",
+        "anchor": "rightArm",
+        "amount": 2,
+        "offset": {
+          "tp": [0, 160, 0],
+          "fp": [5, 5, -160]
+        },
+        "randOffset": [0.35, 0.35, 0.35],
+  
+        "mirror": false,
+        "lockFPYaw": true
+      },
+      {
+        "condition": "entity.getData('fiskheroes:heat_vision_length') >= 11",
+        "type": "FLAME",
+        "anchor": "rightArm",
+        "amount": 2,
+        "offset": {
+          "tp": [0, 176, 0],
+          "fp": [5, 5, -176]
+        },
+        "randOffset": [0.35, 0.35, 0.35],
+  
+        "mirror": false,
+        "lockFPYaw": true
+      },
+      {
+        "condition": "entity.getData('fiskheroes:heat_vision_length') >= 12",
+        "type": "FLAME",
+        "anchor": "rightArm",
+        "amount": 2,
+        "offset": {
+          "tp": [0, 192, 0],
+          "fp": [5, 5, -192]
+        },
+        "randOffset": [0.35, 0.35, 0.35],
+  
+        "mirror": false,
+        "lockFPYaw": true
+      },
+      {
+        "condition": "entity.getData('fiskheroes:heat_vision_length') >= 13",
+        "type": "FLAME",
+        "anchor": "rightArm",
+        "amount": 2,
+        "offset": {
+          "tp": [0, 208, 0],
+          "fp": [5, 5, -208]
+        },
+        "randOffset": [0.35, 0.35, 0.35],
+  
+        "mirror": false,
+        "lockFPYaw": true
+      },
+      {
+        "condition": "entity.getData('fiskheroes:heat_vision_length') >= 14",
+        "type": "FLAME",
+        "anchor": "rightArm",
+        "amount": 2,
+        "offset": {
+          "tp": [0, 224, 0],
+          "fp": [5, 5, -224]
+        },
+        "randOffset": [0.35, 0.35, 0.35],
+  
+        "mirror": false,
+        "lockFPYaw": true
+      },
+      {
+        "condition": "entity.getData('fiskheroes:heat_vision_length') >= 15",
+        "type": "FLAME",
+        "anchor": "rightArm",
+        "amount": 2,
+        "offset": {
+          "tp": [0, 240, 0],
+          "fp": [5, 5, -240]
+        },
+        "randOffset": [0.35, 0.35, 0.35],
+  
+        "mirror": false,
+        "lockFPYaw": true
+      },
+      {
+        "condition": "entity.getData('fiskheroes:heat_vision_length') >= 16",
+        "type": "FLAME",
+        "anchor": "rightArm",
+        "amount": 2,
+        "offset": {
+          "tp": [0, 256, 0],
+          "fp": [5, 5, -256]
+        },
+        "randOffset": [0.35, 0.35, 0.35],
+  
+        "mirror": false,
+        "lockFPYaw": true
+      }
+    ]
+  }

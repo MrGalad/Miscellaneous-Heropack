@@ -1,0 +1,57 @@
+{
+    "name": "Human Robot Physiology",
+    "modifiers": {
+      "fiskheroes:controlled_flight": {
+        "speed": 0.1,
+        "boostSpeed": 0.2,
+        "canBoost": true,
+        "barrelRoll": {
+          "duration": 14,
+          "speed": 0.12,
+          "drag": 0.03
+        },
+        "diveSpeedRetention": 0.5,
+        "collision": {
+          "blocks": {
+            "stopFlying": false,
+            "takeDamage": false
+          },
+          "entities": {
+            "stopFlying": false,
+            "dealDamage": true
+          }
+        },
+        "soundEvents": {
+          "ENABLE": ["fiskheroes:falcon_flight_loop", "fiskheroes:falcon_flight_ambient_loop"],
+          "BOOST": "fiskheroes:falcon_boost",
+          "IMPACT_BLOCK": "fiskheroes:flight_impact_block",
+          "IMPACT_ENTITY": "fiskheroes:flight_impact_entity",
+          "ROLL": "fiskheroes:falcon_flight_roll",
+          "DIVE": ["fiskheroes:flight_dive_loop", "fiskheroes:falcon_flight_whoosh"]
+        }
+      },
+        "fiskheroes:metal_skin": {
+    },
+      "fiskheroes:damage_immunity": {
+      "damageType": "BULLET"
+      },
+      "fiskheroes:damage_weakness": {
+        "damageType": "ELECTRICITY",
+        "factor": 2.0
+      },
+    "fiskheroes:fire_immunity": {
+    },
+    "fiskheroes:potion_immunity": {
+      "potionEffects": ["minecraft:poison", "minecraft:wither"]
+    },
+      "fiskheroes:damage_resistance|Fire": {
+        "damageType": "FIRE",
+        "factor": 0.2
+      },
+      "fiskheroes:projectile_immunity": {
+    },
+    "fiskheroes:damage_immunity|Explosion": {
+      "damageType": "EXPLOSION"
+    }
+  }
+}

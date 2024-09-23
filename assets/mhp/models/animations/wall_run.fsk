@@ -1,0 +1,25 @@
+{move} = curve {data_1}{data_0}
+{move} = if({data_1} < 2, {move}, -{move})
+{leftLeg_rotX} += {move}
+{rightLeg_rotX} -= {move}
+
+{leftArm_rotX} -= {move}
+{rightArm_rotX} += {move}
+
+{head_rotX} @ {data_0} -> 0
+
+{rightArm_rotZ} -= 0.3{move}
+{leftArm_rotZ} -= 0.3{move}
+{rightArm_rotX} += 0.5{move}
+{leftArm_rotX} += 0.5{move}
+
+{body_rotY} -= 0.4{move}
+{rightArm_posZ} -= 1.75{move}
+{leftArm_posZ} += 1.75{move}
+
+{head_rotX} -= 10'{data_0}
+{rightLeg_rotX} -= 3'{data_0}
+{leftLeg_rotX} -= 3'{data_0}
+
+out "rotate" (40{data_0}, 1, 0, 0)
+out "translate" (0, -0.3{data_0},  0)

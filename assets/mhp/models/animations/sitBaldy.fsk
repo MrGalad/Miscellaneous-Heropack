@@ -1,0 +1,28 @@
+{rightLeg_rotX} = -1.5
+{rightLeg_rotY} = 0.075
+
+{leftLeg_rotX} = -1.5
+{leftLeg_rotY} = -0.1
+
+{rightArm_rotX} = -1
+{rightArm_rotY} = 0
+{rightArm_rotZ} = 10'
+
+{leftArm_rotX} = -1
+{leftArm_rotY} = 0
+{leftArm_rotZ} = -10'
+
+{head_posY} = -5
+{body_posY} = -5
+{leftArm_posY} = -2.5
+{rightArm_posY} = -2.5
+{leftLeg_posY} = 7
+{rightLeg_posY} = 7
+
+out "firstPerson" (true)
+out "rotate" (26, 1, 0, 0)
+out "rotate" (42, 0, 1, 0)
+out "rotate" (-45, 0, 0, 1)
+
+
+out "translate" (-0.1, -0.8, -0.6)

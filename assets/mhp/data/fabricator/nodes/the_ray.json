@@ -1,0 +1,12 @@
+{
+    "suit": "mhp:the_ray",
+    "requirements": [
+      "fiskheroes:tier6_7",
+      "fiskheroes:flight",
+      "fiskheroes:defense",
+      "fiskheroes:melee",
+      "fiskheroes:ranged3",
+      "mhp:misc"
+    ]
+  }
+  

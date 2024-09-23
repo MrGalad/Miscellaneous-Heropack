@@ -1,0 +1,48 @@
+loadTextures({
+    "base":       "fisktag:shawty",
+    "crosshair":  "fisktag:crosshairs/shotgun"
+});
+
+var utils = implement("fisktag:external/utils");
+var teams = implement("fisktag:external/teams");
+
+var model;
+
+function init(renderer) {
+    model = utils.createModel(renderer, "mhp:shawty", "base");
+    renderer.setModel(model);
+
+    utils.makeDilatingCrosshair(renderer, "crosshair", 16, 16, [
+        { "pos": [6, 6], "size": [5, 5] }, // Center
+        { "pos": [1, 1], "size": [5, 5], "axis": [-1, -1] }, // Top Left
+        { "pos": [11, 1], "size": [5, 5], "axis": [1, -1] }, // Top Right
+        { "pos": [1, 11], "size": [5, 5], "axis": [-1, 1] }, // Bottom Left
+        { "pos": [11, 11], "size": [5, 5], "axis": [1, 1] } // Bottom Right
+    ], 3, 4, 3.33);
+
+    utils.bindScopedBeam(renderer, "fiskheroes:repulsor_blast", (0x8f5017), [
+        { "firstPerson": [-5.0, 4.0, -18.0], "offset": [-1.2, 10.5, -2.3], "size": [1.25, 1.25] }
+    ], [4.0, -1.0, -2.0]);
+}
+
+function render(renderer, entity, glProxy, renderType, scopeTimer, recoil, isLeftSide) {
+    if (renderType === "EQUIPPED_FIRST_PERSON") {
+        var f = easeInOutSine(entity.getInterpolatedData("fiskheroes:scope_timer"));
+        glProxy.rotate(-7 * f, 1, 0, 0);
+        glProxy.translate(-0.1 * f, -0.1 * f, -0.2 * f + recoil * (0.7 - 0.2 * scopeTimer));
+    }
+    else if (renderType === "EQUIPPED") {
+        glProxy.translate(0, 0.0, 0.0);
+    }
+    else if (renderType === "ENTITY" || renderType === "INVENTORY") {
+        glProxy.translate(-0.8, 0.6, -0.2);
+        glProxy.scale(1.4)
+    }
+
+    glProxy.translate(0, -1.1, -0.4);
+    glProxy.scale(1.2);
+}
+
+function easeInOutSine(x) {
+    return -(Math.cos(Math.PI * x) - 1) / 2;
+}
