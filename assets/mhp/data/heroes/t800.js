@@ -6,7 +6,7 @@ function init(hero) {
     hero.setChestplate("item.superhero_armor.piece.chestplate");
     hero.setLeggings("item.superhero_armor.piece.leggings");
     hero.setBoots("item.superhero_armor.piece.boots");
-    hero.addPrimaryEquipment("fisktag:weapon{WeaponType:fisktag:1887}", true);
+    hero.addPrimaryEquipment("fisktag:weapon{WeaponType:mhp:1887}", true);
     hero.addPrimaryEquipment("fiskheroes:beretta_93r", true);
 
 
@@ -36,13 +36,13 @@ function init(hero) {
    // hero.setModifierEnabled(isModifierEnabled);
     hero.setDefaultScale(1.1);
     hero.setHasPermission((entity, permission) => permission == "USE_FISKTAG_GUN" || permission == "USE_GUN" || permission == "USE_WINNY");
-    hero.supplyFunction("canAim", entity => entity.getHeldItem().isGun() || entity.getHeldItem().name() == "fisktag:weapon");
+    hero.supplyFunction("canAim", entity => entity.getHeldItem().isGun() || entity.getHeldItem().nbt().getString("WeaponType") == "mhp:1887");
     hero.setHasProperty((entity, property) => property == "MASK_TOGGLE");
 
     hero.setTickHandler((entity, manager) => {
         manager.incrementData(entity, "mhp:dyn/holoanimation", 20, 20, entity.is("DISPLAY") && !entity.as("DISPLAY").isStatic() && entity.as("DISPLAY").getDisplayType() === "HOLOGRAM");
      
-        if (entity.getData("mhp:dyn/boolean") && entity.getData("mhp:dyn/float_interp") == 1 ) {
+       /*  if (entity.getData("mhp:dyn/boolean") && entity.getData("mhp:dyn/float_interp") == 1 ) {
             var list = entity.world().getEntitiesInRangeOf(entity.eyePos(), 10.0)
         
             list.forEach(other => {
@@ -51,7 +51,7 @@ function init(hero) {
                 }
             });
             manager.setData(entity, "mhp:dyn/boolean", false)
-        }
+        } */
         /*   var time = 20;
         if (entity.getData("mhp:dyn/worn_suit") < 10) {
             manager.setData(entity, "mhp:dyn/worn_suit", entity.getData("mhp:dyn/worn_suit") + 0.1);

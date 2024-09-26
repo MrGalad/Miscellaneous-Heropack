@@ -8,8 +8,8 @@ function init(hero) {
     hero.setChestplate("item.superhero_armor.piece.chestplate");
     hero.setLeggings("item.superhero_armor.piece.leggings");
     hero.setBoots("item.superhero_armor.piece.boots");
-    hero.addPrimaryEquipment("fisktag:weapon{WeaponType:fisktag:ma5c}", true);
-    hero.addPrimaryEquipment("fisktag:weapon{WeaponType:fisktag:ener}", true);
+    hero.addPrimaryEquipment("fisktag:weapon{WeaponType:mhp:ma5c}", true);
+    hero.addPrimaryEquipment("fisktag:weapon{WeaponType:mhp:ener}", true);
 
     hero.addPowers("mhp:mjolnir_armor", "mhp:cortana");
     hero.addAttribute("PUNCH_DAMAGE", 9.0, 0);
@@ -42,7 +42,7 @@ function init(hero) {
     hero.setHasProperty((entity, property) => property == "MASK_TOGGLE"); 
     hero.setDefaultScale(1.25);
     hero.setHasPermission((entity, permission) => permission == "USE_FISKTAG_GUN" || permission == "USE_GUN" || permission == "USE_MA5C" || permission == "USE_PLASMA");
-    hero.supplyFunction("canAim", entity => entity.getHeldItem().isGun() || entity.getHeldItem().nbt().getString("WeaponType") == "fisktag:ma5c");
+    hero.supplyFunction("canAim", entity => entity.getHeldItem().isGun() || entity.getHeldItem().nbt().getString("WeaponType") == "mhp:ma5c");
 
     hero.setTickHandler((entity, manager) => {
         if (entity.getData("fiskheroes:shield_cooldown") > 0 && entity.getData("mhp:dyn/boolean")) {
@@ -55,8 +55,8 @@ function init(hero) {
     
         cortana.health(entity, manager);
         cortana.warning(entity, manager)
-        cortana.scanner(entity, manager)
-        cortana.moblist(entity)
+        cortana.EntityScan(entity, manager)
+        cortana.retrieveinDome(entity)
 
     })
 }
@@ -83,7 +83,7 @@ function bladeProfile(profile) {
 }
 
 function getProfile(entity) {
-    if (entity.getData("mhp:dyn/energy") && entity.getHeldItem().nbt().getString("WeaponType") == "fisktag:ener") {
+    if (entity.getData("mhp:dyn/energy") && entity.getHeldItem().nbt().getString("WeaponType") == "mhp:ener") {
         return "BLADE";
     }
     return null;
@@ -101,7 +101,7 @@ function isKeyBindEnabled(entity, keyBind) {
     var slot = entity.getData("mhp:dyn/slot");
     switch (keyBind) {
         case "ENERGY":
-            return entity.getHeldItem().nbt().getString("WeaponType") == "fisktag:ener" &&  !entity.isSneaking()
+            return entity.getHeldItem().nbt().getString("WeaponType") == "mhp:ener" &&  !entity.isSneaking()
         case "SLOT":
             return true
         case "WEB_ZIP":
@@ -117,7 +117,7 @@ function isKeyBindEnabled(entity, keyBind) {
         case "func_CORTANA":
             return entity.isSneaking();
             case "SHADOWDOME":
-                return entity.isSneaking() && entity.getData("mhp:dyn/mob_cooldown") == 0 && entity.getData("mhp:dyn/cortana");
+                return entity.isSneaking() && entity.getData("mhp:dyn/mob_timer") == 0 && entity.getData("mhp:dyn/cortana");
         default:
             return true;
     }

@@ -65,58 +65,53 @@ function warning(entity, manager) {
     }
 }
 
-function moblist(entity) {
-    var diagnostics = {
-        domeId: entity.getData("fiskheroes:lightsout_id"),
-        dome: entity.world().getEntityById(entity.getData("fiskheroes:lightsout_id")),
-    };
+function retrieveinDome(entity) {
+    var dome = entity.getData("fiskheroes:lightsout_id");
+    var domeInstance = entity.world().getEntityById(dome);
+    var entityCollection = [];
 
-    var list = [];
-    if (diagnostics.dome.exists()) {
-        var contained = diagnostics.dome.as("SHADOWDOME").getContainedEntities();
-        for (var i = 0; i < contained.size(); ++i) {
-            var target = contained.get(i);
-            if (entity.getUUID() !== target.getUUID()) {
-                list.push(target.getEntityName());
+    if (domeInstance && domeInstance.exists()) {
+        var containedEntities = domeInstance.as("SHADOWDOME").getContainedEntities();
+        for (var index = 0, totalEntities = containedEntities.size(); index < totalEntities; index++) {
+            var targetEntity = containedEntities.get(index);
+            if (entity.getUUID() !== targetEntity.getUUID()) {
+                entityCollection.push(targetEntity.getEntityName());
             }
         }
     }
-    return list;
+
+    return entityCollection;
 }
 
-var mobscanMessage = true;
+var scamStatus = true;
 
-function scanner(entity, manager) {
-    var diagnostics = {
-        cortana: entity.getData("mhp:dyn/cortana"),
-        scannerTimer: entity.getInterpolatedData("mhp:dyn/mob_cooldown"),
-        domeId: entity.getData("fiskheroes:lightsout_id"),
-        dome: entity.world().getEntityById(entity.getData("fiskheroes:lightsout_id")),
-    };
+function EntityScan(entity, manager) {
+    var cortanaOn = entity.getData("mhp:dyn/cortana");
+    var scamTimer = entity.getInterpolatedData("mhp:dyn/mob_timer");
+    var dome = entity.getData("fiskheroes:lightsout_id");
+    var domeInstance = entity.world().getEntityById(dome);
 
     var messages = {
-        mobScan: "\u00A73<Cortana> Entities nearby:",
+        detect: "\u00A73<Cortana> Entities nearby:",
     };
 
-    var targetsNames = moblist(entity, manager);
+    var detectedEntities = retrieveinDome(entity);
 
     if (PackLoader.getSide() === "CLIENT") {
-        var condition = targetsNames.length > 0 && diagnostics.cortana;
-        if (condition && mobscanMessage) {
-            PackLoader.printChat(messages.mobScan);
-            PackLoader.printChat("\u00A73<Cortana>\u00A74\u00A7l " + targetsNames.join(", "));
-            mobscanMessage = false;
-        } else if (!condition && !mobscanMessage) {
-            mobscanMessage = true;
+        var scanCondition = detectedEntities.length > 0 && cortanaOn;
+        if (scanCondition && scamStatus) {
+            PackLoader.printChat(messages.detect);
+            PackLoader.printChat("\u00A73<Cortana>\u00A74\u00A7l " + detectedEntities.join(", "));
+            scamStatus = false;
+        } else if (!scanCondition && !scamStatus) {
+            scamStatus = true;
         }
-    }  if (PackLoader.getSide() == "SERVER") {
-        null
     }
-    
-    if (diagnostics.dome.exists()) {
-        manager.setData(entity, "mhp:dyn/mob_cooldown", 1);
+
+    if (domeInstance && domeInstance.exists()) {
+        manager.setData(entity, "mhp:dyn/mob_timer", 1);
         manager.setData(entity, "mhp:dyn/mobscan", true);
-    } else if (diagnostics.cortana) {
-        manager.setData(entity, "mhp:dyn/mob_cooldown", Math.max(diagnostics.scannerTimer - 0.01, 0));
+    } else if (cortanaOn) {
+        manager.setData(entity, "mhp:dyn/mob_timer", Math.max(scamTimer - 0.01, 0));
     }
 }

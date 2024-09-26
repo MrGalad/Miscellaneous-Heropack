@@ -1,5 +1,5 @@
 {
-    "texture": "fisktag:xor/energy_blade_<CHARGE>",
+    "texture": "mhp:xor/energy_blade_<CHARGE>",
     "getters": {
       "CHARGE": {
         "key": "Math.min(entity.getData('mhp:dyn/energy_timer') * 13, 13) | 0",

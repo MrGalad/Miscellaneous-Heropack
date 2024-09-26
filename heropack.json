@@ -96,12 +96,11 @@
     "type": "FLOAT_INTERP"
 },
 "mobscan": { "type": "BOOLEAN", "resetWithoutSuit": true },
-"mob_cooldown": { "type": "FLOAT_INTERP", "resetWithoutSuit": true },
-"danger": { "type": "BOOLEAN", "resetWithoutSuit": true },
+"mob_timer": { "type": "FLOAT_INTERP", "resetWithoutSuit": true },
 "vibration": "BOOLEAN",
 "vibration_timer": "FLOAT_INTERP",
-"boolean2": { "type": "BOOLEAN", "resetWithoutSuit": true },
-"float_interp_animation": { "type": "FLOAT_INTERP", "resetOnDeath": false }
+"charge": "BOOLEAN",
+"attack_timer": "FLOAT_INTERP"
 },
   "alts": {
     "mhp:sunspot": {

@@ -1,5 +1,5 @@
 loadTextures({
-    "base":       "fisktag:mac",
+    "base":       "mhp:mac",
     "red":         "fisktag:shotgun_red",
     "blue":        "fisktag:shotgun_blue",
     "base_lights": "fisktag:shotgun_lights",
@@ -15,7 +15,7 @@ var teams = implement("fisktag:external/teams");
 var model;
 
 function init(renderer) {
-    model = utils.createModel(renderer, "fisktag:MA5C", "base");
+    model = utils.createModel(renderer, "mhp:MA5C", "base");
     renderer.setModel(model);
 
     utils.makeDilatingCrosshair(renderer, "crosshair", 16, 16, [

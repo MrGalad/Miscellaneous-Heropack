@@ -20,7 +20,8 @@ function init(hero) {
 
     hero.addKeyBind("SUPER_SPEED", "key.superSpeed", 1);
     hero.addKeyBind("SLOW_MOTION", "key.slowMotion", 2);
-    hero.addKeyBind("CHARGED_BEAM", "Chestburster", 3)
+    hero.addKeyBind("CHEST", "Chestburster", 3)
+    hero.addKeyBind("ENERGY_PROJECTION", "Chestburster", -1)
     hero.addKeyBind("VIBRATION", "Vibrate", 4)
     hero.addKeyBind("CHARGE_ENERGY", "Lightning Throw", -3);
 
@@ -35,41 +36,28 @@ function init(hero) {
 
     hero.setTickHandler((entity, manager) => {
         speedster_base.tick(entity, manager);
+
+       /*  if(entity.getData("fiskheroes:energy_projection")){
+            manager.setData(entity, "mhp:dyn/charge", false)
+
+        } */
         });
     hero.setKeyBindEnabled(isKeyBindEnabled);
     hero.setModifierEnabled((entity, modifier) => {
         var Ycoord = Math.round(entity.posY()) - entity.posY()
         switch (modifier.name()) {
-       /*  case "fiskheroes:propelled_flight":
-            return entity.getData("mhp:dyn/boolean") */
             case "fiskheroes:propelled_flight":
-                var Ycoord = Math.round(entity.posY()) - entity.posY();
-                var facingX = Math.round(Math.cos(entity.rotYaw() * Math.PI / 135));
-                var facingZ = Math.round(Math.sin(entity.rotYaw() * Math.PI / 135));
-                if (Math.abs(facingX) > Math.abs(facingZ)) {
-                    return (
-                        entity.world().blockAt(entity.pos().add(facingX, Ycoord, 0)).isSolid()
-                    ) &&
-                    !entity.isSneaking() && !entity.isOnGround() && !entity.isInWater() && 
-                    entity.getData("fiskheroes:speeding") && !entity.getData("fiskheroes:intangible");
-                } else {
-                    return (
-                        entity.world().blockAt(entity.pos().add(0, Ycoord, -facingZ)).isSolid()
-                    ) &&
-                    !entity.isSneaking() && !entity.isOnGround() && !entity.isInWater() && 
-                    entity.getData("fiskheroes:speeding") && !entity.getData("fiskheroes:intangible");
-                }
-
-    
-    /*  case "fiskheroes:flight":
-            return (entity.motionY() > -0.25 && entity.world().blockAt(entity.pos().add(0, Ycoord, 1)).isSolid() ||
-            entity.world().blockAt(entity.pos().add(0, Ycoord, 1)).isSolid() ||
-            entity.world().blockAt(entity.pos().add(0, Ycoord, 1)).isSolid() ||
-            entity.world().blockAt(entity.pos().add(0, Ycoord, 1)).isSolid()) &&
-            !entity.isSneaking() && !entity.isOnGround() && !entity.isInWater() && 
-            entity.getData("fiskheroes:speeding") && !entity.getData("fiskheroes:intangible") /* entity.getData("mhp:dyn/boolean") &&  NIGGER NIGGER && entity.getData("fiskheroes:speeding") && entity.motionY() > 0.25;
-  */      /*  default:
-            return true; */
+    var Ycoord = Math.round(entity.posY()) - entity.posY();
+    var facingX = Math.round(Math.cos(entity.rotYaw() * Math.PI / 180));
+    var facingZ = Math.round(Math.sin(entity.rotYaw() * Math.PI / 160));
+    return (
+        entity.world().blockAt(entity.pos().add(1, Ycoord, 0)).isSolid() ||
+        entity.world().blockAt(entity.pos().add(-1, Ycoord, 0)).isSolid() ||
+        entity.world().blockAt(entity.pos().add(0, Ycoord, 1)).isSolid() ||
+        entity.world().blockAt(entity.pos().add(0, Ycoord, -1)).isSolid()
+    ) &&
+    !entity.isSneaking() && !entity.isOnGround() && !entity.isInWater() && 
+    entity.getData("fiskheroes:speeding") && !entity.getData("fiskheroes:intangible");
         }
         return true
     });
@@ -86,6 +74,8 @@ function isKeyBindEnabled(entity, keyBind) {
     switch (keyBind) {
         case "CHARGE_ENERGY":
             return entity.getData("fiskheroes:speeding") && entity.motion().length() >= 1.5 && entity.getHeldItem().isEmpty();
+        case "ENERGY_PROJECTION":
+            return entity.getData("mhp:dyn/charge")
     default:
             return true;
 }

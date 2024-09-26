@@ -1,5 +1,5 @@
 loadTextures({
-    "base":       "fisktag:shawty",
+    "base":       "mhp:shawty",
     "crosshair":  "fisktag:crosshairs/shotgun"
 });
 
@@ -21,7 +21,7 @@ function init(renderer) {
     ], 3, 4, 3.33);
 
     utils.bindScopedBeam(renderer, "fiskheroes:repulsor_blast", (0x8f5017), [
-        { "firstPerson": [-5.0, 4.0, -18.0], "offset": [-1.2, 10.5, -2.3], "size": [1.25, 1.25] }
+        { "firstPerson": [-5.0, 4.0, -18.0], "offset": [-3, 10.5, -2.3], "size": [1.25, 1.25] }
     ], [4.0, -1.0, -2.0]);
 }
 

@@ -1,7 +1,7 @@
 loadTextures({
-    "base":  "fisktag:ener",
-    "xor": "fisktag:ener.tx.json",
-    "handle": "fisktag:handle"
+    "base":  "mhp:ener",
+    "xor": "mhp:ener.tx.json",
+    "handle": "mhp:handle"
 });
 
 var utils = implement("fisktag:external/utils");
@@ -9,7 +9,7 @@ var utils = implement("fisktag:external/utils");
 var model;
 
 function init(renderer) {
-    model = utils.createModel(renderer, "fisktag:ener", "handle", "xor");
+    model = utils.createModel(renderer, "mhp:ener", "handle", "xor");
     renderer.setModel(model);
   
 }

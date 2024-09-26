@@ -41,9 +41,10 @@ function initAnimations(renderer) {
     parent.initAnimations(renderer);
     renderer.removeCustomAnimation("basic.PROP_FLIGHT");
     renderer.removeCustomAnimation("basic.CHARGED_BEAM")
+    renderer.removeCustomAnimation("basic.ENERGY_PROJ")
     renderer.removeCustomAnimation("basic.AIMING");
-    addAnimationWithData(renderer, "rf.CHARGED_BEAM", "mhp:burster", "fiskheroes:beam_charging");
-    addAnimationWithData(renderer, "BURSTER", "mhp:attack").setData((entity, data) => data.load(Math.max(entity.getInterpolatedData("fiskheroes:beam_shooting_timer") * 5 - 4, 0))).priority = 10;
+    addAnimationWithData(renderer, "rf.CHARGED_BEAM", "mhp:burster", "mhp:dyn/attack_timer");
+    addAnimationWithData(renderer, "rf.ENERGY_PROJ", "mhp:attack", "fiskheroes:energy_projection")/* .setData((entity, data) => data.load(Math.max(entity.getInterpolatedData("mhp:dyn/attack_timer") * 5 - 4, 0)))*/.priority = 10;
     
     addAnimation(renderer, "flash.MASK", "fiskheroes:remove_cowl")
         .setData((entity, data) => {

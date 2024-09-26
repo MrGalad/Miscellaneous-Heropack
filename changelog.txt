@@ -1,0 +1,20 @@
+### Miscellaneous Heropack 2.3 ###
+
+Added Reverse Flash suit
+Added Charles Xavier suit
+Added Infinity Gauntlet suit
+Added Soul Stone suit
+Added Power Stone suit 
+Added Reality Stone suit
+Added Time Stone suit
+Added Mind Stone suit
+Added Space Stone suit
+Added lights to Sunspot
+Added Mob Scan ability to Master Chief
+Added Master Chief's energy blade as a Fisktag weapon
+Added Lights to The Ray
+Added Glow effect to The Ray
+
+Fixed all Weapons in the Heropack
+
+Removed "Fire Projection" ability from Sunspot
