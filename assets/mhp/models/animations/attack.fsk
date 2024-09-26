@@ -1,0 +1,4 @@
+{data} = curve {data}
+
+{rightArm_rotX} @ {data} -> 0
+{rightArm_rotX} += -60'{data}

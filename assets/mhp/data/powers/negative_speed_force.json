@@ -68,8 +68,8 @@
                     "HEAT_TRANSFER": 20
                 }
             },
-            "chargeTime": 30,
-            "duration": 70,
+            "chargeTime": 20,
+            "duration": 40,
             "cooldownTime": 40,
             "range": 1.0,
             "radius": 0.1,
@@ -78,9 +78,6 @@
             }
         },
         "fiskheroes:propelled_flight": {
-        },
-        "fiskheroes:flight|speed": {
-            "speed": 0.05
         }
       }
     }

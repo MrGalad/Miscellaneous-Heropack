@@ -20,7 +20,8 @@ function init(hero) {
 
     hero.addKeyBind("AIM", "key.aim", -1);
     hero.addKeyBind("GUN_RELOAD", "key.reload", 1);
-    hero.addKeyBind("SUPER_SPEED", "Toggle Bike", 2);
+    hero.addKeyBind("SUPER_SPEED", "Toggle Bike", 2)
+    hero.addKeyBind("SEARCH", "Toggle Search", 3);
    // hero.addKeyBind("REPAIR", "Repair Suit", 3)
 
   /*  hero.addAttributeProfile("FIX", fixProfile);
@@ -40,7 +41,18 @@ function init(hero) {
 
     hero.setTickHandler((entity, manager) => {
         manager.incrementData(entity, "mhp:dyn/holoanimation", 20, 20, entity.is("DISPLAY") && !entity.as("DISPLAY").isStatic() && entity.as("DISPLAY").getDisplayType() === "HOLOGRAM");
-     /*   var time = 20;
+     
+        if (entity.getData("mhp:dyn/boolean") && entity.getData("mhp:dyn/float_interp") == 1 ) {
+            var list = entity.world().getEntitiesInRangeOf(entity.eyePos(), 10.0)
+        
+            list.forEach(other => {
+                if (entity.world().isUnobstructed(other.pos(), entity.pos()) && other.getUUID() !== entity.getUUID() && other.isLivingEntity()) {
+                    entity.as("PLAYER").addChatMessage(String(other.getName()))
+                }
+            });
+            manager.setData(entity, "mhp:dyn/boolean", false)
+        }
+        /*   var time = 20;
         if (entity.getData("mhp:dyn/worn_suit") < 10) {
             manager.setData(entity, "mhp:dyn/worn_suit", entity.getData("mhp:dyn/worn_suit") + 0.1);
         }
