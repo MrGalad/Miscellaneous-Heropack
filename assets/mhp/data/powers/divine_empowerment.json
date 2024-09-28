@@ -18,6 +18,12 @@
       "speed": 0.1,
       "boostSpeed": 0.25,
       "canBoost": true,
+      "barrelRoll": {
+        "duration": 14,
+        "speed": 0.12,
+        "drag": 0.03
+      },
+      "diveSpeedRetention": 0.5,
       "collision": {
         "blocks": {
           "stopFlying": false,

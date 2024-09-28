@@ -107,7 +107,7 @@ function initEffects(renderer) {
 
   utils.addCameraShake(renderer, 0.015, 1.5, "mhp:dyn/shazam_timer");
   var shake = renderer.bindProperty("fiskheroes:camera_shake").setCondition(entity => {
-    shake.factor = entity.getData("mhp:dyn/shazam_timer") > 0.4 && entity.getData("mhp:dyn/shazam_timer") < 0.7 /* ? 0.3 * Math.sin(Math.PI * entity.getInterpolatedData("fiskheroes:flight_boost_timer")) : 0 */;
+    shake.factor = entity.getData("mhp:dyn/shazam_timer") > 0.4 && entity.getData("mhp:dyn/shazam_timer") < 0.7
     return true;
   });
   shake.intensity = 0.0;
@@ -138,7 +138,6 @@ function initAnimations(renderer) {
 
 function render(entity, renderLayer, isFirstPersonArm) {
   if (entity.getData("mhp:dyn/shazam_timer") > 0.4 && entity.getData("mhp:dyn/shazam_timer") < 0.7) {
-    /*  shazam.progress = Math.min(entity.getData("mhp:dyn/shazam_timer") * 5, 1) */
     shazam.render()
   }
   overlay.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
