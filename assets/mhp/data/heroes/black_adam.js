@@ -75,7 +75,7 @@ function isKeyBindEnabled(entity, keyBind) {
         case "ENERGY_PROJECTION":
             return (entity.getData("mhp:dyn/shazam_timer") > 0.5 && !entity.getData("fiskheroes:beam_charging"));
         case "CHARGED_BEAM":
-            return (entity.getData("mhp:dyn/shazam_timer") > 0.5);
+            return (entity.getData("mhp:dyn/shazam_timer") > 0.5 && !entity.getData("fiskheroes:energy_projection"));
         default:
             return true;;
     }

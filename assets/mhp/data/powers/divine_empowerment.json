@@ -50,7 +50,12 @@
     "fiskheroes:arrow_catching": {
     },
     "fiskheroes:super_speed": {
-      "canUseTreadmill": false
+      "canUseTreadmill": false,
+      "canUseTachyons": false,
+      "soundEvents": {
+        "MOVE": ["fiskheroes:super_speed_move_loop_shazam_dceu", "fiskheroes:super_speed_move_loop_cape"],
+        "SPRINT": "fiskheroes:super_speed_sprint_shazam_dceu"
+      }
     },
     "fiskheroes:lightning_cast": {
       "damageProfile": {
