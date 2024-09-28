@@ -37,9 +37,16 @@ function init(hero) {
     hero.setTickHandler((entity, manager) => {
         speedster_base.tick(entity, manager);
 
-        if(entity.getData("fiskheroes:energy_projection_timer") > 0.3){
-            manager.setData(entity, "mhp:dyn/charge", false)
 
+        manager.incrementData(entity, "mhp:dyn/chestburst_cd", 30, 20,  entity.getData("fiskheroes:energy_projection"));
+        if (entity.getInterpolatedData("mhp:dyn/chestburst_cd") >=0.7){
+            manager.setData(entity, "mhp:dyn/charge", false);
+        }
+        // if(entity.getData("fiskheroes:energy_projection_timer") > 0.3){
+        //     manager.setData(entity, "mhp:dyn/charge", false)
+        // } else 
+        if (entity.getData("fiskheroes:speed_sprinting") != entity.getData("fiskheroes:energy_charging")) {
+            manager.setData(entity, "fiskheroes:energy_charging", entity.getData("fiskheroes:speed_sprinting"));
         }
         });
     hero.setKeyBindEnabled(isKeyBindEnabled);
@@ -73,7 +80,7 @@ function init(hero) {
 function isKeyBindEnabled(entity, keyBind) {
     switch (keyBind) {
         case "CHARGE_ENERGY":
-            return entity.getData("fiskheroes:speeding") && entity.motion().length() >= 1.5 && entity.getHeldItem().isEmpty();
+            return entity.isSprinting() && entity.getData("fiskheroes:speeding") && entity.getData("fiskheroes:speed") >= 3;
         case "ENERGY_PROJECTION":
             return entity.getData("mhp:dyn/charge")
     default:

@@ -33,7 +33,7 @@
               "LIGHTNING_STRIKE": 0.05
             }
           },
-          "chargeTime": 8,
+          "chargeTime": 30,
           "range": 32.0
         },
         "fiskheroes:damage_immunity": {

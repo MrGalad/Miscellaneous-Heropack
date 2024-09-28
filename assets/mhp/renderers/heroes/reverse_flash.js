@@ -43,8 +43,13 @@ function initAnimations(renderer) {
     renderer.removeCustomAnimation("basic.CHARGED_BEAM")
     renderer.removeCustomAnimation("basic.ENERGY_PROJ")
     renderer.removeCustomAnimation("basic.AIMING");
-    addAnimationWithData(renderer, "rf.CHARGED_BEAM", "mhp:burster"/* , "mhp:dyn/attack_timer" */).setData((entity, data) => data.load(Math.max(entity.getInterpolatedData("mhp:dyn/attack_timer") * 1, 0))).priority = -10;
-    addAnimationWithData(renderer, "rf.ENERGY_PROJ", "mhp:attack", "fiskheroes:energy_projection_timer")/* .setData((entity, data) => data.load(Math.max(entity.getInterpolatedData("mhp:dyn/attack_timer") * 5 - 4, 0)))*/.priority = 10;
+    addAnimation(renderer, "rf.CHESTBURST", "mhp:burster")
+        .setData((entity, data) => {
+            var t = entity.getInterpolatedData("mhp:dyn/attack_timer");
+            var e = entity.getInterpolatedData("fiskheroes:energy_projection_timer");
+            data.load(0, t);
+            data.load(1, entity.getData("mhp:dyn/charge") ? entity.getData("fiskheroes:energy_projection") : e);
+        }).priority = -10;
     
     addAnimation(renderer, "flash.MASK", "fiskheroes:remove_cowl")
         .setData((entity, data) => {
@@ -56,9 +61,4 @@ function initAnimations(renderer) {
             data.load(0, entity.getInterpolatedData("fiskheroes:jetpacking_timer"));
             data.load(1, entity.loop(entity.getData("fiskheroes:speeding") ? 5 : 10) * 4);
         });
-
-       /*  addAnimation(renderer, "thawne.CHARGED_BEAM", "mhp:burster").setData((entity, data) => {
-            data.load(0, entity.getInterpolatedData("fiskheroes:beam_charge")); // Load data_0 first
-            data.load(1, Math.min(1, Math.max(0, entity.getInterpolatedData("fiskheroes:beam_shooting_timer") * 0.05))); // Load data_1 after a delay, scaled to 0-1 range
-        }); */
 }

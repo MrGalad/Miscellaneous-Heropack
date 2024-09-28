@@ -1,99 +1,99 @@
 {
-    "name": "Miscellaneous Heropack",
-    "description": "Misc suits n stuff",
-    "domain": "mhp",
-    "watermark": "&l\u00A72Miscellaneous &l\u00A72Heropack",
-    "packFormat": 1,
-   "sounds": {
-    "download": {
-      "repository": "MrGalad/mhp",
-      "version": 0
-    },
-    "range": {
-      "bike_start": { "distance": 32.0, "sendToAll": true },
-      "frost_breath": { "distance": 32.0, "sendToAll": true },
-      "frost_charge": { "distance": 32.0, "sendToAll": true },
-      "robocop_step": { "distance": 16.0, "sendToAll": true },
-      "robocop_voice": { "distance": 16.0, "sendToAll": true },
-      "termy_voice": { "distance": 16.0, "sendToAll": true },
-      "sent_shoot": { "distance": 32.0, "sendToAll": true }
-    }
+  "name": "Miscellaneous Heropack",
+  "description": "Misc suits n stuff",
+  "domain": "mhp",
+  "watermark": "&l\u00A72Miscellaneous &l\u00A72Heropack",
+  "packFormat": 1,
+ "sounds": {
+  "download": {
+    "repository": "MrGalad/mhp",
+    "version": 0
   },
-  "damageTypes": {
-  "KRYPTONITE": "Kryptonite"
-  },
-  
-  "dataVars": {   
-    "power": "BOOLEAN",
-    "soul": "BOOLEAN",
-    "time": "BOOLEAN",
-    "space": "BOOLEAN", 
-    "mind": "BOOLEAN",
-    "reality": "BOOLEAN",
+  "range": {
+    "bike_start": { "distance": 32.0, "sendToAll": true },
+    "frost_breath": { "distance": 32.0, "sendToAll": true },
+    "frost_charge": { "distance": 32.0, "sendToAll": true },
+    "robocop_step": { "distance": 16.0, "sendToAll": true },
+    "robocop_voice": { "distance": 16.0, "sendToAll": true },
+    "termy_voice": { "distance": 16.0, "sendToAll": true },
+    "sent_shoot": { "distance": 32.0, "sendToAll": true }
+  }
+},
+"damageTypes": {
+"KRYPTONITE": "Kryptonite"
+},
 
-    
-    "stone": "BOOLEAN",
-    "stone_timer": {
-      "type": "FLOAT_INTERP"
-  },
-  "all_active_timer": {
+"dataVars": {   
+  "power": "BOOLEAN",
+  "soul": "BOOLEAN",
+  "time": "BOOLEAN",
+  "space": "BOOLEAN", 
+  "mind": "BOOLEAN",
+  "reality": "BOOLEAN",
+
+  
+  "stone": "BOOLEAN",
+  "stone_timer": {
     "type": "FLOAT_INTERP"
+},
+"all_active_timer": {
+  "type": "FLOAT_INTERP"
 },
 "time_timer": {
-      "type": "FLOAT_INTERP"
-  },
-  "stones": "INTEGER",
-  "stone_select": { "type": "INTEGER", "resetWithoutSuit": true },
-  "prev_stone_select": { "type": "INTEGER", "resetWithoutSuit": true },
-  "stone_select_slot": { "type": "INTEGER", "resetWithoutSuit": true },
-  "stone_selecting": { "type": "BOOLEAN", "resetWithoutSuit": true },
-    "boolean": "BOOLEAN",
-    "float_interp": "FLOAT_INTERP",
-    "tele": "BOOLEAN",
-    "tele_timer": "FLOAT_INTERP",
-    "slot" : { "type": "INTEGER", "resetWithoutSuit": true },
-    "grapple": "BOOLEAN",
-    "grapple_timer": "FLOAT_INTERP",
-    "solar": "BOOLEAN",
-    "solar_timer": "FLOAT_INTERP",
-    "transformation": {
-      "type": "BOOLEAN"
-  },
-  "transformation_timer": {
-      "type": "FLOAT_INTERP"
-  },
-    "repair": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": false
-  },
-  "repair_charge": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": false
-  },
-  "worn_suit": {
-    "type": "FLOAT",
-    "resetWithoutSuit": true
-  },
-  "holoanimation": {
+    "type": "FLOAT_INTERP"
+},
+"stones": "INTEGER",
+"stone_select": { "type": "INTEGER", "resetWithoutSuit": true },
+"prev_stone_select": { "type": "INTEGER", "resetWithoutSuit": true },
+"stone_select_slot": { "type": "INTEGER", "resetWithoutSuit": true },
+"stone_selecting": { "type": "BOOLEAN", "resetWithoutSuit": true },
+  "boolean": "BOOLEAN",
+  "float_interp": "FLOAT_INTERP",
+  "tele": "BOOLEAN",
+  "tele_timer": "FLOAT_INTERP",
+  "slot" : { "type": "INTEGER", "resetWithoutSuit": true },
+  "grapple": "BOOLEAN",
+  "grapple_timer": "FLOAT_INTERP",
+  "solar": "BOOLEAN",
+  "solar_timer": "FLOAT_INTERP",
+  "transformation": {
+    "type": "BOOLEAN"
+},
+"transformation_timer": {
+    "type": "FLOAT_INTERP"
+},
+  "repair": {
+    "type": "BOOLEAN",
+    "resetWithoutSuit": false
+},
+"repair_charge": {
     "type": "FLOAT_INTERP",
-    "resetWithoutSuit": true
+    "resetWithoutSuit": false
+},
+"worn_suit": {
+  "type": "FLOAT",
+  "resetWithoutSuit": true
+},
+"holoanimation": {
+  "type": "FLOAT_INTERP",
+  "resetWithoutSuit": true
 },
 "teleport": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "nv": "BOOLEAN",
-    "nv_timer": "FLOAT_INTERP",
-    "cortana": { "type": "BOOLEAN", "resetWithoutSuit": true },
-    "prevHealth": "FLOAT",
-    "float": "FLOAT",
-    "mask_timer": {
-      "type": "FLOAT_INTERP"
+    "type": "BOOLEAN",
+    "resetWithoutSuit": true
   },
-  "teleport_timer": "FLOAT_INTERP",
-  "energy": "BOOLEAN",
-  "energy_timer": {
+  "nv": "BOOLEAN",
+  "nv_timer": "FLOAT_INTERP",
+  "cortana": { "type": "BOOLEAN", "resetWithoutSuit": true },
+  "prevHealth": "FLOAT",
+  "float": "FLOAT",
+  "mask_timer": {
     "type": "FLOAT_INTERP"
+},
+"teleport_timer": "FLOAT_INTERP",
+"energy": "BOOLEAN",
+"energy_timer": {
+  "type": "FLOAT_INTERP"
 },
 "mobscan": { "type": "BOOLEAN", "resetWithoutSuit": true },
 "mob_timer": { "type": "FLOAT_INTERP", "resetWithoutSuit": true },
@@ -102,18 +102,19 @@
 "charge": "BOOLEAN",
 "attack_timer": "FLOAT_INTERP",
 "shazam": { "type": "BOOLEAN", "resetWithoutSuit": true },
-"shazam_timer": { "type": "FLOAT_INTERP", "resetWithoutSuit": true }
+"shazam_timer": { "type": "FLOAT_INTERP", "resetWithoutSuit": true },
+"chestburst_cd": { "type": "FLOAT_INTERP", "resetWithoutSuit": true }
 },
-  "alts": {
-    "mhp:sunspot": {
-      "dofp": "DOFP"
-    },
-    "mhp:master_chief": {
-          "$DEFAULT": {
-            "maskToggleTicks": 30
-          }
+"alts": {
+  "mhp:sunspot": {
+    "dofp": "DOFP"
+  },
+  "mhp:master_chief": {
+        "$DEFAULT": {
+          "maskToggleTicks": 30
         }
-  }
+      }
+}
 
 
 }
