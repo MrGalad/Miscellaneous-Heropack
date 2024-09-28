@@ -100,7 +100,9 @@
 "vibration": "BOOLEAN",
 "vibration_timer": "FLOAT_INTERP",
 "charge": "BOOLEAN",
-"attack_timer": "FLOAT_INTERP"
+"attack_timer": "FLOAT_INTERP",
+"shazam": { "type": "BOOLEAN", "resetWithoutSuit": true },
+"shazam_timer": { "type": "FLOAT_INTERP", "resetWithoutSuit": true }
 },
   "alts": {
     "mhp:sunspot": {

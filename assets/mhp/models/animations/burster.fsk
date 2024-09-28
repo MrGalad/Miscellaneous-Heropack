@@ -1,8 +1,8 @@
-{data} = curve {data}
+{data} = curve {data1}
 ;{data_1} = curve {data_1}
 
 {rightArm_rotX} @ {data} -> 0
-{rightArm_rotX} = -180'{data}
+{rightArm_rotX} += -180'{data}
 
 ;{rightArm_rotX} @ {data_1} -> 6
 ;{rightArm_rotX} += 1.5{data_1}
@@ -15,7 +15,7 @@
 ;{rightArm_rotY} @ {data} -'> {head_rotY}
 ;{rightArm_rotZ} @ {data} -> {head_rotZ}
 
-;out "firstPerson" (true)
+out "firstPerson" (true)
 ;out "translate" (-0.35{data}, 0, 0.15{data})
 ;out "rotate" (-27{data}, 0, 1, 0)
 ;out "rotate" (-20{data}, 1, 0, 0)

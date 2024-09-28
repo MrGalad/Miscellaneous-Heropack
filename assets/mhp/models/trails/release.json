@@ -1,0 +1,12 @@
+{
+  "parent": "fiskheroes:velocity_nine",
+  "flicker": {
+    "color": "@COLOR",
+    "density": 40,
+    "frequency": 0.1,
+    "length": 4.0,
+    "spread": 10.0,
+    "opacity": 1.0,
+    "confined": true
+  }
+}

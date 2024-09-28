@@ -55,7 +55,7 @@
           "transformation": {
             "toggleData": "mhp:dyn/charge",
             "timerData": "mhp:dyn/attack_timer",
-            "time": 5
+            "time": 17
           },
           "soundEvents": {
             "ENABLE": "mhp:vibration"
@@ -77,15 +77,7 @@
       "soundEvents": {
         "SHOOT": "fiskheroes:super_speed_sprint_negative_roar",
         "SHOOT_STOP": "fiskheroes:mysterio_beam_stop",
-        "BEAM_AMBIENT": "fiskheroes:mysterio_beam_loop"
-      }
-    },
-    "fiskheroes:cooldown": {
-      "cooldown": {
-        "toggleData": "mhp:dyn/charge",
-        "cooldownData": "fiskheroes:dyn/intangibility_cooldown",
-        "duration": 300,
-        "recovery": 1.0
+        "BEAM_AMBIENT": "fiskheroes:super_speed_sprint_negative_roar"
       }
     },
         "fiskheroes:potion_immunity": {

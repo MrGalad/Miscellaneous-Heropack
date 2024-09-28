@@ -1,4 +1,4 @@
-{data} = curve {data}
+{data1} = curve {data}
 
-{rightArm_rotX} @ {data} -> 0
-{rightArm_rotX} += -64'{data}
+{rightArm_rotX} @ {data1} -> 0
+{rightArm_rotX} += -80'{data1}

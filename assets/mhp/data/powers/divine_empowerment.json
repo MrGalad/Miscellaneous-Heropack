@@ -1,0 +1,110 @@
+{
+  "name": "power.fiskheroes.divine_empowerment.name",
+  "value": 21,
+  "modifiers": {
+    "fiskheroes:transformation": {
+      "key": "SHAZAM",
+      "transformation": {
+        "toggleData": "mhp:dyn/shazam",
+        "timerData": "mhp:dyn/shazam_timer",
+        "time": 50
+      },
+      "soundEvents": {
+        "ENABLE": "mhp:shazam",
+        "DISABLE": "mhp:shazam"
+      }
+    },
+    "fiskheroes:controlled_flight": {
+      "speed": 0.1,
+      "boostSpeed": 0.25,
+      "canBoost": true,
+      "collision": {
+        "blocks": {
+          "stopFlying": false,
+          "takeDamage": false
+        },
+        "entities": {
+          "stopFlying": false,
+          "dealDamage": true
+        }
+      },
+      "knockback": 0.7,
+      "soundEvents": {
+        "ENABLE": ["fiskheroes:flight_loop", "fiskheroes:flight_cape_loop"],
+          "BOOST": ["fiskheroes:flight_boost", "fiskheroes:flight_boost_super"],
+          "IMPACT_ENTITY": "fiskheroes:flight_impact_entity"
+      }
+    },
+    "fiskheroes:eternium_weakness": {
+    },
+    "fiskheroes:fire_immunity": {
+    },
+    "fiskheroes:projectile_immunity": {
+    },
+    "fiskheroes:arrow_catching": {
+    },
+    "fiskheroes:super_speed": {
+      "canUseTreadmill": false
+    },
+    "fiskheroes:lightning_cast": {
+      "damageProfile": {
+        "damage": 10.0,
+        "types": {
+          "ELECTRICITY": 1.0
+        },
+        "properties": {
+          "COOK_ENTITY": true,
+          "LIGHTNING_STRIKE": 0.15
+        }
+      },
+      "range": 64.0,
+      "chainRadius": 7,
+      "cooldownTime": 40,
+      "soundEvents": {
+        "SHOOT": "fiskheroes:lightning_cast"
+      }
+    },
+    "fiskheroes:energy_projection": {
+      "damageProfile": {
+        "damage": 5.0,
+        "types": {
+          "ELECTRICITY": 1.0,
+          "ENERGY": 1.0
+        },
+        "properties": {
+          "COOK_ENTITY": true
+        }
+      },
+      "range": 15.0,
+      "radius": 0.1,
+      "soundEvents": {
+        "SHOOT": "fiskheroes:energy_projection"
+      }
+    },
+    "fiskheroes:charged_beam|front": {
+      "damageProfile": {
+        "damage": 14.0
+      },
+      "chargeTime": 120,
+      "duration": 60,
+      "cooldownTime": 120,
+      "range": 16.0,
+      "radius": 16.0,
+      "soundEvents": {
+        "CHARGE": "fiskheroes:mysterio_charged_beam_charge",
+        "SHOOT": "fiskheroes:mysterio_charged_beam_start",
+        "BEAM_AMBIENT": "fiskheroes:mysterio_charged_beam_loop"
+      }
+    },
+    "fiskheroes:charged_beam|back": {
+      "damageProfile": {
+        "damage": 14.0
+      },
+      "chargeTime": 120,
+      "duration": 60,
+      "cooldownTime": 120,
+      "range": -16.0,
+      "radius": 16.0
+    }
+  }
+}

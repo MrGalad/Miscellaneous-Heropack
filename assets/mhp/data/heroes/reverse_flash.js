@@ -37,10 +37,10 @@ function init(hero) {
     hero.setTickHandler((entity, manager) => {
         speedster_base.tick(entity, manager);
 
-       /*  if(entity.getData("fiskheroes:energy_projection")){
+        if(entity.getData("fiskheroes:energy_projection_timer") > 0.3){
             manager.setData(entity, "mhp:dyn/charge", false)
 
-        } */
+        }
         });
     hero.setKeyBindEnabled(isKeyBindEnabled);
     hero.setModifierEnabled((entity, modifier) => {

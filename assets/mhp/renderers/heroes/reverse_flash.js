@@ -32,7 +32,7 @@ function initEffects(renderer) {
 }
 
 function render(entity, renderLayer, isFirstPersonArm) {
-    if ((!entity.is("DISPLAY") || entity.as("DISPLAY").getDisplayType() === "BOOK_PREVIEW") && entity.getData("fiskheroes:beam_charging") || entity.getData("mhp:dyn/vibration") ) {
+    if ((!entity.is("DISPLAY") || entity.as("DISPLAY").getDisplayType() === "BOOK_PREVIEW") && entity.getData("fiskheroes:beam_charging") || entity.getData("mhp:dyn/vibration") || entity.getInterpolatedData("mhp:dyn/attack_timer")) {
         vibration.render();
     }
 }
@@ -43,8 +43,8 @@ function initAnimations(renderer) {
     renderer.removeCustomAnimation("basic.CHARGED_BEAM")
     renderer.removeCustomAnimation("basic.ENERGY_PROJ")
     renderer.removeCustomAnimation("basic.AIMING");
-    addAnimationWithData(renderer, "rf.CHARGED_BEAM", "mhp:burster", "mhp:dyn/attack_timer");
-    addAnimationWithData(renderer, "rf.ENERGY_PROJ", "mhp:attack", "fiskheroes:energy_projection")/* .setData((entity, data) => data.load(Math.max(entity.getInterpolatedData("mhp:dyn/attack_timer") * 5 - 4, 0)))*/.priority = 10;
+    addAnimationWithData(renderer, "rf.CHARGED_BEAM", "mhp:burster"/* , "mhp:dyn/attack_timer" */).setData((entity, data) => data.load(Math.max(entity.getInterpolatedData("mhp:dyn/attack_timer") * 1, 0))).priority = -10;
+    addAnimationWithData(renderer, "rf.ENERGY_PROJ", "mhp:attack", "fiskheroes:energy_projection_timer")/* .setData((entity, data) => data.load(Math.max(entity.getInterpolatedData("mhp:dyn/attack_timer") * 5 - 4, 0)))*/.priority = 10;
     
     addAnimation(renderer, "flash.MASK", "fiskheroes:remove_cowl")
         .setData((entity, data) => {
