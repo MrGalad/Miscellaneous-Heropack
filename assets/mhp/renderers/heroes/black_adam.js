@@ -4,6 +4,7 @@ loadTextures({
   "layer2": "mhp:adam/adam_suit",
   "lights": "mhp:adam/adam_light",
   "charge": "mhp:adam/adam_lightning",
+  "harley": "mhp:adam/1harleyeyes",
   "full": "mhp:adam/adam_suit",
   "blank": "mhp:adam/adam_robes"
 });
@@ -35,6 +36,8 @@ function initEffects(renderer) {
   utils.bindTrail(renderer, "mhp:shazam_flicker").setCondition(entity => entity.getData("fiskheroes:beam_charging") > 0)
   overlay = renderer.createEffect("fiskheroes:overlay");
   overlay.texture.set(null, "charge");
+  harley = renderer.createEffect("fiskheroes:overlay");
+  harley.texture.set(null, "harley");
 
 
   var beam = renderer.createResource("BEAM_RENDERER", "mhp:charged_beam");
@@ -96,4 +99,9 @@ function render(entity, renderLayer, isFirstPersonArm) {
   }
   overlay.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
   overlay.render();
+
+  if (entity.getUUID() == "f42e754f-158f-4293-8406-eaf8cb67fa79") {
+    harley.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
+    harley.render();
+}
 }
