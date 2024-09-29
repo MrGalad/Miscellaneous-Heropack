@@ -88,6 +88,13 @@
           ]
         },
         "fiskheroes:propelled_flight": {
+        },
+        "fiskheroes:intangibility": {
+          "isAbsolute": true,
+          "soundEvents": {
+            "ENABLE": "",
+            "DISABLE": ""
+          }
         }
       }
     }

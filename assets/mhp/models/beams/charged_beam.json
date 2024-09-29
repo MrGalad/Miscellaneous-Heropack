@@ -3,7 +3,7 @@
     {
       "type": "LIGHTNING",
       "opacity": 0.8,
-      "scale": 0.9,
+      "scale": 0.5,
       "amount": 8,
       "segments": 4,
       "intensity": 1.2,
@@ -15,7 +15,7 @@
       },
       "bloom": {
         "strength": 0.3,
-        "spread": 6.0,
+        "spread": 2.0,
         "dropoff": 1.2,
         "quality": 1.2,
         "scaleToSize": true

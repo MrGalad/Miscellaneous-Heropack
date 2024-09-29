@@ -2,7 +2,7 @@
   "parent": "fiskheroes:sound_base",
   "sound": "fiskheroes:suit.reverseflash.vibration.loop",
   "condition": {
-    "continue": "entity.getData('mhp:dyn/vibration')"
+    "continue": "entity.getData('mhp:dyn/vibration') || entity.getData('mhp:dyn/charge')"
   },
   "volume": 0.29,
   "pitch": 0.97,

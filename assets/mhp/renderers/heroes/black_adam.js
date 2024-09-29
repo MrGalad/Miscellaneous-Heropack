@@ -2,6 +2,7 @@ extend("fiskheroes:hero_basic");
 loadTextures({
   "layer1": "mhp:adam/adam_suit",
   "layer2": "mhp:adam/adam_suit",
+  "lights": "mhp:adam/adam_light",
   "charge": "mhp:adam/adam_lightning",
   "full": "mhp:adam/adam_suit",
   "blank": "mhp:adam/adam_robes"
@@ -14,58 +15,24 @@ var overlay;
 function init(renderer) {
   parent.init(renderer);
   renderer.setTexture((entity, renderLayer) => {
-    /*  if (renderLayer == "HELMET" || renderLayer == "CHESTPLATE" || renderLayer == "BOOTS") {
-         var timer = entity.getInterpolatedData("mhp:dyn/shazam_timer");
-         var stand = entity.is("DISPLAY") || entity.as("DISPLAY").getDisplayType === "BOOK_PREVIEW";
-         return stand ? "layer1" : timer == 0 ? "blank" : timer < 1 ? "layer1" : "layer1";
-     }
-     if (renderLayer == "LEGGINGS") {
-         var timer = entity.getInterpolatedData("mhp:dyn/shazam_timer");
-         var stand = entity.is("DISPLAY") || entity.as("DISPLAY").getDisplayType === "BOOK_PREVIEW";
-         return stand ? "layer2" : timer == 0 ? "blank" : timer < 1 ? "layer2" : "layer2";
-     }
-     return "blank"; */
     if (!entity.is("DISPLAY") && entity.getData("mhp:dyn/shazam_timer") >= 0.5) {
       return "full";
     }
     return renderLayer == "LEGGINGS" ? "blank" : "blank";
   });
-  /*  renderer.setTexture((entity, renderLayer) => {
-       var timer = entity.getInterpolatedData("mhp:dyn/shazam_timer");
-       var isDisplay = entity.is("DISPLAY") || entity.as("DISPLAY").getDisplayType === "BOOK_PREVIEW";
-     
-       switch (renderLayer) {
-         case "HELMET":
-         case "CHESTPLATE":
-         case "BOOTS":
-           return isDisplay ? "layer1" : timer === 0 ? "blank" : timer < 1 ? "layer1" : "layer1";
-         case "LEGGINGS":
-           return isDisplay ? "layer2" : timer === 0 ? "blank" : timer < 1 ? "layer2" : "layer2";
-         default:
-           return "blank";
-       }
-     });
-     
      renderer.setLights((entity, renderLayer) => {
-       var timer = entity.getInterpolatedData("mhp:dyn/shazam_timer");
-       var isDisplay = entity.is("DISPLAY") || entity.as("DISPLAY").getDisplayType === "BOOK_PREVIEW";
-     
-       switch (renderLayer) {
-         case "CHESTPLATE":
-         case "HELMET":
-         case "BOOTS":
-           return isDisplay ? "lights" : timer === 0 ? "blank" : timer < 1 ? "blank" : "lights";
-         default:
-           return "blank";
-       }
-     }); */
+      if (!entity.is("DISPLAY") && entity.getData("mhp:dyn/shazam_timer") >= 0.5) {
+        return "lights";
+      }
+      return renderLayer == "LEGGINGS" ? null : null;
+    });
      renderer.showModel("CHESTPLATE", "head", "headwear", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
     renderer.fixHatLayer("CHESTPLATE");
 }
 
 
 function initEffects(renderer) {
-  utils.bindTrail(renderer, "mhp:shazam_flicker").setCondition(entity => entity.getData("fiskheroes:beam_charging"))
+  utils.bindTrail(renderer, "mhp:shazam_flicker").setCondition(entity => entity.getData("fiskheroes:beam_charging") > 0)
   overlay = renderer.createEffect("fiskheroes:overlay");
   overlay.texture.set(null, "charge");
 
@@ -90,7 +57,6 @@ function initEffects(renderer) {
   utils.bindParticles(renderer, "mhp:shazam").setCondition((entity => entity.getData("mhp:dyn/shazam_timer") > 0.4 && entity.getData("mhp:dyn/shazam_timer") < 0.7));
 
   var beam_1 = renderer.createResource("BEAM_RENDERER", "mhp:shazam");
-  var beam_2 = renderer.createResource("BEAM_RENDERER", "mhp:lightning");
   var color = 0x80F1E7;
 
   shazam = utils.createLines(renderer, beam_1, color, [
@@ -111,18 +77,6 @@ function initEffects(renderer) {
     return true;
   });
   shake.intensity = 0.0;
-
-  /* shazam2 = utils.createLines(renderer, beam_2, color, [
-      {
-          "start": [0, -8, 0],
-          "end": [0, -1, 0],
-          "size": [4.0, 4.0]
-      },
-  ])
-  
-  shazam2.anchor.set("rightArm");
-  shazam2.setOffset(1.0, -2.0, -1.0).setRotation(90.0, 90.0, 90.0).setScale(1.5);
-  shazam2.mirror = false; */
 }
 
 function initAnimations(renderer) {

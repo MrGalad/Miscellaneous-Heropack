@@ -1,5 +1,6 @@
 ### Miscellaneous Heropack 2.3 ###
 
+Added Black Adam suit
 Added Reverse Flash suit
 Added Charles Xavier suit
 Added Infinity Gauntlet suit

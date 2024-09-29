@@ -19,12 +19,12 @@ function initEffects(renderer) {
     vibration = renderer.createEffect("fiskheroes:vibration");
     speedster.init(renderer, "fiskheroes:lightning_red");
 
-   /*  utils.bindBeam(renderer, "fiskheroes:charged_beam", "mhp:invis", "head", 0xAA00AA, [{
+    utils.bindBeam(renderer, "fiskheroes:energy_projection", "mhp:invis", "head", 0xAA00AA, [{
         "firstPerson": [0, 0, 0],
         "offset": [0, 0, 0],
         "size": [0, 0]
     }
-    ]); */
+    ]);
 
     utils.bindBeam(renderer, "fiskheroes:energy_manipulation", "fiskheroes:energy_discharge", "rightArm", 0xFF0000, [
         { "firstPerson": [-2.5, 0.0, -7.0], "offset": [-0.5, 19.0, -12.0], "size": [2.0, 2.0] }

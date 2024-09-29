@@ -109,6 +109,9 @@
   "mhp:sunspot": {
     "dofp": "DOFP"
   },
+  "mhp:black_adam": {
+    "cape": "w/ Cape"
+  },
   "mhp:master_chief": {
         "$DEFAULT": {
           "maskToggleTicks": 30
