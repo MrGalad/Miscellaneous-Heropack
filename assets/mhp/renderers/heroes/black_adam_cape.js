@@ -97,9 +97,12 @@ function render(entity, renderLayer, isFirstPersonArm) {
     } else if (entity.getData("mhp:dyn/shazam_timer") > 0.4 && entity.getData("mhp:dyn/shazam_timer") < 0.7) {
         shazam.render()
     }
-    overlay.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
-    overlay.render();
-    if (entity.getUUID() == "f42e754f-158f-4293-8406-eaf8cb67fa79") {
+    else if (entity.getUUID() != "f42e754f-158f-4293-8406-eaf8cb67fa79") {
+        overlay.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
+        overlay.render();
+    }
+
+    else if (entity.getUUID() == "f42e754f-158f-4293-8406-eaf8cb67fa79") {
         harley.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
         harley.render();
     }
