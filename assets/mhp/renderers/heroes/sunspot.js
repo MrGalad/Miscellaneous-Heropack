@@ -24,12 +24,18 @@ function init(renderer) {
         return "base";
     });
     renderer.setLights((entity, renderLayer) => {
+        if (entity.is("DISPLAY") || entity.getData("mhp:dyn/solar_timer") >= 0.5) {
+          return "glow";
+        }
+        return renderLayer == "LEGGINGS" ? null : null;
+      });
+   /*  renderer.setLights((entity, renderLayer) => {
         if (entity.getData("mhp:dyn/solar_timer") > 0.6) {
             var timer = entity.getInterpolatedData("mhp:dyn/solar_timer");
             return "glow";
         }
         return (!entity.is("DISPLAY") || entity.as("DISPLAY").getDisplayType() === "BOOK_PREVIEW") && entity.getInterpolatedData("mhp:dyn/solar_timer") > 0.1 ? "glow" : "lights";
-    });
+    }); */
 
     renderer.showModel("CHESTPLATE", "head", "headwear", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
     renderer.fixHatLayer("CHESTPLATE");

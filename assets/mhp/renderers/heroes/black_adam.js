@@ -57,7 +57,7 @@ function initEffects(renderer) {
 
   /*  utils.bindParticles(renderer, "mhp:landing_particles").setCondition(
        (entity => entity.getData("mhp:dyn/shazam_timer") > 0 )); */
-  utils.bindParticles(renderer, "mhp:shazam").setCondition((entity => entity.getData("mhp:dyn/shazam_timer") > 0.4 && entity.getData("mhp:dyn/shazam_timer") < 0.7));
+  utils.bindParticles(renderer, "mhp:shazam").setCondition((entity => entity.getData("mhp:dyn/shazam_timer") > 0.3 && entity.getData("mhp:dyn/shazam_timer") < 0.7));
 
   var beam_1 = renderer.createResource("BEAM_RENDERER", "mhp:shazam");
   var color = 0x80F1E7;
@@ -76,7 +76,7 @@ function initEffects(renderer) {
 
   utils.addCameraShake(renderer, 0.015, 1.5, "mhp:dyn/shazam_timer");
   var shake = renderer.bindProperty("fiskheroes:camera_shake").setCondition(entity => {
-    shake.factor = entity.getData("mhp:dyn/shazam_timer") > 0.4 && entity.getData("mhp:dyn/shazam_timer") < 0.7
+    shake.factor = entity.getData("mhp:dyn/shazam_timer") > 0.3 && entity.getData("mhp:dyn/shazam_timer") < 0.7
     return true;
   });
   shake.intensity = 0.0;
@@ -94,7 +94,7 @@ function initAnimations(renderer) {
 }
 
 function render(entity, renderLayer, isFirstPersonArm) {
-  if (entity.getData("mhp:dyn/shazam_timer") > 0.4 && entity.getData("mhp:dyn/shazam_timer") < 0.7) {
+  if (entity.getData("mhp:dyn/shazam_timer") > 0.3 && entity.getData("mhp:dyn/shazam_timer") < 0.7) {
     shazam.render()
   } else if (entity.getUUID() != "f42e754f-158f-4293-8406-eaf8cb67fa79") {
   overlay.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");

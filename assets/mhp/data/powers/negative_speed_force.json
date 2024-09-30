@@ -95,6 +95,14 @@
             "ENABLE": "",
             "DISABLE": ""
           }
-        }
+        },
+        "fiskheroes:damage_weakness|cold": {
+      "damageType": "COLD",
+	  "factor": 0.3
+    },
+	"fiskheroes:damage_weakness|fire": {
+      "damageType": "FIRE",
+	  "factor": 0.3
+    }
       }
     }

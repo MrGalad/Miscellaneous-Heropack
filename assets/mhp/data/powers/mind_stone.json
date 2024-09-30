@@ -12,8 +12,8 @@
                     "HEAT_TRANSFER": 20
                 }
             },
-            "chargeTime": 30,
-            "duration": 70,
+            "chargeTime": 40,
+            "duration": 90,
             "cooldownTime": 40,
             "range": 32.0,
             "radius": 0.1,

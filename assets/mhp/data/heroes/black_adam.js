@@ -61,6 +61,8 @@ function isModifierEnabled(entity, modifier) {
         case "fiskheroes:fire_immunity":
         case "fiskheroes:projectile_immunity":
         case "fiskheroes:arrow_catching":
+        case "fiskheroes:leaping":
+        case "fiskheroes:damage_immunity":
             return entity.getData("mhp:dyn/shazam_timer") > 0.5;
         case "fiskheroes:super_speed":
             return entity.getData("mhp:dyn/shazam_timer") > 0.5 && !entity.getData("fiskheroes:flying");

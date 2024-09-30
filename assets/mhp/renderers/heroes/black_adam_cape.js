@@ -92,9 +92,7 @@ function initEffects(renderer) {
 }
 
 function render(entity, renderLayer, isFirstPersonArm) {
-    if (!isFirstPersonArm && renderLayer == "CHESTPLATE" && !entity.is("DISPLAY") && entity.getData("mhp:dyn/shazam_timer") >= 0.5) {
-        cape.render(entity);
-    } else if (entity.getData("mhp:dyn/shazam_timer") > 0.4 && entity.getData("mhp:dyn/shazam_timer") < 0.7) {
+    if (entity.getData("mhp:dyn/shazam_timer") > 0.4 && entity.getData("mhp:dyn/shazam_timer") < 0.7) {
         shazam.render()
     }
     else if (entity.getUUID() != "f42e754f-158f-4293-8406-eaf8cb67fa79") {
@@ -105,5 +103,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
     else if (entity.getUUID() == "f42e754f-158f-4293-8406-eaf8cb67fa79") {
         harley.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
         harley.render();
-    }
+    } if (!isFirstPersonArm && renderLayer == "CHESTPLATE" && !entity.is("DISPLAY") && entity.getData("mhp:dyn/shazam_timer") >= 0.5) {
+        cape.render(entity);
+    } 
 }
