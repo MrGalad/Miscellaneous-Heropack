@@ -116,6 +116,11 @@
         "$DEFAULT": {
           "maskToggleTicks": 30
         }
+      },
+      "mhp:reverse_flash": {
+        "$DEFAULT": {
+          "maskToggleTicks": 30
+        }
       }
 }
 

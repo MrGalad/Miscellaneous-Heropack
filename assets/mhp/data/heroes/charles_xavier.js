@@ -23,6 +23,7 @@ function init(hero) {
 
     hero.supplyFunction("canAim", canAim);
     hero.setKeyBindEnabled(isKeyBindEnabled)
+   // hero.addSoundEvent("STEP", "mhp:wheel")
 
     hero.setTickHandler((entity, manager) => {
         if (entity.getData("mhp:dyn/float_interp") > 0.9) {
@@ -44,15 +45,15 @@ function canAim(entity) {
 function isKeyBindEnabled(entity, keyBind) {
     switch (keyBind) {
         case "TELEKINESIS":
-            return !entity.getData("fiskheroes:beam_charging") && !entity.getData("mhp:dyn/boolean") /* && !entity.getData("fiskheroes:invisible") */;
+            return !entity.getData("fiskheroes:beam_charging") && !entity.getData("mhp:dyn/boolean") && entity.getHeldItem().isEmpty() /* && !entity.getData("fiskheroes:invisible") */;
         case "TELE":
-            return !entity.getData("fiskheroes:beam_charging") && !entity.getData("mhp:dyn/boolean")/*  && !entity.getData("fiskheroes:invisible") */;
+            return !entity.getData("fiskheroes:beam_charging") && !entity.getData("mhp:dyn/boolean") && entity.getHeldItem().isEmpty()/*  && !entity.getData("fiskheroes:invisible") */;
         case "INVIS":
-            return !entity.getData("fiskheroes:beam_charging") && !entity.getData("mhp:dyn/tele");
+            return !entity.getData("fiskheroes:beam_charging") && !entity.getData("mhp:dyn/tele") && entity.getHeldItem().isEmpty();
         case "INVISIBILITY":
-            return !entity.getData("fiskheroes:beam_charging") && !entity.getData("mhp:dyn/tele");
+            return !entity.getData("fiskheroes:beam_charging") && !entity.getData("mhp:dyn/tele") && entity.getHeldItem().isEmpty();
         case "CHARGED_BEAM":
-            return !entity.getData("fiskheroes:aiming") && !entity.getData("mhp:dyn/boolean") && !entity.getData("fiskheroes:telekinesis");
+            return !entity.getData("fiskheroes:aiming") && !entity.getData("mhp:dyn/boolean") && !entity.getData("fiskheroes:telekinesis") && entity.getHeldItem().isEmpty();
     }
     return true;
 }

@@ -101,7 +101,7 @@ function EntityScan(entity, manager) {
         var scanCondition = detectedEntities.length > 0 && cortanaOn;
         if (scanCondition && scamStatus) {
             PackLoader.printChat(messages.detect);
-            PackLoader.printChat("\u00A73<Cortana>\u00A74\u00A7l " + detectedEntities.join(", "));
+            PackLoader.printChat("\u00A73<Cortana>\u00A74 " + detectedEntities.join(", "));
             scamStatus = false;
         } else if (!scanCondition && !scamStatus) {
             scamStatus = true;

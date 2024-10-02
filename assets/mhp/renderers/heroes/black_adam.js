@@ -21,14 +21,14 @@ function init(renderer) {
     }
     return renderLayer == "LEGGINGS" ? "blank" : "blank";
   });
-     renderer.setLights((entity, renderLayer) => {
-      if (!entity.is("DISPLAY") && entity.getData("mhp:dyn/shazam_timer") >= 0.5) {
-        return "lights";
-      }
-      return renderLayer == "LEGGINGS" ? null : null;
-    });
-     renderer.showModel("CHESTPLATE", "head", "headwear", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
-    renderer.fixHatLayer("CHESTPLATE");
+  renderer.setLights((entity, renderLayer) => {
+    if (!entity.is("DISPLAY") && entity.getData("mhp:dyn/shazam_timer") >= 0.5) {
+      return "lights";
+    }
+    return renderLayer == "LEGGINGS" ? null : null;
+  });
+  renderer.showModel("CHESTPLATE", "head", "headwear", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
+  renderer.fixHatLayer("CHESTPLATE");
 }
 
 
@@ -55,8 +55,6 @@ function initEffects(renderer) {
   release.setTrail(renderer.createResource("TRAIL", "mhp:release"));
   release.setCondition(entity => entity.getData("fiskheroes:beam_charge") > 0.9);
 
-  /*  utils.bindParticles(renderer, "mhp:landing_particles").setCondition(
-       (entity => entity.getData("mhp:dyn/shazam_timer") > 0 )); */
   utils.bindParticles(renderer, "mhp:shazam").setCondition((entity => entity.getData("mhp:dyn/shazam_timer") > 0.3 && entity.getData("mhp:dyn/shazam_timer") < 0.7));
 
   var beam_1 = renderer.createResource("BEAM_RENDERER", "mhp:shazam");
@@ -64,14 +62,14 @@ function initEffects(renderer) {
 
   shazam = utils.createLines(renderer, beam_1, color, [
     {
-      "start": [0, -64, 0],
-      "end": [0, -1, 0],
-      "size": [15.0, 15.0]
+      "start": [0, -80, 0],
+      "end": [0, -5, 0],
+      "size": [20.0, 20.0]
     },
   ])
 
   shazam.anchor.set("body");
-  shazam.setOffset(1.0, 38.0, -3.2).setRotation(0, 90.0, 0).setScale(15.0);
+  shazam.setOffset(1.5, 97.0, -4.5).setRotation(0, 90.0, 0).setScale(15.0);
   shazam.mirror = false;
 
   utils.addCameraShake(renderer, 0.015, 1.5, "mhp:dyn/shazam_timer");
@@ -97,12 +95,12 @@ function render(entity, renderLayer, isFirstPersonArm) {
   if (entity.getData("mhp:dyn/shazam_timer") > 0.3 && entity.getData("mhp:dyn/shazam_timer") < 0.7) {
     shazam.render()
   } else if (entity.getUUID() != "f42e754f-158f-4293-8406-eaf8cb67fa79") {
-  overlay.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
-  overlay.render();
+    overlay.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
+    overlay.render();
   }
 
- else if (entity.getUUID() == "f42e754f-158f-4293-8406-eaf8cb67fa79") {
+  else if (entity.getUUID() == "f42e754f-158f-4293-8406-eaf8cb67fa79") {
     harley.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
     harley.render();
-}
+  }
 }

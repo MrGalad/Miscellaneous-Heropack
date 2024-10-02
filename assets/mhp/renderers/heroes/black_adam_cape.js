@@ -73,14 +73,14 @@ function initEffects(renderer) {
 
     shazam = utils.createLines(renderer, beam_1, color, [
         {
-            "start": [0, -64, 0],
-            "end": [0, -1, 0],
-            "size": [15.0, 15.0]
+          "start": [0, -80, 0],
+          "end": [0, -5, 0],
+          "size": [20.0, 20.0]
         },
-    ])
-
+      ])
+    
     shazam.anchor.set("body");
-    shazam.setOffset(1.0, 38.0, -3.2).setRotation(0, 90.0, 0).setScale(15.0);
+    shazam.setOffset(1.5, 97.0, -4.5).setRotation(0, 90.0, 0).setScale(15.0);
     shazam.mirror = false;
 
     utils.addCameraShake(renderer, 0.015, 1.5, "mhp:dyn/shazam_timer");

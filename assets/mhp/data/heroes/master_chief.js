@@ -105,7 +105,7 @@ function isKeyBindEnabled(entity, keyBind) {
         case "SLOT":
             return true
         case "WEB_ZIP":
-            return slot == 0;
+            return slot == 0 && entity.getHeldItem().isEmpty();
         case "TOGGLE_GRAPPLE":
             return slot == 0;
         case "NIGHT_VISION":

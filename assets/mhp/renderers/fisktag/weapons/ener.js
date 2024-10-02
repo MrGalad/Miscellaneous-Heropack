@@ -25,7 +25,7 @@ function render(renderer, entity, glProxy, renderType, scopeTimer, recoil, isLef
 
 		glProxy.rotate(-0.0, 0.5, 0, 0);
         glProxy.scale(1.8, 1.8, 2);
-        glProxy.translate(0, -1.5, -0.4);
+        glProxy.translate(-0.2, -1.3, -0.4);
     } else {
         glProxy.scale(1.4, 1.4, 1.4);
         glProxy.rotate(-0.0, 0.5, 0, 0);

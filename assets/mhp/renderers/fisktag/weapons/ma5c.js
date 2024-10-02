@@ -35,14 +35,15 @@ function render(renderer, entity, glProxy, renderType, scopeTimer, recoil, isLef
     if (renderType === "EQUIPPED_FIRST_PERSON") {
     var f = /* easeInOutSine */(entity.getInterpolatedData("fiskheroes:scope_timer"));
     glProxy.rotate(-7 * f, 1, 0, 0);
-    // for tomorrorw, inc middle = left down, so u should dec middle and mess with first ig
     glProxy.translate(-0.6 * f,0,0/*  0.5 * f, -1 * f + recoil * (0.7 - 0.2 * scopeTimer) */);
 }
 else if (renderType === "EQUIPPED") {
     glProxy.translate(-0.15, 0, 0);
 }
-else if (renderType === "ENTITY" || renderType === "INVENTORY") {
+else if (renderType === "ENTITY") {
     glProxy.translate(0, 0.2, 0.8);
+} else if(renderType === "INVENTORY") {
+    glProxy.translate(0.3, -0.2, 0.8);
 }
 
 glProxy.translate(0.13, -1.8, -0.2);

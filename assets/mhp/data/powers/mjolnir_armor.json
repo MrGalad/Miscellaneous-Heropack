@@ -5,7 +5,7 @@
       "range": 48.0,
       "cooldownTime": 20,
       "soundEvents": {
-        "SHOOT": "fiskheroes:web_zip"
+        "SHOOT": "mhp:grapple"
       }
     },
     "fiskheroes:leaping": {
@@ -31,8 +31,8 @@
         "time": 7
       },
 	  "soundEvents": {
-        "ENABLE": "fiskheroes:utility_belt_switch",
-        "DISABLE": "fiskheroes:utility_belt_switch"
+        "ENABLE": "mhp:ener_on",
+        "DISABLE": "mhp:ener_off"
       }
     },
     "fiskheroes:shield": {

@@ -1,7 +1,8 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-    "layer1": "mhp:rf/rf",
-    "layer2": "mhp:rf/rf",
+    "layer1": "mhp:rf/rf1",
+    "layer2": "mhp:rf/rf2",
+    "nomask": "mhp:rf/rf1_nomask",
     "eyes": "fiskheroes:reverse_flash_eyes"
 });
 
@@ -12,6 +13,13 @@ var vibration;
 
 function init(renderer) {
     parent.init(renderer);
+    renderer.setTexture((entity, renderLayer) => {
+        if (renderLayer == "LEGGINGS") {
+            return "layer2";
+        } else {
+            return entity.getInterpolatedData("fiskheroes:mask_open_timer2") >= 0.5 ? "nomask" : "layer1";
+        }
+    })
     renderer.setLights((entity, renderLayer) => renderLayer == "HELMET" && entity.getData("mhp:dyn/vibration") ? "eyes" : null);
 }
 

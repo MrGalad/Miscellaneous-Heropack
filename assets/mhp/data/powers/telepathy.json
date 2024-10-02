@@ -47,8 +47,26 @@
               "damage": 7.0,
               "types": {
                 "BULLET": 1.0
-              }
+              },
+            "properties": {
+          "COOK_ENTITY": false,
+          "HEAT_TRANSFER": 0,
+          "EFFECTS": [
+            {
+              "id": "fiskheroes:disable_speed",
+              "duration": 120,
+              "amplifier": 0,
+              "chance": 1
             },
+            {
+              "id": "minecraft:slowness",
+              "duration": 160,
+              "amplifier": 5,
+              "chance": 1
+            }
+          ]
+        }
+      },
             "chargeTime": 20,
             "duration": 40,
             "cooldownTime": 40,

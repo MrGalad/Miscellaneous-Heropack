@@ -12,7 +12,9 @@ Added Mind Stone suit
 Added Space Stone suit
 Added lights to Sunspot
 Added Mob Scan ability to Master Chief
+Added Custom Sound to "Grappleshot" ability 
 Added Master Chief's energy blade as a Fisktag weapon
+Added Custom Sound to Energy Blade  
 Added Lights to The Ray
 Added Glow effect to The Ray
 

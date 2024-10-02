@@ -8,7 +8,7 @@ var stone
 var utils = implement("fiskheroes:external/utils");
 function initEffects(renderer) {
     utils.bindBeam(renderer, "fiskheroes:charged_beam", "fiskheroes:charged_beam", "head", getBeamColor(), [
-        { "firstPerson": [4.5, 3.75, -8.0], "offset": [7, 3.0, -7], "size": [1.0, 1.0] }
+        { "firstPerson": [-3.75, 3.0, -8.0], "offset": [-5.5, -1, -5.3], "size": [1, 1] },
     ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "fiskheroes:impact_charged_beam"));
 
     stone = renderer.createResource("MODEL", "mhp:stone");
