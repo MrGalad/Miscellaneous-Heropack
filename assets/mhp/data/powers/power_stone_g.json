@@ -1,0 +1,9 @@
+{
+    "name": "Power Stone",
+    "modifiers": {
+        "fiskheroes:charged_punch": {
+            "chargeTime": 20,
+            "isToggle": true
+        }
+    }
+}

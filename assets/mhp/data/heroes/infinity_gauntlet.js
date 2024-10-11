@@ -46,7 +46,7 @@ function init(hero) {
     hero.addAttribute("BASE_SPEED_LEVELS", 3.0, 0);
 
 
-    hero.addPowers("mhp:space_stone", "mhp:mind_stone", "mhp:reality_stone", "mhp:power_stone", "mhp:time_stone", "mhp:soul_stone");
+    hero.addPowers("mhp:space_stone", "mhp:mind_stone", "mhp:reality_stone", "mhp:power_stone_g", "mhp:time_stone", "mhp:soul_stone");
     // hero.addPowers("mhp:infinity_gauntlet");
     hero.addPrimaryEquipment("fiskheroes:superhero_chestplate{HeroType:mhp:space_stone}", false, item => item.nbt().getString("HeroType") == "mhp:space_stone");
     hero.addPrimaryEquipment("fiskheroes:superhero_chestplate{HeroType:mhp:mind_stone}", false, item => item.nbt().getString("HeroType") == "mhp:mind_stone");
@@ -66,7 +66,7 @@ function init(hero) {
         var keyBindName = "STONE_FORWARDS_" + stones[i % stones.length];
         var sneakingKeyBindName = "STONE_BACKWARDS_" + stones[i % stones.length];
         hero.addKeyBindFunc(keyBindName, cycleStones, prevColor + prevStoneName + "\u00A7f > " + color + "\u00A7l" + stoneName + "\u00A7r" + " > " + nextColor + nextStoneName, 1);
-        hero.addKeyBindFunc(sneakingKeyBindName, cycleStones, prevColor + prevStoneName + " < " + color + "\u00A7l" + stoneName + "\u00A7r" + " < " + nextColor + nextStoneName, 1);
+        hero.addKeyBindFunc(sneakingKeyBindName, cycleStones, prevColor + prevStoneName + "\u00A7f < " + color + "\u00A7l" + stoneName + "\u00A7r" + " < " + nextColor + nextStoneName, 1);
     } 
 
     hero.setTickHandler(function (entity, manager) {

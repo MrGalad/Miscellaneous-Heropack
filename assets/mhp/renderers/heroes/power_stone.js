@@ -51,10 +51,4 @@ function initAnimations(renderer) {
     parent.initAnimations(renderer);
     renderer.removeCustomAnimation("basic.CHARGED_BEAM");
     addAnimationWithData(renderer, "gaunlet.CHARGED_BEAM", "fiskheroes:aiming", "fiskheroes:beam_charge");
-    /* addAnimationWithData(renderer, "gaunlet.ANIM", "mhp:aiming_left", "mhp:dyn/time_timer") */;
-    /*  addAnimationWithData(renderer, "gaunlet.ALL", "mhp:thanos", "mhp:dyn/all_active") */
-   /*  addAnimation(renderer, "gauntlet.ALL", "mhp:thanos")
-        .setData((entity, data) => {
-            data.load(entity.getData("mhp:dyn/all_active_timer") == 0 ? 0 : entity.getInterpolatedData("mhp:dyn/all_active_timer") * 2);
-        }); */
 }

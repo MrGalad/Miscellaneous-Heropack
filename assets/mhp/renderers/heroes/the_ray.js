@@ -171,7 +171,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
 
     overlay.render();
 
-    var glow = entity.getInterpolatedData("fiskheroes:flight_timer");
+    var glow = entity.getInterpolatedData("fiskheroes:flight_timer") > 0;
 
     aura_head.opacity = glow;
     aura_head.render();

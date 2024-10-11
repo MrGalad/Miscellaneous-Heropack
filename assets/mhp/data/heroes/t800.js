@@ -21,7 +21,7 @@ function init(hero) {
     hero.addKeyBind("AIM", "key.aim", -1);
     hero.addKeyBind("GUN_RELOAD", "key.reload", 1);
     hero.addKeyBind("SUPER_SPEED", "Toggle Bike", 2)
-    hero.addKeyBind("SEARCH", "Toggle Search", 3);
+   // hero.addKeyBind("SEARCH", "Toggle Search", 3);
    // hero.addKeyBind("REPAIR", "Repair Suit", 3)
 
   /*  hero.addAttributeProfile("FIX", fixProfile);

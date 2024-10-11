@@ -1,6 +1,10 @@
 {
     "name": "Mind Stone",
     "modifiers": {
+        "fiskheroes:charged_punch": {
+            "chargeTime": 20,
+            "isToggle": true
+        },
         "fiskheroes:charged_beam": {
             "damageProfile": {
                 "damage": 7.0,
@@ -12,8 +16,8 @@
                     "HEAT_TRANSFER": 20
                 }
             },
-            "chargeTime": 40,
-            "duration": 90,
+            "chargeTime": 20,
+            "duration": 40,
             "cooldownTime": 40,
             "range": 32.0,
             "radius": 0.1,

@@ -1,0 +1,10 @@
+{
+    "suit": "mhp:reverse_flash",
+    "requirements": [
+      "mhp:misc",
+      "fiskheroes:tier4_5",
+      "fiskheroes:the_flash",
+      "fiskheroes:speed_force"
+    ]
+  }
+  

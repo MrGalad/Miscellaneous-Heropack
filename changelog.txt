@@ -17,6 +17,7 @@ Added Master Chief's energy blade as a Fisktag weapon
 Added Custom Sound to Energy Blade  
 Added Lights to The Ray
 Added Glow effect to The Ray
+Added w/ cape alt to Black Adam
 
 Fixed all Weapons in the Heropack
 

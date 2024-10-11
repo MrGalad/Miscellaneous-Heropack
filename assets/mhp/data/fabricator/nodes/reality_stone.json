@@ -1,0 +1,11 @@
+{
+    "suit": "mhp:reality_stone",
+    "requirements": [
+      "mhp:misc",
+      "fiskheroes:tier10",
+      "fiskheroes:size_manipulation",
+      "fiskheroes:magic",
+      "fiskheroes:cosmic"
+    ]
+  }
+  

@@ -25,3 +25,9 @@ function render(entity, renderLayer, isFirstPersonArm) {
 function getBeamColor() {
     return 0xFFFF6D;
 }
+
+function initAnimations(renderer) {
+    parent.initAnimations(renderer);
+    renderer.removeCustomAnimation("basic.CHARGED_BEAM");
+    addAnimationWithData(renderer, "gaunlet.CHARGED_BEAM", "fiskheroes:aiming", "fiskheroes:beam_charge");
+}

@@ -86,7 +86,7 @@ function isKeyBindEnabled(entity, keyBind) {
         case "CHARGE_ENERGY":
             return entity.isSprinting() && entity.getData("fiskheroes:speeding") && entity.getData("fiskheroes:speed") >= 3;
         case "ENERGY_PROJECTION":
-            return entity.getData("mhp:dyn/charge")
+            return entity.getData("mhp:dyn/charge") && !entity.getData("fiskheroes:speeding")
         case "INTANGIBILITY":
             return entity.getData("mhp:dyn/vibration") && !entity.isOnGround()
         default:

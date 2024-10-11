@@ -1,0 +1,11 @@
+{
+    "suit": "mhp:power_stone",
+    "requirements": [
+      "mhp:misc",
+      "fiskheroes:tier10",
+      "fiskheroes:cosmic",
+      "fiskheroes:ranged2",
+      "fiskheroes:melee3"
+    ]
+  }
+  
