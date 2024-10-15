@@ -11,7 +11,7 @@ Added Time Stone suit
 Added Mind Stone suit
 Added Space Stone suit
 Added lights to Sunspot
-Added Mob Scan ability to Master Chief
+Added "Mob Scan" ability to Master Chief
 Added Custom Sound to "Grappleshot" ability 
 Added Master Chief's energy blade as a Fisktag weapon
 Added Custom Sound to Energy Blade  
@@ -20,5 +20,6 @@ Added Glow effect to The Ray
 Added w/ cape alt to Black Adam
 
 Fixed all Weapons in the Heropack
+Fixed Freeze Breath being able to use Heat Vision and Freeze Breath simultaneously with Ultraman
 
 Removed "Fire Projection" ability from Sunspot

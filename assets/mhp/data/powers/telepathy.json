@@ -46,9 +46,10 @@
             "damageProfile": {
               "damage": 7.0,
               "types": {
-                "BULLET": 1.0
+                "TELEPATIC": 1.0
               },
             "properties": {
+          "REDUCE_KNOCKBACK": 2.0,
           "COOK_ENTITY": false,
           "HEAT_TRANSFER": 0,
           "EFFECTS": [

@@ -28,7 +28,7 @@ function init(hero) {
 
 function punchProfile(profile) {
     profile.inheritDefaults();
-    profile.addAttribute("PUNCH_DAMAGE", 10.0, 0);
+    profile.addAttribute("PUNCH_DAMAGE", 16.0, 0);
 }
 
 function getAttributeProfile(entity) {

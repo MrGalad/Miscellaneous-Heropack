@@ -46,8 +46,8 @@ function isModifierEnabled(entity, modifier) {
 function isKeyBindEnabled(entity, keyBind) {
 	switch (keyBind) {
         case "HEAT_VISION":
-			return !entity.getData("fiskheroes:dyn/flight_super_boost") > 0 && !entity.getData("fiskheroes:energy_projection");
-		case "ENERGY_PROJECTION":
+			return !entity.getData("fiskheroes:dyn/flight_super_boost") > 0 && !entity.getData("fiskheroes:beam_charge");
+		case "CHARGED_BEAM":
             return !entity.getData("fiskheroes:dyn/flight_super_boost") > 0 && !entity.getData("fiskheroes:heat_vision");
             case "SUPER_SPEED":
 			return !entity.getData("fiskheroes:flying");

@@ -9,13 +9,15 @@ function init(hero) {
     hero.addAttribute("WEAPON_DAMAGE", -2.5, 0);
 
     hero.addKeyBind("TELEKINESIS", "\u00A71Telekinesis", 2)
-    hero.addKeyBindFunc("TELEPORT", teleport, "\u00A71Teleport", 3);
+    hero.addKeyBind("AIM", "\u00A71Telekinesis", 2)
+    hero.addKeyBind("TELEPORT","\u00A71Teleport", 3);
     hero.addKeyBind("SHIELD", "\u00A71Forcefield", 4);
+
+    hero.supplyFunction("canAim", canAim)
 }
 
-function teleport(entity, manager) {
-    manager.setData(entity, "fiskheroes:teleport_delay", 35)
-    return true
+function canAim(entity) {
+    return entity.getHeldItem().isEmpty();
 }
 
 

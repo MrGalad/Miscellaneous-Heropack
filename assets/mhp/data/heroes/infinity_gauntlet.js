@@ -46,7 +46,7 @@ function init(hero) {
     hero.addAttribute("BASE_SPEED_LEVELS", 3.0, 0);
 
 
-    hero.addPowers("mhp:space_stone", "mhp:mind_stone", "mhp:reality_stone", "mhp:power_stone_g", "mhp:time_stone", "mhp:soul_stone");
+    hero.addPowers("mhp:space_stone_g", "mhp:mind_stone", "mhp:reality_stone", "mhp:power_stone_g", "mhp:time_stone", "mhp:soul_stone");
     // hero.addPowers("mhp:infinity_gauntlet");
     hero.addPrimaryEquipment("fiskheroes:superhero_chestplate{HeroType:mhp:space_stone}", false, item => item.nbt().getString("HeroType") == "mhp:space_stone");
     hero.addPrimaryEquipment("fiskheroes:superhero_chestplate{HeroType:mhp:mind_stone}", false, item => item.nbt().getString("HeroType") == "mhp:mind_stone");
@@ -70,6 +70,7 @@ function init(hero) {
     } 
 
     hero.setTickHandler(function (entity, manager) {
+        snap(hero, entity, manager)
         var data = entity.getData("mhp:dyn/stone_select_slot");
         var nbt = entity.getWornChestplate().nbt();
         var equipment = nbt.getTagList("Equipment");
@@ -147,6 +148,7 @@ function init(hero) {
         }
 
         return true;
+        
     });
 
     // POWER
@@ -191,12 +193,38 @@ function init(hero) {
             "IGNITE": 2
         }
     })
+    hero.addDamageProfile("SNAP", {
+        "types": {
+            "ENERGY": 1
+        },
+        "properties": {
+            "COOK_ENTITY": false,
+            "HEAT_TRANSFER": 160,
+            "IGNITE": 2
+        }
+    })
 
     hero.setAttributeProfile(getAttributeProfile);
     hero.setDamageProfile(getAttributeProfile);
     hero.setTierOverride(getTierOverride);
     hero.setHasProperty((entity, property) => property == "BREATHE_SPACE");
     hero.supplyFunction("canAim", canAim)
+}
+
+function snap(hero, entity, manager) {
+    var damage = 100000;  
+    var radius = 20;      
+
+    if (entity.getData("fiskheroes:beam_shooting_timer") > 0) {
+        var list = entity.world().getEntitiesInRangeOf(entity.pos(), radius);
+        
+        for (var i = 0; i < list.size(); ++i) {
+            var other = list.get(i);
+            if (other.isLivingEntity() && !entity.equals(other) && entity.world().isUnobstructed(entity.pos().add(0, 1, 0), other.pos().add(0, 1, 0))) {
+                other.hurtByAttacker(hero, "BURST", "%s was snapped away by %s", damage, entity);
+            }
+        }
+    }
 }
 
 function cycleStones(entity, manager) {
@@ -286,7 +314,7 @@ function giantModeKey(player, manager) {
 
 function punchProfile(profile) {
     profile.inheritDefaults();
-    profile.addAttribute("PUNCH_DAMAGE", 10.0, 0);
+    profile.addAttribute("PUNCH_DAMAGE", 16.0, 0);
 }
 
 function getAttributeProfile(entity) {

@@ -1,3 +1,24 @@
+function checkBlockInFront(entity) {
+    var range = 1;
+
+    var yawRad = (Math.PI / 180) * entity.rotYaw();
+
+
+    var offsetX = Math.sin(yawRad);
+    var offsetZ = -Math.cos(yawRad);
+
+
+    var frontPos = [entity.posX() - offsetX * range, entity.posY(), entity.posZ() - offsetZ * range];
+
+    var isBlockInFront = entity.world().blockAt(Math.floor(frontPos[0]), Math.floor(frontPos[1]), Math.floor(frontPos[2])).isSolid();
+
+    if (isBlockInFront) {
+        return true
+    }
+    return false;
+}
+
+
 var speedster_base = implement("fiskheroes:external/speedster_base");
 function init(hero) {
     hero.setName("hero.fiskheroes.reverse_flash.name");
@@ -39,6 +60,11 @@ function init(hero) {
         speedster_base.tick(entity, manager);
 
 
+      /*   if (checkBlockInFront(entity) && entity.isSprinting() && !entity.isOnGround()) {
+            manager.setData(entity, "fiskheroes:flying", true);
+             manager.setData(entity, "fiskheroes:glide_flying", true); 
+        }  */
+
         manager.incrementData(entity, "mhp:dyn/float_interp", 10, 15, entity.getData("fiskheroes:intangible"))
         manager.incrementData(entity, "mhp:dyn/chestburst_cd", 30, 20, entity.getData("fiskheroes:energy_projection"));
         if (entity.getInterpolatedData("mhp:dyn/chestburst_cd") >= 0.2) {
@@ -49,40 +75,56 @@ function init(hero) {
         // } else 
         if (entity.getData("fiskheroes:speed_sprinting") != entity.getData("fiskheroes:energy_charging")) {
             manager.setData(entity, "fiskheroes:energy_charging", entity.getData("fiskheroes:speed_sprinting"));
+        } else if (entity.getData("mhp:dyn/vibration")) {
+            manager.setData(entity, "mhp:dyn/charge", false)
         }
     });
     hero.setKeyBindEnabled(isKeyBindEnabled);
+    hero.setAttributeProfile(getProfile);
+    hero.setDamageProfile(getProfile);
     hero.setModifierEnabled((entity, modifier) => {
         var Ycoord = Math.round(entity.posY()) - entity.posY()
         switch (modifier.name()) {
-            case "fiskheroes:propelled_flight":
-                var Ycoord = Math.round(entity.posY()) - entity.posY();
-                var facingX = Math.round(Math.cos(entity.rotYaw() * Math.PI / 180));
-                var facingZ = Math.round(Math.sin(entity.rotYaw() * Math.PI / 160));
-                return (
-                    entity.world().blockAt(entity.pos().add(1, Ycoord, 0)).isSolid() ||
-                    entity.world().blockAt(entity.pos().add(-1, Ycoord, 0)).isSolid() ||
-                    entity.world().blockAt(entity.pos().add(0, Ycoord, 1)).isSolid() ||
-                    entity.world().blockAt(entity.pos().add(0, Ycoord, -1)).isSolid()
-                ) &&
-                    !entity.isSneaking() && !entity.isOnGround() && !entity.isInWater() &&
-                    entity.getData("fiskheroes:speeding") && !entity.getData("fiskheroes:intangible");
             case "fiskheroes:intangibility":
                 return entity.getData("mhp:dyn/vibration") && !entity.isOnGround() && entity.getData("mhp:dyn/float_interp") != 1
+          /*   case "fiskheroes:flight":
+                checkBlockInFront(entity) &&
+                    !entity.isSneaking() && !entity.isOnGround() && !entity.isInWater() &&
+                    entity.getData("fiskheroes:speeding") && !entity.getData("fiskheroes:intangible"); */
+            case "fiskheroes:propelled_flight":
+            return checkBlockInFront(entity) && !entity.isSneaking() && !entity.isOnGround() && !entity.isInWater() && entity.getData("fiskheroes:speeding") && !entity.getData("fiskheroes:intangible");
             }
         return true
-    });
+    })
+    hero.addAttributeProfile("CHEST", chestProfile);
+    hero.addAttributeProfile("SURVIVE", surviveProfile);
 
-    hero.setAttributeProfile(entity => /* !entity.isOnGround() || */ entity.getData("fiskheroes:speeding") && entity.motionY() > -0.25 ? "SURVIVE" : null);
-    hero.addAttributeProfile("SURVIVE", profile => {
-        profile.inheritDefaults();
-        profile.addAttribute("FALL_RESISTANCE", 1, 1);
-    });
+}
 
+function surviveProfile(profile) {
+    profile.inheritDefaults();
+    profile.addAttribute("FALL_RESISTANCE", 1, 1);
+}
+
+function chestProfile(profile) {
+    profile.inheritDefaults();
+    profile.addAttribute("BASE_SPEED", -100000000000, 1);
+    profile.addAttribute("JUMP_HEIGHT", -100000000000, 1);
+}
+
+function getProfile(entity) {
+    if (entity.getData("fiskheroes:speeding") && entity.motionY() > -0.25) { 
+        return "SURVIVE" 
+    } else if (entity.getData("mhp:dyn/charge")) {
+        return "CHEST"
+    }
+    return null;
 }
 
 function isKeyBindEnabled(entity, keyBind) {
     switch (keyBind) {
+        case "CHEST":
+            return !entity.getData("fiskheroes:speeding") && !entity.getData("mhp:dyn/vibration")
         case "CHARGE_ENERGY":
             return entity.isSprinting() && entity.getData("fiskheroes:speeding") && entity.getData("fiskheroes:speed") >= 3;
         case "ENERGY_PROJECTION":

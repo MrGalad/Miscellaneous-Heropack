@@ -20,7 +20,8 @@
   }
 },
 "damageTypes": {
-"KRYPTONITE": "Kryptonite"
+"KRYPTONITE": "Kryptonite",
+"TELEPATIC": "Telepathy"
 },
 
 "dataVars": {   
@@ -90,6 +91,9 @@
   "mask_timer": {
     "type": "FLOAT_INTERP"
 },
+"mask_on": {
+  "type": "BOOLEAN"
+},
 "teleport_timer": "FLOAT_INTERP",
 "energy": "BOOLEAN",
 "energy_timer": {
@@ -97,6 +101,8 @@
 },
 "mobscan": { "type": "BOOLEAN", "resetWithoutSuit": true },
 "mob_timer": { "type": "FLOAT_INTERP", "resetWithoutSuit": true },
+"scam_status": { "type": "BOOLEAN", "resetWithoutSuit": true },
+"warning_message": "BOOLEAN",
 "vibration": "BOOLEAN",
 "vibration_timer": "FLOAT_INTERP",
 "charge": "BOOLEAN",

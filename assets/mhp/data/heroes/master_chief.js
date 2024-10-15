@@ -79,7 +79,6 @@ function cortanaOn(player, manager) {
 function bladeProfile(profile) {
     profile.inheritDefaults();
     profile.addAttribute("PUNCH_DAMAGE", 15.5, 0);
-    profile.addAttribute("JUMP_HEIGHT", 2, 0);
 }
 
 function getProfile(entity) {
