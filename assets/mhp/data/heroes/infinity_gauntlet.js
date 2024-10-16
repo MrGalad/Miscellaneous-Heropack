@@ -70,7 +70,6 @@ function init(hero) {
     } 
 
     hero.setTickHandler(function (entity, manager) {
-        snap(hero, entity, manager)
         var data = entity.getData("mhp:dyn/stone_select_slot");
         var nbt = entity.getWornChestplate().nbt();
         var equipment = nbt.getTagList("Equipment");
@@ -193,7 +192,7 @@ function init(hero) {
             "IGNITE": 2
         }
     })
-    hero.addDamageProfile("SNAP", {
+   /*  hero.addDamageProfile("SNAP", {
         "types": {
             "ENERGY": 1
         },
@@ -202,7 +201,7 @@ function init(hero) {
             "HEAT_TRANSFER": 160,
             "IGNITE": 2
         }
-    })
+    }) */
 
     hero.setAttributeProfile(getAttributeProfile);
     hero.setDamageProfile(getAttributeProfile);
@@ -211,26 +210,14 @@ function init(hero) {
     hero.supplyFunction("canAim", canAim)
 }
 
-function snap(hero, entity, manager) {
-    var damage = 100000;  
-    var radius = 20;      
+var cycleStones = function(entity, manager) {
+    var data = "mhp:dyn/stone_selecting";
+    var value = true;
 
-    if (entity.getData("fiskheroes:beam_shooting_timer") > 0) {
-        var list = entity.world().getEntitiesInRangeOf(entity.pos(), radius);
-        
-        for (var i = 0; i < list.size(); ++i) {
-            var other = list.get(i);
-            if (other.isLivingEntity() && !entity.equals(other) && entity.world().isUnobstructed(entity.pos().add(0, 1, 0), other.pos().add(0, 1, 0))) {
-                other.hurtByAttacker(hero, "BURST", "%s was snapped away by %s", damage, entity);
-            }
-        }
-    }
-}
-
-function cycleStones(entity, manager) {
-    manager.setData(entity, "mhp:dyn/stone_selecting", true);
+    manager.setData(entity, data, value);
+    
     return true;
-}
+};
 
 
 function isModifierEnabled(entity, modifier) {

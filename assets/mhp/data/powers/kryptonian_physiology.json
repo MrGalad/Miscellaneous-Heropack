@@ -124,8 +124,11 @@
       },
       "fiskheroes:leaping": {
         "leapAmount": [2, 1.5]
+      },
+      "fiskheroes:damage_weakness|kryptonite": {
+        "damageType": "KRYPTONITE",
+        "factor": 10.0
       }
-
       }
     }
   

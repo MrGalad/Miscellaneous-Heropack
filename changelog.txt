@@ -18,8 +18,9 @@ Added Custom Sound to Energy Blade
 Added Lights to The Ray
 Added Glow effect to The Ray
 Added w/ cape alt to Black Adam
+Added Kryptonite weakness to Ultraman
 
 Fixed all Weapons in the Heropack
-Fixed Freeze Breath being able to use Heat Vision and Freeze Breath simultaneously with Ultraman
+Fixed being able to use Heat Vision and Freeze Breath simultaneously with Ultraman
 
 Removed "Fire Projection" ability from Sunspot

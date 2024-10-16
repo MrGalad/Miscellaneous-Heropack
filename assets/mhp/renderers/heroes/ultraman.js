@@ -40,7 +40,7 @@ function initEffects(renderer) {
 }
 
 function initAnimations(renderer) {
-    utils.addFlightAnimation(renderer, "shazam.FLIGHT", "fiskheroes:flight/default.anim.json");
+    utils.addFlightAnimation(renderer, "shazam.FLIGHT", "fiskheroes:flight/default_arms_forward.anim.json");
     utils.addHoverAnimation(renderer, "shazam.HOVER", "fiskheroes:flight/idle/default");
     utils.addAnimationEvent(renderer, "FLIGHT_DIVE", "fiskheroes:iron_man_dive");
     addAnimationWithData(renderer, "iron_man.LAND", "fiskheroes:superhero_landing", "fiskheroes:dyn/superhero_landing_timer")
