@@ -13,16 +13,21 @@ var capes = implement("fiskheroes:external/capes");
 
 var suit
 var cape
+var glow
 
 
 function init(renderer) {
     parent.init(renderer);
     renderer.setTexture((entity, renderLayer) => {
-        if (!entity.isDisplayStand()) {
+       /*  if (!entity.isDisplayStand()) {
             var timer = entity.getInterpolatedData("mhp:dyn/transformation_timer");
-            return timer == 0 ? "suit" : timer < 1 ? "xor" : "base";
+            return timer == 0 ? "suit" : timer < 0.3 ? "xor" : "base";
         }
-        return "suit";
+        return "suit"; */
+        if (entity.getInterpolatedData("mhp:dyn/transformation_timer") > 0.4){
+            return "base"
+        }
+        return "suit"
     });
     renderer.showModel("CHESTPLATE", "head", "headwear", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
 }
@@ -35,6 +40,10 @@ function initEffects(renderer) {
     physics.maxFlare = 0.5;
     cape = capes.createDefault(renderer, 24, "fiskheroes:cape_default.mesh.json", physics);
     cape.effect.texture.set("cape");
+
+    glow = renderer.createEffect("fiskheroes:glowerlay");
+    glow.includeEffects(cape.effect);
+    glow.color.set(0x000000);
 
     utils.setOpacityWithData(renderer, 0.5, 1.0, "fiskheroes:intangibility_timer");
 	utils.bindCloud(renderer, "fiskheroes:teleportation", "mhp:doorman_teleport");
@@ -52,12 +61,15 @@ function render (entity, renderLayer, isFirstPersonArm) {
    var hologram = entity.is("DISPLAY") && entity.as("DISPLAY").getDisplayType() != "HOLOGRAM"
 
 
-    if (timer > 0 && timer < 1){
+    if (timer > 0.5 && timer < 1){
         suit.render();
     }   
-     if (!isFirstPersonArm && renderLayer == "CHESTPLATE") {
+     if (!isFirstPersonArm && renderLayer == "CHESTPLATE" && entity.getInterpolatedData("mhp:dyn/transformation_timer") > 0.4) {
         cape.render(entity);
     }
+
+    glow.opacity = 1 * (1 - Math.abs(2 * entity.getInterpolatedData("mhp:dyn/transformation_timer") - 1));
+    glow.render();
 }
 
 

@@ -5,7 +5,6 @@
             "damageProfile": {
               "damage": 5.0,
               "types": {
-                "FIRE": 1.0,
                 "KRYPTONITE": 4
               },
               "properties": {
@@ -23,8 +22,6 @@
             "damageProfile": {
                 "damage": 7.0,
                 "types": {
-                    "ENERGY": 1.0,
-                    "FIRE": 0.5,
                     "KRYPTONITE": 4
                 },
                 "properties": {

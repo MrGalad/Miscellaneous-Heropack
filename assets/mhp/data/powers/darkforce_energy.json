@@ -32,7 +32,7 @@
       "transformation": {
         "toggleData": "mhp:dyn/transformation",
         "timerData": "mhp:dyn/transformation_timer",
-        "time": 7
+        "time": 14
       },
       "soundEvents": {
         "ENABLE": "fiskheroes:vision_intang_on",

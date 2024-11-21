@@ -24,7 +24,14 @@ function init(hero) {
     hero.setKeyBindEnabled(isKeyBindEnabled);
     hero.setModifierEnabled(isModifierEnabled);
     hero.setTierOverride(getTierOverride);
+    hero.setAttributeProfile(getProfile);
+    hero.addAttributeProfile("INACTIVE", inactiveProfile);
     hero.setTickHandler((entity, manager) => {
+       /*  manager.incrementData(entity, "mhp:dyn/float_interp", 10, 15, entity.getData("mhp:dyn/transformation_timer"))
+        if ((entity.getData("mhp:dyn/transformation_timer") == 1)) {
+            manager.setData(entity, "mhp:dyn/float_interp", 0)
+        } */
+
         utils.flightOnIntangibility(entity, manager);
       if (!entity.getData("mhp:dyn/transformation")) {
         manager.setData(entity, "fiskheroes:intangible", false)
@@ -35,7 +42,18 @@ function init(hero) {
 }
 
 function getTierOverride(entity) {
-    return entity.getData("mhp:dyn/transformation") ? 8 : 3;
+    return entity.getData("mhp:dyn/transformation") ? 7 : 1;
+}
+
+function inactiveProfile(profile) {
+    profile.revokeAugments();
+}
+
+function getProfile(entity) {
+    if (!entity.getData("mhp:dyn/transformation") > 0) {
+        return "INACTIVE";
+    }
+    return null;
 }
 
 

@@ -1,5 +1,5 @@
 loadTextures({
-    "base":       "mhp:shawty",
+    "base":       "mhp:winchester",
     "crosshair":  "fisktag:crosshairs/shotgun"
 });
 
@@ -8,8 +8,17 @@ var teams = implement("fisktag:external/teams");
 
 var model;
 
+var no = false;
+
 function init(renderer) {
-    model = utils.createModel(renderer, "mhp:shawty", "base");
+    model = utils.createModel(renderer, "mhp:winchester", "base");
+    model.bindAnimation("mhp:winchester_slide").setData((entity, data) => {
+        if (no) {
+            data.load(0);
+            return;
+        }
+        data.load(entity.getInterpolatedData("fiskheroes:weapon_animation_timer"));
+    });
     renderer.setModel(model);
 
     utils.makeDilatingCrosshair(renderer, "crosshair", 16, 16, [
@@ -39,7 +48,7 @@ function render(renderer, entity, glProxy, renderType, scopeTimer, recoil, isLef
         glProxy.scale(1.4)
     }
 
-    glProxy.translate(0, -1.1, -0.4);
+    glProxy.translate(0, 0, -0.4);
     glProxy.scale(1.2);
 }
 
