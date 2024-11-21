@@ -1,17 +1,3 @@
-/* function isModifierEnabled(entity, modifier) {
-var nbt = entity.getWornChestplate().nbt();
-var equipment = nbt.getTagList("Equipment");
-
-var stones_active = [
-     equipment.getCompoundTag("0").getCompoundTag("Item").getCompoundTag("tag").getString("HeroType") == "mhp:power_stone",
-     equipment.getCompoundTag("0").getCompoundTag("Item").getCompoundTag("tag").getString("HeroType") == "mhp:space_stone",
-     equipment.getCompoundTag("0").getCompoundTag("Item").getCompoundTag("tag").getString("HeroType") == "mhp:reality_stone",
-     equipment.getCompoundTag("0").getCompoundTag("Item").getCompoundTag("tag").getString("HeroType") == "mhp:soul_stone",
-     equipment.getCompoundTag("0").getCompoundTag("Item").getCompoundTag("tag").getString("HeroType") == "mhp:time_stone",
-     equipment.getCompoundTag("0").getCompoundTag("Item").getCompoundTag("tag").getString("HeroType") == "mhp:mind_stone"
-]
-}
- */
 var infinity_stones = [
     "Space",
     "Mind",
@@ -47,7 +33,6 @@ function init(hero) {
 
 
     hero.addPowers("mhp:space_stone_g", "mhp:mind_stone", "mhp:reality_stone", "mhp:power_stone_g", "mhp:time_stone", "mhp:soul_stone");
-    // hero.addPowers("mhp:infinity_gauntlet");
     hero.addPrimaryEquipment("fiskheroes:superhero_chestplate{HeroType:mhp:space_stone}", false, item => item.nbt().getString("HeroType") == "mhp:space_stone");
     hero.addPrimaryEquipment("fiskheroes:superhero_chestplate{HeroType:mhp:mind_stone}", false, item => item.nbt().getString("HeroType") == "mhp:mind_stone");
     hero.addPrimaryEquipment("fiskheroes:superhero_chestplate{HeroType:mhp:reality_stone}", false, item => item.nbt().getString("HeroType") == "mhp:reality_stone");
@@ -281,13 +266,6 @@ function isKeyBindEnabled(entity, keyBind) {
         case "CHARGED_BEAM":
             return stones[data] == "mind" && nbt.getBoolean("mind");
     } return true
-    /*   if (!entity.isSneaking()) {
-         var stone = "STONE_FORWARDS_" + selectedStone;
-         return keyBind == stone;
-     } else {
-         var stone = "STONE_BACKWARDS_" + selectedStone;
-         return keyBind == stone;
-     } */
 }
 
 function giantModeKey(player, manager) {
