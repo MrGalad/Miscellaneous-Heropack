@@ -74,7 +74,7 @@ function retrieveinDome(entity) {
         var containedEntities = domeInstance.as("SHADOWDOME").getContainedEntities();
         for (var index = 0, totalEntities = containedEntities.size(); index < totalEntities; index++) {
             var targetEntity = containedEntities.get(index);
-            if (entity.getUUID() !== targetEntity.getUUID()) {
+            if (entity.getUUID() !== targetEntity.getUUID() && targetEntity.getEntityName() != null) {
                 entityCollection.push(targetEntity.getEntityName());
             }
         }
@@ -96,12 +96,49 @@ function EntityScan(entity, manager) {
     };
 
     var detectedEntities = retrieveinDome(entity);
-
+    var mobsToColor = {
+        "Zombie": "\u00A74", 
+        "Skeleton": "\u00A74", 
+        "Creeper": "\u00A74", 
+        "Enderman": "\u00A79", 
+        "Spider": "\u00A74", 
+        "Silverfish": "\u00A74", 
+        "Witch": "\u00A74", 
+        "Ghast": "\u00A74", 
+        "Blaze": "\u00A74", 
+        "LavaSlime": "\u00A74", 
+        "CaveSpider": "\u00A74",
+        "fiskheroes.Creetle": "\u00A74",
+        "Slime": "\u00A74", 
+        "EnderDragon": "\u00A74", 
+        "WitherBoss": "\u00A74", 
+        "Wither Skeleton": "\u00A74", 
+        "Wolf": "\u00A79", 
+        "VillagerGolem": "\u00A79", 
+        "SnowMan": "\u00A79", 
+        "PigZombie": "\u00A79", 
+        "Villager": "\u00A7a", 
+        "Ozelot": "\u00A7a", 
+        "EntityHorse": "\u00A7a", 
+        "Bat": "\u00A79", 
+        "Squid": "\u00A79",  
+        "Sheep": "\u00A7a", 
+        "Pig": "\u00A7a", 
+        "Cow": "\u00A7a", 
+        "Chicken": "\u00A7a", 
+        "Rabbit": "\u00A7a", 
+        "MushroomCow": "\u00A7a"
+    };
+    var replace = {
+    "EntityHorse": "Horse",
+    "fiskheroes.Creetle": "Creetle",
+    "PigZombie": "ZombiePigman",
+    "VillagerGolem": "IronGolem"
+    }
     if (PackLoader.getSide() === "CLIENT") {
         var scanCondition = detectedEntities.length > 0 && cortanaOn;
         if (scanCondition && scamStatus) {
-            PackLoader.printChat(messages.detect);
-            PackLoader.printChat("\u00A73<Cortana>\u00A74 " + detectedEntities.join(", "));
+            PackLoader.printChat(messages.detect + " " + detectedEntities.map(value => (mobsToColor[value] || "") + (replace[value] || value)).join(", \u00A7r").replace(", null", ""));
             scamStatus = false;
         } else if (!scanCondition && !scamStatus) {
             scamStatus = true;
@@ -115,88 +152,4 @@ function EntityScan(entity, manager) {
         manager.setData(entity, "mhp:dyn/mob_timer", Math.max(scamTimer - 0.01, 0));
     }
 }
-    /* function EntityScan(entity, manager) {
-        var cortanaOn = entity.getData("mhp:dyn/cortana");
-        var scamTimer = entity.getInterpolatedData("mhp:dyn/mob_timer");
-        var dome = entity.getData("fiskheroes:lightsout_id");
-        var domeInstance = entity.world().getEntityById(dome);
-    
-        var messages = {
-            detect: "\u00A73<Cortana> Entities nearby:",
-        };
-    
-        // Retrieve the entities within the dome
-        var detectedEntities = retrieveinDome(entity);
-    
-        if (PackLoader.getSide() === "CLIENT") {
-            var scanCondition = detectedEntities.length > 0 && cortanaOn;
-            if (scanCondition && scamStatus) {
-                PackLoader.printChat(messages.detect);
-                detectedEntities.forEach(function(targetEntity) {
-                    // Ensure targetEntity is valid
-                    if (!targetEntity) {
-                        PackLoader.printChat("Target entity is invalid");
-                        return; // Skip this iteration if the entity is invalid
-                    }
-    
-                    // Use the getEntityName() method to get the readable name
-                    var entityName = targetEntity.getEntityName(); // Correctly using getEntityName()
-                    if (!entityName) {
-                        PackLoader.printChat("Entity name is undefined or null"); // Log the issue
-                        return; // Skip this iteration if the entity name is invalid
-                    }
-    
-                    // Check for each entity type individually
-                    if (entity.getEntityName() === "Zombie") {
-                        PackLoader.printChat("\u00A74" + "Zombie"); // Red for hostile
-                    } else if (entityName === "Skeleton") {
-                        PackLoader.printChat("\u00A74" + entityName); // Red for hostile
-                    } else if (entityName === "Creeper") {
-                        PackLoader.printChat("\u00A74" + entityName); // Red for hostile
-                    } else if (entityName === "Enderman") {
-                        PackLoader.printChat("\u00A79" + entityName); // Blue for neutral
-                    } else if (entityName === "Spider") {
-                        PackLoader.printChat("\u00A74" + entityName); // Red for hostile
-                    } else if (entityName === "Silverfish") {
-                        PackLoader.printChat("\u00A74" + entityName); // Red for hostile
-                    } else if (entityName === "Witch") {
-                        PackLoader.printChat("\u00A74" + entityName); // Red for hostile
-                    } else if (entityName === "Ghast") {
-                        PackLoader.printChat("\u00A74" + entityName); // Red for hostile
-                    } else if (entityName === "Blaze") {
-                        PackLoader.printChat("\u00A74" + entityName); // Red for hostile
-                    } else if (entityName === "Magma Cube") {
-                        PackLoader.printChat("\u00A74" + entityName); // Red for hostile
-                    } else if (entityName === "Slime") {
-                        PackLoader.printChat("\u00A74" + entityName); // Red for hostile
-                    } else if (entityName === "Ender Dragon") {
-                        PackLoader.printChat("\u00A74" + entityName); // Red for hostile
-                    } else if (entityName === "Wither") {
-                        PackLoader.printChat("\u00A74" + entityName); // Red for hostile
-                    } else if (entityName === "Wither Skeleton") {
-                        PackLoader.printChat("\u00A74" + entityName); // Red for hostile
-                    } else if (entityName === "Wolf") {
-                        PackLoader.printChat("\u00A79" + "Wolf"); // Blue for neutral
-                    } else if (entityName === "Iron Golem") {
-                        PackLoader.printChat("\u00A79" + entityName); // Blue for neutral
-                    } else if (entityName === "Snow Golem") {
-                        PackLoader.printChat("\u00A79" + entityName); // Blue for neutral
-                    } else if (entityName === "Horse") {
-                        PackLoader.printChat("\u00A7a" + entityName); // Green for tameable
-                    } else {
-                        PackLoader.printChat("\u00A7f" + entityName); // Default color for others
-                    }
-                });
-                scamStatus = false;
-            } else if (!scanCondition && !scamStatus) {
-                scamStatus = true;
-            }
-        }
-    
-        if (domeInstance && domeInstance.exists()) {
-            manager.setData(entity, "mhp:dyn/mob_timer", 1);
-            manager.setData(entity, "mhp:dyn/mobscan", true);
-        } else if (cortanaOn) {
-            manager.setData(entity, "mhp:dyn/mob_timer", Math.max(scamTimer - 0.01, 0));
-        }
-    } */
+  

@@ -106,16 +106,6 @@ function init(hero) {
  
 
         var currentStone = entity.getWornChestplate().nbt().getString("selectedStone") || "Power";
-        // POWER Stuff
-        /*   if (stones[data] !== "power") {
-              manager.setData(entity, "fiskheroes:punchmode", false);
-          }
-  
-          // TIME Stuff
-          if (stones[data] !== "time") {
-              manager.setData(entity, "fiskheroes:slow_motion", false);
-              manager.setData(entity, "fiskheroes:speeding", false);
-          } */
         var teleport_delay = entity.getData("fiskheroes:teleport_delay");
         if (teleport_delay > 0) {
 
@@ -137,8 +127,6 @@ function init(hero) {
 
     // POWER
     hero.addKeyBind("CHARGED_PUNCH", "\u00A75Empowered Punch", 2);
-    /*  hero.addKeyBind("CHARGED_BEAM", "\u00A7ePower Stone Blast", 3); */
-
 
     // SPACE
     hero.addKeyBind("AIM", "\u00A71Telekinesis", 2)
@@ -182,7 +170,7 @@ function init(hero) {
             "ENERGY": 1
         },
         "properties": {
-            "COOK_ENTITY": false,
+            "COOK_ENTITY": true,
             "HEAT_TRANSFER": 160,
             "IGNITE": 2
         }
