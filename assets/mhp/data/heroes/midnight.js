@@ -1,0 +1,42 @@
+function init(hero) {
+    hero.setName("Okoye");
+    hero.setVersion("Midnight Angel")
+    hero.setTier(7);
+
+    hero.setHelmet("Head");
+    hero.setChestplate("item.superhero_armor.piece.chestplate");
+    hero.setLeggings("item.superhero_armor.piece.leggings");
+    hero.setBoots("item.superhero_armor.piece.boots");
+    hero.addPrimaryEquipment("fisktag:weapon{WeaponType:mhp:staff}", true);
+
+    hero.addPowers("mhp:midnight_angel");
+    hero.addAttribute("PUNCH_DAMAGE", 5.0, 0);
+    hero.addAttribute("FALL_RESISTANCE", 1, 1);
+    hero.addAttribute("SPRINT_SPEED", 0.5, 1);
+    hero.addAttribute("JUMP_HEIGHT", 1, 0);
+    hero.addAttribute("WEAPON_DAMAGE", 6, 0)
+
+    hero.addAttributeProfile("BLADE", bladeProfile);
+    hero.setAttributeProfile(getProfile);
+    hero.setDamageProfile(getProfile);
+    hero.addDamageProfile("BLADE", {
+        "types": {
+            "VIBRANIUM": 5
+        }
+    });
+
+    hero.setTickHandler((entity, manager) => {
+        manager.incrementData(entity, "mhp:dyn/float_interp", 8, 6, entity.getHeldItem().nbt().getString("WeaponType") == "mhp:staff" && (!entity.getData("fiskheroes:moving") && !entity.isPunching() || !entity.getData("fiskheroes:flying") && entity.motionX() == 0 && entity.motionZ() == 0 && !entity.isPunching()));
+    });
+}
+function bladeProfile(profile) {
+    profile.inheritDefaults();
+    profile.addAttribute("PUNCH_DAMAGE", 15.5, 0);
+}
+
+function getProfile(entity) {
+    if (entity.getHeldItem().nbt().getString("WeaponType") == "mhp:staff") {
+        return "BLADE";
+    }
+    return null;
+}

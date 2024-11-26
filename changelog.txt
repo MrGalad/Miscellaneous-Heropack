@@ -2,6 +2,7 @@
 
 Fixed being able to spam 'SHAZAM' ability with Black Adam
 Fixed having Doorman's stats when not transformed
+Fixed bug where you could have infinite Reverse Flash suits
 
 Changed Doorman's transformation
 

@@ -21,7 +21,8 @@
 },
 "damageTypes": {
 "KRYPTONITE": "Kryptonite",
-"TELEPATIC": "Telepathy"
+"TELEPATIC": "Telepathy",
+"VIBRANIUM": "Vibranium"
 },
 
 "dataVars": {   
@@ -49,7 +50,7 @@
 "stone_select_slot": { "type": "INTEGER", "resetWithoutSuit": true },
 "stone_selecting": { "type": "BOOLEAN", "resetWithoutSuit": true },
   "boolean": "BOOLEAN",
-  "float_interp": "FLOAT_INTERP",
+  "float_interp": { "type": "FLOAT_INTERP", "resetWithoutSuit": true },
   "tele": "BOOLEAN",
   "tele_timer": "FLOAT_INTERP",
   "slot" : { "type": "INTEGER", "resetWithoutSuit": true },
@@ -83,8 +84,10 @@
     "type": "BOOLEAN",
     "resetWithoutSuit": true
   },
-  "nv": "BOOLEAN",
-  "nv_timer": "FLOAT_INTERP",
+  "nv": { "type": "BOOLEAN", "resetWithoutSuit": true },
+  "nv_timer":{ "type": "FLOAT_INTERP", "resetWithoutSuit": true },
+  "run": { "type": "BOOLEAN", "resetWithoutSuit": true },
+  "run_timer": { "type": "FLOAT_INTERP", "resetWithoutSuit": true },
   "cortana": { "type": "BOOLEAN", "resetWithoutSuit": true },
   "prevHealth": "FLOAT",
   "float": "FLOAT",

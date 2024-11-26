@@ -1,6 +1,8 @@
+var messagesSent = false;
 function health(entity, manager) {
     var diagnostics = {
         cortana: entity.getData("mhp:dyn/cortana"),
+        run: (entity.getData("mhp:dyn/run_timer") == 1),
         sprinting: entity.getData("fiskheroes:ticks_since_sprinting"),
         armor: 1024 - entity.getWornChestplate().damage(),
         health: Math.round(entity.getHealth() * 10) / 10,
@@ -24,19 +26,25 @@ function health(entity, manager) {
 
 
     if (PackLoader.getSide() === "CLIENT") {
-        if (diagnostics.cortana && diagnostics.sprinting === 200) {
-            for (var message in messages) {
+       /* if (diagnostics.cortana && diagnostics.run &&!messagesSent) {
+            PackLoader.printChat(messages.healthStatus);
+            PackLoader.printChat(messages.damageReceived);
+            PackLoader.printChat(messages.armorIntegrity);
+            
+            messagesSent = true
+            /* for (var message in messages) {
                 PackLoader.printChat(messages[message]);
-            }
-        } else if (diagnostics.cortana && diagnostics.sprinting === 170) {
+                manager.setData(entity, "mhp:dyn/run_timer", 0) 
+            } */
+        } /* else if (diagnostics.cortana && diagnostics.run === 0.1) {
             PackLoader.printChat(messages2.runningDiagnostics);
-        } else if (diagnostics.helmet && trollmessage) {
+        } */ if (diagnostics.helmet && trollmessage) {
             PackLoader.printChat(messages2.troll)
             trollmessage = false
         } else if (!diagnostics.helmet && !trollmessage) {
             trollmessage = true;
         }
-    }  if (PackLoader.getSide() == "SERVER") {
+      if (PackLoader.getSide() == "SERVER") {
         null
     }
 }
@@ -132,8 +140,8 @@ function EntityScan(entity, manager) {
     var replace = {
     "EntityHorse": "Horse",
     "fiskheroes.Creetle": "Creetle",
-    "PigZombie": "ZombiePigman",
-    "VillagerGolem": "IronGolem"
+    "PigZombie": "Zombie Pigman",
+    "VillagerGolem": "Iron Golem"
     }
     if (PackLoader.getSide() === "CLIENT") {
         var scanCondition = detectedEntities.length > 0 && cortanaOn;

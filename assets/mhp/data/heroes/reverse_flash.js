@@ -30,7 +30,6 @@ function init(hero) {
     hero.setLeggings("item.superhero_armor.piece.pants");
     hero.setBoots("item.superhero_armor.piece.boots");
     hero.addEquipment("fiskheroes:flash_ring");
-    hero.addPrimaryEquipment("fiskheroes:flash_ring", true)
 
     hero.addPowers("mhp:negative_speed_force");
     hero.addAttribute("PUNCH_DAMAGE", 5.0, 0);

@@ -1,0 +1,38 @@
+extend("fiskheroes:hero_basic");
+loadTextures({
+    "layer1": "mhp:midnight/midnight_layer1",
+    "layer2": "mhp:midnight/midnight_layer2",
+    "cape": "mhp:midnight/midnight_cape"
+});
+var utils = implement("fiskheroes:external/utils");
+var capes = implement("fiskheroes:external/capes");
+var iron_man_boosters = implement("mhp:external/boosters");
+
+var boosters;
+var cape;
+
+function initEffects(renderer) {
+    var physics = renderer.createResource("CAPE_PHYSICS", null);
+    physics.weight = 0.9;
+    physics.maxFlare = 0.5;
+    cape = capes.createDefault(renderer, 24, "fiskheroes:cape_default.mesh.json", physics);
+    cape.effect.texture.set("cape");
+    parent.initEffects(renderer);
+    boosters = iron_man_boosters.create(renderer, "fiskheroes:blue_fire_layer_%s", false);
+}
+
+function initAnimations(renderer) {
+    addAnimationWithData(renderer, "midnight.POSE", "mhp:midnight_pose", "mhp:dyn/float_interp");
+    utils.addFlightAnimation(renderer, "shazam.FLIGHT", "fiskheroes:flight/default.anim.json");
+    utils.addHoverAnimation(renderer, "shazam.HOVER", "fiskheroes:flight/idle/default");
+    utils.addAnimationEvent(renderer, "FLIGHT_DIVE", "fiskheroes:iron_man_dive");
+    addAnimationWithData(renderer, "iron_man.LAND", "fiskheroes:superhero_landing", "fiskheroes:dyn/superhero_landing_timer")
+    .priority = -8;
+}
+
+function render(entity, renderLayer, isFirstPersonArm) {
+    if (!isFirstPersonArm && renderLayer == "CHESTPLATE") {
+     cape.render(entity);
+}
+boosters.render(entity, renderLayer, isFirstPersonArm, true);
+}
