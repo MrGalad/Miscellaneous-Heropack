@@ -26,7 +26,16 @@ function init(hero) {
     });
 
     hero.setTickHandler((entity, manager) => {
-        manager.incrementData(entity, "mhp:dyn/float_interp", 8, 6, entity.getHeldItem().nbt().getString("WeaponType") == "mhp:staff" && (!entity.getData("fiskheroes:moving") && !entity.isPunching() || !entity.getData("fiskheroes:flying") && entity.motionX() == 0 && entity.motionZ() == 0 && !entity.isPunching()));
+        manager.incrementData(entity, "mhp:dyn/float_interp", 20, 6, entity.getHeldItem().nbt().getString("WeaponType") == "mhp:staff" && (!entity.getData("fiskheroes:moving") && !entity.isPunching() || !entity.getData("fiskheroes:flying") && entity.motionX() == 0 && entity.motionZ() == 0 && !entity.isPunching()));
+   
+        var flying = entity.getData("fiskheroes:flying");
+        manager.incrementData(entity, "fiskheroes:dyn/booster_timer", 2, flying);
+
+        var item = entity.getHeldItem();
+        flying &= !entity.as("PLAYER").isUsingItem();
+        manager.incrementData(entity, "fiskheroes:dyn/booster_r_timer", 2, flying && item.isEmpty() && !entity.isPunching() && entity.getData("fiskheroes:aiming_timer") == 0 && entity.getData("fiskheroes:blade_timer") == 0);
+        manager.incrementData(entity, "fiskheroes:dyn/booster_l_timer", 2, flying && !item.doesNeedTwoHands());
+
     });
 }
 function bladeProfile(profile) {

@@ -49,7 +49,7 @@ function render(renderer, entity, glProxy, renderType, scopeTimer, recoil, isLef
     }
 
     glProxy.translate(0, 0, -0.4);
-    glProxy.scale(1.2);
+    glProxy.scale(1.5);
 }
 
 function easeInOutSine(x) {

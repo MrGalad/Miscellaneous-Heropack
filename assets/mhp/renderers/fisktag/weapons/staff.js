@@ -54,6 +54,7 @@ function render(renderer, entity, glProxy, renderType, scopeTimer, recoil, isLef
     else if (renderType === "EQUIPPED") {
         glProxy.translate(0, 0, 0.15 * entity.getInterpolatedData("fiskheroes:aiming_timer"));
         glProxy.rotate(150, 1, 0, 0);
+        glProxy.scale(1.3);
     }
 
     glProxy.translate(0, -0.55, -0.05);

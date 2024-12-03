@@ -31,9 +31,13 @@
 {leftLeg_posX}+=-0.5{midnight_pose_0}
 {leftLeg_posZ}+=-2{midnight_pose_0}
 
-{root_rotY}+=-2.5'{midnight_pose_0}
-{root_rotZ}+=45'{midnight_pose_0}
+{root_rotY}+=-7'{midnight_pose_0}
+{root_rotZ}+=-8'{midnight_pose_0}
+;4emal w yemen
+{root_rotX}+=48'{midnight_pose_0}
 {root_posX}+=-0.25{midnight_pose_1}
-{root_posX}+=-0.75{midnight_pose_0}
-{root_posY}+=-1{midnight_pose_0}
+; foo2 w ta7t
+{root_posX}+=0{midnight_pose_0}
+{root_posY}+=2{midnight_pose_0}
+; kol lama elrqam yezeed yeb2a 4emal, 4emal w yemen
 {root_posZ}+=-6{midnight_pose_0}
