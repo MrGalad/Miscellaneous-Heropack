@@ -19,6 +19,11 @@ function initEffects(renderer) {
     cape.effect.texture.set("cape");
     parent.initEffects(renderer);
     boosters = iron_man_boosters.create(renderer, "fiskheroes:blue_fire_layer_%s", false);
+
+    var night_vision = renderer.bindProperty("fiskheroes:night_vision").setCondition(entity => {
+        night_vision.factor = 1 && entity.getData("fiskheroes:mask_open_timer2") == 0
+            return true;
+    })
 }
 
 function initAnimations(renderer) {

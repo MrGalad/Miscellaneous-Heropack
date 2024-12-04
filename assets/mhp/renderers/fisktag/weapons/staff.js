@@ -20,8 +20,8 @@ function init(renderer) {
 function render(renderer, entity, glProxy, renderType, scopeTimer, recoil, isLeftSide) {
     cancelAnimations = false;
     if (renderType === "EQUIPPED_FIRST_PERSON") {
-        glProxy.translate(0, -0.5, 0);
-        glProxy.rotate(150, 1, 0, 0);
+        glProxy.translate(0, 0.2, 0);
+        glProxy.rotate(170, 1, 0, 0);
         cancelAnimations = true;
     }
     else if (renderType === "INVENTORY") {

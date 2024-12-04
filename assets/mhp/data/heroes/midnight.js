@@ -19,6 +19,7 @@ function init(hero) {
     hero.addAttributeProfile("BLADE", bladeProfile);
     hero.setAttributeProfile(getProfile);
     hero.setDamageProfile(getProfile);
+    hero.setModifierEnabled(isModifierEnabled);
     hero.addDamageProfile("BLADE", {
         "types": {
             "VIBRANIUM": 5
@@ -48,4 +49,12 @@ function getProfile(entity) {
         return "BLADE";
     }
     return null;
+}
+
+function isModifierEnabled(entity, modifier) {
+    switch (modifier.name()) {
+     case "fiskheroes:water_breathing":
+        return entity.getData("fiskheroes:mask_open_timer2") == 0
+}
+return true;
 }

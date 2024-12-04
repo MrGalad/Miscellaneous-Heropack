@@ -30,7 +30,7 @@ function init(renderer) {
     ], 3, 4, 3.33);
 
     utils.bindScopedBeam(renderer, "fiskheroes:repulsor_blast", (0x8f5017), [
-        { "firstPerson": [-5.0, 4.0, -18.0], "offset": [-3, 10.5, -2.3], "size": [1.25, 1.25] }
+        { "firstPerson": [-5.0, 4.0, -18.0], "offset": [0, 18, -2.3], "size": [1.0, 1.0] }
     ], [4.0, -1.0, -2.0]);
 }
 
@@ -41,10 +41,12 @@ function render(renderer, entity, glProxy, renderType, scopeTimer, recoil, isLef
         glProxy.translate(-0.1 * f, -0.1 * f, -0.2 * f + recoil * (0.7 - 0.2 * scopeTimer));
     }
     else if (renderType === "EQUIPPED") {
-        glProxy.translate(0, 0.0, 0.0);
+        //left n right, forward n backward,  up n down
+        glProxy.translate(0, 0.2, 0.5);
+        glProxy.scale(1)
     }
     else if (renderType === "ENTITY" || renderType === "INVENTORY") {
-        glProxy.translate(-0.8, 0.6, -0.2);
+        glProxy.translate(-1.2, 1.2, -0.2);
         glProxy.scale(1.4)
     }
 

@@ -1,10 +1,15 @@
 ### Miscellaneous Heropack 3.1 ###
 
+Added Okoye (Midnight Angel) Suit
+Added Colors to Master Chief's Mob Scan
+
 Fixed being able to spam 'SHAZAM' ability with Black Adam
 Fixed having Doorman's stats when not transformed
 Fixed bug where you could have infinite Reverse Flash suits
 
 Changed Doorman's transformation
+
+Updated Winchester 1887's model
 
 ### Miscellaneous Heropack 3.0 ###
 
