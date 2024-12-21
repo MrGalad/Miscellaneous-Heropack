@@ -1,0 +1,6 @@
+{goblin_jump_time}={data}
+{goblin_jump_0}=curve animate2({goblin_jump_time},0.65,0,0.35,0.3)
+{goblin_jump_1}=curve animate2({goblin_jump_time},9.65,0.35,0.3,9.35)
+{goblin_jump_2}=curve animate2({goblin_jump_time},0.65,0,0,0.65)
+
+{bone_posZ}+=600{goblin_jump_2}
