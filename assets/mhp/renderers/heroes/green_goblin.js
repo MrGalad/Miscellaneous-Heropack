@@ -28,18 +28,8 @@ function initEffects(renderer) {
 function initAnimations(renderer) {
     parent.initAnimations(renderer);
     
-    /*  utils.addHoverAnimation(renderer, "goblin.HOVER", "mhp:goblin/goblin_jump"); */
-    /* addAnimationWithData(renderer, "goblin.POSE", "mhp:goblin/goblin_jump", "fiskheroes:flight_timer"); */
-    
-    addAnimation(renderer, "goblin.POSE", "mhp:goblin/goblin_jump").setData((entity, data) => data.load(entity.getInterpolatedData("fiskheroes:flight_timer")/* ? 1 : 0 */));
-    /* utils.addFlightAnimation(renderer, "goblin.FLIGHT", "mhp:goblin/goblin_pose.anim.json");  */
-     /* utils.addHoverAnimation(renderer, "goblin.HOVER", "mhp:goblin/goblin_jump"); */ 
+    utils.addFlightAnimation(renderer, "goblin.FLIGHT", "mhp:goblin/goblin_pose.anim.json");
 
-     utils.addFlightAnimation(renderer, "goblin.FLIGHT", "mhp:boost/goblin_flight_anim", (entity, data) => {
-        /* data.load(0, entity.getInterpolatedData("fiskheroes:flight_timer")); */
-    data.load(0, entity.getInterpolatedData("fiskheroes:flight_boost_timer"));
-    /* data.load(3, entity.getInterpolatedData("fiskheroes:dyn/flight_super_boost_timer")); */
-    });
 }
 
 function render(entity, renderLayer, isFirstPersonArm) {    
