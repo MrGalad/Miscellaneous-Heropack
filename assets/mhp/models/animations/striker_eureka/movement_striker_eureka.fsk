@@ -1,0 +1,14 @@
+{vel} = sqrt({motX}^2 + {motZ}^2)
+{vel} = curve {vel}
+
+{x} = {limbSwing} / 8
+{limb} = 2sin(pi * 1{x}){vel}
+
+{larm_rotX} += {limb}(0.5 - {data_4}) + 20'{data_4}{vel}
+{larm_rotZ} -= 6'sin(pi{data_2})
+
+{rarm_rotX} -= {limb}(0.5 - {data_4}) - 20'{data_4}{vel}
+{rarm_rotZ} += 6'sin(pi{data_2})
+
+{lleg_rotX} -= ({limb} + 28'{data_3})(0.5 - {data_4}) - 40'{data_4}{vel}
+{rleg_rotX} += ({limb} - 28'{data_3})(0.5 - {data_4}) + 40'{data_4}{vel}
