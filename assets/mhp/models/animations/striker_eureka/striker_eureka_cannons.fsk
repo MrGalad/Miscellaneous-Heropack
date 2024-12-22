@@ -1,0 +1,31 @@
+{cannons_time}={data}
+{cannons_0}=curve animate2({cannons_time},10,0,0.5,9.5)
+{cannons_1}=curve animate2({cannons_time},9.5,0.5,0.5,9)
+{cannons_2}=curve animate2({cannons_time},9.5,0.5,0.4,9.1)
+
+{armLeftThing_posY}+=1{cannons_0}
+{armLeftThing_posZ}+=-2.25{cannons_0}
+
+{armRightThing_posY}+=1{cannons_0}
+{armRightThing_posZ}+=-2.25{cannons_0}
+
+{leftUpperPlate_rotX}+=-132.5'{cannons_0}
+
+{rightLowerPlate_rotX}+=28'{cannons_0}
+{rightLowerPlate_rotY}+=-6.4905303644'{cannons_0}
+{rightLowerPlate_rotZ}+=-3.7661328378'{cannons_0}
+{rightLowerPlate_posX}+=-0.75{cannons_0}
+{rightLowerPlate_posY}+=2.25{cannons_0}
+{rightLowerPlate_posZ}+=0.5{cannons_0}
+
+{rightUpperPlate_rotX}+=-135'{cannons_0}
+
+{leftLowerPlate_rotX}+=30.213620965'{cannons_0}
+{leftLowerPlate_rotY}+=6.4905303644'{cannons_0}
+{leftLowerPlate_rotZ}+=3.7661328378'{cannons_0}
+{leftLowerPlate_posX}+=-0.75{cannons_0}
+{leftLowerPlate_posY}+=2.25{cannons_0}
+
+{cannonsFront_posZ}+=-3{cannons_1}
+
+{cannonsBack_posZ}+=-0.5{cannons_2}
