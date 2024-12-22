@@ -1,66 +1,50 @@
-{goblin_jump_time}={data_0}
-{goblin_jump_0}=curve animate2({goblin_jump_time},0.65,0,0.35,0.3)
-{goblin_jump_1}=curve animate2({goblin_jump_time},9.65,0.35,0.3,9.35)
-{goblin_jump_2}=curve animate2({goblin_jump_time},0.65,0,0,0.65)
+{goblin_flight_anim_time}={data}
+{goblin_flight_anim_0}=curve animate2({goblin_flight_anim_time},5,0,1,4)
 
-{bone_posY}+=-8{goblin_jump_0}
-{bone_posY}+=-4{goblin_jump_1}
+{head_posY}+=-3.75{goblin_flight_anim_0}
+{head_posZ}+=-4{goblin_flight_anim_0}
 
-{head_posY}+=-1.25{goblin_jump_0}
-{head_posZ}+=-2{goblin_jump_0}
-{head_posY}+=0.25{goblin_jump_1}
-{head_posZ}+=-4{goblin_jump_1}
+{body_rotX}+=27.5'{goblin_flight_anim_0}
+{body_posY}+=-4{goblin_flight_anim_0}
+{body_posZ}+=-4.25{goblin_flight_anim_0}
 
-{body_rotX}+=27.5'{goblin_jump_1}
-{body_posY}+=-1{goblin_jump_0}
-{body_posZ}+=-2{goblin_jump_0}
-{body_posZ}+=-4.25{goblin_jump_1}
+{leftArm_rotX}+=2.3295181045'{goblin_flight_anim_0}
+{leftArm_rotY}+=5.1613951151'{goblin_flight_anim_0}
+{leftArm_rotZ}+=-53.2253288961'{goblin_flight_anim_0}
+{leftArm_posX}+=1.25{goblin_flight_anim_0}
+{leftArm_posY}+=-2{goblin_flight_anim_0}
+{leftArm_posZ}+=-2.75{goblin_flight_anim_0}
 
-{leftArm_rotX}+=29.8740224491'{goblin_jump_0}
-{leftArm_rotY}+=-4.8703868593'{goblin_jump_0}
-{leftArm_rotZ}+=-35.9009643966'{goblin_jump_0}
-{leftArm_rotX}+=2.3295181045'{goblin_jump_1}
-{leftArm_rotY}+=5.1613951151'{goblin_jump_1}
-{leftArm_rotZ}+=-53.2253288961'{goblin_jump_1}
-{leftArm_posY}+=-0.5{goblin_jump_0}
-{leftArm_posZ}+=-1.75{goblin_jump_0}
-{leftArm_posX}+=1.25{goblin_jump_1}
-{leftArm_posY}+=2{goblin_jump_1}
-{leftArm_posZ}+=-2.75{goblin_jump_1}
+{rightArm_rotX}+=7.8673470193'{goblin_flight_anim_0}
+{rightArm_rotY}+=-3.9359514209'{goblin_flight_anim_0}
+{rightArm_rotZ}+=44.4591293677'{goblin_flight_anim_0}
+{rightArm_posX}+=-1{goblin_flight_anim_0}
+{rightArm_posY}+=-2.25{goblin_flight_anim_0}
+{rightArm_posZ}+=-2.75{goblin_flight_anim_0}
 
-{rightArm_rotX}+=29.874'{goblin_jump_0}
-{rightArm_rotY}+=4.8704'{goblin_jump_0}
-{rightArm_rotZ}+=35.901'{goblin_jump_0}
-{rightArm_rotX}+=7.8673470193'{goblin_jump_1}
-{rightArm_rotY}+=-3.9359514209'{goblin_jump_1}
-{rightArm_rotZ}+=44.4591293677'{goblin_jump_1}
-{rightArm_posY}+=0.5{goblin_jump_0}
-{rightArm_posZ}+=-1.75{goblin_jump_0}
-{rightArm_posX}+=-1{goblin_jump_1}
-{rightArm_posY}+=1.75{goblin_jump_1}
-{rightArm_posZ}+=-2.75{goblin_jump_1}
+{leftLeg_rotX}+=12.2960324365'{goblin_flight_anim_0}
+{leftLeg_rotY}+=-12.5973834782'{goblin_flight_anim_0}
+{leftLeg_rotZ}+=-12.0876994564'{goblin_flight_anim_0}
+{leftLeg_posX}+=2{goblin_flight_anim_0}
+{leftLeg_posY}+=-6.5{goblin_flight_anim_0}
+{leftLeg_posZ}+=-3.5{goblin_flight_anim_0}
 
-{leftleg_rotX}+=10.550084752'{goblin_jump_0}
-{leftleg_rotY}+=-14.0849859463'{goblin_jump_0}
-{leftleg_rotZ}+=-4.5322890831'{goblin_jump_0}
-{leftleg_rotX}+=12.2960324365'{goblin_jump_1}
-{leftleg_rotY}+=-12.5973834782'{goblin_jump_1}
-{leftleg_rotZ}+=-12.0876994564'{goblin_jump_1}
-{leftleg_posX}+=1{goblin_jump_0}
-{leftleg_posY}+=-2.5{goblin_jump_0}
-{leftleg_posZ}+=-3.5{goblin_jump_0}
-{leftleg_posX}+=2{goblin_jump_1}
-{leftleg_posY}+=-2.5{goblin_jump_1}
-{leftleg_posZ}+=-3.5{goblin_jump_1}
+{rightLeg_rotX}+=12.2204713451'{goblin_flight_anim_0}
+{rightLeg_rotY}+=12.1837872705'{goblin_flight_anim_0}
+{rightLeg_rotZ}+=11.9558865178'{goblin_flight_anim_0}
+{rightLeg_posX}+=-1.75{goblin_flight_anim_0}
+{rightLeg_posY}+=-6.5{goblin_flight_anim_0}
+{rightLeg_posZ}+=-4.25{goblin_flight_anim_0}
 
-{rightLeg_rotX}+=11.117162928'{goblin_jump_0}
-{rightLeg_rotY}+=13.1957217799'{goblin_jump_0}
-{rightLeg_rotZ}+=6.9366076494'{goblin_jump_0}
-{rightLeg_rotX}+=12.2204713451'{goblin_jump_1}
-{rightLeg_rotY}+=12.1837872705'{goblin_jump_1}
-{rightLeg_rotZ}+=11.9558865178'{goblin_jump_1}
-{rightLeg_posY}+=-2.5{goblin_jump_0}
-{rightLeg_posZ}+=-4.25{goblin_jump_0}
-{rightLeg_posX}+=-1.75{goblin_jump_1}
-{rightLeg_posY}+=-2.5{goblin_jump_1}
-{rightLeg_posZ}+=-4.25{goblin_jump_1}
+{rightLeg_rotX} @ {goblin_jump_time} -> 0
+{rightLeg_rotY} @ {goblin_jump_time} -> 0
+{rightLeg_rotZ} @ {goblin_jump_time} -> 0
+{leftLeg_rotX} @ {goblin_jump_time} -> 0
+{leftLeg_rotY} @ {goblin_jump_time} -> 0
+{leftLeg_rotZ} @ {goblin_jump_time} -> 0
+{rightArm_rotX} @ {goblin_jump_time} -> 0
+{rightArm_rotY} @ {goblin_jump_time} -> 0
+{rightArm_rotZ} @ {goblin_jump_time} -> 0
+{leftArm_rotX} @ {goblin_jump_time} -> 0
+{leftArm_rotY} @ {goblin_jump_time} -> 0
+{leftArm_rotZ} @ {goblin_jump_time} -> 0
