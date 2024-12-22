@@ -1,5 +1,7 @@
 {
   "inputs": [
-    "mhp:goblin/goblin_jump"
+    "mhp:boost/goblin_flight_anim",
+    "mhp:hover/goblin_flight_anim",
+    "mhp:idle/goblin_flight_anim"
   ]
 }
