@@ -21,7 +21,7 @@ function initEffects(renderer) {
     model.texture.set("glider");
     glider = renderer.createEffect("fiskheroes:model").setModel(model);
     glider.anchor.set("body");
-    glider.setScale(1.6);
+    glider.setScale(1.4);
 }
 
 
@@ -38,7 +38,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
     var s = entity.getData("fiskheroes:flying");
     
     if (f > 0) {
-        glider.setOffset(5, -3, (s ? 300 : -200) * (1 - f));
+        glider.setOffset(4, 1, (s ? 300 : -200) * (1 - f));
         glider.render();
         }
 }
