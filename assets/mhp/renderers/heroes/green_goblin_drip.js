@@ -1,7 +1,7 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
     "layer1": "mhp:goblin/drip_or_drown_layer1",
-    "layer2": "mhp:goblin/drip_or_drown_layer1",
+    "layer2": "mhp:goblin/drip_or_drown_layer2",
     "glider": "mhp:goblin/goblin_glider_texture"
 });
 
