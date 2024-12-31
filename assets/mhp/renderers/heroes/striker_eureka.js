@@ -30,7 +30,7 @@ function initEffects(renderer) {
     var model = renderer.createResource("MODEL", "mhp:striker_eureka");
     model.bindAnimation("mhp:striker_eureka/idle_striker_eureka").setData((entity, data) => data.load(entity.loop(70)));
     model.bindAnimation("mhp:striker_eureka/movement_striker_eureka").setData((entity, data) => data.load(1, !entity.isSneaking() ? !entity.getData("fiskheroes:flying"): 0));
-    model.bindAnimation("mhp:striker_eureka/striker_eureka_cannons").setData((entity, data) => data.load(0, entity.getInterpolatedData("fiskheroes:beam_charging")));
+    model.bindAnimation("mhp:striker_eureka/striker_eureka_cannons").setData((entity, data) => data.load(0, entity.getInterpolatedData("fiskheroes:beam_charge")));
     model.bindAnimation("mhp:striker_eureka/dual_punch_striker_eureka").setData((entity, data) => {
         data.load(entity.getData("fiskheroes:blade_timer") ? Math.min(4 * entity.getPunchTimerInterpolated(), 1) : 0);
     }).priority = -8;

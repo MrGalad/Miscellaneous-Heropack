@@ -1,0 +1,8 @@
+{
+    "parent": "fiskheroes:sound_base",
+    "sound": "mhp:main.rockets",
+    "loop": false,
+    "condition": "fiskheroes:beam_charging",
+    "fadeOut": 5
+  }
+  

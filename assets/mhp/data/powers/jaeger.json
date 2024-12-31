@@ -10,14 +10,6 @@
         "ENABLE": "fiskheroes:manta_blade_enable",
         "DISABLE": "fiskheroes:manta_blade_disable"
         }},
-        "fiskheroes:cooldown": {
-          "cooldown": {
-            "toggleData": "fiskheroes:speeding",
-            "cooldownData": "harpack:dyn/superspeed_cooldown",
-            "duration": 40,
-            "recovery": 0.25
-          }
-        },
         "fiskheroes:charged_beam": {
           "damageProfile": {
             "damage": 9.0,
@@ -31,10 +23,13 @@
             }
           },
           "chargeTime": 20,
-          "duration": 60,
+          "duration": 40,
           "cooldownTime": 40,
           "range": 32.0,
-          "radius": 0.4
+          "radius": 0.4,
+          "soundEvents": {
+            "CHARGE": "mhp:rockets"
+          }
         }
       }
     }

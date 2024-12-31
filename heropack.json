@@ -16,7 +16,8 @@
     "robocop_step": { "distance": 16.0, "sendToAll": true },
     "robocop_voice": { "distance": 16.0, "sendToAll": true },
     "termy_voice": { "distance": 16.0, "sendToAll": true },
-    "sent_shoot": { "distance": 32.0, "sendToAll": true }
+    "sent_shoot": { "distance": 32.0, "sendToAll": true },
+    "rockets": { "distance": 32.0, "sendToAll": true }
   }
 },
 "damageTypes": {
