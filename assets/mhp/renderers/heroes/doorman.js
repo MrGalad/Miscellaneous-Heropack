@@ -39,11 +39,12 @@ function initEffects(renderer) {
     physics.weight = 1.0;
     physics.maxFlare = 0.5;
     cape = capes.createDefault(renderer, 24, "fiskheroes:cape_default.mesh.json", physics);
-    cape.effect.texture.set("cape");
+    cape.effect.texture.set("fullcape");
 
     glow = renderer.createEffect("fiskheroes:glowerlay");
     glow.includeEffects(cape.effect);
     glow.color.set(0x000000);
+    utils.bindParticles(renderer, "mhp:doorman_glow");
 
     utils.setOpacityWithData(renderer, 0.5, 1.0, "fiskheroes:intangibility_timer");
 	utils.bindCloud(renderer, "fiskheroes:teleportation", "mhp:doorman_teleport");

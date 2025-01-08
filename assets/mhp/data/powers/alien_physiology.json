@@ -79,7 +79,7 @@
         }
       },
       "fiskheroes:slow_motion": {
-        "isToggle": false
+        "isToggle": true
       },
       "fiskheroes:projectile_immunity": {
       },

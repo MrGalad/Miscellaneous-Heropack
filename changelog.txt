@@ -1,15 +1,27 @@
-### Miscellaneous Heropack 3.1 ###
+### Miscellaneous Heropack 3.2 ###
 
-Added Okoye (Midnight Angel) Suit
+Added Okoye (Midnight Angel) suit
+Added Green Goblin suit
+Added Green Goblin (Drip Or Drown) alt
+Added Striker Eureka (Pacific Rim) suit
 Added Colors to Master Chief's Mob Scan
+Added 'Run Diagnosics' ability to Master Chief
 
 Fixed being able to spam 'SHAZAM' ability with Black Adam
 Fixed having Doorman's stats when not transformed
 Fixed bug where you could have infinite Reverse Flash suits
 
-Changed Doorman's transformation
+Removed Auto Run Diagnosics after enabling Cortana
 
 Updated Winchester 1887's model
+Updated Metroman's skin
+Updated Metroman's trail
+Updated Doorman's transformation
+
+### Miscellaneous Heropack 3.1 ###
+
+Fixed Soul Stone's power displayed as Time Stone
+
 
 ### Miscellaneous Heropack 3.0 ###
 

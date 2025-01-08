@@ -19,7 +19,23 @@ function initEffects(renderer) {
     cape = capes.createDefault(renderer, 24, "fiskheroes:cape_default.mesh.json", physics);
     cape.effect.texture.set("cape");
     parent.initEffects(renderer);
-    utils.bindTrail(renderer, "mhp:speed");
+    var trail = renderer.bindProperty("fiskheroes:trail");
+    var trail1 = renderer.createResource("TRAIL", "mhp:metroman");
+    var trail2 = renderer.createResource("TRAIL", "mhp:metroman_1");
+    var trail3 = renderer.createResource("TRAIL", "mhp:metroman_2");
+
+    trail.setCondition(entity => {
+        var ticks = entity.ticksExisted();
+        if (ticks % 12 < 2) {
+            trail.setTrail(trail1);
+        } else if (ticks % 12 < 4) {
+            trail.setTrail(trail2);
+        } else if (ticks % 12 < 6) {
+            trail.setTrail(trail3);
+        }
+        return entity.getData("fiskheroes:speeding");
+    });
+
     utils.addCameraShake(renderer, 0.1, 1.5, "fiskheroes:dyn/superhero_landing_timer");
     utils.bindParticles(renderer, "mhp:boost_flight").setCondition(entity => entity.getData("fiskheroes:dyn/flight_super_boost") == 1) ;
     utils.bindParticles(renderer, "mhp:landing_particles").setCondition(entity => entity.getData("fiskheroes:dyn/superhero_landing_timer") == 1)

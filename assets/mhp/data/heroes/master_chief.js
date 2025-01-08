@@ -62,14 +62,16 @@ function init(hero) {
     })
 }
 function run(entity) {
-    var armor = (1024 - entity.getWornChestplate().damage())
-    var health = (Math.round(entity.getHealth() * 10) / 10)
-    var damage = (0 + entity.getWornChestplate().damage())
+    var armor = (1024 - entity.getWornChestplate().damage());
+    var health = (Math.round(entity.getHealth() * 10) / 10);
+    var damage = (0 + entity.getWornChestplate().damage());
+
     if (PackLoader.getSide() === "CLIENT") {
-    PackLoader.printChat("\u00A73<Cortana>\u00A7b Health: " + health),
-    PackLoader.printChat("\u00A73<Cortana>\u00A7b Overall Armor Integrity: " + armor + " / 1024")
-    PackLoader.printChat("\u00A73<Cortana>\u00A7b Total Damage Received: " + damage)
-}
+        PackLoader.printChat("\u00A73<Cortana>\u00A7b Health: " + health);
+        PackLoader.printChat("\u00A73<Cortana>\u00A7b Overall Armor Health: " + armor + " / 1024");
+        PackLoader.printChat("\u00A73<Cortana>\u00A7b Total Damage Received: " + damage);
+    }
+    return true;
 }
 
 function cortanaOn(player, manager) {
@@ -125,7 +127,7 @@ function isKeyBindEnabled(entity, keyBind) {
         case "GUN_RELOAD":
             return entity.getHeldItem().isGun() && !entity.getData("fiskheroes:aiming");
         case "func_CORTANA":
-            return entity.isSneaking();
+            return entity.isSneaking() && entity.getData("mhp:dyn/cortana");
             case "SHADOWDOME":
             return entity.isSneaking() && entity.getData("mhp:dyn/mob_timer") == 0 && entity.getData("mhp:dyn/cortana");
             case "RUN":
