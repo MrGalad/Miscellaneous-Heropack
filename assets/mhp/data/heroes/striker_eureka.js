@@ -24,6 +24,7 @@ function init(hero) {
     hero.setDamageProfile(getProfile);
     hero.addDamageProfile("STINGBLADES", {"types": {"SHARP": 1.0}});
 
+    hero.setTickHandler(tick);
 }
 
 function stingbladesProfile(profile) {
@@ -33,4 +34,13 @@ function stingbladesProfile(profile) {
 
 function getProfile(entity) {
     return entity.getData("fiskheroes:blade") ? "STINGBLADES" : null;
+}
+function tick(entity, manager){
+    if (entity.getData("mhp:dyn/fire_timer") == 0) {
+        manager.setData(entity, "mhp:dyn/fire", false);
+    } else if (entity.getData("mhp:dyn/fire_timer") == 1) {
+        manager.setData(entity, "mhp:dyn/fire", true);
+    }
+manager.incrementData(entity, "mhp:dyn/fire_timer", 16, !entity.getData("mhp:dyn/fire"));
+
 }

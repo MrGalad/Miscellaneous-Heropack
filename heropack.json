@@ -113,7 +113,9 @@
 "attack_timer": "FLOAT_INTERP",
 "shazam": { "type": "BOOLEAN", "resetWithoutSuit": true },
 "shazam_timer": { "type": "FLOAT_INTERP", "resetWithoutSuit": true },
-"chestburst_cd": { "type": "FLOAT_INTERP", "resetWithoutSuit": true }
+"chestburst_cd": { "type": "FLOAT_INTERP", "resetWithoutSuit": true },
+"fire": "BOOLEAN",
+"fire_timer": "FLOAT_INTERP"
 },
 "alts": {
   "mhp:sunspot": {
