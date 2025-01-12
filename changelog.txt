@@ -12,11 +12,14 @@ Fixed having Doorman's stats when not transformed
 Fixed bug where you could have infinite Reverse Flash suits
 
 Removed Auto Run Diagnosics after enabling Cortana
+Removed Ultraman
 
 Updated Winchester 1887's model
 Updated Metroman's skin
 Updated Metroman's trail
 Updated Doorman's transformation
+
+Changed 'Energy Blade' weapon to 'Energy Sword'
 
 ### Miscellaneous Heropack 3.1 ###
 

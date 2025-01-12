@@ -40,20 +40,7 @@ function init(hero) {
     hero.addPrimaryEquipment("fiskheroes:superhero_chestplate{HeroType:mhp:time_stone}", false, item => item.nbt().getString("HeroType") == "mhp:time_stone");
     hero.addPrimaryEquipment("fiskheroes:superhero_chestplate{HeroType:mhp:soul_stone}", false, item => item.nbt().getString("HeroType") == "mhp:soul_stone");
 
-
-    /* for (var i = 0; i < stones.length; i++) {
-        var color = colors[i % colors.length];
-        var stoneName = stones[i % stones.length].charAt(0).toUpperCase() + stones[i % stones.length].slice(1);
-        var prevStoneName = stones[(i - 1 + stones.length) % stones.length].charAt(0).toUpperCase() + stones[(i - 1 + stones.length) % stones.length].slice(1);
-        var nextStoneName = stones[(i + 1) % stones.length].charAt(0).toUpperCase() + stones[(i + 1) % stones.length].slice(1);
-        var prevColor = colors[(i - 1 + colors.length) % colors.length];
-        var nextColor = colors[(i + 1) % colors.length];
-        var keyBindName = "STONE_FORWARDS_" + stones[i % stones.length];
-        var sneakingKeyBindName = "STONE_BACKWARDS_" + stones[i % stones.length];
-        hero.addKeyBindFunc(keyBindName, cycleStones, prevColor + prevStoneName + "\u00A7f > " + color + "\u00A7l" + stoneName + "\u00A7r" + " > " + nextColor + nextStoneName, 1);
-        hero.addKeyBindFunc(sneakingKeyBindName, cycleStones, prevColor + prevStoneName + "\u00A7f < " + color + "\u00A7l" + stoneName + "\u00A7r" + " < " + nextColor + nextStoneName, 1);
-    }  */
-
+    
         for (var i = 0; i < stones.length; i++) {
             if (stones[i]) { 
                 var color = colors[i % colors.length];

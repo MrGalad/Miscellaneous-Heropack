@@ -144,37 +144,24 @@ function initEffects(renderer) {
     firetopL.setScale(0.8);
     firetopL.anchor.ignoreAnchor(true);
 }
-var yes = true;
-var effectDuration = 1000; // Duration in milliseconds (e.g., 1000ms = 1 second)
-var effectStartTime = 0;
 var active = true
-
 function render(entity, renderLayer, isFirstPersonArm) {
     if (!isFirstPersonArm) {
         striker_eureka.render();
 
         if (entity.getData("fiskheroes:beam_charge") > 0.99 /* && active */) {
-            firebotR.render();
-            firebotL.render();
-            firebotM.render();  
-            active = false
-
-        
-           /*  if (effectStartTime === 0) {
-                effectStartTime = Date.now(); 
-            }
-
-        
-            if (Date.now() - effectStartTime >= effectDuration) {
-                yes = false; 
-                effectStartTime = 0; 
-            } */
-        } else if (entity.getData("fiskheroes:beam_charge") >= 0.8 && active) {
-            firetopL.render();
-        } else if (entity.getData("fiskheroes:beam_charge") >= 0.7 && active) {
-            firetopM.render();
-        } else if (entity.getData("fiskheroes:beam_charge") >= 0.6 && active) {
             firetopR.render();
+            active = false
+        } else if (entity.getData("fiskheroes:beam_charge") >= 0.9 && active) {
+            firebotL.render();
+        } else if (entity.getData("fiskheroes:beam_charge") >= 0.85 && active) {
+            firebotM.render();
+        } else if (entity.getData("fiskheroes:beam_charge") >= 0.8 && active) {
+            firebotR.render();
+        } else if (entity.getData("fiskheroes:beam_charge") >= 0.7 && active) {
+            firetopL.render();
+        } else if (entity.getData("fiskheroes:beam_charge") >= 0.6 && active) {
+            firetopM.render();
         } else if (entity.getData("fiskheroes:beam_charge") < 0.1 && !active) {
             active = true;
         }

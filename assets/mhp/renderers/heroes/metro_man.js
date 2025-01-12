@@ -41,8 +41,8 @@ function initEffects(renderer) {
     utils.bindParticles(renderer, "mhp:landing_particles").setCondition(entity => entity.getData("fiskheroes:dyn/superhero_landing_timer") == 1)
     
     utils.bindBeam(renderer, "fiskheroes:heat_vision", "mhp:heat_vision", "head", 0xFF0000, [
-        { "firstPerson": [2.2, 0.0, 2.0], "offset": [2.0, -3.3, -4.0], "size": [0.6, 0.3] },
-        { "firstPerson": [-2.2, 0.0, 2.0], "offset": [-2.0, -3.3, -4.0], "size": [0.6, 0.3] }
+        { "firstPerson": [2.2, 0.0, 2.0], "offset": [1.7, -3.3, -4.0], "size": [0.6, 0.3] },
+        { "firstPerson": [-2.2, 0.0, 2.0], "offset": [-1.7, -3.3, -4.0], "size": [0.6, 0.3] }
     ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "fiskheroes:impact_heat_vision"));
     var night_vision = renderer.bindProperty("fiskheroes:night_vision").setCondition(entity => {
         night_vision.factor = 1
