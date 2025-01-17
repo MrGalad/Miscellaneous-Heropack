@@ -1,0 +1,55 @@
+
+{data} = curve {data}
+
+{head_rotX} @ {data} -> -40'
+{head_rotY} @ {data} -> 0'
+{head_rotZ} @ {data} -> 0'
+
+{head_posX} @ {data} -> 0
+{head_posY} @ {data} -> 0
+{head_posZ} @ {data} -> 0
+
+{body_rotX} @ {data} -> 0'
+{body_rotY} @ {data} -> 0'
+{body_rotZ} @ {data} -> 0'
+
+{body_posX} @ {data} -> 0
+{body_posY} @ {data} -> 0
+{body_posZ} @ {data} -> 0
+
+{leftArm_rotX} @ {data} -> -150'
+{leftArm_rotY} @ {data} -> 0'
+{leftArm_rotZ} @ {data} -> 20'
+
+{leftArm_posX} @ {data} -> 5
+{leftArm_posY} @ {data} -> 2
+{leftArm_posZ} @ {data} -> 0
+
+{rightArm_rotX} @ {data} -> -150'
+{rightArm_rotY} @ {data} -> 0'
+{rightArm_rotZ} @ {data} -> -20'
+
+{rightArm_posX} @ {data} -> -5
+{rightArm_posY} @ {data} -> 2
+{rightArm_posZ} @ {data} -> 0
+
+{leftLeg_rotX} @ {data} -> 20'
+{leftLeg_rotY} @ {data} -> -5'
+{leftLeg_rotZ} @ {data} -> -5'
+
+{leftLeg_posX} @ {data} -> 1.9
+{leftLeg_posY} @ {data} -> 12
+{leftLeg_posZ} @ {data} -> 0
+
+{rightLeg_rotX} @ {data} -> 10'
+{rightLeg_rotY} @ {data} -> 10'
+{rightLeg_rotZ} @ {data} -> 0'
+
+{rightLeg_posX} @ {data} -> -2.6
+{rightLeg_posY} @ {data} -> 8.5
+{rightLeg_posZ} @ {data} -> -3.5
+
+out "pivot" (0, 0.4, 0)
+out "translate" (0, 0.5{data}, 0.25{data})
+out "rotate" (-80{data} + max(40{motY}, -80){data}, 1, 0, 0)
+

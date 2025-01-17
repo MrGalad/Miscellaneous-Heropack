@@ -1,0 +1,20 @@
+{
+    "particles": [
+        { 
+        "type": "SHORT_FLAME",
+        "anchor": "body",
+        "amount": 5,
+        "offset": [
+            0.0,
+            0.0,
+            0.0
+        ],
+        "randOffset": [
+            1.0,
+            0.8,
+            1.0
+        ],
+        "mirror": false
+    }
+]
+}

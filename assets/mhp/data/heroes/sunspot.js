@@ -13,6 +13,7 @@ function init(hero) {
     hero.addAttribute("SPRINT_SPEED", 0.2, 1);
     
     hero.addKeyBind("AIM", "key.shoot", 1);
+    hero.addKeyBind("HALF", "Activate Powers", 4);
     /* hero.addKeyBind("ENERGY_PROJECTION", "Fire Projection", 2); */
     hero.addKeyBind("NANITE_TRANSFORM", "Solar Form", 5);
 
@@ -21,7 +22,7 @@ function init(hero) {
     hero.setTierOverride(getTierOverride);
     hero.supplyFunction("canAim", canAim); 
     hero.setHasProperty((entity, property) => property == "BREATHE_SPACE")
-    hero.setDamageProfile(entity => entity.getHeldItem().isEmpty() ? "FLAME_PUNCH" : null);
+    hero.setDamageProfile(entity => entity.getHeldItem().isEmpty() && (entity.getData("mhp:dyn/solar") || entity.getData("mhp:dyn/half_solar")) ? "FLAME_PUNCH" : null);
     hero.addDamageProfile("FLAME_PUNCH", {
         "types": {
             "BLUNT": 1.0,
@@ -40,7 +41,9 @@ function init(hero) {
             manager.setData(entity, "fiskheroes:aiming", false)
         } else if (!entity.getData("mhp:dyn/solar")) {
             manager.setData(entity, "fiskheroes:controlled_flight", false)
-        }
+        } else if (entity.getData("mhp:dyn/solar")) {
+            manager.setData(entity, "mhp:dyn/half_solar", false)
+        } 
     })
 } 
 
@@ -49,13 +52,15 @@ function getTierOverride(entity) {
 }
 
 function canAim(entity) {
-    return entity.getHeldItem().isEmpty();
+    return entity.getHeldItem().isEmpty() && (entity.getData("mhp:dyn/solar") || entity.getData("mhp:dyn/half_solar"));
 }
 
 function isModifierEnabled(entity, modifier) {
     switch (modifier.name()) {
         case "fiskheroes:controlled_flight":
             return entity.getData("mhp:dyn/solar");
+        case "fiskheroes:fireball":
+            return (entity.getData("mhp:dyn/solar") || entity.getData("mhp:dyn/half_solar"))
 }
 return true;
 }
@@ -66,6 +71,8 @@ function isKeyBindEnabled(entity, keyBind) {
         return entity.getData("mhp:dyn/solar") && !entity.getData("fiskheroes:aiming") && entity.getHeldItem().isEmpty();
         case "AIM":
             return entity.getData("mhp:dyn/solar") && !entity.getData("fiskheroes:energy_projection") && entity.getHeldItem().isEmpty();
+        case "HALF":
+            return !entity.getData("mhp:dyn/solar");
 }
 return true;
 }

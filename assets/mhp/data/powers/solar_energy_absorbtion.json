@@ -13,6 +13,18 @@
           "DISABLE": "fiskheroes:flame_off"
         }
       },
+      "fiskheroes:transformation|half": {
+        "key": "HALF",
+        "transformation": {
+          "toggleData": "mhp:dyn/half_solar",
+          "timerData": "mhp:dyn/half_solar_timer",
+          "time": 5
+        },
+        "soundEvents": {
+          "ENABLE": "fiskheroes:flame_on",
+          "DISABLE": "fiskheroes:flame_off"
+        }
+      },
       "fiskheroes:controlled_flight": {
         "speed": 0.1,
         "boostSpeed": 0.15,

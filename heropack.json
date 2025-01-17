@@ -59,6 +59,8 @@
   "grapple_timer": "FLOAT_INTERP",
   "solar": "BOOLEAN",
   "solar_timer": "FLOAT_INTERP",
+  "half_solar": "BOOLEAN",
+  "half_solar_timer": "FLOAT_INTERP",
   "transformation": {
     "type": "BOOLEAN"
 },

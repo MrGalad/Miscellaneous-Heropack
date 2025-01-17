@@ -1,13 +1,13 @@
 {
   "texture": {
-    "in": "mhp:solar",
+    "in": "mhp:sunspot/sunspot_full",
     "transform": [
       {
         "operation": "XOR",
-        "supply": "mhp:sunspot/xor/sun_<TIMER>"
+        "supply": "fiskheroes:xor/iron_man_mk50_suit_<TIMER>"
       }
     ],
-    "out": "mhp:generated/sun_<TIMER>"
+    "out": "mhp:generated/sunspot_full_<TIMER>"
   },
   "getters": {
     "TIMER": {

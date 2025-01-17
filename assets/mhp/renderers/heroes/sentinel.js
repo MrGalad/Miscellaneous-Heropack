@@ -80,11 +80,11 @@ function initEffects(renderer) {
     //Rlega.anchor.ignoreAnchor(isFirstPersonArm)
 
 
-    utils.bindBeam(renderer, "fiskheroes:charged_beam", "mhp:heat_vision", "head", color, [
+    utils.bindBeam(renderer, "fiskheroes:charged_beam", "mhp:sentinel", "head", color, [
         { "firstPerson": [0, 0, 0], "offset": [0, 0.30, 1.0], "size": [0.8, 0.8] }
     ]);
 
-    utils.bindBeam(renderer, "fiskheroes:energy_projection", "mhp:heat_vision", "head", color, [
+    utils.bindBeam(renderer, "fiskheroes:energy_projection", "mhp:sentinel", "head", color, [
         { "firstPerson": [0, 0, 0], "offset": [0, 0.30, 1.0], "size": [0.8, 0.8] }
     ]);
 }

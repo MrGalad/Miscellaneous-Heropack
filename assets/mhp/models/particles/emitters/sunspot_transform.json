@@ -1,0 +1,53 @@
+{
+    "particles": [
+        { 
+        "type": "SHORT_FLAME",
+        "anchor": "body",
+        "amount": 70,
+        "offset": [
+            0.0,
+            0.0,
+            0.0
+        ],
+        "randOffset": [
+            1.0,
+            0.8,
+            1.0
+        ],
+        "mirror": false
+    },
+    {
+        "type": "SMOKE_SMALL",
+        "anchor": "body",
+        "amount": 60,
+        "offset": [
+            0.0,
+            0.0,
+            0.0
+        ],
+        "randOffset": [
+            0.5,
+            0.5,
+            0.5
+        ],
+        "mirror": false
+    },
+    {
+       "condition": "entity.getData('mhp:dyn/solar_timer') == 1",
+        "type": "SHORT_FLAME",
+        "anchor": "body",
+        "amount": 30,
+        "offset": [
+            0.0,
+            0.0,
+            0.0
+        ],
+        "randOffset": [
+            0.8,
+            0.6,
+            0.8
+        ],
+        "mirror": false
+    }
+]
+}
