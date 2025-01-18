@@ -67,7 +67,7 @@
 "transformation_timer": {
     "type": "FLOAT_INTERP"
 },
-  "repair": {
+"repair": {
     "type": "BOOLEAN",
     "resetWithoutSuit": false
 },
@@ -117,7 +117,39 @@
 "shazam_timer": { "type": "FLOAT_INTERP", "resetWithoutSuit": true },
 "chestburst_cd": { "type": "FLOAT_INTERP", "resetWithoutSuit": true },
 "fire": "BOOLEAN",
-"fire_timer": "FLOAT_INTERP"
+"fire_timer": "FLOAT_INTERP",
+"roll": {
+    "type": "BOOLEAN",
+    "resetWithoutSuit": false
+},
+"roll_timer": {
+    "type": "FLOAT_INTERP",
+    "resetWithoutSuit": false
+},
+"slide": {
+    "type": "BOOLEAN",
+    "resetWithoutSuit": false
+},
+"slide_timer": {
+    "type": "FLOAT_INTERP",
+    "resetWithoutSuit": false
+},
+"sneaking": {
+    "type": "BOOLEAN",
+    "resetWithoutSuit": false
+},
+"sneaking_timer": {
+    "type": "FLOAT_INTERP",
+    "resetWithoutSuit": true
+},
+"sneak_anim": {
+    "type": "FLOAT_INTERP",
+    "resetWithoutSuit": true
+},
+"sprinting": {
+    "type": "FLOAT_INTERP",
+    "resetWithoutSuit": true
+}
 },
 "alts": {
   "mhp:sunspot": {

@@ -51,4 +51,4 @@
 
 out "translate" (0, -0.5{data}, 0)
 out "pivot" (0, 0.6, 0)
-out "rotate" (360{x}, 1, 0, 0)
+out "rotate" (360{x}, -1, 0, 0)

@@ -17,9 +17,27 @@ function init(renderer) {
 
 function initAnimations(renderer) {
     parent.initAnimations(renderer);
-    
-    renderer.showModel("CHESTPLATE", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
+    addAnimation(renderer, "ezio.LAND", "mhp:roll_galahad") 
+    .setData((entity, data) => {
+    data.load(entity.getData("mhp:dyn/roll") ? entity.getInterpolatedData("mhp:dyn/roll_timer") : 0);
+}).priority = 0;
+    /* addAnimationWithData(renderer, "ezio.LAND", "mhp:roll_galahad", "fiskheroes:dyn/superhero_landing_timer")
+    .priority = -8; */
 
+    addAnimationWithData(renderer, "ezio.LEAP", "mhp:leap_galahad", "mhp:dyn/float_interp")
+    .priority = 10;
+
+    addAnimationWithData(renderer, "ezio.SNEAK", "mhp:ezio_crouch", "mhp:dyn/sneaking_timer")
+    .priority = 10;
+
+  /*   addAnimationWithData(renderer, "ezio.SLIDE", "mhp:slide_galahad", "mhp:dyn/slide_timer")
+    .priority = -8;
+ */
+    addAnimationWithData(renderer, "ezio.SPRINT", "fiskheroes:speedster_sprint", "mhp:dyn/sprinting").priority = -1;
+    addAnimation(renderer, "ezio.SLIDE", "mhp:slide_galahad") 
+    .setData((entity, data) => {
+    data.load(entity.getData("mhp:dyn/slide") ? entity.getInterpolatedData("mhp:dyn/slide_timer") : 0);
+}).priority = 0;
 }
 
 function initEffects(renderer) {
