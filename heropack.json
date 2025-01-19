@@ -1,8 +1,8 @@
 {
   "name": "Miscellaneous Heropack",
-  "description": "Misc suits n stuff",
+  "description": "\u00A7a\u00A7lv3.2 \u00A77- \u00A7a\u00A7lMiscellaneous Heropack",
   "domain": "mhp",
-  "watermark": "&l\u00A72Miscellaneous &l\u00A72Heropack",
+  "watermark": "\u00A7aMiscellaneous \u00A7aHeropack",
   "packFormat": 1,
  "sounds": {
   "download": {
@@ -143,6 +143,14 @@
     "resetWithoutSuit": true
 },
 "sneak_anim": {
+    "type": "FLOAT_INTERP",
+    "resetWithoutSuit": true
+},
+"vault_timer": {
+    "type": "FLOAT_INTERP",
+    "resetWithoutSuit": true
+},
+"vault2_timer": {
     "type": "FLOAT_INTERP",
     "resetWithoutSuit": true
 },

@@ -30,6 +30,15 @@ function initAnimations(renderer) {
     addAnimationWithData(renderer, "ezio.SNEAK", "mhp:ezio_crouch", "mhp:dyn/sneaking_timer")
     .priority = 10;
 
+    addAnimationWithData(renderer, "ezio.VAULT", "mhp:vault_galahad", "mhp:dyn/vault_timer")
+    .priority = 10;
+/* 
+    addAnimation(renderer, "ezio.VAULT", "mhp:vault_galahad") 
+    .setData((entity, data) => {
+    data.load(entity.getData("mhp:dyn/vault_timer") == 0 ? 0 : entity.getInterpolatedData("mhp:dyn/vault_timer") * 2);
+}).priority = 0; */
+
+
   /*   addAnimationWithData(renderer, "ezio.SLIDE", "mhp:slide_galahad", "mhp:dyn/slide_timer")
     .priority = -8;
  */

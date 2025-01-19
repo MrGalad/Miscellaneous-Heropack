@@ -21,6 +21,15 @@
         "soundEvents": {
         }
       },
+      "fiskheroes:transformation|vault": {
+        "transformation": {
+          "toggleData": "mhp:dyn/boolean",
+          "timerData": "mhp:dyn/vault_timer",
+          "time": 15
+        },
+        "soundEvents": {
+        }
+      },
       "fiskheroes:controlled_flight": {
         "speed": 0.2,
         "boostSpeed": 0.2,
