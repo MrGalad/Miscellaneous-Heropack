@@ -167,6 +167,7 @@ function init(hero) {
         manager.incrementData(entity, "mhp:dyn/roll_timer", 14, entity.getData("mhp:dyn/roll"));
         manager.incrementData(entity, "mhp:dyn/sneaking_timer", 30, (ledge(entity) && entity.isSneaking() && entity.isOnGround() && !entity.getData("fiskheroes:moving")));
         manager.incrementData(entity, "mhp:dyn/vault2_timer", 10, isVaulting);
+        manager.incrementData(entity, "mhp:dyn/climb_timer", 14, climb(entity));
         manager.incrementData(entity, "mhp:dyn/sprinting", 7, entity.isSprinting() && entity.isOnGround());
     });
 }

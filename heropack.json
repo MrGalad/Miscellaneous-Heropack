@@ -165,6 +165,10 @@
 "sprinting": {
     "type": "FLOAT_INTERP",
     "resetWithoutSuit": true
+},
+"climb_timer": {
+    "type": "FLOAT_INTERP",
+    "resetWithoutSuit": true
 }
 },
 "alts": {
