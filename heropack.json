@@ -150,9 +150,17 @@
     "type": "FLOAT_INTERP",
     "resetWithoutSuit": true
 },
+"vault_delay": {
+    "type": "FLOAT_INTERP",
+    "resetWithoutSuit": true
+},
 "vault2_timer": {
     "type": "FLOAT_INTERP",
     "resetWithoutSuit": true
+},
+"vault2_initialized": {
+    "type": "BOOLEAN",
+    "resetWithoutSuit": false
 },
 "sprinting": {
     "type": "FLOAT_INTERP",

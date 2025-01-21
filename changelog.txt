@@ -1,56 +1,57 @@
 ### Miscellaneous Heropack 3.2 ###
 
-Added Okoye (Midnight Angel) suit
-Added Green Goblin suit
-Added Green Goblin (Drip Or Drown) alt
-Added Striker Eureka (Pacific Rim) suit
-Added Colors to Master Chief's Mob Scan
-Added 'Run Diagnosics' ability to Master Chief
+- Added Okoye (Midnight Angel) suit
+- Added Green Goblin suit
+- Added Green Goblin (Drip Or Drown) alt
+- Added Striker Eureka (Pacific Rim) suit
+- Added Colors to Master Chief's Mob Scan
+- Added 'Run Diagnosics' ability to Master Chief
 
-Fixed being able to spam 'SHAZAM' ability with Black Adam
-Fixed having Doorman's stats when not transformed
-Fixed bug where you could have infinite Reverse Flash suits
+- Fixed being able to spam 'SHAZAM' ability with Black Adam
+- Fixed having Doorman's stats when not transformed
+- Fixed bug where you could have infinite Reverse Flash suits
 
-Removed Auto Run Diagnosics after enabling Cortana
-Removed Ultraman
+- Removed Auto Run Diagnosics after enabling Cortana
+- Removed Ultraman
+- Removed Vidor
 
-Updated Winchester 1887's model
-Updated Metroman's skin
-Updated Metroman's trail
-Updated Doorman's transformation
+- Updated Winchester 1887's model
+- Updated Metroman's skin
+- Updated Metroman's trail
+- Updated Doorman's transformation
 
-Changed 'Energy Blade' weapon to 'Energy Sword'
+- Changed 'Energy Blade' weapon to 'Energy Sword'
 
-### Miscellaneous Heropack 3.1 ###
+- ### Miscellaneous Heropack 3.1 ###
 
-Fixed Soul Stone's power displayed as Time Stone
+- Fixed Soul Stone's power displayed as Time Stone
 
 
-### Miscellaneous Heropack 3.0 ###
+- ### Miscellaneous Heropack 3.0 ###
 
-Added Black Adam suit
-Added Reverse Flash suit
-Added Charles Xavier suit
-Added Infinity Gauntlet suit
-Added Soul Stone suit
-Added Power Stone suit 
-Added Reality Stone suit
-Added Time Stone suit
-Added Mind Stone suit
-Added Space Stone suit
-Added lights to Sunspot
-Added "Mob Scan" ability to Master Chief
-Added Custom Sound to "Grappleshot" ability 
-Added Master Chief's energy blade as a Fisktag weapon
-Added Custom Sound to Energy Blade  
-Added Lights to The Ray
-Added Glow effect to The Ray
-Added w/ cape alt to Black Adam
-Added Kryptonite weakness to Ultraman
+- Added Black Adam suit
+- Added Reverse Flash suit
+- Added Charles Xavier suit
+- Added Infinity Gauntlet suit
+- Added Soul Stone suit
+- Added Power Stone suit 
+- Added Reality Stone suit
+- Added Time Stone suit
+- Added Mind Stone suit
+- Added Space Stone suit
+- Added lights to Sunspot
+- Added "Mob Scan" ability to Master Chief
+- Added Custom Sound to "Grappleshot" ability 
+- Added Master Chief's energy blade as a Fisktag weapon
+- Added Custom Sound to Energy Blade  
+- Added Lights to The Ray
+- Added Glow effect to The Ray
+- Added w/ cape alt to Black Adam
+- Added Kryptonite weakness to Ultraman
 
-Fixed all Weapons in the Heropack
-Fixed being able to use Heat Vision and Freeze Breath simultaneously with Ultraman
+- Fixed all Weapons in the Heropack
+- Fixed being able to use Heat Vision and Freeze Breath simultaneously with Ultraman
 
-Removed "Fire Projection" ability from Sunspot
+- Removed "Fire Projection" ability from Sunspot
 
-Updated Heropack Logo
+- Updated Heropack Logo

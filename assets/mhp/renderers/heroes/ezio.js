@@ -30,14 +30,34 @@ function initAnimations(renderer) {
     addAnimationWithData(renderer, "ezio.SNEAK", "mhp:ezio_crouch", "mhp:dyn/sneaking_timer")
     .priority = 10;
 
-    addAnimationWithData(renderer, "ezio.VAULT", "mhp:vault_galahad", "mhp:dyn/vault_timer")
-    .priority = 10;
-/* 
-    addAnimation(renderer, "ezio.VAULT", "mhp:vault_galahad") 
-    .setData((entity, data) => {
-    data.load(entity.getData("mhp:dyn/vault_timer") == 0 ? 0 : entity.getInterpolatedData("mhp:dyn/vault_timer") * 2);
-}).priority = 0; */
+   /*  addAnimationWithData(renderer, "ezio.VAULT", "mhp:vault_galahad", "mhp:dyn/vault_timer")
+    .priority = 10; */
 
+    addAnimation(renderer, "ezio.VAULT", "mhp:vault_galahad")
+    .setData((entity, data) => {
+        var range = 1.0; // Set the range to 1 block
+        var yawRad = (Math.PI / 180) * entity.rotYaw();
+        var offsetX = -Math.sin(yawRad);
+        var offsetZ = Math.cos(yawRad);
+
+        var posX = entity.posX();
+        var posY = entity.posY();
+        var posZ = entity.posZ();
+
+        var frontFeetPosX = posX + offsetX * range;
+        var frontFeetPosY = posY;
+        var frontFeetPosZ = posZ + offsetZ * range;
+
+        var world = entity.world();
+
+        var isBlockInFrontFeet = world.blockAt(
+            Math.floor(frontFeetPosX),
+            Math.floor(frontFeetPosY),
+            Math.floor(frontFeetPosZ)
+        ).isSolid();
+
+        data.load(entity.getData("mhp:dyn/vault_timer") > 0 && isBlockInFrontFeet);
+    }).priority = 10;
 
   /*   addAnimationWithData(renderer, "ezio.SLIDE", "mhp:slide_galahad", "mhp:dyn/slide_timer")
     .priority = -8;
