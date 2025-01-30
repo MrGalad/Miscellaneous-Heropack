@@ -30,6 +30,9 @@ function initAnimations(renderer) {
     addAnimationWithData(renderer, "ezio.SNEAK", "mhp:ezio_crouch", "mhp:dyn/sneaking_timer")
     .priority = 10;
 
+    addAnimationWithData(renderer, "ezio.CLIMB", "fiskheroes:crawl_wall", "mhp:dyn/climb_timer")
+    .priority = 10;
+
    /*  addAnimationWithData(renderer, "ezio.VAULT", "mhp:vault_galahad", "mhp:dyn/vault_timer")
     .priority = 10; */
 
