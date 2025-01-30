@@ -18,7 +18,7 @@ var check = {
 };
 var colors = ['\u00A71', '\u00A7e', '\u00A74', '\u00A75', '\u00A72', '\u00A76']
 var debounce = false;
-
+var damage = 10000000000;
 function init(hero) {
     hero.setName("Thanos");
     hero.setTier(1);
@@ -57,6 +57,11 @@ function init(hero) {
         }
 
     hero.setTickHandler(function (entity, manager) {
+        snap(hero, entity);
+        if (entity.getData("mhp:dyn/float_interp") == 1) {
+            manager.setData(entity, "mhp:dyn/snap", false);
+            manager.setData(entity, "mhp:dyn/snap_timer", 0);
+        }
         var data = entity.getData("mhp:dyn/stone_select_slot");
         var nbt = entity.getWornChestplate().nbt();
         var equipment = nbt.getTagList("Equipment");
@@ -105,6 +110,7 @@ function init(hero) {
              };
              manager.incrementData(entity, "mhp:dyn/all_active_timer", 60, 0, stoneEquiped("power") && stoneEquiped("space") && stoneEquiped("reality") && stoneEquiped("soul") && stoneEquiped("time") && stoneEquiped("mind"));
              manager.incrementData(entity, "mhp:dyn/time_timer", 60, 0, entity.getData("fiskheroes:speeding") || entity.getData("fiskheroes:slow_motion"));
+             manager.incrementData(entity, "mhp:dyn/float_interp", 90, entity.getData("mhp:dyn/snap_timer"));
  
 
         var currentStone = entity.getWornChestplate().nbt().getString("selectedStone") || "Power";
@@ -152,6 +158,9 @@ function init(hero) {
     // MIND
     hero.addKeyBind("CHARGED_BEAM", "\u00A7eMind Stone Blast", 3);
 
+    // SNAP
+    hero.addKeyBind("SNAP", "\u00A7cYOU SHOULD'VE GONE FOR THE HEAD", 5);
+
     hero.setKeyBindEnabled(isKeyBindEnabled);
     hero.setModifierEnabled(isModifierEnabled);
 
@@ -167,22 +176,37 @@ function init(hero) {
             "IGNITE": 2
         }
     })
-   /*  hero.addDamageProfile("SNAP", {
+    hero.addDamageProfile("SNAP", {
         "types": {
             "ENERGY": 1
         },
         "properties": {
-            "COOK_ENTITY": true,
+            "COOK_ENTITY": false,
             "HEAT_TRANSFER": 160,
             "IGNITE": 2
         }
-    }) */
+    })
 
     hero.setAttributeProfile(getAttributeProfile);
     hero.setDamageProfile(getAttributeProfile);
     hero.setTierOverride(getTierOverride);
     hero.setHasProperty((entity, property) => property == "BREATHE_SPACE");
     hero.supplyFunction("canAim", canAim)
+}
+
+function snap(hero, entity) {
+    if (entity.getData("mhp:dyn/float_interp") == 1) {
+        var range = 20 * entity.getData("mhp:dyn/float_interp");
+        var list = entity.world().getEntitiesInRangeOf(entity.pos(), range);
+        var halfListSize = Math.floor(list.size() / 2);
+    
+        for (var i = 0; i < list.size(); ++i) {
+            var other = list.get(i);
+            if (i >= halfListSize && other.isLivingEntity() && !entity.equals(other)) {
+                other.hurtByAttacker(hero, "SNAP", "%s dusted away", 10000000000, entity);
+            }
+        }
+    }
 }
 
 var cycleStones = function(entity, manager) {
@@ -255,6 +279,8 @@ function isKeyBindEnabled(entity, keyBind) {
 
         case "CHARGED_BEAM":
             return stones[data] == "mind" && nbt.getBoolean("mind");
+       /*  case "SNAP":
+            return stones[data] == "reality" && stones[data] == "mind" && stones[data] == "power" && stones[data] == "time" && stones[data] == "soul" ; */
     } return true
 }
 

@@ -1,0 +1,17 @@
+{thanos_snap_time}={data}
+{thanos_snap_0}=curve animate2({thanos_snap_time},0.59,0,0.35,0.24)
+{thanos_snap_1}=curve animate2({thanos_snap_time},0.47,0.35,0.24,0.23)
+{thanos_snap_2}=curve animate2({thanos_snap_time},0.41,0.59,0.23,0.18)
+
+{head_rotX}+=7.7614005368'{thanos_snap_0}
+{head_rotY}+=-14.8686986478'{thanos_snap_0}
+{head_rotZ}+=-2.0030683551'{thanos_snap_0}
+
+{leftArm_rotX}+=-145'{thanos_snap_0}
+{leftArm_rotX}+=-133.0965281297'{thanos_snap_1}
+{leftArm_rotY}+=-7.9565602985'{thanos_snap_1}
+{leftArm_rotZ}+=9.5786360182'{thanos_snap_1}
+{leftArm_rotX}+=-145'{thanos_snap_2}
+{leftArm_posY}+=6{thanos_snap_0}
+{leftArm_posY}+=5.75{thanos_snap_1}
+{leftArm_posY}+=6{thanos_snap_2}

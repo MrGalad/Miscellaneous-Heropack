@@ -1,0 +1,52 @@
+{
+    "name": "Mind Stone",
+    "modifiers": {
+        "fiskheroes:charged_punch": {
+            "chargeTime": 20,
+            "isToggle": true
+        },
+        "fiskheroes:charged_beam|normal": {
+            "damageProfile": {
+                "damage": 7.0,
+                "types": {
+                    "ENERGY": 1.0
+                },
+                "properties": {
+                    "COOK_ENTITY": true,
+                    "HEAT_TRANSFER": 20
+                }
+            },
+            "chargeTime": 20,
+            "duration": 40,
+            "cooldownTime": 40,
+            "range": 32.0,
+            "radius": 0.1,
+            "soundEvents": {
+                "SHOOT": "fiskheroes:mind_stone_start",
+                "SHOOT_STOP": "fiskheroes:mind_stone_stop",
+                "BEAM_AMBIENT": "fiskheroes:mind_stone_loop",
+                "CHARGE": "fiskheroes:mind_stone_charge"
+            }
+        },
+        "fiskheroes:charged_beam|snap": {
+            "damageProfile": {
+                "damage": 0.0,
+                "types": {
+                    "ENERGY": 1.0
+                },
+                "properties": {
+                    "COOK_ENTITY": true,
+                    "HEAT_TRANSFER": 20
+                }
+            },
+            "chargeTime": 50,
+            "duration": 50,
+            "cooldownTime": 400000,
+            "range": 32.0,
+            "radius": 0.1,
+            "soundEvents": {
+                "CHARGE": "mhp:snap"
+            }
+        }
+    }
+}

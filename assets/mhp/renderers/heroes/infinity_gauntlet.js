@@ -67,6 +67,7 @@ function initEffects(renderer) {
     ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "fiskheroes:impact_charged_beam"));
 
     utils.bindTrail(renderer, "mhp:blur_green");
+    /* utils.bindParticles(renderer, "mhp:snap"); */
 
 
     var powers = 0xAA00AA
@@ -183,16 +184,24 @@ function initAnimations(renderer) {
     renderer.removeCustomAnimation("basic.ENERGY_PROJ");
     renderer.removeCustomAnimation("basic.BLOCKING");
     renderer.removeCustomAnimation("basic.AIMING");
-    addAnimationWithData(renderer, "gaunlet.TELEPORT", "mhp:blocking_left", "fiskheroes:teleport_timer");
-    addAnimationWithData(renderer, "gaunlet.BLOCKING", "mhp:blocking_left", "fiskheroes:shield_blocking_timer");
-    addAnimationWithData(renderer, "gaunlet.CHARGED_BEAM", "mhp:aiming_left", "fiskheroes:beam_charge");
-    addAnimationWithData(renderer, "gaunlet.AIMING", "mhp:aiming_left", "fiskheroes:aiming_timer")
+    addAnimationWithData(renderer, "gauntlet.TELEPORT", "mhp:blocking_left", "fiskheroes:teleport_timer");
+    addAnimationWithData(renderer, "gauntlet.BLOCKING", "mhp:blocking_left", "fiskheroes:shield_blocking_timer");
+    addAnimationWithData(renderer, "gauntlet.CHARGED_BEAM", "mhp:aiming_left", "fiskheroes:beam_charge");
+    addAnimationWithData(renderer, "gauntlet.AIMING", "mhp:aiming_left", "fiskheroes:aiming_timer")
+   /*  addAnimationWithData(renderer, "gaunlet.SNAP", "mhp:snap", "mhp:dyn/float_interp") */
     /* addAnimationWithData(renderer, "gaunlet.ANIM", "mhp:aiming_left", "mhp:dyn/time_timer") */;
     /*  addAnimationWithData(renderer, "gaunlet.ALL", "mhp:thanos", "mhp:dyn/all_active") */
    /*  addAnimation(renderer, "gauntlet.ALL", "mhp:thanos")
         .setData((entity, data) => {
             data.load(entity.getData("mhp:dyn/all_active_timer") == 0 ? 0 : entity.getInterpolatedData("mhp:dyn/all_active_timer") * 2);
         }); */
+
+        addAnimation(renderer, "gauntlet.SNAP", "mhp:snap")
+    .setData((entity, data) => {
+        var data11 = entity.getData("mhp:dyn/float_interp");
+        var newData = Math.max(data11 - 0.5, 0) /* * 2 */;
+        data.load(0, newData);
+    });
 
           addAnimation(renderer, "gauntlet.ANIM", "mhp:aiming_left")
         .setData((entity, data) => {

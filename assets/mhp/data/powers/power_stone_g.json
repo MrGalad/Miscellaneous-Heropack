@@ -4,6 +4,17 @@
         "fiskheroes:charged_punch": {
             "chargeTime": 20,
             "isToggle": true
-        }
+        },
+        "fiskheroes:transformation|snap": {
+            "key": "SNAP",
+            "transformation": {
+              "toggleData": "mhp:dyn/snap",
+              "timerData": "mhp:dyn/snap_timer",
+              "time": 50
+            },
+            "soundEvents": {
+              "ENABLE": "mhp:snap"
+            }
+          }
     }
 }
