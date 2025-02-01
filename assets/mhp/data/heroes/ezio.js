@@ -98,7 +98,11 @@ function init(hero) {
     hero.addAttribute("WEAPON_DAMAGE", 3, 0)
 
     hero.addKeyBind("SLIDE", "Slide", 1);
+    hero.addKeyBind("BLADE", "Toggle Hidden Blades", 2);
 
+    hero.addAttributeProfile("BLADE", bladeProfile);
+    hero.setDamageProfile(getProfile);
+    hero.addDamageProfile("BLADE", {"types": {"SHARP": 1.0}});
     hero.addAttributeProfile("LANDING", landingProfile);
     hero.addAttributeProfile("SLIDE", SlidingProfile);
     hero.addAttributeProfile("STEP", StepProfile);
@@ -221,4 +225,13 @@ function getAttributeProfile(entity) {
         return "STEP";
     }
     return true;
+}
+
+function getProfile(entity) {
+    return entity.getData("fiskheroes:blade") ? "BLADE" : null;
+}
+
+function bladeProfile(profile) {
+    profile.inheritDefaults();
+    profile.addAttribute("PUNCH_DAMAGE", 13.0, 0);
 }

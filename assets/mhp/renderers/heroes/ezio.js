@@ -2,12 +2,13 @@ extend("fiskheroes:hero_basic");
 loadTextures({
     "layer1": "mhp:ezio/ezio_layer1",
     "layer2": "mhp:ezio/ezio_layer2",
-    "leg": "mhp:ezio/ezio_leg"
+    "leg": "mhp:ezio/ezio_leg",
+    "blade": "mhp:ezio/ezio_blade"
 });
 
 var utils = implement("fiskheroes:external/utils");
 
-var leg_left, leg_right;
+var leg_left, leg_right, blade, bladeLeft;
 
 function init(renderer) {
     parent.init(renderer);
@@ -70,11 +71,25 @@ function initEffects(renderer) {
     leg_right.setOffset(0, 0, 0);
     leg_right.setRotation(0, 0, 0)
 
+    var bladeModel = renderer.createResource("MODEL", "mhp:ezio_blade");
+    bladeModel.bindAnimation("mhp:blade").setData((entity, data) => {
+        data.load(0, entity.getInterpolatedData("fiskheroes:blade_timer"));
+    });
+    bladeModel.texture.set("blade");
+    blade = renderer.createEffect("fiskheroes:model").setModel(bladeModel);
+    blade.anchor.set("rightArm");
+    blade.setScale(1);
+    blade.setOffset(0, 0, 0);
+    blade.setRotation(0, 0, 0)
+    blade.mirror = true
+
+
 }
 
 function render(entity, renderLayer) {
 if (renderLayer == "CHESTPLATE") {
     leg_left.render();
     leg_right.render();
+    blade.render();
 }
 }
