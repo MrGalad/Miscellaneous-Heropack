@@ -67,6 +67,7 @@ function initEffects(renderer) {
     ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "fiskheroes:impact_charged_beam"));
 
     utils.bindTrail(renderer, "mhp:blur_green");
+    utils.bindCloud(renderer, "fiskheroes:teleportation", "fiskheroes:breach")
     /* utils.bindParticles(renderer, "mhp:snap"); */
 
 
@@ -184,7 +185,7 @@ function initAnimations(renderer) {
     renderer.removeCustomAnimation("basic.ENERGY_PROJ");
     renderer.removeCustomAnimation("basic.BLOCKING");
     renderer.removeCustomAnimation("basic.AIMING");
-    addAnimationWithData(renderer, "gauntlet.TELEPORT", "mhp:blocking_left", "fiskheroes:teleport_timer");
+   /*  addAnimationWithData(renderer, "gauntlet.TELEPORT", "mhp:blocking_left", "fiskheroes:teleport_timer"); */
     addAnimationWithData(renderer, "gauntlet.BLOCKING", "mhp:blocking_left", "fiskheroes:shield_blocking_timer");
     addAnimationWithData(renderer, "gauntlet.CHARGED_BEAM", "mhp:aiming_left", "fiskheroes:beam_charge");
     addAnimationWithData(renderer, "gauntlet.AIMING", "mhp:aiming_left", "fiskheroes:aiming_timer")

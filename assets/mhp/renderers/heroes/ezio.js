@@ -38,10 +38,10 @@ function initAnimations(renderer) {
 
     addAnimation(renderer, "ezio.VAULT", "mhp:vault_galahad")
     .setData((entity, data) => {
-       var data11 = entity.getData("mhp:dyn/vault_timer")
-       var data1 = Math.max(data11 - 0.2)
+       var data11 = entity.getInterpolatedData("mhp:dyn/vault_timer")
+       var data1 = Math.max(data11 - 0.2) * 1.2
 
-        data.load(0, data1);
+        data.load(0, (entity.getInterpolatedData("mhp:dyn/vault_timer") - 0.25));
     }).priority = 10;
 
   /*   addAnimationWithData(renderer, "ezio.SLIDE", "mhp:slide_galahad", "mhp:dyn/slide_timer")

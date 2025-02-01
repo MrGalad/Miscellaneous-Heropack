@@ -51,9 +51,7 @@
           }
         }
       },
-      "fiskheroes:propelled_flight": {
-      },
-      "fiskheroes:flight|speed": {
+      "fiskheroes:flight": {
             "speed": 0.01
         }
     }

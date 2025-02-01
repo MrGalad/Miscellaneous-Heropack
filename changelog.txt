@@ -6,13 +6,13 @@
 - Added Green Goblin (Drip Or Drown) alt
 - Added Striker Eureka (Pacific Rim) suit
 - Added Colors to Master Chief's Mob Scan
-- Added 'Run Diagnosics' ability to Master Chief
+- Added 'Run Diagnostics' ability to Master Chief
 
 - Fixed being able to spam 'SHAZAM' ability with Black Adam
 - Fixed having Doorman's stats when not transformed
 - Fixed bug where you could have infinite Reverse Flash suits
 
-- Removed Auto Run Diagnosics after enabling Cortana
+- Removed Auto Run Diagnostics after enabling Cortana
 - Removed Ultraman
 - Removed Vidor
 
@@ -20,6 +20,7 @@
 - Updated Metroman's skin
 - Updated Metroman's trail
 - Updated Doorman's transformation
+- Updated Recipes of some suits
 
 - Changed 'Energy Blade' weapon to 'Energy Sword'
 - Changed 'Toggle Invisibility' to 'Invisibility' with Charles Xavier

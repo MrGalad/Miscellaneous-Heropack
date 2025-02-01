@@ -1,3 +1,4 @@
 Galad - Coding & Item Textures
 Harelyd007 - Skin Textures & Models
 Kim Jong Uno - Fire effect for Striker Eureka
+WaffleTastesGood - Vibranium Spear model

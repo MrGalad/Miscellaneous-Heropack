@@ -185,9 +185,11 @@ function isKeyBindEnabled(entity, keyBind) {
 function isModifierEnabled(entity, modifier) {
     switch (modifier.name()) {
         case "fiskheroes:flight":
-            return entity.getData("mhp:dyn/slide") || (climb(entity) && !entity.isSneaking() && !entity.isOnGround() && !entity.isInWater())
-        case "fiskheroes:propelled_flight":
-            return entity.isInWater();
+            case "speed":
+            return (climb(entity) && !entity.isSneaking() && !entity.isOnGround() && !entity.isInWater())             
+        case "fiskheroes:controlled_flight":
+            return entity.getData("mhp:dyn/slide") 
+        
     }
     return true;
 }

@@ -1,24 +1,5 @@
-var infinity_stones = [
-    "Space",
-    "Mind",
-    "Reality",
-    "Power",
-    "Time",
-    "Soul"
-]
-var stone = ["Space", "Mind", "Reality", "Power", "Time", "Soul"];
 var stones = ["space", "mind", "reality", "power", "time", "soul"];
-var check = {
-    space: "space",
-    mind: "mind",
-    reality: "reality",
-    power: "power",
-    time: "time",
-    soul: "soul"
-};
 var colors = ['\u00A71', '\u00A7e', '\u00A74', '\u00A75', '\u00A72', '\u00A76']
-var debounce = false;
-var damage = 10000000000;
 function init(hero) {
     hero.setName("Thanos");
     hero.setTier(1);
@@ -115,7 +96,7 @@ function init(hero) {
 
         var currentStone = entity.getWornChestplate().nbt().getString("selectedStone") || "Power";
         var teleport_delay = entity.getData("fiskheroes:teleport_delay");
-        if (teleport_delay > 0) {
+      /*   if (teleport_delay > 0) {
 
 
             var set = entity.getData("mhp:dyn/teleport_timer") + 1
@@ -129,7 +110,7 @@ function init(hero) {
             manager.setData(entity, "mhp:dyn/teleport_timer", set);
         }
 
-        return true;
+        return true; */
         
     });
 
