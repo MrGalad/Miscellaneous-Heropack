@@ -11,7 +11,7 @@ function init(hero) {
     hero.addPowers("mhp:jaeger")
     hero.addAttribute("PUNCH_DAMAGE", 12, 0);
     hero.addAttribute("SPRINT_SPEED", 0.70, 1)
-    hero.addAttribute("STEP_HEIGHT", 0.5, 0); 
+    hero.addAttribute("STEP_HEIGHT", 1, 0); 
     hero.addAttribute("JUMP_HEIGHT", 2.0, 0);
     hero.addAttribute("FALL_RESISTANCE", 1, 1);
     hero.addAttribute("BASE_SPEED_LEVELS", 1.0, 0);

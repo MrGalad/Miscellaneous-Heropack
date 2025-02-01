@@ -61,7 +61,7 @@ function isKeyBindEnabled(entity, keyBind) {
     switch (keyBind) {
      case "TELEPORT":
         return entity.getData("mhp:dyn/transformation") && !entity.getData("fiskheroes:intangible") && !entity.isSneaking();
-        case "INTANGIBILITY":
+    case "INTANGIBILITY":
             return entity.getData("mhp:dyn/transformation");
 }
 return true;

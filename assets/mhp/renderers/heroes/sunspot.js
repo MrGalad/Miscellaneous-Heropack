@@ -17,6 +17,8 @@ var suit1;
 var suit2;
 var suit3;
 var suit4;
+var half_light
+var half
 //var hand_flames;
 
 function init(renderer) {
