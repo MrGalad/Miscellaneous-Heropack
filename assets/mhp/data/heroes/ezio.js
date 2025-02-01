@@ -101,7 +101,7 @@ function init(hero) {
     hero.addKeyBind("BLADE", "Toggle Hidden Blades", 2);
 
     hero.addAttributeProfile("BLADE", bladeProfile);
-    hero.setDamageProfile(getProfile);
+    hero.setDamageProfile(getAttributeProfile);
     hero.addDamageProfile("BLADE", {"types": {"SHARP": 1.0}});
     hero.addAttributeProfile("LANDING", landingProfile);
     hero.addAttributeProfile("SLIDE", SlidingProfile);
@@ -223,12 +223,10 @@ function getAttributeProfile(entity) {
         return "LANDING";
     } else if (/* entity.getData("mhp:dyn/boolean") */vault(entity)) {
         return "STEP";
+    } else if (entity.getData("fiskheroes:blade")) {
+        return "BLADE"
     }
     return true;
-}
-
-function getProfile(entity) {
-    return entity.getData("fiskheroes:blade") ? "BLADE" : null;
 }
 
 function bladeProfile(profile) {

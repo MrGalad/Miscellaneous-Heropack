@@ -53,6 +53,12 @@
       },
       "fiskheroes:flight": {
             "speed": 0.01
+        },
+        "fiskheroes:blade": {
+          "soundEvents": {
+            "ENABLE": "fiskheroes:agent_liberty_blade_enable",
+            "DISABLE": "fiskheroes:agent_liberty_blade_disable"
+          }
         }
     }
 }
