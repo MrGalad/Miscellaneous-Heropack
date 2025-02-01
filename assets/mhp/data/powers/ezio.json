@@ -1,8 +1,7 @@
 {
-    "name": "Assassin's Creed",
+    "name": "Master Assassin",
     "modifiers": {
       "fiskheroes:transformation": {
-        "key": "NONE",
         "transformation": {
           "toggleData": "mhp:dyn/leap",
           "timerData": "mhp:dyn/leap_timer",
@@ -53,6 +52,9 @@
         }
       },
       "fiskheroes:propelled_flight": {
-      }
+      },
+      "fiskheroes:flight|speed": {
+            "speed": 0.01
+        }
     }
 }

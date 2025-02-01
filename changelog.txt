@@ -1,5 +1,6 @@
 ### Miscellaneous Heropack 3.2 ###
 
+- Added Ezio (Assassin's Creed) suit
 - Added Okoye (Midnight Angel) suit
 - Added Green Goblin suit
 - Added Green Goblin (Drip Or Drown) alt
@@ -21,6 +22,7 @@
 - Updated Doorman's transformation
 
 - Changed 'Energy Blade' weapon to 'Energy Sword'
+- Changed 'Toggle Invisibility' to 'Invisibility' with Charles Xavier
 
 - ### Miscellaneous Heropack 3.1 ###
 

@@ -80,7 +80,7 @@ function isKeyBindEnabled(entity, keyBind) {
             return (entity.getData("mhp:dyn/shazam_timer") > 0.5 && !entity.getData("fiskheroes:energy_projection"));
       // spam fix cuz shadow doesnt like it 
         case "SHAZAM":
-            return (entity.getData("mhp:dyn/shazam_timer") == 0 || entity.getData("mhp:dyn/shazam_timer") == 1)
+            return (entity.getData("mhp:dyn/shazam_timer") == 0 || entity.getData("mhp:dyn/shazam_timer") == 1 && !entity.getData("fiskheroes:beam_charging"))
         default:
             return true;;
     }

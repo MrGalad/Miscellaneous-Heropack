@@ -17,8 +17,8 @@ function init(hero) {
     hero.addKeyBind("TELEKINESIS", "Telekinesis", 1)
     hero.addKeyBind("TELE", "Telekinesis", 1)
     /* hero.addKeyBind("AIM", "Telekinesis", 1) */
-    hero.addKeyBind("INVIS", "key.invisibility", 2)
-    hero.addKeyBind("INVISIBILITY", "key.invisibility", 2)
+    hero.addKeyBind("INVIS", "Invisibility", 2)
+    hero.addKeyBind("INVISIBILITY", "Invisibility", 2)
     hero.addKeyBind("CHARGED_BEAM", "Psionic Blast", 3)
 
     hero.supplyFunction("canAim", canAim);

@@ -1,6 +1,6 @@
 var landing = implement("mhp:external/landing");
 function vault(entity) {
-    var range = 1; // Set the range to 1.1 blocks
+    var range = 0.5; // Set the range to 1.1 blocks
     var yawRad = (Math.PI / 180) * entity.rotYaw();
     var offsetX = -Math.sin(yawRad);
     var offsetZ = Math.cos(yawRad);
@@ -33,6 +33,7 @@ function vault(entity) {
 
     return isBlockInFrontFeet && !isBlockInFrontFace;
 }
+
 
 function ledge(entity) {
     var range = 1;
@@ -125,17 +126,18 @@ function init(hero) {
             manager.setDataWithNotify(entity, "fiskheroes:flying", false);
         }
 
+     
         // Call the vault function and cache the result
         var isVaulting = vault(entity);
         if (isVaulting) {
             manager.setDataWithNotify(entity, "mhp:dyn/boolean", true);
-            manager.setData(entity, "mhp:dyn/vault_timer", 10); // Set the vault timer to 15 ticks
+            manager.setData(entity, "mhp:dyn/vault_timer", 5); // Set the vault timer to 15 ticks
             manager.setData(entity, "mhp:dyn/vault_delay", 5); // Set a delay before decrementing the vault timer
         }
 
         // Decrement the vault delay and then the vault timer
         var vaultDelay = entity.getData("mhp:dyn/vault_delay");
-        if (vaultDelay > 0.5) {
+        if (vaultDelay > 0) {
             manager.setData(entity, "mhp:dyn/vault_delay", vaultDelay - 1);
         } else {
             var vaultTimer = entity.getData("mhp:dyn/vault_timer");
@@ -182,10 +184,10 @@ function isKeyBindEnabled(entity, keyBind) {
 
 function isModifierEnabled(entity, modifier) {
     switch (modifier.name()) {
-        case "fiskheroes:controlled_flight":
-            return entity.getData("mhp:dyn/slide")
+        case "fiskheroes:flight":
+            return entity.getData("mhp:dyn/slide") || (climb(entity) && !entity.isSneaking() && !entity.isOnGround() && !entity.isInWater())
         case "fiskheroes:propelled_flight":
-            return climb(entity) && !entity.isSneaking() && !entity.isOnGround() && !entity.isInWater();
+            return entity.isInWater();
     }
     return true;
 }
