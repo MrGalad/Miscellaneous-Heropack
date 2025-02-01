@@ -37,6 +37,8 @@ function initAnimations(renderer) {
     addAnimationWithData(renderer, "ezio.VAULT", "mhp:vault_galahad", "mhp:dyn/vault_timer")
     .priority = 10;
 
+	addAnimationWithData(renderer, "ezio.BLADE", "mhp:ezio_arms", "fiskheroes:blade_timer");
+
     addAnimation(renderer, "ezio.VAULT", "mhp:vault_galahad")
     .setData((entity, data) => {
        var data11 = entity.getInterpolatedData("mhp:dyn/vault_timer")
