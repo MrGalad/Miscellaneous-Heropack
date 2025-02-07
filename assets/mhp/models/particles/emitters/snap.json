@@ -2,7 +2,7 @@
   "particles": [
     {
       "maxDistance": 256,
-      "condition": "entity.getInterpolatedData('mhp:dyn/float_interp') == 0.9",
+      "condition": "entity.getInterpolatedData('mhp:dyn/float_interp') - 0.9",
       "type": "FIREWORK_BACKGROUND",
       "amount": 13,
       "offset": [0.0, 0.5, 0.0],

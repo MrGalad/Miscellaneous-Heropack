@@ -249,6 +249,10 @@
     "snap_timer": {
       "type": "FLOAT_INTERP",
       "resetWithoutSuit": false
+    },
+    "snap_effect": {
+      "type": "FLOAT_INTERP",
+      "resetWithoutSuit": false
     }
   },
   "alts": {

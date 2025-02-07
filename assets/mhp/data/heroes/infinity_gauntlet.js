@@ -37,12 +37,17 @@ function init(hero) {
             }
         }
 
-    hero.setTickHandler(function (entity, manager) {
+    hero.setTickHandler((entity, manager) => {
         snap(hero, entity);
-        if (entity.getData("mhp:dyn/float_interp") == 1) {
+        snap2(hero, entity);
+        if (entity.getData("mhp:dyn/snap_timer") == 1) {
             manager.setData(entity, "mhp:dyn/snap", false);
             manager.setData(entity, "mhp:dyn/snap_timer", 0);
         }
+
+            if (entity.getData("mhp:dyn/snap_timer") > 0.8) {
+                entity.hurt(hero, "SNAP", "%s dusted away", 1);
+            }
         var data = entity.getData("mhp:dyn/stone_select_slot");
         var nbt = entity.getWornChestplate().nbt();
         var equipment = nbt.getTagList("Equipment");
@@ -91,27 +96,7 @@ function init(hero) {
              };
              manager.incrementData(entity, "mhp:dyn/all_active_timer", 60, 0, stoneEquiped("power") && stoneEquiped("space") && stoneEquiped("reality") && stoneEquiped("soul") && stoneEquiped("time") && stoneEquiped("mind"));
              manager.incrementData(entity, "mhp:dyn/time_timer", 60, 0, entity.getData("fiskheroes:speeding") || entity.getData("fiskheroes:slow_motion"));
-             manager.incrementData(entity, "mhp:dyn/float_interp", 90, entity.getData("mhp:dyn/snap_timer"));
- 
-
-        var currentStone = entity.getWornChestplate().nbt().getString("selectedStone") || "Power";
-        var teleport_delay = entity.getData("fiskheroes:teleport_delay");
-      /*   if (teleport_delay > 0) {
-
-
-            var set = entity.getData("mhp:dyn/teleport_timer") + 1
-            set = Math.max(0, set);
-            set = Math.min(32, set);
-            manager.setData(entity, "mhp:dyn/teleport_timer", set);
-        } else {
-            var set = entity.getData("mhp:dyn/teleport_timer") - 1
-            set = Math.max(0, set);
-            set = Math.min(32, set);
-            manager.setData(entity, "mhp:dyn/teleport_timer", set);
-        }
-
-        return true; */
-        
+             manager.incrementData(entity, "mhp:dyn/float_interp", 100, entity.getData("mhp:dyn/snap_timer"));  
     });
 
     // POWER
@@ -120,7 +105,7 @@ function init(hero) {
     // SPACE
     hero.addKeyBind("AIM", "\u00A71Telekinesis", 2)
     hero.addKeyBind("TELEKINESIS", "\u00A71Telekinesis", 2)
-    hero.addKeyBindFunc("TELEPORT", teleport, "\u00A71Teleport", 3);
+    hero.addKeyBind("TELEPORT", "\u00A71Teleport", 3);
     hero.addKeyBind("SHIELD", "\u00A71Forcefield", 4);
 
     // REALITY
@@ -162,11 +147,16 @@ function init(hero) {
             "ENERGY": 1
         },
         "properties": {
-            "COOK_ENTITY": false,
-            "HEAT_TRANSFER": 160,
-            "IGNITE": 2
+            "EFFECTS": [
+                {
+                    "id": "fiskheroes:flashbang",
+                    "duration": 100,
+                    "amplifier": 1,
+                    "chance": 1
+                }
+            ]
         }
-    })
+    });
 
     hero.setAttributeProfile(getAttributeProfile);
     hero.setDamageProfile(getAttributeProfile);
@@ -176,8 +166,8 @@ function init(hero) {
 }
 
 function snap(hero, entity) {
-    if (entity.getData("mhp:dyn/float_interp") == 1) {
-        var range = 20 * entity.getData("mhp:dyn/float_interp");
+    if (entity.getData("mhp:dyn/snap_timer") > 0.8) {
+        var range = 20 * entity.getData("mhp:dyn/snap_timer");
         var list = entity.world().getEntitiesInRangeOf(entity.pos(), range);
         var halfListSize = Math.floor(list.size() / 2);
     
@@ -189,6 +179,20 @@ function snap(hero, entity) {
         }
     }
 }
+
+function snap2(hero, entity) {
+    if (entity.getData("mhp:dyn/snap_timer") > 0.8) {
+        var range = 20 * entity.getData("mhp:dyn/snap_timer");
+        var list = entity.world().getEntitiesInRangeOf(entity.pos(), range);
+        for (var i = 0; i < list.size(); ++i) {
+            var other = list.get(i);
+            if (other.isLivingEntity() && !entity.equals(other)) {
+                other.hurtByAttacker(hero, "SNAP", "%s dusted away", 1, entity);
+            }
+        }
+    }
+}
+
 
 var cycleStones = function(entity, manager) {
     var data = "mhp:dyn/stone_selecting";
@@ -216,10 +220,21 @@ function isModifierEnabled(entity, modifier) {
     }
     return true;
 }
+
+function kebindstone(entity, stone) {
+    var nbt = entity.getWornChestplate().nbt();
+   var equipment = nbt.getTagList("Equipment");
+   var has = false;
+   for (var i = 0; i < 6; i++) {
+       has = has || equipment.getCompoundTag(i).getCompoundTag("Item").getCompoundTag("tag").getString("HeroType") == "mhp:" + stone + "_stone";
+   }
+   return has;
+}
 function isKeyBindEnabled(entity, keyBind) {
     var selectedStone = entity.getWornChestplate().nbt().getString("selectedStone") || "Power"
     var data = entity.getData("mhp:dyn/stone_select");
     var nbt = entity.getWornChestplate().nbt();
+    var equipment = nbt.getTagList("Equipment");
     if (keyBind.startsWith("STONE_FORWARDS_")) {
         return !entity.isSneaking() && nbt.getBoolean(stones[data]) && keyBind == "STONE_FORWARDS_" + stones[data];
     }
@@ -260,8 +275,8 @@ function isKeyBindEnabled(entity, keyBind) {
 
         case "CHARGED_BEAM":
             return stones[data] == "mind" && nbt.getBoolean("mind");
-       /*  case "SNAP":
-            return stones[data] == "reality" && stones[data] == "mind" && stones[data] == "power" && stones[data] == "time" && stones[data] == "soul" ; */
+            case "SNAP":
+                kebindstone(entity, mind) && kebindstone(entity, power) && kebindstone(entity, space) && kebindstone(entity, soul) && kebindstone(entity, reality) && kebindstone(entity, time)
     } return true
 }
 
@@ -281,13 +296,6 @@ function punchProfile(profile) {
 
 function getAttributeProfile(entity) {
     return entity.getData("fiskheroes:punchmode") ? "PUNCH" : null;
-}
-
-function teleport(entity, manager) {
-    manager.setData(entity, "fiskheroes:teleport_delay", 35)
-
-
-    return true
 }
 
 function getTierOverride(entity) {

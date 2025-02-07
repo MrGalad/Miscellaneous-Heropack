@@ -54,13 +54,13 @@ function initEffects(renderer) {
    spellq.mirror = false;
 
 
-    var forcefield = renderer.bindProperty("fiskheroes:forcefield");
+  /*   var forcefield = renderer.bindProperty("fiskheroes:forcefield");
     forcefield.color.set(0x55FFFF);
     forcefield.setShape(36, 18).setOffset(0.0, 6.0, 0.0).setScale(1.25);
     forcefield.setCondition(entity => {
         forcefield.opacity = entity.getInterpolatedData("fiskheroes:shield_blocking_timer") * 0.15 || entity.getInterpolatedData("fiskheroes:teleport_timer") * 0.15;
         return true;
-    });
+    }); */
 
     utils.bindBeam(renderer, "fiskheroes:charged_beam", "fiskheroes:charged_beam", "head", getBeamColor(), [
         { "firstPerson": [4.5, 3.75, -8.0], "offset": [7, 3.0, -7], "size": [1.0, 1.0] }
@@ -199,8 +199,8 @@ function initAnimations(renderer) {
 
         addAnimation(renderer, "gauntlet.SNAP", "mhp:snap")
     .setData((entity, data) => {
-        var data11 = entity.getData("mhp:dyn/float_interp");
-        var newData = Math.max(data11 - 0.5, 0) /* * 2 */;
+        var data11 = entity.getData("mhp:dyn/snap_timer") * 2;
+        var newData = Math.max(data11 - 0.9, 0);
         data.load(0, newData);
     });
 

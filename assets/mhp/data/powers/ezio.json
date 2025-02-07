@@ -52,7 +52,7 @@
         }
       },
       "fiskheroes:flight": {
-            "speed": 0.01
+            "speed": 0.001
         },
         "fiskheroes:blade": {
           "soundEvents": {

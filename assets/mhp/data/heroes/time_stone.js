@@ -1,8 +1,8 @@
 function init(hero) {
-    hero.setName("Time");
+    hero.setName("Time Stone");
     hero.setTier(2);
     
-    hero.setChestplate("Stone");
+    hero.setChestplate(" ");
 
     hero.addPowers("mhp:time_stone");
     hero.addAttribute("PUNCH_DAMAGE", 1, 0);

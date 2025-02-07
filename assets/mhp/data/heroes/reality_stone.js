@@ -1,8 +1,8 @@
 function init(hero) {
-    hero.setName("Reality");
+    hero.setName("Reality Stone");
     hero.setTier(2);
     
-    hero.setChestplate("Stone");
+    hero.setChestplate(" ");
 
     hero.addPowers("mhp:reality_stone");
 

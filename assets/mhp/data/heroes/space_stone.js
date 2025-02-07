@@ -1,8 +1,8 @@
 function init(hero) {
-    hero.setName("Space");
+    hero.setName("Space Stone");
     hero.setTier(2);
     
-    hero.setChestplate("Stone");
+    hero.setChestplate(" ");
 
     hero.addPowers("mhp:space_stone");
     hero.addAttribute("PUNCH_DAMAGE", 0.5, 0);

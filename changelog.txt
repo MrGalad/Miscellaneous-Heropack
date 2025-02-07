@@ -5,6 +5,7 @@
 - Added Green Goblin suit
 - Added Green Goblin (Drip Or Drown) alt
 - Added Striker Eureka (Pacific Rim) suit
+- Added Snap to Infinity Gauntlet
 - Added Colors to Master Chief's Mob Scan
 - Added 'Run Diagnostics' ability to Master Chief
 
@@ -15,6 +16,7 @@
 - Removed Auto Run Diagnostics after enabling Cortana
 - Removed Ultraman
 - Removed Vidor
+- Removed teleport delay with Infinity Gauntlet 
 
 - Updated Winchester 1887's model
 - Updated Metroman's skin
@@ -24,6 +26,7 @@
 
 - Changed 'Energy Blade' weapon to 'Energy Sword'
 - Changed 'Toggle Invisibility' to 'Invisibility' with Charles Xavier
+- Changed Ininity Stones' names
 
 - ### Miscellaneous Heropack 3.1 ###
 

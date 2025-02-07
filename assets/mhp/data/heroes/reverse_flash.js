@@ -3,17 +3,17 @@ function checkBlockInFront(entity) {
 
     var yawRad = (Math.PI / 180) * entity.rotYaw();
 
-
     var offsetX = Math.sin(yawRad);
     var offsetZ = -Math.cos(yawRad);
 
-
     var frontPos = [entity.posX() - offsetX * range, entity.posY(), entity.posZ() - offsetZ * range];
 
-    var isBlockInFront = entity.world().blockAt(Math.floor(frontPos[0]), Math.floor(frontPos[1]), Math.floor(frontPos[2])).isSolid();
+    var blockFront = entity.world().blockAt(Math.floor(frontPos[0]), Math.floor(frontPos[1]), Math.floor(frontPos[2])).isSolid();
+    var block1 = entity.world().blockAt(Math.floor(frontPos[0]), Math.floor(frontPos[1]) + 1, Math.floor(frontPos[2])).isSolid();
+    var block2 = entity.world().blockAt(Math.floor(frontPos[0]), Math.floor(frontPos[1]) + 2, Math.floor(frontPos[2])).isSolid();
 
-    if (isBlockInFront) {
-        return true
+    if (blockFront && block1 && block2) {
+        return true;
     }
     return false;
 }
