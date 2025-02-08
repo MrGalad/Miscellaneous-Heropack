@@ -17,7 +17,7 @@
               "toggleData": "mhp:dyn/power",
               "cooldownData": "mhp:dyn/power_charge",
               "duration": 900,
-              "recovery": 1
+              "recovery": 0.3
             }
           },
       "fiskheroes:controlled_flight": {
