@@ -16,7 +16,7 @@ var speedster = implement("fiskheroes:external/speedster_utils");
 function init(renderer) {
     parent.init(renderer);
     renderer.setTexture((entity, renderLayer) => {
-        var powerCharge = entity.getData("mhp:dyn/power_charge");
+        var powerCharge = entity.getData("mhp:dyn/texture");
         if (powerCharge > 0.9) {
         return "battledamage5";
     } else if (powerCharge > 0.75) {
@@ -28,7 +28,9 @@ function init(renderer) {
     } else if (powerCharge > 0.25) {
         return "battledamage1";
     }
+  return "layer1"
     })
+    
 }
 
 function initEffects(renderer) {

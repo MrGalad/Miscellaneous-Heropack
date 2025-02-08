@@ -38,7 +38,7 @@ function init(hero) {
     hero.setTickHandler((entity, manager) => {
         super_boost.tick(entity, manager);
         speedster_base.tick(entity, manager);
-        landing.tick(entity, manager);
+        landing.tick(entity, manager)
 
         var time = 20;
         if (entity.getData("mhp:dyn/worn_suit") < 10) {

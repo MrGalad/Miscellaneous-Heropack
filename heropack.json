@@ -51,11 +51,14 @@
   },
   "dataVars": {
     "power": "BOOLEAN",
-    "soul": "BOOLEAN",
-    "time": "BOOLEAN",
-    "space": "BOOLEAN",
-    "mind": "BOOLEAN",
-    "reality": "BOOLEAN",
+    "texture": {
+      "type": "FLOAT_INTERP",
+      "resetWithoutSuit": true
+    },
+    "texturelock": {
+      "type": "BOOLEAN",
+      "resetWithoutSuit": true
+    },
     "stone": "BOOLEAN",
     "stone_timer": {
       "type": "FLOAT_INTERP"

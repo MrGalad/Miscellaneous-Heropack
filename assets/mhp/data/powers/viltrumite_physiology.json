@@ -20,6 +20,14 @@
               "recovery": 0.3
             }
           },
+    "fiskheroes:cooldown|texture": {
+            "cooldown": {
+              "toggleData": "mhp:dyn/power",
+              "cooldownData": "mhp:dyn/texture",
+              "duration": 900,
+              "recovery": 0
+            }
+          },
       "fiskheroes:controlled_flight": {
        "speed": 0.1,
       "boostSpeed": 0.25,
