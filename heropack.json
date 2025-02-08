@@ -254,7 +254,27 @@
       "type": "FLOAT_INTERP",
       "resetWithoutSuit": false
     },
-    "creative": "BOOLEAN"
+    "creative": "BOOLEAN",
+    "anger": {
+      "type": "BOOLEAN",
+      "resetWithoutSuit": false
+    },
+    "anger_timer": {
+      "type": "FLOAT_INTERP",
+      "resetWithoutSuit": false
+    },
+  "power_charge": {
+      "type": "FLOAT_INTERP",
+      "resetWithoutSuit": true
+  },
+  "cooldown":{
+      "type": "FLOAT",
+      "resetWithoutSuit": true
+},
+"random_digit": {
+  "type": "INTEGER",
+  "resetWithoutSuit": true
+}
   },
   "alts": {
     "mhp:sunspot": {
@@ -265,6 +285,9 @@
     },
     "mhp:black_adam": {
       "cape": "w/ Cape"
+    },
+    "mhp:invincible": {
+      "blue": "Blue Costume"
     },
     "mhp:master_chief": {
       "$DEFAULT": {

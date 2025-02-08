@@ -11,7 +11,7 @@ function init(hero) {
     hero.setBoots("item.superhero_armor.piece.boots");
     
     hero.addPowers("mhp:alien_physiology");
-    hero.addAttribute("PUNCH_DAMAGE", 11.0, 0);
+    hero.addAttribute("PUNCH_DAMAGE", 10.0, 0);
     hero.addAttribute("WEAPON_DAMAGE", 1.0, 0);
     hero.addAttribute("SPRINT_SPEED", 0.7, 1);
     hero.addAttribute("BASE_SPEED_LEVELS", 3.0, 0);

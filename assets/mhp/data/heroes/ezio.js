@@ -130,16 +130,12 @@ function init(hero) {
             manager.setDataWithNotify(entity, "fiskheroes:flying", false);
         }
 
-     
-        // Call the vault function and cache the result
         var isVaulting = vault(entity);
         if (isVaulting) {
             manager.setDataWithNotify(entity, "mhp:dyn/boolean", true);
-            manager.setData(entity, "mhp:dyn/vault_timer", 5); // Set the vault timer to 15 ticks
-            manager.setData(entity, "mhp:dyn/vault_delay", 5); // Set a delay before decrementing the vault timer
+            manager.setData(entity, "mhp:dyn/vault_timer", 5);
+            manager.setData(entity, "mhp:dyn/vault_delay", 5);
         }
-
-        // Decrement the vault delay and then the vault timer
         var vaultDelay = entity.getData("mhp:dyn/vault_delay");
         if (vaultDelay > 0) {
             manager.setData(entity, "mhp:dyn/vault_delay", vaultDelay - 1);
@@ -153,7 +149,6 @@ function init(hero) {
             }
         }
 
-        // Initialize vault2_timer to 1 and then immediately to 0 when the suit is put on
         if (!entity.getData("mhp:dyn/vault2_initialized")) {
             manager.setData(entity, "mhp:dyn/vault2_timer", 1);
             manager.setData(entity, "mhp:dyn/vault2_timer", 0);
