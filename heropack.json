@@ -253,7 +253,8 @@
     "snap_effect": {
       "type": "FLOAT_INTERP",
       "resetWithoutSuit": false
-    }
+    },
+    "creative": "BOOLEAN"
   },
   "alts": {
     "mhp:sunspot": {

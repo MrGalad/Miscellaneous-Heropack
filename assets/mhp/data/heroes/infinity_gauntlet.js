@@ -21,33 +21,42 @@ function init(hero) {
     hero.addPrimaryEquipment("fiskheroes:superhero_chestplate{HeroType:mhp:time_stone}", false, item => item.nbt().getString("HeroType") == "mhp:time_stone");
     hero.addPrimaryEquipment("fiskheroes:superhero_chestplate{HeroType:mhp:soul_stone}", false, item => item.nbt().getString("HeroType") == "mhp:soul_stone");
 
-    
-        for (var i = 0; i < stones.length; i++) {
-            if (stones[i]) { 
-                var color = colors[i % colors.length];
-                var stoneName = stones[i % stones.length].charAt(0).toUpperCase() + stones[i % stones.length].slice(1);
-                var prevStoneName = stones[(i - 1 + stones.length) % stones.length].charAt(0).toUpperCase() + stones[(i - 1 + stones.length) % stones.length].slice(1);
-                var nextStoneName = stones[(i + 1) % stones.length].charAt(0).toUpperCase() + stones[(i + 1) % stones.length].slice(1);
-                var prevColor = colors[(i - 1 + colors.length) % colors.length];
-                var nextColor = colors[(i + 1) % colors.length];
-                var keyBindName = "STONE_FORWARDS_" + stones[i % stones.length];
-                var sneakingKeyBindName = "STONE_BACKWARDS_" + stones[i % stones.length];
-                hero.addKeyBindFunc(keyBindName, cycleStones, prevColor + prevStoneName + "\u00A7f > " + color + "\u00A7l" + stoneName + "\u00A7r" + " > " + nextColor + nextStoneName, 1);
-                hero.addKeyBindFunc(sneakingKeyBindName, cycleStones, prevColor + prevStoneName + "\u00A7f < " + color + "\u00A7l" + stoneName + "\u00A7r" + " < " + nextColor + nextStoneName, 1);
-            }
+
+    for (var i = 0; i < stones.length; i++) {
+        if (stones[i]) {
+            var color = colors[i % colors.length];
+            var stoneName = stones[i % stones.length].charAt(0).toUpperCase() + stones[i % stones.length].slice(1);
+            var prevStoneName = stones[(i - 1 + stones.length) % stones.length].charAt(0).toUpperCase() + stones[(i - 1 + stones.length) % stones.length].slice(1);
+            var nextStoneName = stones[(i + 1) % stones.length].charAt(0).toUpperCase() + stones[(i + 1) % stones.length].slice(1);
+            var prevColor = colors[(i - 1 + colors.length) % colors.length];
+            var nextColor = colors[(i + 1) % colors.length];
+            var keyBindName = "STONE_FORWARDS_" + stones[i % stones.length];
+            var sneakingKeyBindName = "STONE_BACKWARDS_" + stones[i % stones.length];
+            hero.addKeyBindFunc(keyBindName, cycleStones, prevColor + prevStoneName + "\u00A7f > " + color + "\u00A7l" + stoneName + "\u00A7r" + " > " + nextColor + nextStoneName, 1);
+            hero.addKeyBindFunc(sneakingKeyBindName, cycleStones, prevColor + prevStoneName + "\u00A7f < " + color + "\u00A7l" + stoneName + "\u00A7r" + " < " + nextColor + nextStoneName, 1);
         }
+    }
 
     hero.setTickHandler((entity, manager) => {
-        snap(hero, entity);
+        manager.setData(entity, "mhp:dyn/creative", false);
+        if (entity.getWornChestplate().nbt().getBoolean("desync_fix") || entity.getWornChestplate().nbt().getByte("NeedsUnlock") == 0) {
+            manager.setData(entity, "mhp:dyn/creative", true);
+        }
+
+        if (entity.getData("mhp:dyn/creative")) {
+            snapCreative(hero, entity);
+        } else {
+            snap(hero, entity)
+        }
         snap2(hero, entity);
         if (entity.getData("mhp:dyn/snap_timer") == 1) {
             manager.setData(entity, "mhp:dyn/snap", false);
             manager.setData(entity, "mhp:dyn/snap_timer", 0);
         }
 
-            if (entity.getData("mhp:dyn/snap_timer") > 0.8) {
-                entity.hurt(hero, "SNAP", "%s dusted away", 1);
-            }
+        if (entity.getData("mhp:dyn/snap_timer") > 0.8) {
+            entity.hurt(hero, "SNAP", "%s dusted away", 1);
+        }
         var data = entity.getData("mhp:dyn/stone_select_slot");
         var nbt = entity.getWornChestplate().nbt();
         var equipment = nbt.getTagList("Equipment");
@@ -86,17 +95,17 @@ function init(hero) {
             manager.setData(entity, "mhp:dyn/stone_select_slot", 0);
         }
         // anim
-         var stoneEquiped = (stone) => {
-             for (var i=0; i<stones.length;i++) {
-                 if (equipment.getCompoundTag(i).getCompoundTag("Item").getCompoundTag("tag").getString("HeroType") == "mhp:"+ stone +"_stone") {
-                   return true;
-                 }
-               }
-               return false;
-             };
-             manager.incrementData(entity, "mhp:dyn/all_active_timer", 60, 0, stoneEquiped("power") && stoneEquiped("space") && stoneEquiped("reality") && stoneEquiped("soul") && stoneEquiped("time") && stoneEquiped("mind"));
-             manager.incrementData(entity, "mhp:dyn/time_timer", 60, 0, entity.getData("fiskheroes:speeding") || entity.getData("fiskheroes:slow_motion"));
-             manager.incrementData(entity, "mhp:dyn/float_interp", 100, entity.getData("mhp:dyn/snap_timer"));  
+        var stoneEquiped = (stone) => {
+            for (var i = 0; i < stones.length; i++) {
+                if (equipment.getCompoundTag(i).getCompoundTag("Item").getCompoundTag("tag").getString("HeroType") == "mhp:" + stone + "_stone") {
+                    return true;
+                }
+            }
+            return false;
+        };
+        manager.incrementData(entity, "mhp:dyn/all_active_timer", 60, 0, stoneEquiped("power") && stoneEquiped("space") && stoneEquiped("reality") && stoneEquiped("soul") && stoneEquiped("time") && stoneEquiped("mind"));
+        manager.incrementData(entity, "mhp:dyn/time_timer", 60, 0, entity.getData("fiskheroes:speeding") || entity.getData("fiskheroes:slow_motion"));
+        manager.incrementData(entity, "mhp:dyn/float_interp", 100, entity.getData("mhp:dyn/snap_timer"));
     });
 
     // POWER
@@ -166,22 +175,39 @@ function init(hero) {
 }
 
 function snap(hero, entity) {
-    if (entity.getData("mhp:dyn/snap_timer") > 0.8) {
+    if (entity.getData("mhp:dyn/snap_timer") > 0.92) {
         var range = 20 * entity.getData("mhp:dyn/snap_timer");
         var list = entity.world().getEntitiesInRangeOf(entity.pos(), range);
         var halfListSize = Math.floor(list.size() / 2);
-    
+
         for (var i = 0; i < list.size(); ++i) {
             var other = list.get(i);
             if (i >= halfListSize && other.isLivingEntity() && !entity.equals(other)) {
-                other.hurtByAttacker(hero, "SNAP", "%s dusted away", 10000000000, entity);
+                var halfHealth = other.getMaxHealth() / 2;
+                other.hurtByAttacker(hero, "SNAP", "%s dusted away", halfHealth, entity);
+            }
+        }
+    }
+}
+
+function snapCreative(hero, entity) {
+    if (entity.getData("mhp:dyn/snap_timer") > 0.99) {
+        var range = 20 * entity.getData("mhp:dyn/snap_timer");
+        var list = entity.world().getEntitiesInRangeOf(entity.pos(), range);
+        var halfListSize = Math.floor(list.size() / 2);
+
+        for (var i = 0; i < list.size(); ++i) {
+            var other = list.get(i);
+            if (i >= halfListSize && other.isLivingEntity() && !entity.equals(other)) {
+                var halfHealth = other.getMaxHealth() / 2;
+                other.hurtByAttacker(hero, "SNAP", "%s dusted away", 100000000000, entity);
             }
         }
     }
 }
 
 function snap2(hero, entity) {
-    if (entity.getData("mhp:dyn/snap_timer") > 0.8) {
+    if (entity.getData("mhp:dyn/snap_timer") > 0.99) {
         var range = 20 * entity.getData("mhp:dyn/snap_timer");
         var list = entity.world().getEntitiesInRangeOf(entity.pos(), range);
         for (var i = 0; i < list.size(); ++i) {
@@ -194,12 +220,12 @@ function snap2(hero, entity) {
 }
 
 
-var cycleStones = function(entity, manager) {
+var cycleStones = function (entity, manager) {
     var data = "mhp:dyn/stone_selecting";
     var value = true;
 
     manager.setData(entity, data, value);
-    
+
     return true;
 };
 
@@ -223,12 +249,12 @@ function isModifierEnabled(entity, modifier) {
 
 function kebindstone(entity, stone) {
     var nbt = entity.getWornChestplate().nbt();
-   var equipment = nbt.getTagList("Equipment");
-   var has = false;
-   for (var i = 0; i < 6; i++) {
-       has = has || equipment.getCompoundTag(i).getCompoundTag("Item").getCompoundTag("tag").getString("HeroType") == "mhp:" + stone + "_stone";
-   }
-   return has;
+    var equipment = nbt.getTagList("Equipment");
+    var has = false;
+    for (var i = 0; i < 6; i++) {
+        has = has || equipment.getCompoundTag(i).getCompoundTag("Item").getCompoundTag("tag").getString("HeroType") == "mhp:" + stone + "_stone";
+    }
+    return has;
 }
 function isKeyBindEnabled(entity, keyBind) {
     var selectedStone = entity.getWornChestplate().nbt().getString("selectedStone") || "Power"
@@ -260,7 +286,7 @@ function isKeyBindEnabled(entity, keyBind) {
             return stones[data] == "space" && nbt.getBoolean("space")
         case "TELEPORT":
             return stones[data] == "space" && nbt.getBoolean("space");
-            case "AIM":
+        case "AIM":
             return stones[data] == "space" && nbt.getBoolean("space");
 
         case "func_GIANT_MODE":
@@ -275,8 +301,8 @@ function isKeyBindEnabled(entity, keyBind) {
 
         case "CHARGED_BEAM":
             return stones[data] == "mind" && nbt.getBoolean("mind");
-            case "SNAP":
-                kebindstone(entity, mind) && kebindstone(entity, power) && kebindstone(entity, space) && kebindstone(entity, soul) && kebindstone(entity, reality) && kebindstone(entity, time)
+        case "SNAP":
+            nbt.getBoolean("soul") && nbt.getBoolean("power") && nbt.getBoolean("space") && nbt.getBoolean("reality") && nbt.getBoolean("time") && nbt.getBoolean("mind");
     } return true
 }
 
