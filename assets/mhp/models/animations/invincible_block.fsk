@@ -1,0 +1,34 @@
+{data} = curve {data}
+
+{head_rotX} @ {data} -> 40'
+{head_rotY} @ {data} -> 0'
+{head_rotZ} @ {data} -> 0'
+
+{head_posX} @ {data} -> 0
+{head_posY} @ {data} -> 0
+{head_posZ} @ {data} -> 0
+
+{body_rotX} @ {data} -> 0'
+{body_rotY} @ {data} -> 0'
+{body_rotZ} @ {data} -> 0'
+
+{body_posX} @ {data} -> 0
+{body_posY} @ {data} -> 0
+{body_posZ} @ {data} -> 0
+
+{leftArm_rotX} @ {data} -> -120'
+{leftArm_rotY} @ {data} -> 50'
+{leftArm_rotZ} @ {data} -> -10'
+
+{leftArm_posX} @ {data} -> 5
+{leftArm_posY} @ {data} -> 5
+{leftArm_posZ} @ {data} -> 0
+
+{rightArm_rotX} @ {data} -> -120'
+{rightArm_rotY} @ {data} -> -30'
+{rightArm_rotZ} @ {data} -> 10'
+
+{rightArm_posX} @ {data} -> -5
+{rightArm_posY} @ {data} -> 5
+{rightArm_posZ} @ {data} -> 0
+

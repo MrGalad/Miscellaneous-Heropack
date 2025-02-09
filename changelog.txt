@@ -1,6 +1,8 @@
 ### Miscellaneous Heropack 3.2 ###
 
 - Added Ezio (Assassin's Creed) suit
+- Added Invincible suit
+- Added Invincible (Blue Costume) alt
 - Added Okoye (Midnight Angel) suit
 - Added Green Goblin suit
 - Added Green Goblin (Drip Or Drown) alt

@@ -22,6 +22,7 @@ function init(hero) {
     super_boost.addKeyBind(hero, "key.boost", 1);
     hero.addKeyBind("GROUND_SMASH", "Ground Smash", 2);
     hero.addKeyBind("SLOW_MOTION", "key.slowMotionHold", 3);
+    hero.addKeyBind("SHIELD", "Block", 4);
 
     hero.setModifierEnabled(isModifierEnabled);
     hero.setKeyBindEnabled(isKeyBindEnabled);
@@ -30,6 +31,7 @@ function init(hero) {
     hero.addAttributeProfile("THIRD", third);
     hero.addAttributeProfile("FOURTH", fourth);
     hero.addAttributeProfile("FIFTH", fifth);
+    hero.addAttributeProfile("BLOCK", block);
     hero.setAttributeProfile(getAttributeProfile);
     hero.setDamageProfile(getAttributeProfile);
     var speedPunch = speedster_base.createSpeedPunch(hero);
@@ -65,55 +67,79 @@ function init(hero) {
 
 function isModifierEnabled(entity, modifier) {
     switch (modifier.name()) {
-        case "fiskheroes:super_speed":
-            return !entity.getData("fiskheroes:flying");
-        default:
-            return super_boost.isModifierEnabled(entity, modifier);
+    case "fiskheroes:super_speed":
+        return !entity.getData("fiskheroes:flying");
+    default:
+        return super_boost.isModifierEnabled(entity, modifier);
     }
 }
 
 function isKeyBindEnabled(entity, keyBind) {
-    switch (keyBind) {
+	switch (keyBind) {
         case "GROUND_SMASH":
-            return (!entity.getData("fiskheroes:flying"));
-        default:
-            return super_boost.isKeyBindEnabled(entity, keyBind);
-    }
+			return !entity.getData("fiskheroes:dyn/flight_super_boost") > 0;
+        case "SHIELD":
+            return !(entity.isSprinting() && entity.getData("fiskheroes:flying"))
+		case "SUPER_SPEED":
+			return !entity.getData("fiskheroes:flying");
+		default:
+			return super_boost.isKeyBindEnabled(entity, keyBind);
+	}
 }
-
 function first(profile) {
-    profile.inheritDefaults();
+    profile.revokeAugments();
     profile.addAttribute("SPRINT_SPEED", 0.8, 1);
     profile.addAttribute("PUNCH_DAMAGE", 8, 0);
     profile.addAttribute("MAX_HEALTH", -1, 0);
+    profile.addAttribute("WEAPON_DAMAGE", 1.0, 0);
+    profile.addAttribute("FALL_RESISTANCE", 1.0, 1);
+    profile.addAttribute("BASE_SPEED_LEVELS", 2.0, 0);
 }
 
 function second(profile) {
-    profile.inheritDefaults();
+    profile.revokeAugments();
     profile.addAttribute("SPRINT_SPEED", 0.6, 1);
     profile.addAttribute("PUNCH_DAMAGE", 7, 0);
     profile.addAttribute("MAX_HEALTH", -2, 0);
+    profile.addAttribute("WEAPON_DAMAGE", 0.8, 0);
+    profile.addAttribute("FALL_RESISTANCE", 1.0, 1);
+    profile.addAttribute("BASE_SPEED_LEVELS", 2.0, 0);
 }
 
 function third(profile) {
-    profile.inheritDefaults();
+    profile.revokeAugments();
     profile.addAttribute("SPRINT_SPEED", 0.2, 1);
     profile.addAttribute("PUNCH_DAMAGE", 6, 0);
     profile.addAttribute("MAX_HEALTH", -4, 0);
+    profile.addAttribute("WEAPON_DAMAGE", 0.6, 0);
+    profile.addAttribute("FALL_RESISTANCE", 1.0, 1);
+    profile.addAttribute("BASE_SPEED_LEVELS", 1.0, 0);
 }
 
 function fourth(profile) {
-    profile.inheritDefaults();
+    profile.revokeAugments();
     profile.addAttribute("SPRINT_SPEED", 1, 1);
     profile.addAttribute("PUNCH_DAMAGE", 10, 0);
-    profile.addAttribute("MAX_HEALTH", 0, 0);
+    /* profile.addAttribute("MAX_HEALTH", 20, 0); */
+    profile.addAttribute("WEAPON_DAMAGE", 2, 0);
+    profile.addAttribute("FALL_RESISTANCE", 1.0, 1);
+    profile.addAttribute("BASE_SPEED_LEVELS", 3.0, 0);
 }
 
 function fifth(profile) {
-    profile.inheritDefaults();
+    profile.revokeAugments();
     profile.addAttribute("SPRINT_SPEED", 1.5, 1);
     profile.addAttribute("PUNCH_DAMAGE", 12, 0);
-    profile.addAttribute("MAX_HEALTH", 2, 0);
+    profile.addAttribute("MAX_HEALTH", 4, 0);
+    profile.addAttribute("WEAPON_DAMAGE", 2.5, 0);
+    profile.addAttribute("FALL_RESISTANCE", 1.0, 1);
+    profile.addAttribute("BASE_SPEED_LEVELS", 3.0, 0);
+}
+
+function block(profile) {
+    profile.inheritDefaults();
+    profile.addAttribute("SPRINT_SPEED", -100000000, 1);
+    profile.addAttribute("BASE_SPEED", -10000000, 1)
 }
 
 
@@ -132,6 +158,8 @@ function getAttributeProfile(entity) {
         return "SECOND";
     } else if (powerCharge > 0.25) {
         return "FIRST";
+    } if (entity.getData("fiskheroes:shield_blocking_timer") > 0) {
+        return "BLOCK";
     }
     return true;
 }

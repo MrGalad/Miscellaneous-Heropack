@@ -31,7 +31,7 @@
       },
       "fiskheroes:controlled_flight": {
         "speed": 0.2,
-        "boostSpeed": 0.2,
+        "boostSpeed": 0.25,
         "canBoost": true,
         "canRoll": true,
         "barrelRoll": {
@@ -52,7 +52,7 @@
         }
       },
       "fiskheroes:flight": {
-            "speed": 0.001
+            "speed": 0.01
         },
         "fiskheroes:blade": {
           "soundEvents": {

@@ -29,38 +29,22 @@ var spell
 var spellq;
 
 function initEffects(renderer) {
-    /* var stones = ["space", "mind", "reality", "power", "time", "soul"]
-    var data = entity.getData("mhp:dyn/stone_select"); */
-  /*   utils.bindTrail(renderer, "mhp:power_flicker").setCondition(entity => 0.7 < entity.getData("mhp:dyn/all_active_timer") < 0.2 && entity.getData("mhp:dyn/all_active_timer") != 0)
-    utils.bindTrail(renderer, "mhp:time_flicker").setCondition(entity => 0.7 < entity.getData("mhp:dyn/all_active_timer") < 0.2 && entity.getData("mhp:dyn/all_active_timer") != 0)
-    utils.bindTrail(renderer, "mhp:soul_flicker").setCondition(entity => 0.7 < entity.getData("mhp:dyn/all_active_timer") < 0.2 && entity.getData("mhp:dyn/all_active_timer") != 0)
-    utils.bindTrail(renderer, "mhp:space_flicker").setCondition(entity => 0.7 < entity.getData("mhp:dyn/all_active_timer") < 0.2 && entity.getData("mhp:dyn/all_active_timer") != 0)
-    utils.bindTrail(renderer, "mhp:mind_flicker").setCondition(entity => 0.7 < entity.getData("mhp:dyn/all_active_timer") < 0.2 && entity.getData("mhp:dyn/all_active_timer") != 0)
-   */ utils.bindTrail(renderer, "mhp:reality_flicker").setCondition(entity => entity.getData("fiskheroes:size_state") > 0 /* && stones[data] == "reality" && nbt.getBoolean("reality") */)/*  0.7 < entity.getData("mhp:dyn/all_active_timer") < 0.2 && entity.getData("mhp:dyn/all_active_timer") != 0 */
+    utils.bindTrail(renderer, "mhp:reality_flicker").setCondition(entity => entity.getData("fiskheroes:size_state") > 0 /* && stones[data] == "reality" && nbt.getBoolean("reality") */)/*  0.7 < entity.getData("mhp:dyn/all_active_timer") < 0.2 && entity.getData("mhp:dyn/all_active_timer") != 0 */
 
-   var color = 0x55AA55;
-   var tao_mandala = renderer.createResource("SHAPE", "fiskheroes:tao_mandala");
-   var beam = renderer.createResource("BEAM_RENDERER", "fiskheroes:line");
-   spell = renderer.createEffect("fiskheroes:lines").setShape(tao_mandala).setRenderer(beam);
-   spell.color.set(color);
-   spell.setOffset(-0.5, 7.0, 0.0).setScale(3.2);
-   spell.anchor.set("leftArm");
-   spell.mirror = false;
+    var color = 0x55AA55;
+    var tao_mandala = renderer.createResource("SHAPE", "fiskheroes:tao_mandala");
+    var beam = renderer.createResource("BEAM_RENDERER", "fiskheroes:line");
+    spell = renderer.createEffect("fiskheroes:lines").setShape(tao_mandala).setRenderer(beam);
+    spell.color.set(color);
+    spell.setOffset(-0.5, 7.0, 0.0).setScale(3.2);
+    spell.anchor.set("leftArm");
+    spell.mirror = false;
 
-   spellq = renderer.createEffect("fiskheroes:lines").setShape(tao_mandala).setRenderer(beam);
-   spellq.color.set(color);
-   spellq.setOffset(-0.5, 11.0, 0.0).setScale(3.2);
-   spellq.anchor.set("leftArm");
-   spellq.mirror = false;
-
-
-  /*   var forcefield = renderer.bindProperty("fiskheroes:forcefield");
-    forcefield.color.set(0x55FFFF);
-    forcefield.setShape(36, 18).setOffset(0.0, 6.0, 0.0).setScale(1.25);
-    forcefield.setCondition(entity => {
-        forcefield.opacity = entity.getInterpolatedData("fiskheroes:shield_blocking_timer") * 0.15 || entity.getInterpolatedData("fiskheroes:teleport_timer") * 0.15;
-        return true;
-    }); */
+    spellq = renderer.createEffect("fiskheroes:lines").setShape(tao_mandala).setRenderer(beam);
+    spellq.color.set(color);
+    spellq.setOffset(-0.5, 11.0, 0.0).setScale(3.2);
+    spellq.anchor.set("leftArm");
+    spellq.mirror = false;
 
     utils.bindBeam(renderer, "fiskheroes:charged_beam", "fiskheroes:charged_beam", "head", getBeamColor(), [
         { "firstPerson": [4.5, 3.75, -8.0], "offset": [7, 3.0, -7], "size": [1.0, 1.0] }
@@ -68,8 +52,6 @@ function initEffects(renderer) {
 
     utils.bindTrail(renderer, "mhp:blur_green");
     utils.bindCloud(renderer, "fiskheroes:teleportation", "fiskheroes:breach")
-    /* utils.bindParticles(renderer, "mhp:snap"); */
-
 
     var powers = 0xAA00AA
     glow = utils.createLines(renderer, "mhp:power", powers, [
@@ -86,7 +68,6 @@ function initEffects(renderer) {
 
     spaceq = renderer.createEffect("fiskheroes:overlay");
     spaceq.texture.set(null, "space");
-    //spaceq.opacity = 0.6;
 
     mind = renderer.createEffect("fiskheroes:overlay");
     mind.texture.set(null, "mind");
@@ -169,7 +150,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
     }
 }
 function hasStone(entity, stone) {
-     var nbt = entity.getWornChestplate().nbt();
+    var nbt = entity.getWornChestplate().nbt();
     var equipment = nbt.getTagList("Equipment");
     var has = false;
     for (var i = 0; i < 6; i++) {
@@ -185,26 +166,17 @@ function initAnimations(renderer) {
     renderer.removeCustomAnimation("basic.ENERGY_PROJ");
     renderer.removeCustomAnimation("basic.BLOCKING");
     renderer.removeCustomAnimation("basic.AIMING");
-   /*  addAnimationWithData(renderer, "gauntlet.TELEPORT", "mhp:blocking_left", "fiskheroes:teleport_timer"); */
     addAnimationWithData(renderer, "gauntlet.BLOCKING", "mhp:blocking_left", "fiskheroes:shield_blocking_timer");
     addAnimationWithData(renderer, "gauntlet.CHARGED_BEAM", "mhp:aiming_left", "fiskheroes:beam_charge");
-    addAnimationWithData(renderer, "gauntlet.AIMING", "mhp:aiming_left", "fiskheroes:aiming_timer")
-   /*  addAnimationWithData(renderer, "gaunlet.SNAP", "mhp:snap", "mhp:dyn/float_interp") */
-    /* addAnimationWithData(renderer, "gaunlet.ANIM", "mhp:aiming_left", "mhp:dyn/time_timer") */;
-    /*  addAnimationWithData(renderer, "gaunlet.ALL", "mhp:thanos", "mhp:dyn/all_active") */
-   /*  addAnimation(renderer, "gauntlet.ALL", "mhp:thanos")
+    addAnimationWithData(renderer, "gauntlet.AIMING", "mhp:aiming_left", "fiskheroes:aiming_timer");
+    addAnimation(renderer, "gauntlet.SNAP", "mhp:snap")
         .setData((entity, data) => {
-            data.load(entity.getData("mhp:dyn/all_active_timer") == 0 ? 0 : entity.getInterpolatedData("mhp:dyn/all_active_timer") * 2);
-        }); */
+            var data11 = entity.getData("mhp:dyn/snap_timer") * 2;
+            var newData = Math.max(data11 - 0.9, 0);
+            data.load(0, newData);
+        });
 
-        addAnimation(renderer, "gauntlet.SNAP", "mhp:snap")
-    .setData((entity, data) => {
-        var data11 = entity.getData("mhp:dyn/snap_timer") * 2;
-        var newData = Math.max(data11 - 0.9, 0);
-        data.load(0, newData);
-    });
-
-          addAnimation(renderer, "gauntlet.ANIM", "mhp:aiming_left")
+    addAnimation(renderer, "gauntlet.ANIM", "mhp:aiming_left")
         .setData((entity, data) => {
             data.load(entity.getData("mhp:dyn/time_timer") == 0 ? 0 : entity.getInterpolatedData("mhp:dyn/time_timer") * 2);
         });

@@ -34,8 +34,8 @@ function initAnimations(renderer) {
     addAnimationWithData(renderer, "ezio.CLIMB", "fiskheroes:crawl_wall", "mhp:dyn/climb_timer")
     .priority = 10;
 
-    addAnimationWithData(renderer, "ezio.VAULT", "mhp:vault_galahad", "mhp:dyn/vault_timer")
-    .priority = 10;
+   /*  addAnimationWithData(renderer, "ezio.VAULT", "mhp:vault_galahad", "mhp:dyn/vault_timer")
+    .priority = 10; */
 
 	addAnimationWithData(renderer, "ezio.BLADE", "mhp:ezio_arms", "fiskheroes:blade_timer");
 

@@ -149,22 +149,6 @@ function init(hero) {
             }
         }
 
-        if (!entity.getData("mhp:dyn/vault2_initialized")) {
-            manager.setData(entity, "mhp:dyn/vault2_timer", 1);
-            manager.setData(entity, "mhp:dyn/vault2_timer", 0);
-            manager.setData(entity, "mhp:dyn/vault2_initialized", true);
-        }
-
-        if (entity.getData("mhp:dyn/vault2_timer") == 1) {
-            manager.setDataWithNotify(entity, "mhp:dyn/boolean", true);
-        } else if (entity.getData("mhp:dyn/vault2_timer") > 1) {
-            var newTimer = entity.getData("mhp:dyn/vault2_timer") - 0.1;
-            manager.setData(entity, "mhp:dyn/vault2_timer", newTimer);
-            manager.setDataWithNotify(entity, "mhp:dyn/boolean", true);
-        } else {
-            manager.setDataWithNotify(entity, "mhp:dyn/boolean", false);
-        }
-
         manager.incrementData(entity, "mhp:dyn/roll_timer", 14, entity.getData("mhp:dyn/roll"));
         manager.incrementData(entity, "mhp:dyn/sneaking_timer", 30, (ledge(entity) && entity.isSneaking() && entity.isOnGround() && !entity.getData("fiskheroes:moving")));
         manager.incrementData(entity, "mhp:dyn/vault2_timer", 10, isVaulting);
@@ -226,5 +210,5 @@ function getAttributeProfile(entity) {
 
 function bladeProfile(profile) {
     profile.inheritDefaults();
-    profile.addAttribute("PUNCH_DAMAGE", 13.0, 0);
+    profile.addAttribute("PUNCH_DAMAGE", 7.0, 0);
 }

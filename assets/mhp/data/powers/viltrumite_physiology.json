@@ -32,7 +32,7 @@
        "speed": 0.1,
       "boostSpeed": 0.25,
       "canBoost": true,
-        "barrelRoll": {
+       "barrelRoll": {
           "duration": 14,
           "speed": 0.12,
           "drag": 0.03
@@ -57,11 +57,12 @@
         "speed": 0.04,
         "boostSpeed": 0.3,
         "canBoost": true,
-        "barrelRoll": {
+       "barrelRoll": {
           "duration": 14,
           "speed": 0.12,
           "drag": 0.03
         },
+        "diveSpeedRetention": 0.5,
         "collision": {
           "blocks": {
             "stopFlying": false,
@@ -82,9 +83,20 @@
       },
       "fiskheroes:slow_motion": {
       },
+      "fiskheroes:water_breathing": {
+      },
       "fiskheroes:ground_smash": {
       },
-      
+      "fiskheroes:damage_immunity|Explosion": {
+      "damageType": "EXPLOSION"
+      },
+      "fiskheroes:damage_immunity": {
+        "damageType": "BULLET"
+        },
+        "fiskheroes:damage_resistance": {
+        "damageType": "ELECTRICITY",
+        "factor": 0.5
+      },      
       "fiskheroes:fire_immunity": {
       },
       "fiskheroes:projectile_immunity": {
@@ -98,13 +110,23 @@
           "MOVE": ["fiskheroes:super_speed_move_loop_shazam_dceu", "fiskheroes:super_speed_move_loop_cape"],
           "SPRINT": "fiskheroes:super_speed_sprint_shazam_dceu"
         }
+      },
+      "fiskheroes:shield": {
+        "shield": {
+          "health": 140.0,
+          "regeneration": 15.0,
+          "recoveryDelay": 100,
+          "cooldown": 240
+        },
+       "coverage": {
+        "yawRadius": 35.0,
+        "pitchRadius": 60.0,
+        "yawOffset": 0.0,
+        "pitchOffset": 0.0
+      },
+        "knockback": 0.1,
+        "isToggle": false
       }
-    },
-    "hud": [{
-        "type": "PROGRESS",
-        "texture": "mhp:textures/gui/bars/doorman_bar.png",
-        "data": "1 - mhp:dyn/power_charge"
-      }
-    ]
+    }
   }
   
