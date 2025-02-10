@@ -1,12 +1,16 @@
-var super_boost = implement("fiskheroes:external/super_boost");
 var speedster_base = implement("fiskheroes:external/speedster_base");
 var landing = implement("mhp:external/superhero_landing");
 var max_boost_flight = 3;
+var boostTime = 200;
+var recoveryTime = 150;
+var recoveryDelay = 20;
+var deactivationDelay = 20;
+
 function init(hero) {
     hero.setName("Invincible");
     hero.setTier(8);
     
-	hero.setHelmet("Mask");
+    hero.setHelmet("Mask");
     hero.setChestplate("Chestpiece");
     hero.setLeggings("Pants");
     hero.setBoots("Boots");
@@ -19,7 +23,6 @@ function init(hero) {
     hero.addAttribute("BASE_SPEED_LEVELS", 3.0, 0);
 
     hero.addKeyBind("SUPER_SPEED", "key.superSpeed", 1);
-    super_boost.addKeyBind(hero, "key.boost", 1);
     hero.addKeyBind("GROUND_SMASH", "Ground Smash", 2);
     hero.addKeyBind("SLOW_MOTION", "key.slowMotionHold", 3);
     hero.addKeyBind("SHIELD", "Block", 4);
@@ -38,9 +41,110 @@ function init(hero) {
     hero.setDamageProfile(entity => speedPunch.get(entity, null));
 
     hero.setTickHandler((entity, manager) => {
-        super_boost.tick(entity, manager);
         speedster_base.tick(entity, manager);
-        landing.tick(entity, manager)
+        landing.tick(entity, manager);
+        var boost = entity.getData("fiskheroes:dyn/flight_super_boost");
+        var condss = entity.isSprinting() && entity.getData("fiskheroes:flying")
+       // PackLoader.printChat("Boost2: " + entity.getData("mhp:dyn/boost1"));
+
+        if (boost == 1) {
+            manager.setData(entity, "fiskheroes:dyn/flight_super_boost", boost = 2);
+            manager.setData(entity, "fiskheroes:flying", true);
+            manager.setData(entity, "fiskheroes:flight_timer", entity.getData("fiskheroes:prev_flight_timer"));
+            manager.setData(entity, "fiskheroes:flight_boost_timer", entity.getData("fiskheroes:prev_flight_boost_timer"));
+        } else if (!(entity.isSprinting() && entity.getData("fiskheroes:flying")) && boost > 0) {
+            manager.setData(entity, "fiskheroes:dyn/flight_super_boost", boost = 0)
+            manager.setData(entity, "mhp:dyn/reactivation_count", 0);
+        }
+
+        if (boost > 0) {
+            manager.setData(entity, "fiskheroes:dyn/super_boost_timeout", recoveryDelay);
+        } else {
+            var t = entity.getData("fiskheroes:dyn/super_boost_timeout");
+            if (t > 0) {
+                manager.setData(entity, "fiskheroes:dyn/super_boost_timeout", t - 1);
+            }
+        }
+
+        manager.incrementData(entity, "fiskheroes:dyn/super_boost_cooldown", boostTime, recoveryTime, boost > 0, boost == 0 && entity.getData("fiskheroes:dyn/super_boost_timeout") == 0);
+
+        if (boost > 0 && entity.getData("fiskheroes:dyn/super_boost_cooldown") >= 1) {
+            manager.setData(entity, "fiskheroes:dyn/flight_super_boost", 0);
+        }
+        if (boost == 0 && entity.getData("fiskheroes:dyn/super_boost_cooldown") >= 1) {
+            manager.setData(entity, "fiskheroes:dyn/super_boost_cooldown", 0);
+            var reactivationCount = entity.getData("mhp:dyn/reactivation_count") || 0;
+            if (reactivationCount < 4) {
+                manager.setData(entity, "mhp:dyn/reactivation_count", reactivationCount + 1);
+                if (reactivationCount + 1 == 1) {
+                    manager.setData(entity, "mhp:dyn/boost1", true);
+                    manager.setData(entity, "mhp:dyn/flight_boost1", true);
+                    manager.setData(entity, "mhp:dyn/boost1_deactivation_timer", deactivationDelay);
+                } else if (reactivationCount + 1 == 2) {
+                    manager.setData(entity, "mhp:dyn/boost2", true);
+                    manager.setData(entity, "mhp:dyn/flight_boost1", false);
+                    manager.setData(entity, "mhp:dyn/flight_boost2", true);
+                    manager.setData(entity, "mhp:dyn/boost2_deactivation_timer", deactivationDelay);
+                } else if (reactivationCount + 1 == 3) {
+                    manager.setData(entity, "mhp:dyn/boost3", true);
+                    manager.setData(entity, "mhp:dyn/flight_boost2", false);
+                    manager.setData(entity, "mhp:dyn/flight_boost3", true);
+                    manager.setData(entity, "mhp:dyn/boost3_deactivation_timer", deactivationDelay);
+                } else if (reactivationCount + 1 == 4) {
+                    manager.setData(entity, "mhp:dyn/boost4", true);
+                    manager.setData(entity, "mhp:dyn/flight_boost3", false);
+                    manager.setData(entity, "mhp:dyn/flight_boost4", true);
+                    manager.setData(entity, "mhp:dyn/boost4_deactivation_timer", deactivationDelay);
+                } else if (reactivationCount = 0) {
+                    manager.setData(entity, "mhp:dyn/flight_boost4", false);
+                    manager.setData(entity, "mhp:dyn/flight_boost0", true);
+                }
+            }
+        }
+        if (!entity.isSprinting()) {
+            manager.setData(entity, "mhp:dyn/flight_boost0", false);
+            manager.setData(entity, "mhp:dyn/flight_boost1", false);
+            manager.setData(entity, "mhp:dyn/flight_boost2", false);
+            manager.setData(entity, "mhp:dyn/flight_boost3", false);
+            manager.setData(entity, "mhp:dyn/flight_boost4", false);
+        }
+
+        if (entity.getData("mhp:dyn/boost1")) {
+            var timer1 = entity.getData("mhp:dyn/boost1_deactivation_timer");
+            if (timer1 > 0) {
+                manager.setData(entity, "mhp:dyn/boost1_deactivation_timer", timer1 - 1);
+            } else {
+                manager.setData(entity, "mhp:dyn/boost1", false);
+            }
+        }
+        if (entity.getData("mhp:dyn/boost2")) {
+            var timer2 = entity.getData("mhp:dyn/boost2_deactivation_timer");
+            if (timer2 > 0) {
+                manager.setData(entity, "mhp:dyn/boost2_deactivation_timer", timer2 - 1);
+            } else {
+                manager.setData(entity, "mhp:dyn/boost2", false);
+            }
+        }
+        if (entity.getData("mhp:dyn/boost3")) {
+            var timer3 = entity.getData("mhp:dyn/boost3_deactivation_timer");
+            if (timer3 > 0) {
+                manager.setData(entity, "mhp:dyn/boost3_deactivation_timer", timer3 - 1);
+            } else {
+                manager.setData(entity, "mhp:dyn/boost3", false);
+            }
+        }
+        if (entity.getData("mhp:dyn/boost4")) {
+            var timer4 = entity.getData("mhp:dyn/boost4_deactivation_timer");
+            if (timer4 > 0) {
+                manager.setData(entity, "mhp:dyn/boost4_deactivation_timer", timer4 - 1);
+            } else {
+                manager.setData(entity, "mhp:dyn/boost4", false);
+            }
+        }
+
+        if (entity.isSprinting() && entity.getData("fiskheroes:flying") && boost == 0) {
+            manager.setData(entity, "fiskheroes:dyn/flight_super_boost", 1);
+        }
 
         var time = 20;
         if (entity.getData("mhp:dyn/worn_suit") < 10) {
@@ -52,7 +156,6 @@ function init(hero) {
             manager.setData(entity, "mhp:dyn/power", false);
         }
 
-        
         var getRandomInt = (min, max) => {
             min = Math.ceil(min);
             max = Math.floor(max);
@@ -67,25 +170,38 @@ function init(hero) {
 
 function isModifierEnabled(entity, modifier) {
     switch (modifier.name()) {
-    case "fiskheroes:super_speed":
-        return !entity.getData("fiskheroes:flying");
-    default:
-        return super_boost.isModifierEnabled(entity, modifier);
+        case "fiskheroes:controlled_flight":
+    switch (modifier.id()) {
+        case "4":
+            return entity.getData("mhp:dyn/flight_boost4") && !entity.getData("mhp:dyn/flight_boost0") && entity.isSprinting();
+        case "3":
+            return entity.getData("mhp:dyn/flight_boost3") && !entity.getData("mhp:dyn/flight_boost0") && entity.isSprinting();
+        case "2":
+            return entity.getData("mhp:dyn/flight_boost2") && !entity.getData("mhp:dyn/flight_boost0") && entity.isSprinting();
+        case "1":
+            return entity.getData("mhp:dyn/flight_boost1") && !entity.getData("mhp:dyn/flight_boost0") && entity.isSprinting();
+        case "base":
+            return entity.getData("mhp:dyn/flight_boost0") && entity.isSprinting();
+        default:
+            break;
     }
+}
+    return true;
 }
 
 function isKeyBindEnabled(entity, keyBind) {
-	switch (keyBind) {
+    switch (keyBind) {
         case "GROUND_SMASH":
-			return !entity.getData("fiskheroes:dyn/flight_super_boost") > 0;
+            return !entity.getData("fiskheroes:dyn/flight_super_boost") > 0;
         case "SHIELD":
-            return !(entity.isSprinting() && entity.getData("fiskheroes:flying"))
-		case "SUPER_SPEED":
-			return !entity.getData("fiskheroes:flying");
-		default:
-			return super_boost.isKeyBindEnabled(entity, keyBind);
-	}
+            return !(entity.isSprinting() && entity.getData("fiskheroes:flying"));
+        case "SUPER_SPEED":
+            return !entity.getData("fiskheroes:flying");
+        default:
+            return true;
+    }
 }
+
 function first(profile) {
     profile.revokeAugments();
     profile.addAttribute("SPRINT_SPEED", 0.8, 1);
@@ -120,7 +236,6 @@ function fourth(profile) {
     profile.revokeAugments();
     profile.addAttribute("SPRINT_SPEED", 1, 1);
     profile.addAttribute("PUNCH_DAMAGE", 10, 0);
-    /* profile.addAttribute("MAX_HEALTH", 20, 0); */
     profile.addAttribute("WEAPON_DAMAGE", 2, 0);
     profile.addAttribute("FALL_RESISTANCE", 1.0, 1);
     profile.addAttribute("BASE_SPEED_LEVELS", 3.0, 0);
@@ -139,14 +254,11 @@ function fifth(profile) {
 function block(profile) {
     profile.inheritDefaults();
     profile.addAttribute("SPRINT_SPEED", -100000000, 1);
-    profile.addAttribute("BASE_SPEED", -10000000, 1)
+    profile.addAttribute("BASE_SPEED", -10000000, 1);
 }
-
-
 
 function getAttributeProfile(entity) {
     var powerCharge = entity.getData("mhp:dyn/power_charge");
-    /* PackLoader.printChat("Power Charge: " + powerCharge); */
 
     if (powerCharge > 0.9) {
         return "FIFTH";

@@ -36,7 +36,7 @@ function init(renderer) {
 
 function initEffects(renderer) {
     speedster.init(renderer);
-    utils.bindParticles(renderer, "mhp:super_boost").setCondition(entity => entity.getData("fiskheroes:dyn/flight_super_boost") > 0 );
+    utils.bindParticles(renderer, "mhp:super_boost").setCondition(entity => /* entity.getData("fiskheroes:dyn/flight_super_boost") > 0 && entity.getData("fiskheroes:dyn/flight_super_boost") < 0.4 */ entity.getData("mhp:dyn/boost1") || entity.getData("mhp:dyn/boost2") || entity.getData("mhp:dyn/boost3") || entity.getData("mhp:dyn/boost4"));
     utils.bindParticles(renderer, "mhp:landing_particles").setCondition(entity => entity.getData("fiskheroes:dyn/superhero_landing_timer") == 1)
 
     layer2 = renderer.createEffect("fiskheroes:overlay");

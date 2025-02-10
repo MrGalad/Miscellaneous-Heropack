@@ -277,6 +277,66 @@
 "random_digit": {
   "type": "INTEGER",
   "resetWithoutSuit": true
+},
+"boost": {
+  "type": "INTEGER",
+  "resetWithoutSuit": true
+},
+"boost1": {
+  "type": "BOOLEAN",
+  "resetWithoutSuit": true
+},
+"boost2": {
+  "type": "BOOLEAN",
+  "resetWithoutSuit": true
+},
+"boost3": {
+  "type": "BOOLEAN",
+  "resetWithoutSuit": true
+},
+"boost4": {
+  "type": "BOOLEAN",
+  "resetWithoutSuit": true
+},
+"flight_boost1": {
+  "type": "BOOLEAN",
+  "resetWithoutSuit": true
+},
+"flight_boost2": {
+  "type": "BOOLEAN",
+  "resetWithoutSuit": true
+},
+"flight_boost3": {
+  "type": "BOOLEAN",
+  "resetWithoutSuit": true
+},
+"flight_boost4": {
+  "type": "BOOLEAN",
+  "resetWithoutSuit": true
+},
+"flight_boost0": {
+  "type": "BOOLEAN",
+  "resetWithoutSuit": true
+},
+"boost1_deactivation_timer": {
+  "type": "FLOAT_INTERP",
+  "resetWithoutSuit": true
+},
+"boost2_deactivation_timer": {
+  "type": "FLOAT_INTERP",
+  "resetWithoutSuit": true
+},
+"boost3_deactivation_timer": {
+  "type": "FLOAT_INTERP",
+  "resetWithoutSuit": true
+},
+"boost4_deactivation_timer": {
+  "type": "FLOAT_INTERP",
+  "resetWithoutSuit": true
+},
+"reactivation_count": {
+  "type": "FLOAT_INTERP",
+  "resetWithoutSuit": true
 }
   },
   "alts": {
@@ -290,7 +350,7 @@
       "cape": "w/ Cape"
     },
     "mhp:invincible": {
-      "blue": "Blue Costume"
+      "blue": "Invinciboy"
     },
     "mhp:master_chief": {
       "$DEFAULT": {
