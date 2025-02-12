@@ -101,12 +101,17 @@ function init(hero) {
                 }
             }
         }
-        if (!entity.isSprinting()) {
+        if (!entity.isSprinting() || !entity.getData("fiskheroes:dyn/flight_super_boost")) {
             manager.setData(entity, "mhp:dyn/flight_boost0", false);
             manager.setData(entity, "mhp:dyn/flight_boost1", false);
             manager.setData(entity, "mhp:dyn/flight_boost2", false);
             manager.setData(entity, "mhp:dyn/flight_boost3", false);
             manager.setData(entity, "mhp:dyn/flight_boost4", false);
+        }
+
+        if (entity.getData("mhp:dyn/charge_timer") > 0.45) {
+            manager.setData(entity, "fiskheroes:flying", true);
+            manager.setData(entity, "mhp:dyn/flight_boost4", true);
         }
 
         if (entity.getData("mhp:dyn/boost1")) {
@@ -156,20 +161,22 @@ function init(hero) {
             manager.setData(entity, "mhp:dyn/power", false);
         }
 
-        var getRandomInt = (min, max) => {
+        var getRandomInt = function(min, max) {
             min = Math.ceil(min);
             max = Math.floor(max);
             return Math.floor(Math.random() * (max - min + 1) + min);
         };
-
+        
         if (entity.getData("fiskheroes:flight_boost_timer") == 0 && entity.isSprinting() && entity.getData("fiskheroes:flying")) {
-            manager.setData(entity, "mhp:dyn/random_digit", getRandomInt(0, max_boost_flight));
+            manager.setData(entity, "mhp:dyn/random_digit", getRandomInt(1, 2));
         }
     });
 }
 
 function isModifierEnabled(entity, modifier) {
     switch (modifier.name()) {
+        case "fiskheroes:super_speed":
+            return !entity.getData("fiskheroes:flying");
         case "fiskheroes:controlled_flight":
     switch (modifier.id()) {
         case "4":

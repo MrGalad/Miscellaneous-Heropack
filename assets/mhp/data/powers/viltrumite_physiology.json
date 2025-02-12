@@ -220,6 +220,14 @@
           },
           "knockback": 0.1,
           "isToggle": false
+      },
+      "fiskheroes:cooldown|charge": {
+      "cooldown": {
+        "toggleData": "entity.isSneaking() && entity.isOnGround() && entity.motionY() == 0 && entity.motionX() == 0 && entity.motionZ() == 0 && entity.getHeldItem().isEmpty()",
+        "cooldownData": "mhp:dyn/charge_timer",
+        "duration": 35,
+        "recovery": 3
       }
+    }
   }
 }

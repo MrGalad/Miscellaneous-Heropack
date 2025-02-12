@@ -11,13 +11,13 @@ var cancelAnimations = false;
 
 function initEffects(renderer) {
     var model = renderer.createResource("MODEL", "mhp:goblin/goblin_glider");
-   /*  model.bindAnimation("mhp:goblin/goblin_jump_glider").setData((entity, data) => {
-        if (cancelAnimations) {
-            data.load(0,0)
-            return;
-        }
-        data.load(0, entity.getInterpolatedData("fiskheroes:flight_timer"));
-    }); */
+    /*  model.bindAnimation("mhp:goblin/goblin_jump_glider").setData((entity, data) => {
+         if (cancelAnimations) {
+             data.load(0,0)
+             return;
+         }
+         data.load(0, entity.getInterpolatedData("fiskheroes:flight_timer"));
+     }); */
     model.texture.set("glider");
     glider = renderer.createEffect("fiskheroes:model").setModel(model);
     glider.anchor.set("body");
@@ -27,18 +27,20 @@ function initEffects(renderer) {
 
 function initAnimations(renderer) {
     parent.initAnimations(renderer);
-    
+
     utils.addFlightAnimation(renderer, "goblin.FLIGHT", "mhp:goblin/goblin_pose.anim.json");
+    renderer.reprioritizeDefaultAnimation("PUNCH", -9);
+    renderer.reprioritizeDefaultAnimation("AIM_BOW", -9);
 
 }
 
-function render(entity, renderLayer, isFirstPersonArm) {    
+function render(entity, renderLayer, isFirstPersonArm) {
     var f = entity.getInterpolatedData("fiskheroes:flight_timer");
     var b = entity.getInterpolatedData("fiskheroes:flight_boost_timer");
     var s = entity.getData("fiskheroes:flying");
-    
+
     if (f > 0) {
         glider.setOffset(4, 1, (s ? 300 : -200) * (1 - f));
         glider.render();
-        }
+    }
 }

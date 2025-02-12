@@ -29,7 +29,9 @@ function initAnimations(renderer) {
     parent.initAnimations(renderer);
     
     utils.addFlightAnimation(renderer, "goblin.FLIGHT", "mhp:goblin/goblin_pose.anim.json");
-
+    
+    renderer.reprioritizeDefaultAnimation("PUNCH", -9);
+    renderer.reprioritizeDefaultAnimation("AIM_BOW", -9);
 }
 
 function render(entity, renderLayer, isFirstPersonArm) {    

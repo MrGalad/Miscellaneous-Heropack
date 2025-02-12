@@ -337,6 +337,10 @@
 "reactivation_count": {
   "type": "FLOAT_INTERP",
   "resetWithoutSuit": true
+},
+"charge_timer": {
+  "type": "FLOAT_INTERP",
+  "resetWithoutSuit": true
 }
   },
   "alts": {
