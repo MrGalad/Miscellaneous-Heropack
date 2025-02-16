@@ -8,7 +8,7 @@ var deactivationDelay = 20;
 
 function init(hero) {
     hero.setName("Invincible");
-    hero.setTier(8);
+    hero.setTier(9);
     
     hero.setHelmet("Mask");
     hero.setChestplate("Chestpiece");
@@ -281,4 +281,8 @@ function getAttributeProfile(entity) {
         return "BLOCK";
     }
     return true;
+}
+
+function getTierOverride(entity) {
+    return entity.getData("mhp:dyn/power_charge") > 0.9 ? 10 : 9;
 }

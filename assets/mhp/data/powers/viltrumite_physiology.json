@@ -227,6 +227,10 @@
         "cooldownData": "mhp:dyn/charge_timer",
         "duration": 35,
         "recovery": 3
+      },
+      "fiskheroes:damage_weakness": {
+        "damageType": "SOUND",
+        "factor": 8.0
       }
     }
   }
