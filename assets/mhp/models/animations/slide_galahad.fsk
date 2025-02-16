@@ -49,4 +49,4 @@
 {rightLeg_posY} @ {data} -> 14
 {rightLeg_posZ} @ {data} -> -9
 
-out "translate" (0, -0.225{data}, 0)
+out "translate" (0, -0.175{data}, 0)

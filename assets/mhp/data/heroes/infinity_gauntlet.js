@@ -210,10 +210,13 @@ function snap2(hero, entity) {
     if (entity.getData("mhp:dyn/snap_timer") > 0.99) {
         var range = 20 * entity.getData("mhp:dyn/snap_timer");
         var list = entity.world().getEntitiesInRangeOf(entity.pos(), range);
+        var playerUUID = entity.getUUID(); // Get the UUID of the player
+
         for (var i = 0; i < list.size(); ++i) {
             var other = list.get(i);
-            if (other.isLivingEntity() && !entity.equals(other)) {
+            if (other.isLivingEntity() && other.getUUID().equals(playerUUID)) {
                 other.hurtByAttacker(hero, "SNAP", "%s dusted away", 1, entity);
+                break; // Exit the loop after damaging the player
             }
         }
     }
@@ -302,7 +305,7 @@ function isKeyBindEnabled(entity, keyBind) {
         case "CHARGED_BEAM":
             return stones[data] == "mind" && nbt.getBoolean("mind");
         case "SNAP":
-            nbt.getBoolean("soul") && nbt.getBoolean("power") && nbt.getBoolean("space") && nbt.getBoolean("reality") && nbt.getBoolean("time") && nbt.getBoolean("mind");
+          return kebindstone(entity, "power") && kebindstone(entity, "space") && kebindstone(entity, "reality") && kebindstone(entity, "soul") && kebindstone(entity, "time") && kebindstone(entity, "mind");
     } return true
 }
 

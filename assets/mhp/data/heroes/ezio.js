@@ -31,7 +31,18 @@ function vault(entity) {
         Math.floor(frontFacePosZ)
     ).isSolid();
 
-    return isBlockInFrontFeet && !isBlockInFrontFace;
+    var blockInFrontFeet = world.blockAt(
+        Math.floor(frontFeetPosX),
+        Math.floor(frontFeetPosY),
+        Math.floor(frontFeetPosZ)
+    );
+
+    var isSlabInFrontFeet = blockInFrontFeet == "minecraft:stone_slab" ||
+        blockInFrontFeet == "minecraft:wooden_slab" ||
+        blockInFrontFeet == "minecraft:double_stone_slab" ||
+        blockInFrontFeet == "minecraft:double_wooden_slab";
+
+    return isBlockInFrontFeet && !isBlockInFrontFace && !isSlabInFrontFeet;
 }
 
 
@@ -55,7 +66,7 @@ function ledge(entity) {
     return false;
 }
 
-function climb(entity) {
+/* function climb(entity) {
     var range = 1;
     var yawRad = (Math.PI / 180) * entity.rotYaw();
     var offsetX = Math.sin(yawRad);
@@ -64,24 +75,24 @@ function climb(entity) {
     var frontPos = entity.pos().add(-offsetX * range, 0, -offsetZ * range);
 
     if (entity.world().getBlock(frontPos) == "minecraft:stone" ||
-    entity.world().getBlock(frontPos) == "minecraft:cobblestone" ||
-    entity.world().getBlock(frontPos) == "minecraft:stone_brick" ||
-    entity.world().getBlock(frontPos) == "minecraft:brick_block" ||
-    entity.world().getBlock(frontPos) == "minecraft:wood" ||
-    entity.world().getBlock(frontPos) == "minecraft:planks" ||
-    entity.world().getBlock(frontPos) == "minecraft:log" ||
-    entity.world().getBlock(frontPos) == "minecraft:log2" ||
-    entity.world().getBlock(frontPos) == "minecraft:sandstone" ||
-    entity.world().getBlock(frontPos) == "minecraft:quartz_block" ||
-    entity.world().getBlock(frontPos) == "minecraft:bookshelves" ||
-    entity.world().getBlock(frontPos) == "fiskheroes:lunar_rock_bricks" ||
-    entity.world().getBlock(frontPos) == "fiskheroes:chiseled_lunar_rock_bricks" ||
-    entity.world().getBlock(frontPos) == "fiskheroes:moonshroom_bricks" ||
-    entity.world().getBlock(frontPos) == "fiskheroes:quantum_matter_bricks") {
-    return true;
-}
-return false;
-}
+        entity.world().getBlock(frontPos) == "minecraft:cobblestone" ||
+        entity.world().getBlock(frontPos) == "minecraft:stone_brick" ||
+        entity.world().getBlock(frontPos) == "minecraft:brick_block" ||
+        entity.world().getBlock(frontPos) == "minecraft:wood" ||
+        entity.world().getBlock(frontPos) == "minecraft:planks" ||
+        entity.world().getBlock(frontPos) == "minecraft:log" ||
+        entity.world().getBlock(frontPos) == "minecraft:log2" ||
+        entity.world().getBlock(frontPos) == "minecraft:sandstone" ||
+        entity.world().getBlock(frontPos) == "minecraft:quartz_block" ||
+        entity.world().getBlock(frontPos) == "minecraft:bookshelves" ||
+        entity.world().getBlock(frontPos) == "fiskheroes:lunar_rock_bricks" ||
+        entity.world().getBlock(frontPos) == "fiskheroes:chiseled_lunar_rock_bricks" ||
+        entity.world().getBlock(frontPos) == "fiskheroes:moonshroom_bricks" ||
+        entity.world().getBlock(frontPos) == "fiskheroes:quantum_matter_bricks") {
+        return true;
+    }
+    return false;
+} */
 function init(hero) {
     hero.setName("Ezio");
     hero.setTier(2);
@@ -102,7 +113,7 @@ function init(hero) {
 
     hero.addAttributeProfile("BLADE", bladeProfile);
     hero.setDamageProfile(getAttributeProfile);
-    hero.addDamageProfile("BLADE", {"types": {"SHARP": 1.0}});
+    hero.addDamageProfile("BLADE", { "types": { "SHARP": 1.0 } });
     hero.addAttributeProfile("LANDING", landingProfile);
     hero.addAttributeProfile("SLIDE", SlidingProfile);
     hero.addAttributeProfile("STEP", StepProfile);
@@ -130,12 +141,15 @@ function init(hero) {
             manager.setDataWithNotify(entity, "fiskheroes:flying", false);
         }
 
+       /*  // Call the vault function and cache the result
         var isVaulting = vault(entity);
         if (isVaulting) {
             manager.setDataWithNotify(entity, "mhp:dyn/boolean", true);
-            manager.setData(entity, "mhp:dyn/vault_timer", 5);
-            manager.setData(entity, "mhp:dyn/vault_delay", 5);
+            manager.setData(entity, "mhp:dyn/vault_timer", 5); // Set the vault timer to 15 ticks
+            manager.setData(entity, "mhp:dyn/vault_delay", 5); // Set a delay before decrementing the vault timer
         }
+
+        // Decrement the vault delay and then the vault timer
         var vaultDelay = entity.getData("mhp:dyn/vault_delay");
         if (vaultDelay > 0) {
             manager.setData(entity, "mhp:dyn/vault_delay", vaultDelay - 1);
@@ -149,10 +163,27 @@ function init(hero) {
             }
         }
 
+        // Initialize vault2_timer to 1 and then immediately to 0 when the suit is put on
+        if (!entity.getData("mhp:dyn/vault2_initialized")) {
+            manager.setData(entity, "mhp:dyn/vault2_timer", 1);
+            manager.setData(entity, "mhp:dyn/vault2_timer", 0);
+            manager.setData(entity, "mhp:dyn/vault2_initialized", true);
+        }
+
+        if (entity.getData("mhp:dyn/vault2_timer") == 1) {
+            manager.setDataWithNotify(entity, "mhp:dyn/boolean", true);
+        } else if (entity.getData("mhp:dyn/vault2_timer") > 1) {
+            var newTimer = entity.getData("mhp:dyn/vault2_timer") - 0.1;
+            manager.setData(entity, "mhp:dyn/vault2_timer", newTimer);
+            manager.setDataWithNotify(entity, "mhp:dyn/boolean", true);
+        } else {
+            manager.setDataWithNotify(entity, "mhp:dyn/boolean", false);
+        } */
+
         manager.incrementData(entity, "mhp:dyn/roll_timer", 14, entity.getData("mhp:dyn/roll"));
         manager.incrementData(entity, "mhp:dyn/sneaking_timer", 30, (ledge(entity) && entity.isSneaking() && entity.isOnGround() && !entity.getData("fiskheroes:moving")));
-        manager.incrementData(entity, "mhp:dyn/vault2_timer", 10, isVaulting);
-        manager.incrementData(entity, "mhp:dyn/climb_timer", 14, climb(entity));
+        /* manager.incrementData(entity, "mhp:dyn/vault2_timer", 1, isVaulting); */
+        /* manager.incrementData(entity, "mhp:dyn/climb_timer", 14, climb(entity)); */
         manager.incrementData(entity, "mhp:dyn/sprinting", 7, entity.isSprinting() && entity.isOnGround());
     });
 }
@@ -160,19 +191,19 @@ function init(hero) {
 function isKeyBindEnabled(entity, keyBind) {
     switch (keyBind) {
         case "SLIDE":
-            return entity.isOnGround() && !entity.isInWater() && entity.isSprinting();
+            return entity.isOnGround() && !entity.isInWater() && entity.isSprinting() && !entity.getData("mhp:dyn/slide_timer") > 0;
     }
     return true;
 }
 
 function isModifierEnabled(entity, modifier) {
     switch (modifier.name()) {
-        case "fiskheroes:flight":
-            case "speed":
-            return (climb(entity) && !entity.isSneaking() && !entity.isOnGround() && !entity.isInWater())             
+        /* case "fiskheroes:flight":
+        case "speed":
+            return (climb(entity) && !entity.isSneaking() && !entity.isOnGround() && !entity.isInWater()) */
         case "fiskheroes:controlled_flight":
-            return entity.getData("mhp:dyn/slide") 
-        
+            return entity.getData("mhp:dyn/slide")
+
     }
     return true;
 }
@@ -200,9 +231,9 @@ function getAttributeProfile(entity) {
         return "SLIDE";
     } else if (entity.world().getBlock(entity.pos().add(0, -1, 0)) == "minecraft:hay_block") {
         return "LANDING";
-    } else if (/* entity.getData("mhp:dyn/boolean") */vault(entity)) {
-        return "STEP";
-    } else if (entity.getData("fiskheroes:blade")) {
+    }//else if (/* entity.getData("mhp:dyn/boolean") *//* vault(entity) */entity.getData("mhp:dyn/vault2_timer") > 0) {
+     //  return "STEP";
+     else if (entity.getData("fiskheroes:blade")) {
         return "BLADE"
     }
     return true;

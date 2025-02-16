@@ -27,7 +27,7 @@ function init(hero) {
     hero.addKeyBind("NIGHT_VISION", "Toggle Night Vision", 4);
     hero.addKeyBind("TOGGLE_SHIELD", "Toggle Overshield", 4);
     hero.addKeyBindFunc("RUN", run , "Run Diagnostics", 4);
-    hero.addKeyBindFunc("func_CORTANA", cortanaOn, "Toggle Cortana", 5);
+    hero.addKeyBindFunc("func_CORTANA", cortanaOn, "Toggle Cortana", 1);
     //hero.addKeyBind("TOGGLE_GRAPPLE", "Toggle Grapplehook", 5)
 
     hero.setModifierEnabled(isModifierEnabled);
@@ -40,7 +40,7 @@ function init(hero) {
             "ENERGY": 5
         }
     });
-    hero.setHasProperty((entity, property) => property == "MASK_TOGGLE"); 
+    /* hero.setHasProperty((entity, property) => property == "MASK_TOGGLE");  */
     hero.setDefaultScale(1.25);
     hero.setHasPermission((entity, permission) => permission == "USE_FISKTAG_GUN" || permission == "USE_GUN" || permission == "USE_MA5C" || permission == "USE_PLASMA");
     hero.supplyFunction("canAim", entity => entity.getHeldItem().isGun() || entity.getHeldItem().nbt().getString("WeaponType") == "mhp:ma5c");
@@ -62,11 +62,12 @@ function init(hero) {
     })
 }
 function run(entity) {
+    var cortanaEnabled = entity.getData("mhp:dyn/cortana");
     var armor = (1024 - entity.getWornChestplate().damage());
     var health = (Math.round(entity.getHealth() * 10) / 10);
     var damage = (0 + entity.getWornChestplate().damage());
 
-    if (PackLoader.getSide() === "CLIENT") {
+    if (cortanaEnabled) {
         PackLoader.printChat("\u00A73<Cortana>\u00A7b Health: " + health);
         PackLoader.printChat("\u00A73<Cortana>\u00A7b Overall Armor Health: " + armor + " / 1024");
         PackLoader.printChat("\u00A73<Cortana>\u00A7b Total Damage Received: " + damage);
@@ -127,7 +128,7 @@ function isKeyBindEnabled(entity, keyBind) {
         case "GUN_RELOAD":
             return entity.getHeldItem().isGun() && !entity.getData("fiskheroes:aiming");
         case "func_CORTANA":
-            return entity.isSneaking() && entity.getData("mhp:dyn/cortana");
+            return entity.isSneaking();
             case "SHADOWDOME":
             return entity.isSneaking() && entity.getData("mhp:dyn/mob_timer") == 0 && entity.getData("mhp:dyn/cortana");
             case "RUN":

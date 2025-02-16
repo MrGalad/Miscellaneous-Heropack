@@ -2,7 +2,7 @@
 
 - Added Ezio (Assassin's Creed) suit
 - Added Invincible suit
-- Added Invincible (Blue Costume) alt
+- Added Invincible (Invinciboy) alt
 - Added Okoye (Midnight Angel) suit
 - Added Green Goblin suit
 - Added Green Goblin (Drip Or Drown) alt
@@ -14,6 +14,7 @@
 - Fixed being able to spam 'SHAZAM' ability with Black Adam
 - Fixed having Doorman's stats when not transformed
 - Fixed bug where you could have infinite Reverse Flash suits
+- Fixed Reverse Flash's wall run
 
 - Removed Auto Run Diagnostics after enabling Cortana
 - Removed Ultraman
@@ -25,10 +26,11 @@
 - Updated Metroman's trail
 - Updated Doorman's transformation
 - Updated Recipes of some suits
+- Updated Heat Vision beam
 
-- Changed 'Energy Blade' weapon to 'Energy Sword'
+- Changed 'Energy Blade' weapon's name to 'Energy Sword'
 - Changed 'Toggle Invisibility' to 'Invisibility' with Charles Xavier
-- Changed Ininity Stones' names
+- Changed Infinity Stones' names
 
 - ### Miscellaneous Heropack 3.1 ###
 

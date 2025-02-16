@@ -28,7 +28,7 @@ function init(renderer) {
 } */
 
 function initEffects(renderer) {
-    helm = renderer.createResource("MODEL", "mhp:MasterChiefHelmet");
+  /*   helm = renderer.createResource("MODEL", "mhp:MasterChiefHelmet");
     helm.bindAnimation("mhp:helm").setData((entity, data) => {
         var f = entity.getInterpolatedData("fiskheroes:mask_open_timer2");
         data.load(f < 1 ? f : 0);
@@ -38,7 +38,7 @@ function initEffects(renderer) {
     helm.setScale(1.1)
     helm.anchor.set("head");
     helm.mirror = false;
-/* 
+ 
     mac = renderer.createEffect("fiskheroes:model");
     mac.setModel(utils.createModel(renderer, "fisktag:MA5C", "mac"));
     mac.anchor.set("body");
@@ -190,9 +190,9 @@ function render(entity, renderLayer, isFirstPersonArm) {
   blade.unfold = entity.getInterpolatedData("fiskheroes:blade_timer");
   blade.render();
 
-  if(entity.getData("fiskheroes:mask_open_timer2") < 0.80){ 
+ /*  if(entity.getData("fiskheroes:mask_open_timer2") < 0.80){ 
   helm.render();
-  }
+  } */
 }
 
 

@@ -1,15 +1,6 @@
 {
     "name": "Master Assassin",
     "modifiers": {
-      "fiskheroes:transformation": {
-        "transformation": {
-          "toggleData": "mhp:dyn/leap",
-          "timerData": "mhp:dyn/leap_timer",
-          "time": 30
-        },
-        "soundEvents": {
-        }
-      },
       "fiskheroes:transformation|slide": {
         "key": "SLIDE",
         "transformation": {
@@ -30,7 +21,7 @@
         }
       },
       "fiskheroes:controlled_flight": {
-        "speed": 0.2,
+        "speed": 0.3,
         "boostSpeed": 0.25,
         "canBoost": true,
         "canRoll": true,
@@ -51,9 +42,6 @@
           }
         }
       },
-      "fiskheroes:flight": {
-            "speed": 0.01
-        },
         "fiskheroes:blade": {
           "soundEvents": {
             "ENABLE": "fiskheroes:agent_liberty_blade_enable",
