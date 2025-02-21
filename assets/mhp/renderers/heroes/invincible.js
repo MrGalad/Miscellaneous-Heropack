@@ -39,7 +39,7 @@ function initEffects(renderer) {
     utils.bindParticles(renderer, "mhp:super_boost").setCondition(entity => /* entity.getData("fiskheroes:dyn/flight_super_boost") > 0 && entity.getData("fiskheroes:dyn/flight_super_boost") < 0.4 */ entity.getData("mhp:dyn/boost1") || entity.getData("mhp:dyn/boost2") || entity.getData("mhp:dyn/boost3") || entity.getData("mhp:dyn/boost4"));
     utils.bindParticles(renderer, "mhp:landing_particles").setCondition(entity => entity.getData("fiskheroes:dyn/superhero_landing_timer") == 1)
     utils.bindParticles(renderer, "mhp:invincible_charge").setCondition(entity => entity.getData("mhp:dyn/charge_timer") > 0.3)
-    utils.bindParticles(renderer, "mhp:landing_particles").setCondition(entity => entity.getData("mhp:dyn/charge_timer") > 0.3 && !entity.isOnGround())
+    utils.bindParticles(renderer, "mhp:landing_particles").setCondition(entity => entity.getData("mhp:dyn/charge_timer") > 0.3 && !entity.isOnGround() && entity.getData("fiskheroes:flying") && entity.isSprinting())
 
     layer2 = renderer.createEffect("fiskheroes:overlay");
     layer2.texture.set("layer2");
@@ -66,11 +66,6 @@ function initAnimations(renderer) {
         .priority = 10;
     utils.addAnimationEvent(renderer, "FLIGHT_DIVE", "fiskheroes:iron_man_dive");
 
-   /*  addAnimation(renderer, "invincible.CHARGE", "fiskheroes:superhero_landing")
-        .setData((entity, data) => {
-            data.load(0, entity.getInterpolatedData("mhp:dyn/charge_timer") > 0.2 && entity.getInterpolatedData("mhp:dyn/charge_timer") < 0.8);
-        }).priority = -10; */
-
     addAnimation(renderer, "invincible.FLIGHT", "fiskheroes:flight/iron_man.anim.json")
         .setData((entity, data) => {
             data.load(0, entity.getInterpolatedData("fiskheroes:flight_timer"));
@@ -93,12 +88,6 @@ function initAnimations(renderer) {
         }).setCondition(entity => entity.getData('mhp:dyn/random_digit') == 0)
         .priority = -10;
 
-   /*  addAnimation(renderer, "invincible.FLIGHT3", "fiskheroes:flight/martian_comics.anim.json")
-        .setData((entity, data) => {
-            data.load(0, entity.getInterpolatedData("fiskheroes:flight_timer"));
-            data.load(1, entity.getInterpolatedData("fiskheroes:flight_boost_timer"));
-        }).setCondition(entity => entity.getData('mhp:dyn/random_digit') == 3)
-        .priority = -10; */
 
   renderer.reprioritizeDefaultAnimation("PUNCH", -9);
   renderer.reprioritizeDefaultAnimation("AIM_BOW", -9);

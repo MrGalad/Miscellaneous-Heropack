@@ -201,7 +201,7 @@ function isKeyBindEnabled(entity, keyBind) {
         case "GROUND_SMASH":
             return !entity.getData("fiskheroes:dyn/flight_super_boost") > 0;
         case "SHIELD":
-            return !(entity.isSprinting() && entity.getData("fiskheroes:flying"));
+            return !(entity.isSprinting() && entity.getData("fiskheroes:flying")) && !entity.getData("mhp:dyn/charge_timer");
         case "SUPER_SPEED":
             return !entity.getData("fiskheroes:flying");
         default:

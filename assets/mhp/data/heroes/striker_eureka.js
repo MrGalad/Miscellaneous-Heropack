@@ -25,6 +25,7 @@ function init(hero) {
     hero.addDamageProfile("STINGBLADES", {"types": {"SHARP": 1.0}});
 
     hero.setTickHandler(tick);
+    hero.addSoundEvent("STEP", "fiskheroes:anti_walk");
 }
 
 function stingbladesProfile(profile) {
