@@ -20,6 +20,7 @@
 - Removed Ultraman
 - Removed Vidor
 - Removed teleport delay with Infinity Gauntlet 
+- Removed Sunspot (DOFP) alt
 
 - Updated Winchester 1887's model
 - Updated Metroman's skin
@@ -31,6 +32,7 @@
 - Changed 'Energy Blade' weapon's name to 'Energy Sword'
 - Changed 'Toggle Invisibility' to 'Invisibility' with Charles Xavier
 - Changed Infinity Stones' names
+- Changed Sunspot's item textures
 
 - ### Miscellaneous Heropack 3.1 ###
 

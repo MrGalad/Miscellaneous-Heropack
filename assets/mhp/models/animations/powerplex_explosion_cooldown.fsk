@@ -1,0 +1,15 @@
+{punches_time}={data}
+{punches_0}=curve animate2({punches_time},1,0,0,1)
+
+{head_rotX}+=-37.5'{punches_0}
+
+{leftArm_rotX}+=-180'{punches_0}
+{leftArm_rotY}+=-25'{punches_0}
+{leftArm_rotZ}+=72.5'{punches_0}
+{leftArm_posX}+=1.75{punches_0}
+{leftArm_posZ}+=-0.75{punches_0}
+
+{rightArm_rotX}+=-172.1562799336'{punches_0}
+{rightArm_rotY}+=20.2615723602'{punches_0}
+{rightArm_rotZ}+=-64.0619758439'{punches_0}
+{rightArm_posX}+=-2{punches_0}

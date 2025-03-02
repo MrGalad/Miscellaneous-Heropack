@@ -1,6 +1,5 @@
 {
   "name": "power.fiskheroes.divine_empowerment.name",
-  "value": 21,
   "modifiers": {
     "fiskheroes:transformation": {
       "key": "SHAZAM",
@@ -96,8 +95,8 @@
       "damageProfile": {
         "damage": 14.0
       },
-      "chargeTime": 120,
-      "duration": 60,
+      "chargeTime": 60,
+      "duration": 30,
       "cooldownTime": 120,
       "range": 16.0,
       "radius": 16.0,
@@ -111,8 +110,8 @@
       "damageProfile": {
         "damage": 14.0
       },
-      "chargeTime": 120,
-      "duration": 60,
+      "chargeTime": 60,
+      "duration": 30,
       "cooldownTime": 120,
       "range": -16.0,
       "radius": 16.0

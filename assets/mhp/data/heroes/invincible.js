@@ -22,10 +22,11 @@ function init(hero) {
     hero.addAttribute("SPRINT_SPEED", 1.0, 1);
     hero.addAttribute("BASE_SPEED_LEVELS", 3.0, 0);
 
-    hero.addKeyBind("SUPER_SPEED", "key.superSpeed", 1);
-    hero.addKeyBind("GROUND_SMASH", "Ground Smash", 2);
-    hero.addKeyBind("SLOW_MOTION", "key.slowMotionHold", 3);
-    hero.addKeyBind("SHIELD", "Block", 4);
+    hero.addKeyBind("ENERGY_PROJECTION", "Speed Punches", 1);
+    hero.addKeyBind("SUPER_SPEED", "key.superSpeed", 2);
+    hero.addKeyBind("GROUND_SMASH", "Ground Smash", 3);
+    hero.addKeyBind("SLOW_MOTION", "key.slowMotionHold", 4);
+    hero.addKeyBind("SHIELD", "Block", 5);
 
     hero.setModifierEnabled(isModifierEnabled);
     hero.setKeyBindEnabled(isKeyBindEnabled);
@@ -204,6 +205,8 @@ function isKeyBindEnabled(entity, keyBind) {
             return !(entity.isSprinting() && entity.getData("fiskheroes:flying")) && !entity.getData("mhp:dyn/charge_timer");
         case "SUPER_SPEED":
             return !entity.getData("fiskheroes:flying");
+        case "ENERGY_PROJECTION":
+            return !(entity.isSprinting() && entity.getData("fiskheroes:flying")) && !entity.getData("mhp:dyn/charge_timer");
         default:
             return true;
     }

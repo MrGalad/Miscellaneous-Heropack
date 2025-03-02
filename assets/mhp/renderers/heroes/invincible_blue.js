@@ -7,4 +7,6 @@ loadTextures({
     "battledamage3": "mhp:invincible/battledamage_blue_3",
     "battledamage4": "mhp:invincible/battledamage_blue_4",
     "battledamage5": "mhp:invincible/battledamage_blue_5",
+    "noarm": "mhp:invincible/invincible_blue_armless_layer1",
+    "noarmblue": "mhp:invincible/invincible_blue_armless_layer1",
 });

@@ -167,6 +167,26 @@
               "BOOST": "fiskheroes:mysterio_boost_loop"
           }
       },
+      "fiskheroes:energy_projection": {
+        "damageProfile": {
+          "damage": 5,
+          "types": {
+            "ENERGY": 1.0
+          },
+          "properties": {
+            "COOK_ENTITY": false,
+            "HEAT_TRANSFER": 0,
+            "REDUCE_KNOCKBACK": 1
+          }
+        },
+        "range": 2.0,
+        "radius": 0.1,
+        "soundEvents": {
+          "SHOOT": "fiskheroes:mysterio_beam_start",
+          "SHOOT_STOP": "fiskheroes:mysterio_beam_stop",
+          "BEAM_AMBIENT": "fiskheroes:mysterio_beam_loop"
+        }
+      },
       "fiskheroes:leaping": {
           "leapAmount": [1.5, 0.3]
       },

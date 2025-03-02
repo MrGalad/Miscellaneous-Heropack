@@ -1,0 +1,62 @@
+{powerplex_explosion_time}={data}
+{powerplex_explosion_0}=curve animate2({powerplex_explosion_time},0.7727272727,0,0.6818181818,0.0909090909)
+{powerplex_explosion_1}=curve animate2({powerplex_explosion_time},0.3181818182,0.6818181818181818,0.0909090909,0.2272727273)
+{powerplex_explosion_2}=curve animate2({powerplex_explosion_time},0.7418181818,0,0.6818181818,0.06)
+{powerplex_explosion_3}=curve animate2({powerplex_explosion_time},0.0909090909,0.6818181818181818,0.06,0.0309090909)
+{powerplex_explosion_4}=curve animate2({powerplex_explosion_time},0.2581818182,0.7418181818181818,0.0309090909,0.2272727273)
+
+{head_rotX}+=67.5'{powerplex_explosion_0}
+{head_rotX}+=-37.5'{powerplex_explosion_1}
+{head_posY}+=3{powerplex_explosion_0}
+{head_posZ}+=-3{powerplex_explosion_0}
+
+{body_rotX}+=20'{powerplex_explosion_0}
+{body_posY}+=3.5{powerplex_explosion_0}
+{body_posZ}+=-3{powerplex_explosion_0}
+
+{leftArm_rotX}+=-134.0071891663'{powerplex_explosion_2}
+{leftArm_rotY}+=36.8677483994'{powerplex_explosion_2}
+{leftArm_rotZ}+=-102.2393312767'{powerplex_explosion_2}
+{leftArm_rotX}+=-113.2491937656'{powerplex_explosion_3}
+{leftArm_rotY}+=-12.9549505327'{powerplex_explosion_3}
+{leftArm_rotZ}+=-38.030280749'{powerplex_explosion_3}
+{leftArm_rotX}+=-180'{powerplex_explosion_4}
+{leftArm_rotY}+=-25'{powerplex_explosion_4}
+{leftArm_rotZ}+=72.5'{powerplex_explosion_4}
+{leftArm_posX}+=4.25{powerplex_explosion_2}
+{leftArm_posY}+=5.75{powerplex_explosion_2}
+{leftArm_posZ}+=-2{powerplex_explosion_2}
+{leftArm_posX}+=2.33{powerplex_explosion_3}
+{leftArm_posY}+=4.49{powerplex_explosion_3}
+{leftArm_posZ}+=-1.78{powerplex_explosion_3}
+{leftArm_posX}+=1.75{powerplex_explosion_4}
+{leftArm_posZ}+=-0.75{powerplex_explosion_4}
+
+{rightArm_rotX}+=-131.0332935981'{powerplex_explosion_2}
+{rightArm_rotY}+=-44.9454930323'{powerplex_explosion_2}
+{rightArm_rotZ}+=92.4976235688'{powerplex_explosion_2}
+{rightArm_rotX}+=-116.8467801101'{powerplex_explosion_3}
+{rightArm_rotY}+=13.0716596968'{powerplex_explosion_3}
+{rightArm_rotZ}+=31.1447629121'{powerplex_explosion_3}
+{rightArm_rotX}+=-172.1562799336'{powerplex_explosion_4}
+{rightArm_rotY}+=20.2615723602'{powerplex_explosion_4}
+{rightArm_rotZ}+=-64.0619758439'{powerplex_explosion_4}
+{rightArm_posX}+=-4.5{powerplex_explosion_2}
+{rightArm_posY}+=6{powerplex_explosion_2}
+{rightArm_posZ}+=-2.5{powerplex_explosion_2}
+{rightArm_posX}+=-1.85{powerplex_explosion_3}
+{rightArm_posY}+=4.69{powerplex_explosion_3}
+{rightArm_posZ}+=-1.95{powerplex_explosion_3}
+{rightArm_posX}+=-2{powerplex_explosion_4}
+
+{leftLeg_rotX}+=25.7692621316'{powerplex_explosion_0}
+{leftLeg_rotY}+=-13.566260371'{powerplex_explosion_0}
+{leftLeg_rotZ}+=-6.4606648091'{powerplex_explosion_0}
+{leftLeg_posX}+=1.25{powerplex_explosion_0}
+{leftLeg_posZ}+=-5{powerplex_explosion_0}
+
+{rightLeg_rotX}+=25.7692621316'{powerplex_explosion_0}
+{rightLeg_rotY}+=13.566260371'{powerplex_explosion_0}
+{rightLeg_rotZ}+=6.4606648091'{powerplex_explosion_0}
+{rightLeg_posX}+=-1.25{powerplex_explosion_0}
+{rightLeg_posZ}+=-5{powerplex_explosion_0}

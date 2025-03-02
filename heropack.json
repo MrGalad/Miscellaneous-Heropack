@@ -341,6 +341,10 @@
 "charge_timer": {
   "type": "FLOAT_INTERP",
   "resetWithoutSuit": true
+},
+"recover": {
+  "type": "BOOLEAN",
+  "resetWithoutSuit": true
 }
   },
   "alts": {
