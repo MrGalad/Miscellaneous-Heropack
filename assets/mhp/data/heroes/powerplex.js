@@ -16,10 +16,16 @@ function init(hero) {
     hero.addKeyBind("CHARGED_BEAM", "Lightning Discharge", 3);
 
 
+    hero.setModifierEnabled(isModifierEnabled);
+    hero.setKeyBindEnabled(isKeyBindEnabled);
     hero.setTickHandler((entity, manager) => {
         snap(hero, entity);
-        var condss = entity.getData("fiskheroes:beam_charge") || entity.getData("fiskheroes:energy_projection") || entity.getData("fiskheroes:flying")
+        var boolean = entity.getData("mhp:dyn/boolean");
+        var condss = entity.getData("fiskheroes:energy_projection") || entity.getData("fiskheroes:flying")
         var time = 20;
+        if (entity.isAlive() && !entity.getData("fiskheroes:beam_charging")) {
+            manager.setData(entity, "mhp:dyn/boolean", false)
+        }
         if (entity.getData("mhp:dyn/worn_suit") < 10) {
             manager.setData(entity, "mhp:dyn/worn_suit", entity.getData("mhp:dyn/worn_suit") + 0.1);
         }
@@ -30,9 +36,18 @@ function init(hero) {
         }
         if (condss) {
             manager.setData(entity, "mhp:dyn/power_charge", entity.getData("mhp:dyn/power_charge") - 0.001)
-        } /* else if (!condss) {
-            manager.setData(entity, "mhp:dyn/recover", false)
-        } */
+        } if (entity.getHeldItem().name() == 'fisktag:barrier') {
+            manager.setData(entity, "mhp:dyn/power_charge", 1)
+        } if (entity.getData("mhp:dyn/power_charge") > 0.99) {
+            manager.setData(entity, "mhp:dyn/boolean", true)
+        } else if (entity.getData("mhp:dyn/power_charge") < 0.6) {
+            manager.setData(entity, "mhp:dyn/boolean", false)
+        }  if (entity.getData("fiskheroes:beam_shooting") > 0) {
+            var powerCharge = entity.getData("mhp:dyn/power_charge");
+            if (powerCharge > 0.5) {
+                manager.setData(entity, "mhp:dyn/power_charge", powerCharge - 0.01); // Decrease power_charge
+            }
+        }
     });
 
     hero.addDamageProfile("ELEC", {
@@ -52,8 +67,30 @@ function snap(hero, entity) {
         for (var i = 0; i < list.size(); ++i) {
             var other = list.get(i);
             if (other.isLivingEntity() && !entity.equals(other)) { 
-                other.hurtByAttacker(hero, "ELEC", "%s was electrecuted", 0, entity);
+                other.hurtByAttacker(hero, "ELEC", "%s was electrecuted", 5, entity);
             }
         }
     }
+}
+
+function isModifierEnabled(entity, modifier) {
+    switch (modifier.name()) {
+        case "fiskheroes:controlled_flight":
+            return entity.getData("mhp:dyn/power_charge") > 0.5;
+        case "fiskheroes:lightning_cast":
+            return entity.getData("mhp:dyn/power_charge") > 0.2;    
+}
+return true;
+}
+
+
+function isKeyBindEnabled(entity, keyBind) {
+    var boolean = entity.getData("mhp:dyn/boolean");
+    switch (keyBind) {
+        case "ENERGY_PROJECTION":
+            return entity.getData("mhp:dyn/power_charge") > 0.5;
+        case "CHARGED_BEAM":
+            return boolean;
+}
+return true;
 }

@@ -1,6 +1,14 @@
 {
   "name": "Viltrumite Physiology",
   "modifiers": {
+    "fiskheroes:transformation": {
+        "key": "DESIGN",
+        "transformation": {
+          "toggleData": "mhp:dyn/boolean",
+          "timerData": "mhp:dyn/float_interp",
+          "time": 13
+        }
+      },
       "fiskheroes:cooldown": {
           "cooldown": {
               "toggleData": "mhp:dyn/power",

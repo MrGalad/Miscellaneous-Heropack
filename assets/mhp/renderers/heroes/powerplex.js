@@ -11,25 +11,6 @@ var overlay;
 var eyes
 
 
-/* function init(renderer) {
-  parent.init(renderer);
-  renderer.setTexture((entity, renderLayer) => {
-    if (!entity.is("DISPLAY") && entity.getData("mhp:dyn/shazam_timer") >= 0.5) {
-      return "full";
-    }
-    return renderLayer == "LEGGINGS" ? "blank" : "blank";
-  });
-  renderer.setLights((entity, renderLayer) => {
-    if (!entity.is("DISPLAY") && entity.getData("mhp:dyn/shazam_timer") >= 0.5) {
-      return "lights";
-    }
-    return renderLayer == "LEGGINGS" ? null : null;
-  });
-  renderer.showModel("CHESTPLATE", "head", "headwear", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
-  renderer.fixHatLayer("CHESTPLATE");
-}
- */
-
 function initEffects(renderer) {
   utils.bindTrail(renderer, "mhp:powerplex_flicker_beam").setCondition(entity => entity.getData("fiskheroes:beam_charging") > 0)
   utils.bindTrail(renderer, "mhp:powerplex_flicker").setCondition(entity => entity.getData("mhp:dyn/power_charge") > 0.2)
@@ -44,10 +25,9 @@ function initEffects(renderer) {
   forcefield.setOffset(0.0, 6.0, 0.0)
   forcefield.setCondition(entity => {
     forcefield.opacity = Math.max(entity.getInterpolatedData("fiskheroes:beam_shooting_timer") / 2, 0);
-    forcefield.setScale(entity.getInterpolatedData("fiskheroes:beam_shooting_timer") * 6);
+    forcefield.setScale(entity.getInterpolatedData("fiskheroes:beam_shooting_timer") * 4);
     return true;
   });
-
 
   var beam = renderer.createResource("BEAM_RENDERER", "mhp:charged_beam");
   utils.bindBeam(renderer, "fiskheroes:energy_projection", beam, "rightArm", 0xFFD700, [
@@ -88,9 +68,9 @@ function initAnimations(renderer) {
     .setData((entity, data) => {
       var charge = entity.getInterpolatedData("fiskheroes:beam_charge");
       data.load(0, entity.getData("fiskheroes:beam_charging") ? charge : 0);
-  data.load(1, entity.getInterpolatedData("fiskheroes:beam_shooting_timer"))
+      data.load(1, entity.getInterpolatedData("fiskheroes:beam_shooting_timer"))
     }).priority = 0;
-    
+
 
   utils.addFlightAnimation(renderer, "powerplex.FLIGHT", "fiskheroes:flight/default.anim.json");
   utils.addHoverAnimation(renderer, "powerplex.HOVER", "fiskheroes:flight/idle/default");
@@ -114,7 +94,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
   overlay.opacity = finalOpacity;
   overlay.render();
 
-  if (timer >= 1) {
+  if (timer >= 0.8) {
     eyes.render();
   }
 }

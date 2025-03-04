@@ -1,9 +1,0 @@
-{rightArm_posZ} @ {data} -> {head_rotZ} + 5.0*sin({data}*36000)
-{rightArm_rotX} = -1.5
-
-{leftArm_posZ} @ {data} -> {head_rotZ} + 4.0*sin({data}*360)
-{leftArm_rotX} = -1.5
-
-out "firstPerson" (true)
-
-out "rotate" (-51080{data}, 0, 1, 0)

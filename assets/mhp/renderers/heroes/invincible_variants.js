@@ -1,17 +1,19 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-    "layer1": "mhp:invincible/invincible_layer1",
-    "layer2": "mhp:invincible/invincible_layer2",
-    "battledamage1": "mhp:invincible/battledamage_1",
-    "battledamage2": "mhp:invincible/battledamage_2",
-    "battledamage3": "mhp:invincible/battledamage_3",
-    "battledamage4": "mhp:invincible/battledamage_4",
-    "battledamage5": "mhp:invincible/battledamage_5",
-    "noarm": "mhp:invincible/invincible_armless_layer1",
-    "noarmblue": "mhp:invincible/invincible_blue_armless_layer1",
+    "blank": "mhp:blank",
+    "capevincible": "mhp:marks/capevincible",
+    "capevincible_cape": "mhp:marks/capevincible_cape",
+    "movincihawk": "mhp:marks/movincihawk",
+    "mustachible": "mhp:marks/mustachible",
+    "maskvincible": "mhp:marks/maskvincible",
+    "stripevincible": "mhp:marks/stripevincible",
+    "hoodvincible": "mhp:marks/hoodvincible",
+    "hairvincible": "mhp:marks/hairvincible",
+    "capvincible": "mhp:marks/capvincible"
 });
 
 var utils = implement("fiskheroes:external/utils");
+var capes = implement("fiskheroes:external/capes");
 var speedster = implement("fiskheroes:external/speedster_utils");
 var layer2
 
@@ -19,21 +21,25 @@ var layer2
 function init(renderer) {
     parent.init(renderer);
     renderer.setTexture((entity, renderLayer) => {
-        var texture = entity.getData("mhp:dyn/texture");
-        if (texture > 0.9) {
-            return "battledamage5";
-        } else if (texture > 0.75) {
-            return "battledamage4";
-        } else if (texture > 0.5) {
-            return "battledamage3";
-        } else if (texture > 0.4) {
-            return "battledamage2";
-        } else if (texture > 0.25) {
-            return "battledamage1";
-        } /* if (entity.getData("fiskheroes:energy_projection")) {
-            return "noarm"
-        } */
-        return "layer1"
+        var slot = entity.getData("mhp:dyn/slot");
+        if (slot == 1) {
+            return "capevincible";
+        } else if (slot == 2) {
+            return "movincihawk";
+        } else if (slot == 3) {
+            return "mustachible";
+        } else if (slot == 4) {
+            return "maskvincible";
+        } else if (slot == 5) {
+            return "stripevincible";
+        } else if (slot == 6) {
+            return "hoodvincible";
+        } else if (slot == 7) {
+            return "harivincible";
+        } else if (slot == 8) {
+            return "capvincible"
+        }
+        return "blank"
     })
 
 }
@@ -45,8 +51,12 @@ function initEffects(renderer) {
     utils.bindParticles(renderer, "mhp:invincible_charge").setCondition(entity => entity.getData("mhp:dyn/charge_timer") > 0.3)
     utils.bindParticles(renderer, "mhp:landing_particles").setCondition(entity => entity.getData("mhp:dyn/charge_timer") > 0.3 && !entity.isOnGround() && entity.getData("fiskheroes:flying") && entity.isSprinting())
 
-    layer2 = renderer.createEffect("fiskheroes:overlay");
-    layer2.texture.set("layer2");
+
+    var physics = renderer.createResource("CAPE_PHYSICS", null);
+    physics.weight = 1.0;
+    physics.maxFlare = 0.5;
+    cape = capes.createDefault(renderer, 24, "fiskheroes:cape_default.mesh.json", physics);
+    cape.effect.texture.set("capevincible_cape");
 
     utils.addCameraShake(renderer, 0.015, 1.5, "mhp:dyn/charge_timer");
     var shake = renderer.bindProperty("fiskheroes:camera_shake").setCondition(entity => {
@@ -160,7 +170,7 @@ function initAnimations(renderer) {
         }).setCondition(entity => entity.getData('mhp:dyn/random_digit') == 0)
         .priority = -10;
 
-        addAnimation(renderer, "invincible.PUNCH", "mhp:speed_punches")
+    addAnimation(renderer, "invincible.PUNCH", "mhp:speed_punches")
         .setData((entity, data) => {
             data.load(0.5 + entity.loop(1));
         }).setCondition(entity => entity.getInterpolatedData("fiskheroes:energy_projection_timer") > 0.5);
@@ -172,10 +182,10 @@ function initAnimations(renderer) {
     renderer.reprioritizeDefaultAnimation("AIM_BOW", -9);
 }
 
-function render(entity, renderLayer) {
+function render(entity, renderLayer, isFirstPersonArm) {
     parent.render(entity, renderLayer);
-    if (renderLayer == "LEGGINGS" && entity.getData("mhp:dyn/texture") < 0.25) {
-        layer2.render();
+    if (!isFirstPersonArm && renderLayer == "CHESTPLATE" && entity.getData("mhp:dyn/slot") == 1) {
+        cape.render(entity);
     }
 
     if (entity.getInterpolatedData("fiskheroes:energy_projection_timer") > 0.5) {

@@ -1,0 +1,9 @@
+{rightArm_posZ} @ {data} -> {head_rotZ} + 5.5 * sin({data} * 35900)
+{rightArm_rotX} = -1.5
+
+{leftArm_posZ} @ {data} -> {head_rotZ} + 3.8 * sin({data} * 365)
+{leftArm_rotX} = -1.5
+
+out "firstPerson" (true)
+
+out "rotate" (-52000 * {data}, 0, 1, 0)
