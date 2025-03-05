@@ -91,6 +91,11 @@
       "type": "FLOAT_INTERP",
       "resetWithoutSuit": true
     },
+    "boolean1": "BOOLEAN",
+    "float_interp1": {
+      "type": "FLOAT_INTERP",
+      "resetWithoutSuit": true
+    },
     "tele": "BOOLEAN",
     "tele_timer": "FLOAT_INTERP",
     "slot": {
@@ -343,6 +348,14 @@
   "resetWithoutSuit": true
 },
 "recover": {
+  "type": "BOOLEAN",
+  "resetWithoutSuit": true
+},
+"punched": {
+  "type": "BOOLEAN",
+  "resetWithoutSuit": true
+},
+"slot_changed": {
   "type": "BOOLEAN",
   "resetWithoutSuit": true
 }

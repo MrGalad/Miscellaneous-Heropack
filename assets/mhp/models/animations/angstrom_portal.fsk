@@ -1,0 +1,4 @@
+{portal_move_time}={data}
+{portal_move_0}=curve animate2({portal_move_time},5,0,1,4)
+
+{bone_posX}+=-17{portal_move_0}

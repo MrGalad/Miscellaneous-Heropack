@@ -9,13 +9,28 @@ loadTextures({
     "stripevincible": "mhp:marks/stripevincible",
     "hoodvincible": "mhp:marks/hoodvincible",
     "hairvincible": "mhp:marks/hairvincible",
-    "capvincible": "mhp:marks/capvincible"
+    "capvincible": "mhp:marks/capvincible",
+    "sportvincible": "mhp:marks/sportvincible",
+    "lightblueincible": "mhp:marks/lightblueincible",
+    "omnivincible": "mhp:marks/omnivincible",
+    "omnivincible_cape": "mhp:marks/omnivincible_cape",
+    "viltrumincible": "mhp:marks/viltrumincible",
+    "bulletproofible": "mhp:marks/bulletproofible",
+    "prisonincible": "mhp:marks/prisonvincible",
+    "flaxancible": "mhp:marks/flaxancible",
+    "gogglesvincible": "mhp:marks/gogglesvincible",
+    "nogogglesible": "mhp:marks/nogogglesible",
+    "nomaskible": "mhp:marks/nomaskible",
+    "portal": "mhp:marks/angstrom_portal",
 });
 
 var utils = implement("fiskheroes:external/utils");
 var capes = implement("fiskheroes:external/capes");
 var speedster = implement("fiskheroes:external/speedster_utils");
 var layer2
+var portal
+/* var cape
+var cape2 */
 
 
 function init(renderer) {
@@ -35,12 +50,34 @@ function init(renderer) {
         } else if (slot == 6) {
             return "hoodvincible";
         } else if (slot == 7) {
-            return "harivincible";
+            return "hairvincible";
         } else if (slot == 8) {
             return "capvincible"
+        } else if (slot == 9) {
+            return "sportvincible"
+        } else if (slot == 10) {
+            return "lightblueincible"
+        } else if (slot == 11) {
+            return "omnivincible"
+        } else if (slot == 12) {
+            return "viltrumincible"
+        } else if (slot == 13) {
+            return "bulletproofible"
+        } else if (slot == 14) {
+            return "prisonincible"
+        } else if (slot == 15) {
+            return "flaxancible"
+        } else if (slot == 16) {
+            return "gogglesvincible"
+        } else if (slot == 17) {
+            return "nogogglesible"
+        } else if (slot == 18) {
+            return "nomaskible"
         }
         return "blank"
     })
+    renderer.showModel("CHESTPLATE", "head", "headwear", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
+    renderer.fixHatLayer("CHESTPLATE");
 
 }
 
@@ -52,11 +89,25 @@ function initEffects(renderer) {
     utils.bindParticles(renderer, "mhp:landing_particles").setCondition(entity => entity.getData("mhp:dyn/charge_timer") > 0.3 && !entity.isOnGround() && entity.getData("fiskheroes:flying") && entity.isSprinting())
 
 
+  /*   var model = renderer.createResource("MODEL", "mhp:angstrom_portal");
+    model.texture.set("portal");
+    model.bindAnimation("mhp:angstrom_portal").setData((entity, data) => { 
+        data.load(0, entity.getInterpolatedData("mhp:dyn/float_interp1") > 0); 
+        
+    });
+    portal = renderer.createEffect("fiskheroes:model").setModel(model);
+    portal.anchor.set("leftArm");
+    portal.anchor.ignoreAnchor(true); */
+
+
     var physics = renderer.createResource("CAPE_PHYSICS", null);
     physics.weight = 1.0;
     physics.maxFlare = 0.5;
     cape = capes.createDefault(renderer, 24, "fiskheroes:cape_default.mesh.json", physics);
     cape.effect.texture.set("capevincible_cape");
+
+    cape2 = capes.createDefault(renderer, 24, "fiskheroes:cape_default.mesh.json", physics);
+    cape2.effect.texture.set("omnivincible_cape");
 
     utils.addCameraShake(renderer, 0.015, 1.5, "mhp:dyn/charge_timer");
     var shake = renderer.bindProperty("fiskheroes:camera_shake").setCondition(entity => {
@@ -175,8 +226,6 @@ function initAnimations(renderer) {
             data.load(0.5 + entity.loop(1));
         }).setCondition(entity => entity.getInterpolatedData("fiskheroes:energy_projection_timer") > 0.5);
 
-    /* addAnimationWithData(renderer, "invincible.ENERGY_PROJ", "mhp:invisible_punch", "fiskheroes:energy_projection_timer"); */
-
 
     renderer.reprioritizeDefaultAnimation("PUNCH", -9);
     renderer.reprioritizeDefaultAnimation("AIM_BOW", -9);
@@ -186,6 +235,8 @@ function render(entity, renderLayer, isFirstPersonArm) {
     parent.render(entity, renderLayer);
     if (!isFirstPersonArm && renderLayer == "CHESTPLATE" && entity.getData("mhp:dyn/slot") == 1) {
         cape.render(entity);
+    } else if (!isFirstPersonArm && renderLayer == "CHESTPLATE" && entity.getData("mhp:dyn/slot") == 11) {
+        cape2.render(entity)
     }
 
     if (entity.getInterpolatedData("fiskheroes:energy_projection_timer") > 0.5) {
@@ -210,10 +261,6 @@ function render(entity, renderLayer, isFirstPersonArm) {
             larm5.opacity = entity.loop(1);
             larm5.render();
         }
-        /* if (entity.loop(1) > 0 && entity.loop(3) < 0.3) {
-            larm6.opacity = entity.loop(2);
-            larm6.render();
-        } */
         if (entity.loop(2) > 0 && entity.loop(5) < 0.35) {
             larm7.opacity = entity.loop(3);
             larm7.render();
@@ -233,5 +280,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
         }
 
     }
-
+    /* if (entity.getData("mhp:dyn/float_interp1") > 0.5 ? 1 : 0) {
+        portal.render();
+    } */
 }

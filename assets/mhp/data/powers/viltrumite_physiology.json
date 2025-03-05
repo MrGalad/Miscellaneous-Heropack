@@ -9,6 +9,14 @@
           "time": 13
         }
       },
+      "fiskheroes:transformation|data": {
+        "key": "DATA",
+        "transformation": {
+          "toggleData": "mhp:dyn/boolean1",
+          "timerData": "mhp:dyn/float_interp1",
+          "time": 20
+        }
+      },
       "fiskheroes:cooldown": {
           "cooldown": {
               "toggleData": "mhp:dyn/power",

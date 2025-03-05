@@ -6,10 +6,7 @@ function init(hero) {
     hero.setName("Invincible Variants");
     hero.setTier(9);
 
-    hero.setHelmet("Mask");
     hero.setChestplate("Chestpiece");
-    hero.setLeggings("Pants");
-    hero.setBoots("Boots");
 
     hero.addPowers("mhp:viltrumite_physiology");
     hero.addAttribute("PUNCH_DAMAGE", 9, 0);
@@ -33,11 +30,6 @@ function init(hero) {
 
     hero.setModifierEnabled(isModifierEnabled);
     hero.setKeyBindEnabled(isKeyBindEnabled);
-    hero.addAttributeProfile("FIRST", first);
-    hero.addAttributeProfile("SECOND", second);
-    hero.addAttributeProfile("THIRD", third);
-    hero.addAttributeProfile("FOURTH", fourth);
-    hero.addAttributeProfile("FIFTH", fifth);
     hero.addAttributeProfile("BLOCK", block);
     hero.addAttributeProfile("CHANGEPROFILE", changeProfile);
     hero.setAttributeProfile(getAttributeProfile);
@@ -97,57 +89,47 @@ function change(entity, manager) {
 
 function names(entity, manager) {
     var chestplateNBT = entity.getWornChestplate().nbt();
-    var bootsNBT = entity.getWornBoots().nbt();
-    var helmetNBT = entity.getWornHelmet().nbt();
-    var leggingsNBT = entity.getWornLeggings().nbt();
-
-    var chestplateDisplay = chestplateNBT.getCompoundTag("display");
-    var bootsDisplay = bootsNBT.getCompoundTag("display");
-    var helmetDisplay = helmetNBT.getCompoundTag("display");
-    var leggingsDisplay = leggingsNBT.getCompoundTag("display");
-
+    var chestplateDisplay = entity.getWornChestplate().nbt().getCompoundTag("display");
     var slot = entity.getData("mhp:dyn/slot");
 
     if (slot == 0) {
         manager.removeTag(chestplateDisplay, "Name");
-        manager.removeTag(bootsDisplay, "Name");
-        manager.removeTag(helmetDisplay, "Name");
-        manager.removeTag(leggingsDisplay, "Name");
     } else if (slot == 1) {
         manager.setString(chestplateDisplay, "Name", "Capevincible's Chestplate");
-        manager.setString(bootsDisplay, "Name", "Capevincible's Boots");
-        manager.setString(helmetDisplay, "Name", "Capevincible's Helmet");
-        manager.setString(leggingsDisplay, "Name", "Capevincible's Leggings");
     } else if (slot == 2) {
         manager.setString(chestplateDisplay, "Name", "Movincihawk's Chestplate");
-        manager.setString(bootsDisplay, "Name", "Movincihawk's Boots");
-        manager.setString(helmetDisplay, "Name", "Movincihawk's Helmet");
-        manager.setString(leggingsDisplay, "Name", "Movincihawk's Leggings");
     } else if (slot == 3) {
         manager.setString(chestplateDisplay, "Name", "Mustachible's Chestplate");
-        manager.setString(bootsDisplay, "Name", "Mustachible's Boots");
-        manager.setString(helmetDisplay, "Name", "Mustachible's Helmet");
-        manager.setString(leggingsDisplay, "Name", "Mustachible's Leggings");
     } else if (slot == 4) {
         manager.setString(chestplateDisplay, "Name", "Maskvincible's Chestplate");
-        manager.setString(bootsDisplay, "Name", "Maskvincible's Boots");
-        manager.setString(helmetDisplay, "Name", "Maskvincible's Helmet");
-        manager.setString(leggingsDisplay, "Name", "Maskvincible's Leggings");
     } else if (slot == 5) {
         manager.setString(chestplateDisplay, "Name", "Stripevincible's Chestplate");
-        manager.setString(bootsDisplay, "Name", "Stripevincible's Boots");
-        manager.setString(helmetDisplay, "Name", "Stripevincible's Helmet");
-        manager.setString(leggingsDisplay, "Name", "Stripevincible's Leggings");
     } else if (slot == 6) {
         manager.setString(chestplateDisplay, "Name", "Hoodvincible's Chestplate");
-        manager.setString(bootsDisplay, "Name", "Hoodvincible's Boots");
-        manager.setString(helmetDisplay, "Name", "Hoodvincible's Helmet");
-        manager.setString(leggingsDisplay, "Name", "Hoodvincible's Leggings");
     } else if (slot == 7) {
         manager.setString(chestplateDisplay, "Name", "Hairvincible's Chestplate");
-        manager.setString(bootsDisplay, "Name", "Hairvincible's Boots");
-        manager.setString(helmetDisplay, "Name", "Hairvincible's Helmet");
-        manager.setString(leggingsDisplay, "Name", "Hairvincible's Leggings");
+    } else if (slot == 8) {
+        manager.setString(chestplateDisplay, "Name", "Capvincible's Chestplate");
+    } else if (slot == 9) {
+        manager.setString(chestplateDisplay, "Name", "Sportvincible's Chestplate");
+    } else if (slot == 10) {
+        manager.setString(chestplateDisplay, "Name", "Lightbluevincible's Chestplate");
+    } else if (slot == 11) {
+        manager.setString(chestplateDisplay, "Name", "Omnivincible's Chestplate");
+    } else if (slot == 12) {
+        manager.setString(chestplateDisplay, "Name", "Viltrumincible's Chestplate");
+    } else if (slot == 13) {
+        manager.setString(chestplateDisplay, "Name", "Bulletproofible's Chestplate");
+    } else if (slot == 14) {
+        manager.setString(chestplateDisplay, "Name", "Prisonincible's Chestplate");
+    } else if (slot == 15) {
+        manager.setString(chestplateDisplay, "Name", "Flaxancible's Chestplate");
+    } else if (slot == 16) {
+        manager.setString(chestplateDisplay, "Name", "Gogglesvincible's Chestplate");
+    } else if (slot == 17) {
+        manager.setString(chestplateDisplay, "Name", "Nogogglesible's Chestplate");
+    } else if (slot == 18) {
+        manager.setString(chestplateDisplay, "Name", "Nomaskible's Chestplate");
     }
 }
 
@@ -203,56 +185,6 @@ function isKeyBindEnabled(entity, keyBind) {
             return true;
     }
 }
-
-function first(profile) {
-    profile.revokeAugments();
-    profile.addAttribute("SPRINT_SPEED", 0.8, 1);
-    profile.addAttribute("PUNCH_DAMAGE", 8, 0);
-    profile.addAttribute("MAX_HEALTH", -1, 0);
-    profile.addAttribute("WEAPON_DAMAGE", 1.0, 0);
-    profile.addAttribute("FALL_RESISTANCE", 1.0, 1);
-    profile.addAttribute("BASE_SPEED_LEVELS", 2.0, 0);
-}
-
-function second(profile) {
-    profile.revokeAugments();
-    profile.addAttribute("SPRINT_SPEED", 0.6, 1);
-    profile.addAttribute("PUNCH_DAMAGE", 7, 0);
-    profile.addAttribute("MAX_HEALTH", -2, 0);
-    profile.addAttribute("WEAPON_DAMAGE", 0.8, 0);
-    profile.addAttribute("FALL_RESISTANCE", 1.0, 1);
-    profile.addAttribute("BASE_SPEED_LEVELS", 2.0, 0);
-}
-
-function third(profile) {
-    profile.revokeAugments();
-    profile.addAttribute("SPRINT_SPEED", 0.2, 1);
-    profile.addAttribute("PUNCH_DAMAGE", 6, 0);
-    profile.addAttribute("MAX_HEALTH", -4, 0);
-    profile.addAttribute("WEAPON_DAMAGE", 0.6, 0);
-    profile.addAttribute("FALL_RESISTANCE", 1.0, 1);
-    profile.addAttribute("BASE_SPEED_LEVELS", 1.0, 0);
-}
-
-function fourth(profile) {
-    profile.revokeAugments();
-    profile.addAttribute("SPRINT_SPEED", 1, 1);
-    profile.addAttribute("PUNCH_DAMAGE", 10, 0);
-    profile.addAttribute("WEAPON_DAMAGE", 2, 0);
-    profile.addAttribute("FALL_RESISTANCE", 1.0, 1);
-    profile.addAttribute("BASE_SPEED_LEVELS", 3.0, 0);
-}
-
-function fifth(profile) {
-    profile.revokeAugments();
-    profile.addAttribute("SPRINT_SPEED", 1.5, 1);
-    profile.addAttribute("PUNCH_DAMAGE", 12, 0);
-    profile.addAttribute("MAX_HEALTH", 4, 0);
-    profile.addAttribute("WEAPON_DAMAGE", 2.5, 0);
-    profile.addAttribute("FALL_RESISTANCE", 1.0, 1);
-    profile.addAttribute("BASE_SPEED_LEVELS", 3.0, 0);
-}
-
 function block(profile) {
     profile.inheritDefaults();
     profile.addAttribute("SPRINT_SPEED", -100000000, 1);
@@ -264,19 +196,7 @@ function changeProfile(profile) {
 }
 
 function getAttributeProfile(entity) {
-    var powerCharge = entity.getData("mhp:dyn/power_charge");
-
-    if (powerCharge > 0.9) {
-        return "FIFTH";
-    } else if (powerCharge > 0.75) {
-        return "FOURTH";
-    } else if (powerCharge > 0.5) {
-        return "THIRD";
-    } else if (powerCharge > 0.4) {
-        return "SECOND";
-    } else if (powerCharge > 0.25) {
-        return "FIRST";
-    } if (entity.getData("fiskheroes:shield_blocking_timer") > 0) {
+    if (entity.getData("fiskheroes:shield_blocking_timer") > 0) {
         return "BLOCK";
     } if (!entity.getData("mhp:dyn/nv")) {
         return "CHANGEPROFILE"
