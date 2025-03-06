@@ -100,7 +100,7 @@
     "tele_timer": "FLOAT_INTERP",
     "slot": {
       "type": "INTEGER",
-      "resetWithoutSuit": true
+      "resetWithoutSuit": false
     },
     "grapple": "BOOLEAN",
     "grapple_timer": "FLOAT_INTERP",
@@ -136,7 +136,7 @@
     },
     "nv": {
       "type": "BOOLEAN",
-      "resetWithoutSuit": true
+      "resetWithoutSuit": false
     },
     "nv_timer": {
       "type": "FLOAT_INTERP",

@@ -44,16 +44,6 @@ function init(hero) {
         landing.tick(entity, manager);
         auto_boost.boostdata(entity, manager, 200, 150, 20, 20);
         names(entity, manager)
-        var time = 20;
-        if (entity.getData("mhp:dyn/worn_suit") < 10) {
-            manager.setData(entity, "mhp:dyn/worn_suit", entity.getData("mhp:dyn/worn_suit") + 0.1);
-        }
-        if (entity.getData("fiskheroes:time_since_damaged") < time && entity.getData("mhp:dyn/worn_suit") > time / 5 && !entity.getData("mhp:dyn/power")) {
-            manager.setData(entity, "mhp:dyn/power", true);
-        } else if (entity.getData("fiskheroes:time_since_damaged") > time && entity.getData("mhp:dyn/power")) {
-            manager.setData(entity, "mhp:dyn/power", false);
-        }
-
         if (entity.getData("fiskheroes:flight_boost_timer") == 0 && entity.isSprinting() && entity.getData("fiskheroes:flying")) {
             manager.setData(entity, "mhp:dyn/random_digit", Math.floor(Math.random() * 2) + 1);
         }
@@ -87,60 +77,13 @@ function change(entity, manager) {
     return true
 }
 
-function names(entity, manager) {
-    var chestplateNBT = entity.getWornChestplate().nbt();
-    var chestplateDisplay = entity.getWornChestplate().nbt().getCompoundTag("display");
-    var slot = entity.getData("mhp:dyn/slot");
-
-    if (slot == 0) {
-        manager.removeTag(chestplateDisplay, "Name");
-    } else if (slot == 1) {
-        manager.setString(chestplateDisplay, "Name", "Capevincible's Chestplate");
-    } else if (slot == 2) {
-        manager.setString(chestplateDisplay, "Name", "Movincihawk's Chestplate");
-    } else if (slot == 3) {
-        manager.setString(chestplateDisplay, "Name", "Mustachible's Chestplate");
-    } else if (slot == 4) {
-        manager.setString(chestplateDisplay, "Name", "Maskvincible's Chestplate");
-    } else if (slot == 5) {
-        manager.setString(chestplateDisplay, "Name", "Stripevincible's Chestplate");
-    } else if (slot == 6) {
-        manager.setString(chestplateDisplay, "Name", "Hoodvincible's Chestplate");
-    } else if (slot == 7) {
-        manager.setString(chestplateDisplay, "Name", "Hairvincible's Chestplate");
-    } else if (slot == 8) {
-        manager.setString(chestplateDisplay, "Name", "Capvincible's Chestplate");
-    } else if (slot == 9) {
-        manager.setString(chestplateDisplay, "Name", "Sportvincible's Chestplate");
-    } else if (slot == 10) {
-        manager.setString(chestplateDisplay, "Name", "Lightbluevincible's Chestplate");
-    } else if (slot == 11) {
-        manager.setString(chestplateDisplay, "Name", "Omnivincible's Chestplate");
-    } else if (slot == 12) {
-        manager.setString(chestplateDisplay, "Name", "Viltrumincible's Chestplate");
-    } else if (slot == 13) {
-        manager.setString(chestplateDisplay, "Name", "Bulletproofible's Chestplate");
-    } else if (slot == 14) {
-        manager.setString(chestplateDisplay, "Name", "Prisonincible's Chestplate");
-    } else if (slot == 15) {
-        manager.setString(chestplateDisplay, "Name", "Flaxancible's Chestplate");
-    } else if (slot == 16) {
-        manager.setString(chestplateDisplay, "Name", "Gogglesvincible's Chestplate");
-    } else if (slot == 17) {
-        manager.setString(chestplateDisplay, "Name", "Nogogglesible's Chestplate");
-    } else if (slot == 18) {
-        manager.setString(chestplateDisplay, "Name", "Nomaskible's Chestplate");
-    }
-}
-
-
 function isModifierEnabled(entity, modifier) {
     if (!entity.getData("mhp:dyn/nv")) {
         return false;
     }
     switch (modifier.name()) {
         case "fiskheroes:super_speed":
-            return !entity.getData("fiskheroes:flying");
+            return !entity.getData("fiskheroes:flying") && !entity.getData("fiskheroes:energy_projection");
         case "fiskheroes:controlled_flight":
             switch (modifier.id()) {
                 case "4":
@@ -165,17 +108,17 @@ function isKeyBindEnabled(entity, keyBind) {
     var lock = entity.getData("mhp:dyn/nv")
     switch (keyBind) {
         case "GROUND_SMASH":
-            return !entity.getData("fiskheroes:dyn/flight_super_boost") > 0 && lock;
+            return !entity.getData("fiskheroes:dyn/flight_super_boost") > 0 && lock && !entity.getData("fiskheroes:energy_projection");
         case "SHIELD":
-            return !(entity.isSprinting() && entity.getData("fiskheroes:flying")) && !entity.getData("mhp:dyn/charge_timer") && lock;
+            return !(entity.isSprinting() && entity.getData("fiskheroes:flying")) && !entity.getData("mhp:dyn/charge_timer") && lock && !entity.getData("fiskheroes:energy_projection");
         case "SUPER_SPEED":
-            return !entity.getData("fiskheroes:flying") && lock;
+            return !entity.getData("fiskheroes:flying") && lock && !entity.getData("fiskheroes:energy_projection");
         case "ENERGY_PROJECTION":
             return !(entity.isSprinting() && entity.getData("fiskheroes:flying")) && !entity.getData("mhp:dyn/charge_timer") && lock;
         case "SLOW_MOTION":
             return lock && !entity.getData("fiskheroes:mask_open_timer2") > 0
         case "DESIGN":
-            return entity.getData("fiskheroes:mask_open_timer2") > 0
+            return entity.getData("fiskheroes:mask_open_timer2") > 0 && !entity.getData("fiskheroes:flying")
         case "LOCKDESIGN":
             return !entity.getData("mhp:dyn/slot") == 0 && !lock
         case "func_INC_DESIGN":
@@ -203,6 +146,72 @@ function getAttributeProfile(entity) {
     }
     return true;
 }
+
 function getTierOverride(entity) {
     return entity.getData("mhp:dyn/nv") ? 9 : 0;
+}
+
+function names(entity, manager) {
+    var nbt = entity.getWornChestplate().nbt();
+    var display = nbt.getCompoundTag("display");
+    var slot = entity.getData("mhp:dyn/slot")
+
+    if (slot == 1) {
+        manager.setCompoundTag(nbt, "display", display);
+        manager.setString(display, "Name", "Capevincible's Chestplate");
+    } else if (slot == 2) {
+        manager.setCompoundTag(nbt, "display", display);
+        manager.setString(display, "Name", "Movincihawk's Chestplate");
+    } else if (slot == 3) {
+        manager.setCompoundTag(nbt, "display", display);
+        manager.setString(display, "Name", "Mustachible's Chestplate");
+    } else if (slot == 4) {
+        manager.setCompoundTag(nbt, "display", display);
+        manager.setString(display, "Name", "Maskvincible's Chestplate");
+    } else if (slot == 5) {
+        manager.setCompoundTag(nbt, "display", display);
+        manager.setString(display, "Name", "Stripevincible's Chestplate");
+    } else if (slot == 6) {
+        manager.setCompoundTag(nbt, "display", display);
+        manager.setString(display, "Name", "Hoodvincible's Chestplate");
+    } else if (slot == 7) {
+        manager.setCompoundTag(nbt, "display", display);
+        manager.setString(display, "Name", "Hairvincible's Chestplate");
+    } else if (slot == 8) {
+        manager.setCompoundTag(nbt, "display", display);
+        manager.setString(display, "Name", "Capvincible's Chestplate");
+    } else if (slot == 9) {
+        manager.setCompoundTag(nbt, "display", display);
+        manager.setString(display, "Name", "Sportvincible's Chestplate");
+    } else if (slot == 10) {
+        manager.setCompoundTag(nbt, "display", display);
+        manager.setString(display, "Name", "Lightbluevincible's Chestplate");
+    } else if (slot == 11) {
+        manager.setCompoundTag(nbt, "display", display);
+        manager.setString(display, "Name", "Omnivincible's Chestplate");
+    } else if (slot == 12) {
+        manager.setCompoundTag(nbt, "display", display);
+        manager.setString(display, "Name", "Viltrumincible's Chestplate");
+    } else if (slot == 13) {
+        manager.setCompoundTag(nbt, "display", display);
+        manager.setString(display, "Name", "Bulletproofible's Chestplate");
+    } else if (slot == 14) {
+        manager.setCompoundTag(nbt, "display", display);
+        manager.setString(display, "Name", "Prisonincible's Chestplate");
+    } else if (slot == 15) {
+        manager.setCompoundTag(nbt, "display", display);
+        manager.setString(display, "Name", "Flaxancible's Chestplate");
+    } else if (slot == 16) {
+        manager.setCompoundTag(nbt, "display", display);
+        manager.setString(display, "Name", "Gogglesvincible's Chestplate");
+    } else if (slot == 17) {
+        manager.setCompoundTag(nbt, "display", display);
+        manager.setString(display, "Name", "Nogogglesible's Chestplate");
+    } else if (slot == 18) {
+        manager.setCompoundTag(nbt, "display", display);
+        manager.setString(display, "Name", "Nomaskible's Chestplate");
+    } else if (slot == 0) {
+        manager.removeTag(display, "Name");
+    }
+
 }

@@ -62,65 +62,63 @@ function initEffects(renderer) {
     }
     ]);
 
-    var model_rarm = renderer.createResource("MODEL", "mhp:invincible_arm");
-    model_rarm.texture.set("layer1");
-    model_rarm.generateMirror();
+    var armModel = renderer.createResource("MODEL", "mhp:invincible_arm");
+    armModel.texture.set("layer1");
+    armModel.generateMirror();
 
-    larm1 = renderer.createEffect("fiskheroes:model").setModel(model_rarm);
-    larm1.anchor.set("leftArm");
-    larm1.setRotation(5, -5, 15);
-    larm1.setOffset(-1.8, -1.2, 0.8);
-    larm1.mirror = true;
+    arm1 = renderer.createEffect("fiskheroes:model").setModel(armModel);
+    arm1.anchor.set("leftArm");
+    arm1.setRotation(5, -5, 15);
+    arm1.setOffset(-1.8, -1.2, 0.8);
+    arm1.mirror = true;
 
-    larm2 = renderer.createEffect("fiskheroes:model").setModel(model_rarm);
-    larm2.anchor.set("leftArm");
-    larm2.setRotation(-5, 15, 20);
-    larm2.setOffset(0.2, 2.3, -1.2);
-    larm2.mirror = true;
+    arm2 = renderer.createEffect("fiskheroes:model").setModel(armModel);
+    arm2.anchor.set("leftArm");
+    arm2.setRotation(-5, 15, 20);
+    arm2.setOffset(0.2, 2.3, -1.2);
+    arm2.mirror = true;
 
-    larm3 = renderer.createEffect("fiskheroes:model").setModel(model_rarm);
-    larm3.anchor.set("leftArm");
-    larm3.setRotation(5, -15, 25);
-    larm3.setOffset(-2.2, -1.8, -2.3);
-    larm3.mirror = true;
+    arm3 = renderer.createEffect("fiskheroes:model").setModel(armModel);
+    arm3.anchor.set("leftArm");
+    arm3.setRotation(5, -15, 25);
+    arm3.setOffset(-2.2, -1.8, -2.3);
+    arm3.mirror = true;
 
-    larm4 = renderer.createEffect("fiskheroes:model").setModel(model_rarm);
-    larm4.anchor.set("leftArm");
-    larm4.setRotation(-5, 20, 15);
-    larm4.setOffset(1.8, 3.2, 1.8);
-    larm4.mirror = true;
+    arm4 = renderer.createEffect("fiskheroes:model").setModel(armModel);
+    arm4.anchor.set("leftArm");
+    arm4.setRotation(-5, 20, 15);
+    arm4.setOffset(1.8, 3.2, 1.8);
+    arm4.mirror = true;
 
-    larm5 = renderer.createEffect("fiskheroes:model").setModel(model_rarm);
-    larm5.anchor.set("leftArm");
-    larm5.setRotation(5, -20, 15);
-    larm5.setOffset(-1.3, 1.8, -2.8);
-    larm5.mirror = true;
+    arm5 = renderer.createEffect("fiskheroes:model").setModel(armModel);
+    arm5.anchor.set("leftArm");
+    arm5.setRotation(5, -20, 15);
+    arm5.setOffset(-1.3, 1.8, -2.8);
+    arm5.mirror = true;
 
-    larm7 = renderer.createEffect("fiskheroes:model").setModel(model_rarm);
-    larm7.anchor.set("leftArm");
-    larm7.setRotation(5, -25, 10);
-    larm7.setOffset(-2.3, -2.8, 1.3);
-    larm7.mirror = true;
+    arm6 = renderer.createEffect("fiskheroes:model").setModel(armModel);
+    arm6.anchor.set("leftArm");
+    arm6.setRotation(5, -25, 10);
+    arm6.setOffset(-2.3, -2.8, 1.3);
+    arm6.mirror = true;
 
-    larm8 = renderer.createEffect("fiskheroes:model").setModel(model_rarm);
-    larm8.anchor.set("leftArm");
-    larm8.setRotation(-5, 35, 25);
-    larm8.setOffset(0.8, 2.8, 2.2);
-    larm8.mirror = true;
+    arm7 = renderer.createEffect("fiskheroes:model").setModel(armModel);
+    arm7.anchor.set("leftArm");
+    arm7.setRotation(-5, 35, 25);
+    arm7.setOffset(0.8, 2.8, 2.2);
+    arm7.mirror = true;
 
-    larm9 = renderer.createEffect("fiskheroes:model").setModel(model_rarm);
-    larm9.anchor.set("leftArm");
-    larm9.setRotation(10, 15, -35);
-    larm9.setOffset(-4.3, -3.8, 3.8);
-    larm9.mirror = true;
+    arm8 = renderer.createEffect("fiskheroes:model").setModel(armModel);
+    arm8.anchor.set("leftArm");
+    arm8.setRotation(10, 15, -35);
+    arm8.setOffset(-4.3, -3.8, 3.8);
+    arm8.mirror = true;
 
-    larm10 = renderer.createEffect("fiskheroes:model").setModel(model_rarm);
-    larm10.anchor.set("leftArm");
-    larm10.setRotation(-10, -35, -20);
-    larm10.setOffset(-4.8, 2.8, -2.3);
-    larm10.mirror = true;
-
-
+    arm9 = renderer.createEffect("fiskheroes:model").setModel(armModel);
+    arm9.anchor.set("leftArm");
+    arm9.setRotation(-10, -35, -20);
+    arm9.setOffset(-4.8, 2.8, -2.3);
+    arm9.mirror = true;
 }
 
 function initAnimations(renderer) {
@@ -165,9 +163,6 @@ function initAnimations(renderer) {
             data.load(0.5 + entity.loop(1));
         }).setCondition(entity => entity.getInterpolatedData("fiskheroes:energy_projection_timer") > 0.5);
 
-    /* addAnimationWithData(renderer, "invincible.ENERGY_PROJ", "mhp:invisible_punch", "fiskheroes:energy_projection_timer"); */
-
-
     renderer.reprioritizeDefaultAnimation("PUNCH", -9);
     renderer.reprioritizeDefaultAnimation("AIM_BOW", -9);
 }
@@ -179,49 +174,16 @@ function render(entity, renderLayer) {
     }
 
     if (entity.getInterpolatedData("fiskheroes:energy_projection_timer") > 0.5) {
-
-        if (entity.loop(3) > 0 && entity.loop(5) < 0.05) {
-            larm1.opacity = entity.loop(5);
-            larm1.render();
+        for (var i = 1; i <= 9; i++) {
+            var loopValue = entity.loop(i);
+            var fadeThreshold = i * 0.05;
+        
+            if (loopValue > 0 && loopValue < fadeThreshold) {
+                var targetArm = eval("arm" + i);
+                targetArm.opacity = entity.loop((i % 9) + 1);
+                targetArm.render();
+            }
         }
-        if (entity.loop(2) > 0 && entity.loop(4) < 0.1) {
-            larm2.opacity = entity.loop(6);
-            larm2.render();
-        }
-        if (entity.loop(8) > 0 && entity.loop(10) < 0.15) {
-            larm3.opacity = entity.loop(7);
-            larm3.render();
-        }
-        if (entity.loop(7) > 0 && entity.loop(9) < 0.2) {
-            larm4.opacity = entity.loop(4);
-            larm4.render();
-        }
-        if (entity.loop(6) > 0 && entity.loop(8) < 0.25) {
-            larm5.opacity = entity.loop(1);
-            larm5.render();
-        }
-        /* if (entity.loop(1) > 0 && entity.loop(3) < 0.3) {
-            larm6.opacity = entity.loop(2);
-            larm6.render();
-        } */
-        if (entity.loop(2) > 0 && entity.loop(5) < 0.35) {
-            larm7.opacity = entity.loop(3);
-            larm7.render();
-        }
-        if (entity.loop(5) > 0 && entity.loop(7) < 0.4) {
-            larm8.opacity = entity.loop(8);
-            larm8.render();
-        }
-
-        if (entity.loop(1) > 0 && entity.loop(4) < 0.45) {
-            larm9.opacity = entity.loop(9);
-            larm9.render();
-        }
-        if (entity.loop(2) > 0 && entity.loop(6) < 0.5) {
-            larm10.opacity = entity.loop(10);
-            larm10.render();
-        }
-
     }
 
 }
