@@ -15,4 +15,16 @@ function init(hero) {
     hero.addAttribute("WEAPON_DAMAGE", 4, 0)
 
     hero.addKeyBind("UTILITY_BELT", "Pumpkin Grenade", 1);
+
+    hero.setTickHandler(tick);
+}
+
+function tick(entity, manager){
+    if (entity.getData("mhp:dyn/fire_timer") == 0) {
+        manager.setData(entity, "mhp:dyn/fire", false);
+    } else if (entity.getData("mhp:dyn/fire_timer") == 1) {
+        manager.setData(entity, "mhp:dyn/fire", true);
+    }
+manager.incrementData(entity, "mhp:dyn/fire_timer", 16, !entity.getData("mhp:dyn/fire"));
+
 }

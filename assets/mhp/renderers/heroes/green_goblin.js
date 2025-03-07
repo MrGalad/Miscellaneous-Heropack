@@ -43,7 +43,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
         glider.setOffset(4, 1, (s ? 300 : -200) * (1 - f));
         glider.render();
         /* fire.setOffset(0, 12, (s ? 50000 : -200) * (1 - f)); */
-        fire.setOffset(-0.2, 4, -7);
+        fire.setOffset(-0.2, 3, -8.2);
         fire.render()
         }
 }
