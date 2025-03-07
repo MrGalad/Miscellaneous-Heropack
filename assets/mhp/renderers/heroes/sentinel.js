@@ -103,9 +103,6 @@ function render(entity, renderLayer, isFirstPersonArm) {
 
         Llega.render();
         Llega.setOffset(2, -8.5, 0);
-    } else if (entity.isSneaking()){     
-        heada2.render();
-        heada2.setOffset(2.85, -3.5, 0)
     } 
     heada.render();
     heada.setOffset(2.85, -5.5, 0)
