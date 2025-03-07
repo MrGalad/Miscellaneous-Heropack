@@ -256,7 +256,24 @@
     },
     "fiskheroes:damage_weakness": {
         "damageType": "SOUND",
-        "factor": 8.0
+        "factor": 90
+      },
+      "fiskheroes:damage_weakness|elec": {
+        "damageType": "ELECTRICITY",
+        "factor": 0.5
+      },
+      "fiskheroes:regeneration": {
+        "factor": 1
+      },
+      "fiskheroes:healing_factor": {
+        "delay": 500,
+        "soundEvents": {
+          "HEAL": "fiskheroes:healing_factor"
+        }
+      },
+      "fiskheroes:damage_resistance|cold": {
+        "factor": 10,
+        "damageType": "COLD"
       }
   }
 }

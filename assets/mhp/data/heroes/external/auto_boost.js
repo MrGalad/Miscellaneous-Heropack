@@ -64,7 +64,7 @@ function boostdata(entity, manager, boostTime, recoveryTime, deactivationDelay, 
         manager.setData(entity, "mhp:dyn/flight_boost4", false);
     }
 
-    if (entity.getData("mhp:dyn/charge_timer") > 0.45) {
+    if (entity.getData("mhp:dyn/charge_timer") > 0.45 && !entity.isOnGround()) {
         manager.setData(entity, "fiskheroes:flying", true);
         manager.setData(entity, "mhp:dyn/flight_boost4", true);
     }

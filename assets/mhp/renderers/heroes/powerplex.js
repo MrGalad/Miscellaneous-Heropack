@@ -47,14 +47,6 @@ function initEffects(renderer) {
   release = renderer.bindProperty("fiskheroes:trail");
   release.setTrail(renderer.createResource("TRAIL", "mhp:powerplex_release"));
   release.setCondition(entity => entity.getData("fiskheroes:beam_charge") > 0.9);
-
-
-  /* utils.addCameraShake(renderer, 0.015, 1.5, "mhp:dyn/shazam_timer");
-  var shake = renderer.bindProperty("fiskheroes:camera_shake").setCondition(entity => {
-    shake.factor = entity.getData("mhp:dyn/shazam_timer") > 0.3 && entity.getData("mhp:dyn/shazam_timer") < 0.7
-    return true;
-  });
-  shake.intensity = 0.0; */
 }
 
 function initAnimations(renderer) {
@@ -62,13 +54,10 @@ function initAnimations(renderer) {
   renderer.removeCustomAnimation("basic.CHARGED_BEAM");
   renderer.removeCustomAnimation("basic.ENERGY_PROJ");
   addAnimationWithData(renderer, "powerplex.ENERGY_PROJ", "fiskheroes:dual_aiming", "fiskheroes:energy_projection_timer");
-  /* addAnimationWithData(renderer, "powerplex.CHARGED_BEAM", "mhp:powerplex_explosion", "fiskheroes:beam_charge"); */
 
-  addAnimation(renderer, "powerplex.CHARGED_BEAM", "mhp:powerplex_explosion")
+  addAnimation(renderer, "powerplex.CHARGED_BEAM", "mhp:powerplex_explosion_new")
     .setData((entity, data) => {
-      var charge = entity.getInterpolatedData("fiskheroes:beam_charge");
-      data.load(0, entity.getData("fiskheroes:beam_charging") ? charge : 0);
-      data.load(1, entity.getInterpolatedData("fiskheroes:beam_shooting_timer"))
+      data.load(0, entity.getData("fiskheroes:beam_charge") / 2);
     }).priority = 0;
 
 

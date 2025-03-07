@@ -21,7 +21,7 @@ function initEffects(renderer) {
     model.texture.set("glider");
     glider = renderer.createEffect("fiskheroes:model").setModel(model);
     glider.anchor.set("body");
-    glider.setScale(1.6);
+    glider.setScale(1.4);
 }
 
 

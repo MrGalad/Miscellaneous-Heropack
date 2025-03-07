@@ -2,11 +2,6 @@ var speedster_base = implement("fiskheroes:external/speedster_base");
 var landing = implement("mhp:external/superhero_landing");
 var auto_boost = implement("mhp:external/auto_boost");
 var max_boost_flight = 3;
-var boostTime = 200;
-var recoveryTime = 150;
-var recoveryDelay = 20;
-var deactivationDelay = 20;
-
 function init(hero) {
     hero.setName("Invincible");
     hero.setTier(9);
@@ -37,10 +32,11 @@ function init(hero) {
     hero.addAttributeProfile("FOURTH", fourth);
     hero.addAttributeProfile("FIFTH", fifth);
     hero.addAttributeProfile("BLOCK", block);
+    hero.addAttributeProfile("SPRINT", sprint);
     hero.setAttributeProfile(getAttributeProfile);
     hero.setDamageProfile(getAttributeProfile);
-    var speedPunch = speedster_base.createSpeedPunch(hero);
-    hero.setDamageProfile(entity => speedPunch.get(entity, null));
+   /*  var speedPunch = speedster_base.createSpeedPunch(hero);
+    hero.setDamageProfile(entity => speedPunch.get(entity, null)); */
     hero.setTickHandler((entity, manager) => {
         speedster_base.tick(entity, manager);
         landing.tick(entity, manager);
@@ -63,6 +59,15 @@ function init(hero) {
 
         if (entity.getData("fiskheroes:flight_boost_timer") == 0 && entity.isSprinting() && entity.getData("fiskheroes:flying")) {
             manager.setData(entity, "mhp:dyn/random_digit", getRandomInt(1, 2));
+        }
+    });
+
+    hero.addDamageProfile("PUNCH", {
+        "types": {
+            "BLUNT": 1
+        },
+        "properties": {
+            "ADD_KNOCKBACK": 3
         }
     });
 }
@@ -160,6 +165,11 @@ function block(profile) {
     profile.addAttribute("BASE_SPEED", -10000000, 1);
 }
 
+function sprint(profile) {
+    profile.inheritDefaults();
+    profile.addAttribute("SPRINT_SPEED", 20, 1)
+}
+
 function getAttributeProfile(entity) {
     var powerCharge = entity.getData("mhp:dyn/power_charge");
 
@@ -175,6 +185,10 @@ function getAttributeProfile(entity) {
         return "FIRST";
     } if (entity.getData("fiskheroes:shield_blocking_timer") > 0) {
         return "BLOCK";
+    } if (entity.getData("mhp:dyn/charge_timer") > 0.6 && entity.isSprinting()) {
+        return "SPRINT"
+    } if (entity.getData("mhp:dyn/charge_timer") > 0.6 && entity.isSprinting() && entity.isPunching()) {
+        return "PUNCH"
     }
     return true;
 }

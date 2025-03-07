@@ -13,7 +13,7 @@ function init(hero) {
     hero.addAttribute("SPRINT_SPEED", 0.2, 1);
     
     hero.addKeyBind("AIM", "key.shoot", 1);
-    hero.addKeyBind("HALF", "Activate Powers", 4);
+    /* hero.addKeyBind("HALF", "Activate Powers", 4); */
     /* hero.addKeyBind("ENERGY_PROJECTION", "Fire Projection", 2); */
     hero.addKeyBind("NANITE_TRANSFORM", "Solar Form", 5);
 
@@ -67,12 +67,8 @@ return true;
 
 function isKeyBindEnabled(entity, keyBind) {
     switch (keyBind) {
-     case "ENERGY_PROJECTION":
-        return entity.getData("mhp:dyn/solar") && !entity.getData("fiskheroes:aiming") && entity.getHeldItem().isEmpty();
         case "AIM":
             return entity.getData("mhp:dyn/solar") && !entity.getData("fiskheroes:energy_projection") && entity.getHeldItem().isEmpty();
-        case "HALF":
-            return !entity.getData("mhp:dyn/solar");
 }
 return true;
 }

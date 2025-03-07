@@ -1,0 +1,12 @@
+{
+    "suit": "mhp:midnight_angel",
+    "requirements": [
+      "mhp:misc",
+      "fiskheroes:tier6_7",
+      "fiskheroes:wakanda",
+      "fiskheroes:vibranium",
+      "fiskheroes:melee2",
+      "fiskheroes:flight"
+    ]
+  }
+  

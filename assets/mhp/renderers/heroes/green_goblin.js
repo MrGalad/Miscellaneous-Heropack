@@ -2,7 +2,8 @@ extend("fiskheroes:hero_basic");
 loadTextures({
     "layer1": "mhp:goblin/green_goblin_layer1",
     "layer2": "mhp:goblin/green_goblin_layer2",
-    "glider": "mhp:goblin/goblin_glider_texture"
+    "glider": "mhp:goblin/goblin_glider_texture",
+    "fire": "mhp:striker_eureka/striker_eureka_repulsor_layer.tx.json"
 });
 
 var utils = implement("fiskheroes:external/utils");
@@ -11,17 +12,16 @@ var cancelAnimations = false;
 
 function initEffects(renderer) {
     var model = renderer.createResource("MODEL", "mhp:goblin/goblin_glider");
-   /*  model.bindAnimation("mhp:goblin/goblin_jump_glider").setData((entity, data) => {
-        if (cancelAnimations) {
-            data.load(0,0)
-            return;
-        }
-        data.load(0, entity.getInterpolatedData("fiskheroes:flight_timer"));
-    }); */
     model.texture.set("glider");
     glider = renderer.createEffect("fiskheroes:model").setModel(model);
     glider.anchor.set("body");
     glider.setScale(1.4);
+
+    var fireModel = renderer.createResource("MODEL", "mhp:goblin/green_gobbler_fire");
+    fireModel.texture.set(null, "fire");
+    fire = renderer.createEffect("fiskheroes:model").setModel(fireModel);
+    fire.anchor.set("body");
+    fire.setScale(1.3);
 }
 
 
@@ -42,5 +42,8 @@ function render(entity, renderLayer, isFirstPersonArm) {
     if (f > 0) {
         glider.setOffset(4, 1, (s ? 300 : -200) * (1 - f));
         glider.render();
+        /* fire.setOffset(0, 12, (s ? 50000 : -200) * (1 - f)); */
+        fire.setOffset(-0.2, 4, -7);
+        fire.render()
         }
 }

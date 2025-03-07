@@ -62,8 +62,8 @@
         "damageProfile": {
           "damage": 14.0
         },
-       "chargeTime": 60,
-      "duration": 50,
+       "chargeTime": 30,
+      "duration": 20,
       "cooldownTime": 40,
         "range": 32.0,
         "radius": 32.0,

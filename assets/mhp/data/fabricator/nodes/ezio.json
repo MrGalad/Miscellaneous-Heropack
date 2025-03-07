@@ -1,0 +1,10 @@
+{
+    "suit": "mhp:ezio",
+    "requirements": [
+      "mhp:misc",
+      "fiskheroes:tier2_3",
+      "fiskheroes:melee",
+      "fiskheroes:traversal"     
+    ]
+  }
+  
