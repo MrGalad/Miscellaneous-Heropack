@@ -81,7 +81,7 @@ function initEffects(renderer) {
 
 
     utils.bindBeam(renderer, "fiskheroes:charged_beam", "mhp:sentinel", "head", color, [
-        { "firstPerson": [0, 0, 0], "offset": [0, 0.30, 1.0], "size": [0.8, 0.8] }
+        { "firstPerson": [0, 0, 0], "offset": [0, -2.4, 1.0], "size": [0.8, 0.8] }
     ]);
 
     utils.bindBeam(renderer, "fiskheroes:energy_projection", "mhp:sentinel", "head", color, [
@@ -108,7 +108,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
         heada2.setOffset(2.85, -3.5, 0)
     } 
     heada.render();
-    heada.setOffset(2.85, -3.5, 0)
+    heada.setOffset(2.85, -5.5, 0)
 
     torsoa.render();
     Rarma.render();

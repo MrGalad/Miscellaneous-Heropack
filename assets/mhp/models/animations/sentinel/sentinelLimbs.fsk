@@ -7,7 +7,7 @@
 {leftLeg_posY} = 9.5
 {leftLeg_posX} = 2
 
-{head_posY} = -3.5
+{head_posY} = -1.5
 {head_posZ} = -0.5
 
 {rightArm_posY} = -1.8
