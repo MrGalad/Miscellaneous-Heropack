@@ -1,5 +1,5 @@
 var landing = implement("mhp:external/landing");
-function vault(entity) {
+/* function vault(entity) {
     var range = 0.5; // Set the range to 1.1 blocks
     var yawRad = (Math.PI / 180) * entity.rotYaw();
     var offsetX = -Math.sin(yawRad);
@@ -44,7 +44,7 @@ function vault(entity) {
 
     return isBlockInFrontFeet && !isBlockInFrontFace && !isSlabInFrontFeet;
 }
-
+ */
 
 function ledge(entity) {
     var range = 1;

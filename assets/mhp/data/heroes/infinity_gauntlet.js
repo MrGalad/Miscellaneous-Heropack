@@ -178,13 +178,16 @@ function snap(hero, entity) {
     if (entity.getData("mhp:dyn/snap_timer") > 0.92) {
         var range = 20 * entity.getData("mhp:dyn/snap_timer");
         var list = entity.world().getEntitiesInRangeOf(entity.pos(), range);
-        var halfListSize = Math.floor(list.size() / 2);
-
+        var allowedList = [];
         for (var i = 0; i < list.size(); ++i) {
             var other = list.get(i);
-            if (i >= halfListSize && other.isLivingEntity() && !entity.equals(other)) {
-                var halfHealth = other.getMaxHealth() / 2;
-                other.hurtByAttacker(hero, "SNAP", "%s dusted away", halfHealth, entity);
+            if (other.isLivingEntity() && !entity.equals(other)) {
+                allowedList.push(other);
+            }
+        }
+        for (var i=0; i<allowedList.length;i++) {
+            if (i >= Math.floor(allowedList.length / 2)) {
+                allowedList[i].hurtByAttacker(hero, "SNAP", "%s dusted away", other.getMaxHealth() / 2, entity);
             }
         }
     }
@@ -194,29 +197,32 @@ function snapCreative(hero, entity) {
     if (entity.getData("mhp:dyn/snap_timer") > 0.99) {
         var range = 20 * entity.getData("mhp:dyn/snap_timer");
         var list = entity.world().getEntitiesInRangeOf(entity.pos(), range);
-        var halfListSize = Math.floor(list.size() / 2);
-
+        var allowedList = [];
         for (var i = 0; i < list.size(); ++i) {
             var other = list.get(i);
-            if (i >= halfListSize && other.isLivingEntity() && !entity.equals(other)) {
-                var halfHealth = other.getMaxHealth() / 2;
-                other.hurtByAttacker(hero, "SNAP", "%s dusted away", 100000000000, entity);
+            if (other.isLivingEntity() && !entity.equals(other)) {
+                allowedList.push(other);
             }
         }
+        for (var i=0; i<allowedList.length;i++) {
+            if (i >= Math.floor(allowedList.length / 2)) {
+                allowedList[i].hurtByAttacker(hero, "SNAP", "%s dusted away", 100000000000, entity);
+            }
+        }
+
     }
 }
-
 function snap2(hero, entity) {
     if (entity.getData("mhp:dyn/snap_timer") > 0.99) {
         var range = 20 * entity.getData("mhp:dyn/snap_timer");
         var list = entity.world().getEntitiesInRangeOf(entity.pos(), range);
-        var playerUUID = entity.getUUID(); // Get the UUID of the player
+        var playerUUID = entity.getUUID();
 
         for (var i = 0; i < list.size(); ++i) {
             var other = list.get(i);
             if (other.isLivingEntity() && other.getUUID().equals(playerUUID)) {
                 other.hurtByAttacker(hero, "SNAP", "%s dusted away", 1, entity);
-                break; // Exit the loop after damaging the player
+                break;
             }
         }
     }
