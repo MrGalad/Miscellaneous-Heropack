@@ -1,7 +1,0 @@
-{
-    "parent": "fiskheroes:sound_base",
-    "sound": "mhp:main.frost_charge",
-    "volume": 0.9,
-    "condition": "fiskheroes:beam_charging"
-  }
-  

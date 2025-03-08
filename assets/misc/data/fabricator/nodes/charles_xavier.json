@@ -1,0 +1,10 @@
+{
+    "suit": "misc:charles_xavier",
+    "requirements": [
+      "misc:misc",
+      "fiskheroes:tier4_5",
+      "fiskheroes:ranged",
+      "fiskheroes:object_manipulation"
+    ]
+  }
+  

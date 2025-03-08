@@ -1,0 +1,15 @@
+{
+    "suit": "misc:infinity_gauntlet",
+    "requirements": [
+      "misc:misc",
+      "misc:mind_stone",
+      "misc:space_stone",
+      "misc:power_stone",
+      "misc:reality_stone",
+      "misc:time_stone",
+      "misc:soul_stone",
+      "fiskheroes:tier10",
+      "fiskheroes:cosmic"
+    ]
+  }
+  

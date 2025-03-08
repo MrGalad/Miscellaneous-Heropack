@@ -1,0 +1,12 @@
+{
+    "suit": "misc:metro_man",
+    "requirements": [
+      "fiskheroes:tier8_9",
+      "fiskheroes:flight",
+      "fiskheroes:defense3",
+      "fiskheroes:melee3",
+      "fiskheroes:ranged3",
+      "misc:misc"
+    ]
+  }
+  

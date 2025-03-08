@@ -1,7 +1,0 @@
-{
-    "parent": "fiskheroes:sound_base",
-    "sound": "mhp:main.wheel",
-    "volume": 0.3,
-    "pitch": "0.9 + Math.random() * 0.3"
-  }
-  

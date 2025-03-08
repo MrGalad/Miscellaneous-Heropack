@@ -1,8 +1,0 @@
-{
-    "sound": "mhp:main.sent_shoot",
-    "condition": "entity.getData('fiskheroes:beam_shooting') > 0",
-    "volume": "fiskheroes:beam_shooting_timer",
-    "loop": true,
-    "fadeOut": 10
-  }
-  

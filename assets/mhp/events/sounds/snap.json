@@ -1,7 +1,0 @@
-{
-    "parent": "fiskheroes:sound_base",
-    "sound": "mhp:main.snap",
-    "loop": false,
-    "volume": 0.9
-  }
-  

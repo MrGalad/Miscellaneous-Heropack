@@ -1,0 +1,11 @@
+{
+    "texture": "misc:xor/energy_blade_<CHARGE>",
+    "getters": {
+      "CHARGE": {
+        "key": "Math.min(entity.getData('misc:dyn/energy_timer') * 13, 13) | 0",
+        "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13]
+      }
+    },
+    "isDynamic": true
+  }
+  

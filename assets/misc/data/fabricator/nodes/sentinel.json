@@ -1,0 +1,10 @@
+{
+    "suit": "misc:sentinel",
+    "requirements": [
+        "fiskheroes:tier8_9",
+        "fiskheroes:ranged2",
+        "fiskheroes:defense3",
+        "fiskheroes:melee2",
+        "misc:misc"
+    ]
+    }

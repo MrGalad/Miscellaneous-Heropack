@@ -1,0 +1,7 @@
+{
+    "parent": "fiskheroes:sound_base",
+    "sound": "misc:main.grapple",
+    "volume": 2,
+    "pitch": "1.1 + Math.random() * 0.3"
+  }
+  

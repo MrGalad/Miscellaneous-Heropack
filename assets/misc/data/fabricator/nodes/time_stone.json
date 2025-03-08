@@ -1,0 +1,12 @@
+{
+    "suit": "misc:time_stone",
+    "requirements": [
+      "misc:misc",
+      "fiskheroes:tier10",
+      "fiskheroes:doctor_strange",
+      "fiskheroes:magic",
+      "fiskheroes:traversal2",
+      "fiskheroes:cosmic"
+    ]
+  }
+  

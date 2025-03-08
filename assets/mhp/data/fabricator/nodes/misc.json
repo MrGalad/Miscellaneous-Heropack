@@ -1,9 +1,0 @@
-{
-    "display": {
-        "name": "Miscellaneous Heropack",
-        "description": "Thanks for downloading Miscellaneous Heropack!",
-        "icon": {
-            "texture": "mhp:textures/gui/nodes/misc_node.png"
-        }
-    }
-} 

@@ -1,0 +1,10 @@
+{
+    "suit": "misc:reverse_flash",
+    "requirements": [
+      "misc:misc",
+      "fiskheroes:tier4_5",
+      "fiskheroes:the_flash",
+      "misc:nsf"
+    ]
+  }
+  

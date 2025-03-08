@@ -1,0 +1,72 @@
+{
+	"name": "Darkforce Energy",
+  "modifiers": {
+    "fiskheroes:controlled_flight": {
+        "speed": 0.1,
+        "boostSpeed": 0.2,
+        "canBoost": true,
+        "barrelRoll": {
+          "duration": 14,
+          "speed": 0.12,
+          "drag": 0.03
+        },
+        "diveSpeedRetention": 0.5,
+        "collision": {
+          "blocks": {
+            "stopFlying": false,
+            "takeDamage": false
+          },
+          "entities": {
+            "stopFlying": false,
+            "dealDamage": true
+          }
+        },
+        "knockback": 0.4,
+        "soundEvents": {
+          "ENABLE": ["fiskheroes:flight_loop", "fiskheroes:flight_cape_loop"],
+          "BOOST": "fiskheroes:flight_boost"
+        }
+      },
+      "fiskheroes:transformation": {
+      "key": "NANITE_TRANSFORM",
+      "transformation": {
+        "toggleData": "misc:dyn/transformation",
+        "timerData": "misc:dyn/transformation_timer",
+        "time": 14
+      },
+      "soundEvents": {
+        "ENABLE": "fiskheroes:vision_intang_on",
+        "DISABLE": "fiskheroes:vision_intang_off"
+      }
+    },
+	"fiskheroes:intangibility": {
+      "isAbsolute": true,
+      "soundEvents": {
+        "ENABLE": "fiskheroes:vision_intang_on",
+        "DISABLE": "fiskheroes:vision_intang_off"
+      }
+    },
+    "fiskheroes:teleportation": {
+      "canReachMoon": true,
+      "range": 128.0,
+      "soundEvents": {
+        "TELEPORT": "fiskheroes:glow_teleport"
+      }
+    },
+    "fiskheroes:cooldown": {
+        "cooldown": {
+          "toggleData": "fiskheroes:intangible",
+          "cooldownData": "fiskheroes:dyn/intangibility_cooldown",
+          "duration": 300,
+          "recovery": 1.0
+        }
+      }
+  },
+    "hud": [
+    {
+      "type": "PROGRESS",
+      "texture": "misc:textures/gui/bars/doorman_bar.png",
+      "data": "fiskheroes:dyn/intangibility_cooldown"
+    }
+	]
+}

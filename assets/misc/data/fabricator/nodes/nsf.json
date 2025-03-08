@@ -1,0 +1,19 @@
+{
+    "display": {
+      "name": {
+        "translate": "Negative Speed Force"
+      },
+      "icon": {
+        "texture": "misc:textures/gui/nodes/negative_speed_force.png"
+      }
+    },
+    "requirements": [
+      "fiskheroes:speed_force",
+      "misc:misc"
+    ],
+    "price": {
+      "IRID_GOLD": 6,
+      "XP_LEVELS": 20
+    }
+  }
+  

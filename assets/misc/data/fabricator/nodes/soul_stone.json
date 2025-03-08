@@ -1,0 +1,10 @@
+{
+    "suit": "misc:soul_stone",
+    "requirements": [
+      "misc:misc",
+      "fiskheroes:tier10",
+      "fiskheroes:cosmic",
+      "fiskheroes:regeneration2"
+    ]
+  }
+  

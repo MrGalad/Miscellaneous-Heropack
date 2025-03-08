@@ -1,0 +1,96 @@
+{
+    "name": "Kinetic Energy Absorption",
+    "modifiers": {
+     "fiskheroes:controlled_flight": {
+      "speed": 0.08,
+      "boostSpeed": 0.16,
+      "canBoost": true,
+      "collision": {
+        "blocks": {
+          "stopFlying": false,
+          "takeDamage": true
+        },
+        "entities": {
+          "stopFlying": true,
+          "dealDamage": true
+        }
+      },
+      "knockback": 0.7,
+      "soundEvents": {
+        "ENABLE": ["fiskheroes:black_lightning_flight_enable", "fiskheroes:black_lightning_flight_loop1", "fiskheroes:black_lightning_flight_loop2"],
+        "BOOST": "fiskheroes:black_lightning_boost",
+        "IMPACT_BLOCK": "fiskheroes:flight_impact_block",
+        "IMPACT_ENTITY": "fiskheroes:flight_impact_entity"
+      }
+    },
+      "fiskheroes:lightning_cast": {
+        "damageProfile": {
+          "damage": 10.0,
+          "types": {
+            "ELECTRICITY": 1.0
+          },
+          "properties": {
+            "COOK_ENTITY": true,
+            "LIGHTNING_STRIKE": 0.15
+          }
+        },
+        "range": 64.0,
+        "chainRadius": 7,
+        "cooldownTime": 40,
+        "soundEvents": {
+          "SHOOT": "fiskheroes:lightning_cast"
+        }
+      },
+      "fiskheroes:energy_projection": {
+        "damageProfile": {
+          "damage": 5.0,
+          "types": {
+            "ELECTRICITY": 1.0,
+            "ENERGY": 1.0
+          },
+          "properties": {
+            "COOK_ENTITY": true
+          }
+        },
+        "range": 15.0,
+        "radius": 0.1,
+        "soundEvents": {
+          "SHOOT": ["misc:black_lightning_flight_loop1", "fiskheroes:black_lightning_flight_loop2"]
+        }
+      },
+      "fiskheroes:charged_beam": {
+        "damageProfile": {
+          "damage": 14.0
+        },
+       "chargeTime": 30,
+      "duration": 20,
+      "cooldownTime": 40,
+        "range": 32.0,
+        "radius": 32.0,
+        "soundEvents": {
+          "CHARGE": "fiskheroes:mysterio_charged_beam_charge",
+          "SHOOT": "fiskheroes:mysterio_charged_beam_start",
+          "BEAM_AMBIENT": "fiskheroes:mysterio_charged_beam_loop"
+        }
+      },
+    "fiskheroes:damage_immunity": {
+      "damageType": "EXPLOSION"
+    },
+    "fiskheroes:cooldown": {
+          "cooldown": {
+              "toggleData": "misc:dyn/power",
+              "cooldownData": "misc:dyn/power_charge",
+              "duration": 700,
+              "recovery": 0
+          }
+      }
+    },
+    "hud": [
+    {
+      "type": "CHARGE",
+      "texture": "misc:textures/gui/bars/powerplex_charge.png",
+      "data": "misc:dyn/power_charge"
+    }
+  ]
+  }
+  

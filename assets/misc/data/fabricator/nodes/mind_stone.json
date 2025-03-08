@@ -1,0 +1,11 @@
+{
+    "suit": "misc:mind_stone",
+    "requirements": [
+      "misc:misc",
+      "fiskheroes:tier10",
+      "fiskheroes:vision",
+      "fiskheroes:ranged3",
+      "fiskheroes:cosmic"
+    ]
+  }
+  

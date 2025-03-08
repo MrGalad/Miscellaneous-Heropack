@@ -1,0 +1,12 @@
+{
+    "suit": "misc:sunspot",
+    "requirements": [
+      "fiskheroes:tier4_5",
+      "fiskheroes:flight",
+      "fiskheroes:defense2",
+      "fiskheroes:melee",
+      "fiskheroes:ranged3",
+      "misc:misc"
+    ]
+  }
+  

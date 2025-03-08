@@ -1,0 +1,12 @@
+{
+    "suit": "misc:space_stone",
+    "requirements": [
+      "misc:misc",
+      "fiskheroes:tier10",
+      "fiskheroes:cosmic",
+      "fiskheroes:defense2",
+      "fiskheroes:object_manipulation",
+      "fiskheroes:teleportation"
+    ]
+  }
+  

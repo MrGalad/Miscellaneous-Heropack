@@ -1,0 +1,27 @@
+{
+    "suit": "misc:doorman",
+    "requirements": [
+      "fiskheroes:flight",
+      "fiskheroes:defense2",
+      "fiskheroes:tier6_7",
+      "fiskheroes:melee",
+      "fiskheroes:intangibility",
+      "fiskheroes:teleportation",
+      "fiskheroes:magic",
+      "misc:misc"
+    ],
+    "criteria": {
+    "Visit the Darkforce Dimension": {
+      "trigger": "fiskheroes:tick",
+      "description": {
+        "translate": "Visit the Darkforce Dimension"
+      },
+      "condition": {
+        "variables": {
+          "player": "PLAYER_TICKING"
+        },
+        "check": "player.world().getDimension() == 1"
+      }
+    }
+  }
+}

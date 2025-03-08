@@ -1,0 +1,8 @@
+{
+    "sound": "misc:main.bike_start",
+    "condition": "entity.getData('fiskheroes:speeding') > 0.6 && entity.isSprinting()",
+    "loop": true,
+    "fadeIn": 5,
+    "fadeOut": 5
+  }
+  

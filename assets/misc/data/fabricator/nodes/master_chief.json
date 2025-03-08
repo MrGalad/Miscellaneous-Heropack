@@ -1,0 +1,10 @@
+{
+    "suit": "misc:master_chief",
+    "requirements": [
+        "fiskheroes:tier8_9",
+        "fiskheroes:ranged2",
+        "fiskheroes:defense3",
+        "fiskheroes:melee3",
+        "misc:misc"
+    ]
+    }

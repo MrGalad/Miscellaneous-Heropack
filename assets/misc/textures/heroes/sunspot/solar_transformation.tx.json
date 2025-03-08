@@ -1,0 +1,22 @@
+{
+  "texture": {
+    "in": "misc:sunspot/sunspot_full",
+    "transform": [
+      {
+        "operation": "XOR",
+        "supply": "fiskheroes:xor/iron_man_mk50_suit_<TIMER>"
+      }
+    ],
+    "out": "misc:generated/sunspot_full_<TIMER>"
+  },
+  "getters": {
+    "TIMER": {
+      "key": "Math.ceil(19 * (entity.getInterpolatedData('misc:dyn/solar_timer'))) | 1",
+      "values": {
+        "min": 1,
+        "max": 19
+      }
+    }
+  },
+  "isDynamic": true
+}

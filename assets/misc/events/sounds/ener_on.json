@@ -1,0 +1,6 @@
+{
+    "parent": "fiskheroes:sound_base",
+    "sound": "misc:main.ener_on",
+    "volume": 0.7
+  }
+  

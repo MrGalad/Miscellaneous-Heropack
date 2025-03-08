@@ -1,0 +1,11 @@
+{
+    "suit": "misc:powerplex",
+    "requirements": [
+      "misc:misc",
+      "misc:invincible",
+      "fiskheroes:tier4_5",
+      "fiskheroes:ranged3",
+      "fiskheroes:flight"
+    ]
+  }
+  

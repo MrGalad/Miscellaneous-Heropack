@@ -1,0 +1,42 @@
+{
+    "name": "test",
+    "modifiers": {
+        "fiskheroes:cooldown": {
+            "cooldown": {
+                "toggleData": "entity.isPunching()",
+                "cooldownData": "misc:dyn/power_charge",
+                "duration": 10,
+                "recovery": 0.5
+            }
+        },
+      "fiskheroes:gravity_manipulation": {
+        "affectsUser": true,
+        "minGravity": 0.1,
+        "maxGravity": 0.1,
+        "range": 24.0,
+        "radius": 16.0,
+        "soundEvents": {
+          "SWITCH": "fiskheroes:gravity_manip_switch",
+          "WAVE": "fiskheroes:gravity_manip_wave"
+        }
+      },
+      "fiskheroes:teleportation": {
+        "canReachMoon": true,
+        "range": 128.0,
+        "soundEvents": {
+          "TELEPORT": "fiskheroes:glow_teleport"
+        }
+      },
+      "fiskheroes:projectile_immunity": {
+      }
+    },
+    "hud": [
+      {
+        "type": "DIAL",
+        "color": "fiskheroes:gravity_manipulation",
+        "data": "fiskheroes:gravity_amount",
+        "condition": "fiskheroes:gravity_manip"
+      }
+    ]
+  }
+  

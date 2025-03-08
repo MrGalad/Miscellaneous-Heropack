@@ -1,0 +1,8 @@
+{
+    "parent": "fiskheroes:sound_base",
+    "sound": "misc:main.shazam",
+    "loop": false,
+    "volume": 0.9,
+    "fadeOut": 5
+  }
+  

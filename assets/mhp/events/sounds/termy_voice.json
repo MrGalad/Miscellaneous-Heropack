@@ -1,8 +1,0 @@
-{
-    "parent": "fiskheroes:sound_base",
-    "sound": "mhp:main.termy_voice",
-    "loop": false,
-    "volume": 0.9,
-    "fadeOut": 5
-  }
-  
