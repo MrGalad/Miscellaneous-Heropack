@@ -29,7 +29,7 @@ var spell
 var spellq;
 
 function initEffects(renderer) {
-    utils.bindTrail(renderer, "misc:reality_flicker").setCondition(entity => entity.getData("fiskheroes:size_state") > 0 /* && stones[data] == "reality" && nbt.getBoolean("reality") */)/*  0.7 < entity.getData("misc:dyn/all_active_timer") < 0.2 && entity.getData("misc:dyn/all_active_timer") != 0 */
+    utils.bindTrail(renderer, "misc:reality_flicker").setCondition(entity => entity.getData("fiskheroes:size_state") > 0)
 
     var color = 0x55AA55;
     var tao_mandala = renderer.createResource("SHAPE", "fiskheroes:tao_mandala");
@@ -105,15 +105,11 @@ function initEffects(renderer) {
     soulq.texture.set(null, "soul");
 }
 
-var portalT = 0;
-var current = 0;
 function render(entity, renderLayer, isFirstPersonArm) {
     var nbt = entity.getWornChestplate().nbt();
-    var equipment = nbt.getTagList("Equipment");
     var stones = ["space", "mind", "reality", "power", "time", "soul"]
     var data = entity.getData("misc:dyn/stone_select");
     if (renderLayer == "CHESTPLATE") {
-        var timer = entity.getData("misc:dyn/teleport_timer");
         if (renderLayer == "CHESTPLATE") {
             glow.opacity = entity.getInterpolatedData("fiskheroes:punchmode_timer");
             glow.render();

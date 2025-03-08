@@ -1,0 +1,7 @@
+{
+    "sound": "misc:main.speed_punches",
+    "condition": "entity.getData('fiskheroes:energy_projection')",
+    "loop": true,
+    "fadeOut": 10
+  }
+  

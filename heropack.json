@@ -42,8 +42,12 @@
         "distance": 32.0,
         "sendToAll": true
       }
-    }
-  },
+    },
+    "speed_punches": {
+        "distance": 10.0,
+        "sendToAll": true
+      }
+    },
   "damageTypes": {
     "KRYPTONITE": "Kryptonite",
     "TELEPATIC": "Telepathy",
@@ -361,24 +365,54 @@
 }
   },
   "alts": {
-    "mhp:green_goblin": {
+    "misc:green_goblin": {
       "drip": "Drip Or Drown"
     },
-    "mhp:black_adam": {
+    "misc:black_adam": {
       "cape": "With Cape"
     },
-    "mhp:invincible": {
+    "misc:invincible": {
       "blue": "Invinciboy"
     },
-    "mhp:master_chief": {
+    "misc:master_chief": {
       "$DEFAULT": {
         "maskToggleTicks": 30
       }
     },
-    "mhp:reverse_flash": {
+    "misc:reverse_flash": {
       "$DEFAULT": {
         "maskToggleTicks": 30
       }
     }
-  }
+  },
+  "remap": { 
+    "mhp:black_adam": "misc:black_adam",
+    "mhp:charles_xavier": "misc:charles_xavier",
+    "mhp:doorman": "misc:doorman",
+    "mhp:ezio": "misc:ezio",
+    "mhp:green_goblin": "misc:green_goblin",
+    "mhp:infinity_gauntlet": "misc:infinity_gauntlet",
+    "mhp:invincible": "misc:invincible",
+    "mhp:invincible_variants": "misc:invincible_variants",
+    "mhp:master_chief": "misc:master_chief",
+    "mhp:metallo": "misc:metallo",
+    "mhp:metro_man": "misc:metro_man",
+    "mhp:midnight_angel": "misc:midnight_angel",
+    "mhp:mind_stone": "misc:mind_stone",
+    "mhp:power_stone": "misc:power_stone",
+    "mhp:powerplex": "misc:powerplex",
+    "mhp:reality_stone": "misc:reality_stone",
+    "mhp:reverse_flash": "misc:reverse_flash",
+    "mhp:robocop": "misc:robocop",
+    "mhp:sentinel": "misc:sentinel",
+    "mhp:soul_stone": "misc:soul_stone",
+    "mhp:space_stone": "misc:space_stone",
+    "mhp:striker_eureka": "misc:striker_eureka",
+    "mhp:sunspot": "misc:sunspot",
+    "mhp:superboy": "misc:superboy",
+    "mhp:t800": "misc:t800",
+    "mhp:the_ray": "misc:the_ray",
+    "mhp:time_stone": "misc:time_stone"
+}
+
 }

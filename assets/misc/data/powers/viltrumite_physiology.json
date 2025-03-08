@@ -198,9 +198,7 @@
         "range": 2.0,
         "radius": 0.1,
         "soundEvents": {
-          "SHOOT": "fiskheroes:mysterio_beam_start",
-          "SHOOT_STOP": "fiskheroes:mysterio_beam_stop",
-          "BEAM_AMBIENT": "fiskheroes:mysterio_beam_loop"
+          "BEAM_AMBIENT": "misc:speed_punches"
         }
       },
       "fiskheroes:leaping": {

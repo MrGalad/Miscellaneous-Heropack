@@ -36,14 +36,13 @@ function initAnimations(renderer) {
 
 function render(entity, renderLayer, isFirstPersonArm) {    
     var f = entity.getInterpolatedData("fiskheroes:flight_timer");
-    var b = entity.getInterpolatedData("fiskheroes:flight_boost_timer");
     var s = entity.getData("fiskheroes:flying");
     
     if (f > 0) {
         glider.setOffset(4, 1, (s ? 300 : -200) * (1 - f));
-        glider.render();
-        /* fire.setOffset(0, 12, (s ? 50000 : -200) * (1 - f)); */
-        fire.setOffset(-0.2, 3, -8.2);
-        fire.render()
-        }
+        glider.render();    
+        fire.setOffset(-0.2, 3, ((s ? 300 : -200) * (1 - f)) - 8.2);
+        fire.render();
+    }
+    
 }

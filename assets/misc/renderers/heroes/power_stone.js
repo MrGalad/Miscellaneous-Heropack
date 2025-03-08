@@ -11,10 +11,6 @@ var hand_flames
 var arms_light
 
 function initEffects(renderer) {
- /*   arms_light = utils.bindBeam(renderer, "fiskheroes:charged_beam", "fiskheroes:charged_beam", "head", getBeamColor(), [
-        { "firstPerson": [4.5, 3.75, -8.0], "offset": [7, 3.0, -7], "size": [1.0, 1.0] }
-    ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "fiskheroes:impact_charged_beam")); */
-
     utils.bindBeam(renderer, "fiskheroes:charged_beam", "fiskheroes:charged_beam", "head", getBeamColor(), [
         { "firstPerson": [-2.5, 3.0, -5.0], "offset": [-5.5, -1, -7.5], "size": [0.5, 0.5] },
     ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "fiskheroes:impact_charged_beam"));
@@ -38,8 +34,6 @@ function render(entity, renderLayer, isFirstPersonArm) {
     if (renderLayer == "CHESTPLATE") {
         arms_heat.opacity = entity.getInterpolatedData("fiskheroes:punchmode_timer");
         arms_heat.render()
-       /*  arms_light.render();
-        arms_light.opacity = entity.getInterpolatedData("fiskheroes:punchmode_timer") */
     }
 }
 

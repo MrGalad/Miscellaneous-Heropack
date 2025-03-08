@@ -16,6 +16,7 @@
 - Fixed having Doorman's stats when not transformed
 - Fixed bug where you could have infinite Reverse Flash suits
 - Fixed Reverse Flash's wall run
+- Fixed Sentinel's head rotation
 
 - Removed Auto Run Diagnostics after enabling Cortana
 - Removed Ultraman

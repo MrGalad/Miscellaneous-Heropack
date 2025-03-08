@@ -1,5 +1,18 @@
 {
     "name": "Green Goblin Serum",
     "modifiers": {
+        "fiskheroes:projectile_immunity": {
+    },
+    "fiskheroes:regeneration": {
+      "factor": 4
+    },
+    "fiskheroes:potion_immunity": {
+      "potionEffects": ["minecraft:nausea", "minecraft:poison", "minecraft:wither"]
+    },
+    "fiskheroes:arrow_catching": {
+    },
+    "fiskheroes:leaping": {
+      "leapAmount": [0.5, 0.0]
+    }
     }
 }

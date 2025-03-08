@@ -32,13 +32,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
 
 function initAnimations(renderer) {
     parent.initAnimations(renderer);
-    /* renderer.removeCustomAnimation("basic.CHARGED_BEAM");
-    renderer.removeCustomAnimation("basic.ENERGY_PROJ");
-    renderer.removeCustomAnimation("basic.BLOCKING"); */
     renderer.removeCustomAnimation("basic.AIMING");
-    /* addAnimationWithData(renderer, "gaunlet.TELEPORT", "misc:blocking_left", "fiskheroes:teleport_timer");
-    addAnimationWithData(renderer, "gaunlet.BLOCKING", "misc:blocking_left", "fiskheroes:shield_blocking_timer");
-    addAnimationWithData(renderer, "gaunlet.CHARGED_BEAM", "misc:aiming_left", "fiskheroes:beam_charge"); */
     addAnimationWithData(renderer, "stone.AIMING", "fiskheroes:aiming", "fiskheroes:aiming_timer")
 
 }

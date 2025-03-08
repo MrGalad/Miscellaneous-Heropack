@@ -59,8 +59,6 @@ function initAnimations(renderer) {
 
 function render (entity, renderLayer, isFirstPersonArm) {
    var timer = entity.getInterpolatedData("misc:dyn/transformation_timer");
-   var hologram = entity.is("DISPLAY") && entity.as("DISPLAY").getDisplayType() != "HOLOGRAM"
-
 
     if (timer > 0.5 && timer < 1){
         suit.render();

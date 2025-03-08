@@ -175,10 +175,10 @@ function render(entity, renderLayer) {
 
     if (entity.getInterpolatedData("fiskheroes:energy_projection_timer") > 0.5) {
         for (var i = 1; i <= 9; i++) {
-            var loopValue = entity.loop(i);
-            var fadeThreshold = i * 0.05;
+            var loop = entity.loop(i);
+            var fade = i * 0.05;
         
-            if (loopValue > 0 && loopValue < fadeThreshold) {
+            if (loop > 0 && loop < fade) {
                 var targetArm = eval("arm" + i);
                 targetArm.opacity = entity.loop((i % 9) + 1);
                 targetArm.render();
