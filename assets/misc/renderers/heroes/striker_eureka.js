@@ -34,7 +34,7 @@ function initEffects(renderer) {
     model.bindAnimation("misc:striker_eureka/movement_striker_eureka").setData((entity, data) => data.load(1, !entity.isSneaking() ? !entity.getData("fiskheroes:flying"): 0));
     model.bindAnimation("misc:striker_eureka/striker_eureka_cannons").setData((entity, data) => data.load(0, entity.getInterpolatedData("fiskheroes:beam_charge")));
     model.bindAnimation("misc:striker_eureka/dual_punch_striker_eureka").setData((entity, data) => {
-        data.load(entity.getData("fiskheroes:blade_timer") ? Math.min(4 * entity.getPunchTimerInterpolated(), 1) : 0);
+        data.load(entity.isPunching() ? Math.min(4 * entity.getPunchTimerInterpolated(), 1) : 0);
     }).priority = -8;
     model.bindAnimation("misc:striker_eureka/sting_blades").setData((entity, data) => {
         data.load(0, entity.getInterpolatedData("fiskheroes:blade_timer"));

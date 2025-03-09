@@ -3,6 +3,7 @@ function init(hero) {
     hero.setName("Striker Eureka");
     hero.setVersion("Pacfic Rim");
     hero.setTier(9);
+    hero.hide()
     
     hero.setChestplate("Energy Core");
     
