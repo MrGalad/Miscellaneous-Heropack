@@ -27,16 +27,16 @@ function init(renderer) {
 
         if (!entity.is("DISPLAY") || entity.as("DISPLAY").getDisplayType() === "BOOK_PREVIEW") {
             var timer = entity.getInterpolatedData("misc:dyn/solar_timer");
-            return  timer < 1 ? "reactor" : "base";
+            return timer < 1 ? "reactor" : "base";
         }
         return "base";
     });
-   /*  renderer.setLights((entity, renderLayer) => {
-        if (entity.is("DISPLAY") || entity.getData("misc:dyn/solar_timer") >= 0.5) {
-          return "glow";
-        }
-        return renderLayer == "LEGGINGS" ? null : null;
-      }); */
+    /*  renderer.setLights((entity, renderLayer) => {
+         if (entity.is("DISPLAY") || entity.getData("misc:dyn/solar_timer") >= 0.5) {
+           return "glow";
+         }
+         return renderLayer == "LEGGINGS" ? null : null;
+       }); */
     renderer.showModel("CHESTPLATE", "head", "headwear", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
     renderer.fixHatLayer("CHESTPLATE");
 }
@@ -45,11 +45,11 @@ function init(renderer) {
 function initEffects(renderer) {
     suit1 = renderer.createEffect("fiskheroes:overlay");
     suit1.texture.set(null, "glow");
-   
+
 
     suit2 = renderer.createEffect("fiskheroes:overlay");
     suit2.texture.set(null, "glow");
-    
+
 
     suit3 = renderer.createEffect("fiskheroes:overlay");
     suit3.texture.set(null, "glow");
@@ -59,8 +59,8 @@ function initEffects(renderer) {
 
     half = renderer.createEffect("fiskheroes:overlay");
     half.texture.set("half")
-    
-    
+
+
 
     utils.bindParticles(renderer, "misc:flame").setCondition(entity => entity.getData("fiskheroes:energy_projection"));
     utils.bindParticles(renderer, "misc:sunspot_transform").setCondition(entity => entity.getData("misc:dyn/solar_timer") > 0.3 && entity.getData("misc:dyn/solar_timer") < 0.5);
@@ -70,47 +70,29 @@ function initEffects(renderer) {
 }
 
 function render(entity, renderLayer) {
+    var now = Date.now();
     var timer = entity.getData("misc:dyn/solar_timer") >= 1;
     var halfTimer = entity.getData("misc:dyn/half_solar_timer") > 0;
 
-    var duration1 = 2000;
-    var duration2 = 3000;
-    var duration3 = 2500;
-    var durationHalf = 1500; 
+    var durations = [2000, 3000, 2500, 1500]
+    var opacities = [];
 
-    var elapsedTime1 = Date.now() % duration1;
-    var elapsedTime2 = Date.now() % duration2;
-    var elapsedTime3 = Date.now() % duration3;
-    var elapsedTimeHalf = Date.now() % durationHalf;
-
-    var progress1 = elapsedTime1 / duration1;
-    var progress2 = elapsedTime2 / duration2;
-    var progress3 = elapsedTime3 / duration3;
-    var progressHalf = elapsedTimeHalf / durationHalf; 
-
-    var opacity1 = Math.sin(progress1 * Math.PI * 2) * 0.5 + 0.5; 
-    var opacity2 = Math.sin(progress2 * Math.PI * 2) * 0.5 + 0.5; 
-    var opacity3 = Math.sin(progress3 * Math.PI * 2) * 0.5 + 0.5; 
-    var opacityHalf = Math.sin(progressHalf * Math.PI * 2) * 0.5 + 0.5; 
-
-  
-    opacity1 = Math.min(Math.max(opacity1, 0), 1);
-    opacity2 = Math.min(Math.max(opacity2, 0), 1);
-    opacity3 = Math.min(Math.max(opacity3, 0), 1);
-    opacityHalf = Math.min(Math.max(opacityHalf, 0), 1);
+    for (var i = 0; i < durations.length; i++) {
+        var progress = (now % durations[i]) / durations[i];
+        opacities.push((Math.sin(progress * Math.PI * 2) * 0.5) + 0.5);
+    }
 
     if (halfTimer) {
         half.render();
-        half_light.render()
+        half_light.render();
     } else if (timer >= 0.5) {
-        suit1.opacity = opacity1;
-        suit2.opacity = opacity2; 
-        suit3.opacity = opacity3; 
-
-        suit1.render();
-        suit2.render();
-        suit3.render();
+        var suits = [suit1, suit2, suit3];
+        for (var j = 0; j < suits.length; j++) {
+            suits[j].opacity = opacities[j];
+            suits[j].render();
+        }
     }
+
 
     glow.opacity = 1 * (1 - Math.abs(2 * entity.getInterpolatedData("misc:dyn/solar_timer") - 1));
     glow.render();

@@ -46,7 +46,7 @@ function init(hero) {
         }  if (entity.getData("fiskheroes:beam_shooting") > 0) {
             var powerCharge = entity.getData("misc:dyn/power_charge");
             if (powerCharge > 0.5) {
-                manager.setData(entity, "misc:dyn/power_charge", powerCharge - 0.01); // Decrease power_charge
+                manager.setData(entity, "misc:dyn/power_charge", powerCharge - 0.01);
             }
         }
     });
