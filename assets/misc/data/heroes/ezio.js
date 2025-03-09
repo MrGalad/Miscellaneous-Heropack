@@ -95,6 +95,7 @@ function ledge(entity) {
 } */
 function init(hero) {
     hero.setName("Ezio");
+    hero.setVersion("Assassin's Creed II");
     hero.setTier(2);
 
     hero.setHelmet("Hood")

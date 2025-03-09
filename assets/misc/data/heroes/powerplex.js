@@ -1,5 +1,6 @@
 function init(hero) {
     hero.setName("Powerplex");
+    hero.setVersion("Invincible");
     hero.setTier(5);
 
     hero.setHelmet("Head");

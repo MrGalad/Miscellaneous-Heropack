@@ -31,6 +31,7 @@
 - Updated Recipes of some suits
 - Updated Heat Vision beam
 
+- Changeed Sunspot's version from DOFP to The New Mutants
 - Changed 'Energy Blade' weapon's name to 'Energy Sword'
 - Changed 'Toggle Invisibility' to 'Invisibility' with Charles Xavier
 - Changed Infinity Stones' names

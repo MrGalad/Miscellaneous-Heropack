@@ -4,6 +4,7 @@ var auto_boost = implement("misc:external/auto_boost");
 var max_boost_flight = 3;
 function init(hero) {
     hero.setName("Invincible");
+    hero.setVersion("Invincible");
     hero.setTier(9);
 
     hero.setHelmet("Mask");
