@@ -35,6 +35,7 @@
 - Changed 'Toggle Invisibility' to 'Invisibility' with Charles Xavier
 - Changed Infinity Stones' names
 - Changed Sunspot's item textures
+- Changed domain from mhp to misc
 
 - ### Miscellaneous Heropack 3.1 ###
 
