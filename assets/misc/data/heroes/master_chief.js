@@ -26,7 +26,7 @@ function init(hero) {
     hero.addKeyBind("WEB_ZIP", "Grappleshot", 4);
     hero.addKeyBind("NIGHT_VISION", "Toggle Night Vision", 4);
     hero.addKeyBind("TOGGLE_SHIELD", "Toggle Overshield", 4);
-    hero.addKeyBindFunc("RUN", run , "Run Diagnostics", 4);
+    hero.addKeyBindFunc("RUNN", run , "Run Diagnostics", 4);
     hero.addKeyBindFunc("func_CORTANA", cortanaOn, "Toggle Cortana", 1);
     //hero.addKeyBind("TOGGLE_GRAPPLE", "Toggle Grapplehook", 5)
 
@@ -52,7 +52,11 @@ function init(hero) {
         if (entity.getData("misc:dyn/boolean") != "fiskheroes:shield" || entity.getData("fiskheroes:shield_blocking")) {
             manager.setData(entity, "fiskheroes:shield", entity.getData("misc:dyn/boolean"))
             manager.setData(entity, "fiskheroes:shield_blocking", entity.getData("misc:dyn/boolean"))
-        }
+        } if (entity.getData("misc:dyn/float_interp1") == 1) {
+            manager.setData(entity, "misc:dyn/run", false)
+        } 
+
+        
     
         cortana.health(entity, manager);
         cortana.warning(entity, manager)
@@ -67,10 +71,11 @@ function run(entity) {
     var health = (Math.round(entity.getHealth() * 10) / 10);
     var damage = (0 + entity.getWornChestplate().damage());
 
-    if (cortanaEnabled) {
+    if (cortanaEnabled && !entity.getData("misc:dyn/float_interp1")) {
         PackLoader.printChat("\u00A73<Cortana>\u00A7b Health: " + health);
         PackLoader.printChat("\u00A73<Cortana>\u00A7b Overall Armor Health: " + armor + " / 1024");
         PackLoader.printChat("\u00A73<Cortana>\u00A7b Total Damage Received: " + damage);
+        entity.playSound("minecraft:random.orb", 4, 1);
     }
     return true;
 }
@@ -83,6 +88,7 @@ function cortanaOn(player, manager) {
       state = "Goodbye";
     } else {
       state = "Hello";
+      player.playSound("minecraft:random.orb", 4, 1);
     }
   
     manager.setData(player, "misc:dyn/cortana", !cortanaEnabled);
@@ -131,8 +137,8 @@ function isKeyBindEnabled(entity, keyBind) {
             return entity.isSneaking();
             case "SHADOWDOME":
             return entity.isSneaking() && entity.getData("misc:dyn/mob_timer") == 0 && entity.getData("misc:dyn/cortana");
-            case "RUN":
-            return entity.isSneaking()
+            case "RUNN":
+            return entity.isSneaking() && !entity.getData("misc:dyn/float_interp1")
         default:
             return true;
     }

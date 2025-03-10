@@ -148,6 +148,7 @@ function EntityScan(entity, manager) {
         if (scanCondition && scamStatus) {
             PackLoader.printChat(messages.detect + " " + detectedEntities.map(value => (mobsToColor[value] || "") + (replace[value] || value)).join(", \u00A7r").replace(", null", ""));
             scamStatus = false;
+            entity.playSound("minecraft:random.orb", 4, 1);
         } else if (!scanCondition && !scamStatus) {
             scamStatus = true;
         }

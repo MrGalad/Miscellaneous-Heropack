@@ -7,7 +7,6 @@
 - Added Okoye (Midnight Angel) suit
 - Added Green Goblin suit
 - Added Green Goblin (Drip Or Drown) alt
-- Added Striker Eureka (Pacific Rim) suit
 - Added Snap to Infinity Gauntlet
 - Added Colors to Master Chief's Mob Scan
 - Added 'Run Diagnostics' ability to Master Chief
