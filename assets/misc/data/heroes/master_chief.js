@@ -8,8 +8,8 @@ function init(hero) {
     hero.setChestplate("item.superhero_armor.piece.chestplate");
     hero.setLeggings("item.superhero_armor.piece.leggings");
     hero.setBoots("item.superhero_armor.piece.boots");
-    hero.addPrimaryEquipment("fisktag:weapon{WeaponType:misc:ma5c}", true);
-    hero.addPrimaryEquipment("fisktag:weapon{WeaponType:misc:ener}", true);
+    hero.addPrimaryEquipment("fisktag:weapon{WeaponType:misc:ma5c}", true, item => item.nbt().getString("WeaponType") == 'misc:ma5c');
+    hero.addPrimaryEquipment("fisktag:weapon{WeaponType:misc:ener}", true, item => item.nbt().getString("WeaponType") == 'misc:ener');
 
     hero.addPowers("misc:mjolnir_armor", "misc:cortana");
     hero.addAttribute("PUNCH_DAMAGE", 9.0, 0);
