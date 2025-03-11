@@ -96,7 +96,7 @@
         "damage": 14.0
       },
       "chargeTime": 60,
-      "duration": 30,
+      "duration": 140,
       "cooldownTime": 120,
       "range": 16.0,
       "radius": 16.0,

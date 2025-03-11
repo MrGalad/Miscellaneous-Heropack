@@ -10,6 +10,7 @@
 - Added Snap to Infinity Gauntlet
 - Added Colors to Master Chief's Mob Scan
 - Added 'Run Diagnostics' ability to Master Chief
+- Added sounds to Cortana
 
 - Fixed being able to spam 'SHAZAM' ability with Black Adam
 - Fixed having Doorman's stats when not transformed

@@ -8,6 +8,11 @@ var utils = implement("fiskheroes:external/utils");
 var chair
 var glow
 
+function init(renderer) {
+    parent.init(renderer);
+    renderer.showModel("CHESTPLATE", "head", "headwear", "body", "rightArm", "leftArm");
+}
+
 function initEffects(renderer) {
     /*   arms_light = utils.bindBeam(renderer, "fiskheroes:charged_beam", "fiskheroes:charged_beam", "head", getBeamColor(), [
            { "firstPerson": [4.5, 3.75, -8.0], "offset": [7, 3.0, -7], "size": [1.0, 1.0] }
@@ -89,7 +94,10 @@ function render(entity, renderLayer, isFirstPersonArm) {
 
             chair.render();
         }
+    }
+    if (!isFirstPersonArm) {
         glow.opacity = invis;
         glow.render();
     }
+
 }
