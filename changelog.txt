@@ -4,6 +4,7 @@
 - Added Invincible Variants suit
 - Added Invincible suit
 - Added Invincible (Invinciboy) alt
+- Added Powerplex suit
 - Added Okoye (Midnight Angel) suit
 - Added Green Goblin suit
 - Added Green Goblin (Drip Or Drown) alt
@@ -17,6 +18,7 @@
 - Fixed bug where you could have infinite Reverse Flash suits
 - Fixed Reverse Flash's wall run
 - Fixed Sentinel's head rotation
+- Fixed Charles Xavier's glow when going invisible
 
 - Removed Auto Run Diagnostics after enabling Cortana
 - Removed Ultraman
