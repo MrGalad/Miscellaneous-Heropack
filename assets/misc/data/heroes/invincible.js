@@ -23,7 +23,7 @@ function init(hero) {
     hero.addKeyBind("SUPER_SPEED", "key.superSpeed", 2);
     hero.addKeyBind("GROUND_SMASH", "Ground Smash", 3);
     hero.addKeyBind("SLOW_MOTION", "key.slowMotionHold", 4);
-    hero.addKeyBind("SHIELD", "Block", 5);
+    /* hero.addKeyBind("SHIELD", "Block", 5); */
 
     hero.setModifierEnabled(isModifierEnabled);
     hero.setKeyBindEnabled(isKeyBindEnabled);

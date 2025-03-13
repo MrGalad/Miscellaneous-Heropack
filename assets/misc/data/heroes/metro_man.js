@@ -14,7 +14,7 @@ function init(hero) {
     hero.addAttribute("PUNCH_DAMAGE", 10.0, 0);
     hero.addAttribute("WEAPON_DAMAGE", 1.0, 0);
     hero.addAttribute("SPRINT_SPEED", 0.7, 1);
-    hero.addAttribute("BASE_SPEED_LEVELS", 3.0, 0);
+    hero.addAttribute("BASE_SPEED_LEVELS", 4.0, 0);
     hero.addAttribute("FALL_RESISTANCE", 1.0, 1);
 
     hero.addKeyBind("HEAT_VISION", "key.heatVision", 1);

@@ -36,6 +36,7 @@
 - Changed 'Toggle Invisibility' to 'Invisibility' with Charles Xavier
 - Changed Infinity Stones' names
 - Changed Sunspot's item textures
+- Changed Metroman's speed to 4 bars
 - Changed domain from mhp to misc
 
 - ### Miscellaneous Heropack 3.1 ###

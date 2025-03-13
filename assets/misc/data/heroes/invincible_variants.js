@@ -16,7 +16,7 @@ function init(hero) {
     hero.addAttribute("SPRINT_SPEED", 1.0, 1);
     hero.addAttribute("BASE_SPEED_LEVELS", 3.0, 0);
 
-
+    // nah what you doin in here???
     hero.addKeyBindFunc("func_INC_DESIGN", increaseSlot, "Next Variant Design", 1);
     hero.addKeyBindFunc("func_DEC_DESIGN", decreaseSlot, "Previous Variant Design", 2);
     hero.addKeyBindFunc("LOCKDESIGN", lockDesign, "Lock Variant Design", 3);
@@ -27,7 +27,7 @@ function init(hero) {
     hero.addKeyBind("SUPER_SPEED", "key.superSpeed", 2);
     hero.addKeyBind("GROUND_SMASH", "Ground Smash", 3);
     hero.addKeyBind("SLOW_MOTION", "key.slowMotionHold", 4);
-    hero.addKeyBind("SHIELD", "Block", 5);
+    /* hero.addKeyBind("SHIELD", "Block", 5); */
 
     hero.setModifierEnabled(isModifierEnabled);
     hero.setKeyBindEnabled(isKeyBindEnabled);
