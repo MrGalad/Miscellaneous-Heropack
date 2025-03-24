@@ -27,13 +27,23 @@ function init(hero) {
     hero.setModifierEnabled(isModifierEnabled);
     hero.addAttributeProfile("INACTIVE", inactiveProfile);
     hero.setDefaultScale(1.1);
-   /*  hero.setTickHandler((entity, manager) => {
-        if (entity.getData("misc:dyn/shazam") > 0.5) {
-            manager.setData(entity, "misc:dyn/boolean", true)
-        } else if (entity.getData("misc:dyn/shazam") < 0.1) {
-            manager.setData(entity, "misc:dyn/boolean", false)
+    hero.setTickHandler((entity, manager) => {
+        burst(hero, entity)
+    });
+}
+
+function burst(hero, entity) {
+    if (entity.getData("fiskheroes:beam_charge") > 0.9) {
+        var range = 32 * entity.getData("fiskheroes:beam_charge");
+        var list = entity.world().getEntitiesInRangeOf(entity.pos(), range);
+
+        for (var i = 0; i < list.size(); ++i) {
+            var other = list.get(i);
+            if (other.isLivingEntity() && !entity.equals(other)) { 
+                other.hurtByAttacker(hero, "ELEC", "%s was electrecuted", 5, entity);
+            }
         }
-    }); */
+    }
 }
 
 function inactiveProfile(profile) {

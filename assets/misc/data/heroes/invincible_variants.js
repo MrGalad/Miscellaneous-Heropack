@@ -52,34 +52,39 @@ function init(hero) {
 }
 
 function increaseSlot(entity, manager) {
+    var nbt = entity.getWornChestplate().nbt();
     var totalSlots = 19;
-    var slot = entity.getData("misc:dyn/slot") || 0
+    var slot = nbt.getByte("slot") || 0
     slot = (slot + 1) % totalSlots;
-    manager.setData(entity, "misc:dyn/slot", slot);
+    manager.setByte(nbt, "slot", slot);
     return true;
 }
 
 function decreaseSlot(entity, manager) {
+    var nbt = entity.getWornChestplate().nbt();
     var totalSlots = 19;
-    var slot = entity.getData("misc:dyn/slot") || 0
+    var slot = nbt.getByte("slot") || 0
     slot = (slot - 1 + totalSlots) % totalSlots;
-    manager.setData(entity, "misc:dyn/slot", slot);
+    manager.setByte(nbt, "slot", slot);
     return true;
 }
 
 function lockDesign(entity, manager) {
-    manager.setData(entity, "misc:dyn/nv", true)
+    var nbt = entity.getWornChestplate().nbt();
+    manager.setBoolean(nbt, "locked", true);
     return true
 }
 
 function change(entity, manager) {
-    manager.setData(entity, "misc:dyn/nv", false)
-    manager.setData(entity, "misc:dyn/slot", 0)
+    var nbt = entity.getWornChestplate().nbt();
+    manager.setBoolean(nbt, "locked", false);
+    manager.setByte(nbt, "slot", 0);
     return true
 }
 
 function isModifierEnabled(entity, modifier) {
-    if (!entity.getData("misc:dyn/nv")) {
+    var nbt = entity.getWornChestplate().nbt();
+    if (!nbt.getBoolean("locked")) {
         return false;
     }
     switch (modifier.name()) {
@@ -105,8 +110,9 @@ function isModifierEnabled(entity, modifier) {
 }
 
 function isKeyBindEnabled(entity, keyBind) {
+    var nbt = entity.getWornChestplate().nbt();
     var boolean = entity.getData("misc:dyn/boolean")
-    var lock = entity.getData("misc:dyn/nv")
+    var lock = nbt.getBoolean("locked")
     switch (keyBind) {
         case "GROUND_SMASH":
             return !entity.getData("fiskheroes:dyn/flight_super_boost") > 0 && lock && !entity.getData("fiskheroes:energy_projection");
@@ -121,7 +127,7 @@ function isKeyBindEnabled(entity, keyBind) {
         case "DESIGN":
             return entity.getData("fiskheroes:mask_open_timer2") > 0 && !entity.getData("fiskheroes:flying")
         case "LOCKDESIGN":
-            return !entity.getData("misc:dyn/slot") == 0 && !lock
+            return !nbt.getByte("slot") == 0 && !lock
         case "func_INC_DESIGN":
         case "func_DEC_DESIGN":
             return !lock
@@ -140,79 +146,29 @@ function changeProfile(profile) {
 }
 
 function getAttributeProfile(entity) {
+    var nbt = entity.getWornChestplate().nbt();
     if (entity.getData("fiskheroes:shield_blocking_timer") > 0) {
         return "BLOCK";
-    } if (!entity.getData("misc:dyn/nv")) {
+    } if (!nbt.getBoolean("locked")) {
         return "CHANGEPROFILE"
     }
     return true;
 }
 
 function getTierOverride(entity) {
-    return entity.getData("misc:dyn/nv") ? 9 : 0;
+    var nbt = entity.getWornChestplate().nbt();
+    return nbt.getBoolean("locked") ? 9 : 0;
 }
 
 function names(entity, manager) {
     var nbt = entity.getWornChestplate().nbt();
     var display = nbt.getCompoundTag("display");
-    var slot = entity.getData("misc:dyn/slot")
-
-    if (slot == 1) {
-        manager.setCompoundTag(nbt, "display", display);
-        manager.setString(display, "Name", "Capevincible's Chestplate");
-    } else if (slot == 2) {
-        manager.setCompoundTag(nbt, "display", display);
-        manager.setString(display, "Name", "Movincihawk's Chestplate");
-    } else if (slot == 3) {
-        manager.setCompoundTag(nbt, "display", display);
-        manager.setString(display, "Name", "Mustachible's Chestplate");
-    } else if (slot == 4) {
-        manager.setCompoundTag(nbt, "display", display);
-        manager.setString(display, "Name", "Maskvincible's Chestplate");
-    } else if (slot == 5) {
-        manager.setCompoundTag(nbt, "display", display);
-        manager.setString(display, "Name", "Stripevincible's Chestplate");
-    } else if (slot == 6) {
-        manager.setCompoundTag(nbt, "display", display);
-        manager.setString(display, "Name", "Hoodvincible's Chestplate");
-    } else if (slot == 7) {
-        manager.setCompoundTag(nbt, "display", display);
-        manager.setString(display, "Name", "Hairvincible's Chestplate");
-    } else if (slot == 8) {
-        manager.setCompoundTag(nbt, "display", display);
-        manager.setString(display, "Name", "Capvincible's Chestplate");
-    } else if (slot == 9) {
-        manager.setCompoundTag(nbt, "display", display);
-        manager.setString(display, "Name", "Sportvincible's Chestplate");
-    } else if (slot == 10) {
-        manager.setCompoundTag(nbt, "display", display);
-        manager.setString(display, "Name", "Lightbluevincible's Chestplate");
-    } else if (slot == 11) {
-        manager.setCompoundTag(nbt, "display", display);
-        manager.setString(display, "Name", "Omnivincible's Chestplate");
-    } else if (slot == 12) {
-        manager.setCompoundTag(nbt, "display", display);
-        manager.setString(display, "Name", "Viltrumincible's Chestplate");
-    } else if (slot == 13) {
-        manager.setCompoundTag(nbt, "display", display);
-        manager.setString(display, "Name", "Bulletproofible's Chestplate");
-    } else if (slot == 14) {
-        manager.setCompoundTag(nbt, "display", display);
-        manager.setString(display, "Name", "Prisonincible's Chestplate");
-    } else if (slot == 15) {
-        manager.setCompoundTag(nbt, "display", display);
-        manager.setString(display, "Name", "Flaxancible's Chestplate");
-    } else if (slot == 16) {
-        manager.setCompoundTag(nbt, "display", display);
-        manager.setString(display, "Name", "Gogglesvincible's Chestplate");
-    } else if (slot == 17) {
-        manager.setCompoundTag(nbt, "display", display);
-        manager.setString(display, "Name", "Nogogglesible's Chestplate");
-    } else if (slot == 18) {
-        manager.setCompoundTag(nbt, "display", display);
-        manager.setString(display, "Name", "Nomaskible's Chestplate");
-    } else if (slot == 0) {
+    var slot = nbt.getByte("slot") | 0;
+    var name = [undefined, "Capevincible", "Movincihawk", "Mustachible", "Maskvincible", "Stripevincible", "Hoodvincible", "Hairvincible", "Capvincible", "Sportvincible", "Lightbluevincible", "Omnivincible", "Viltrumincible", "Bulletproofible", "Prisonincible", "Flaxancible", "Gogglesvincible", "Nogogglesible", "Nomaskible"].map(i => i ? i+"'s Chestplate" : i)[slot];
+    if (name == undefined) {
         manager.removeTag(display, "Name");
+        return;
     }
-
+    manager.setCompoundTag(nbt, "display", display);
+    manager.setString(display, "Name", name);
 }

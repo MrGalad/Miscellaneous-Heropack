@@ -28,8 +28,7 @@ function initEffects(renderer) {
 function initAnimations(renderer) {
     parent.initAnimations(renderer);
     
-    utils.addFlightAnimation(renderer, "goblin.FLIGHT", "misc:goblin/goblin_pose.anim.json");
-    
+    utils.addFlightAnimation(renderer, "goblin.FLIGHT", "misc:goblin/goblin_pose.anim.json");   
     renderer.reprioritizeDefaultAnimation("PUNCH", -9);
     renderer.reprioritizeDefaultAnimation("AIM_BOW", -9);
 }

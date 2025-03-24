@@ -91,7 +91,7 @@
         "SHOOT": "fiskheroes:energy_projection"
       }
     },
-    "fiskheroes:charged_beam|front": {
+    "fiskheroes:charged_beam": {
       "damageProfile": {
         "damage": 14.0
       },
@@ -105,16 +105,6 @@
         "SHOOT": "fiskheroes:mysterio_charged_beam_start",
         "BEAM_AMBIENT": "fiskheroes:mysterio_charged_beam_loop"
       }
-    },
-    "fiskheroes:charged_beam|back": {
-      "damageProfile": {
-        "damage": 14.0
-      },
-      "chargeTime": 60,
-      "duration": 30,
-      "cooldownTime": 120,
-      "range": -16.0,
-      "radius": 16.0
     },
   "fiskheroes:water_breathing": {
   },
