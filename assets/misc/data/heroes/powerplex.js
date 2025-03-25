@@ -79,7 +79,7 @@ function isModifierEnabled(entity, modifier) {
         case "fiskheroes:controlled_flight":
             return entity.getData("misc:dyn/power_charge") > 0.5;
         case "fiskheroes:lightning_cast":
-            return entity.getData("misc:dyn/power_charge") > 0.2;    
+            return entity.getData("misc:dyn/power_charge") > 0.2 && !entity.getData("fiskheroes:beam_charging") && !entity.getData("fiskheroes:energy_projection");    
 }
 return true;
 }

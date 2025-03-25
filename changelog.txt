@@ -1,8 +1,12 @@
 ### Miscellaneous Heropack 3.3 ###
 
-
-
 - Fixed Invincible Variants's style not appearing on display stands
+- Fixed being locked in charged flight animation when pressing 'Change Variant Design' with Invincible Variants suit
+- Fixed being able to use Lightning Cast with other abilities with Powerplex
+
+- Removed 'Chestburster' from Reverse Flash
+
+- Updated Okoye's spear model
 
 ### Miscellaneous Heropack 3.2 ###
 

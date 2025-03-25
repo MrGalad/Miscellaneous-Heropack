@@ -75,7 +75,7 @@ function isModifierEnabled(entity, modifier) {
         case "fiskheroes:damage_immunity":
             return entity.getData("misc:dyn/shazam_timer") > 0.5;
         case "fiskheroes:super_speed":
-            return entity.getData("misc:dyn/shazam_timer") > 0.5 && !entity.getData("fiskheroes:flying");
+            return (entity.getData("misc:dyn/shazam_timer") > 0.5 && !entity.getData("fiskheroes:flying")); ;
     }
     return true;;
 }
@@ -90,7 +90,7 @@ function isKeyBindEnabled(entity, keyBind) {
             return (entity.getData("misc:dyn/shazam_timer") > 0.5 && !entity.getData("fiskheroes:energy_projection"));
       // spam fix cuz shadow doesnt like it 
         case "SHAZAM":
-            return (entity.getData("misc:dyn/shazam_timer") == 0 || entity.getData("misc:dyn/shazam_timer") == 1 && !entity.getData("fiskheroes:beam_charging"))
+            return (entity.getData("misc:dyn/shazam_timer") == 0 || entity.getData("misc:dyn/shazam_timer") == 1 && !entity.getData("fiskheroes:beam_charging")) && !(entity.getData("fiskheroes:flying") && entity.isSprinting());
         default:
             return true;;
     }

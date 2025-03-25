@@ -40,8 +40,8 @@ function init(hero) {
 
     hero.addKeyBind("SUPER_SPEED", "key.superSpeed", 1);
     hero.addKeyBind("SLOW_MOTION", "key.slowMotion", 2);
-    hero.addKeyBind("CHEST", "Chestburster", 3)
-    hero.addKeyBind("ENERGY_PROJECTION", "Chestburster", -1)
+    /* hero.addKeyBind("CHEST", "Chestburster", 3)
+    hero.addKeyBind("ENERGY_PROJECTION", "Chestburster", -1) */
     hero.addKeyBind("VIBRATION", "Vibrate", 4)
     hero.addKeyBind("INTANGIBILITY", "Phase", 5);
     hero.addKeyBind("CHARGE_ENERGY", "Lightning Throw", -3);

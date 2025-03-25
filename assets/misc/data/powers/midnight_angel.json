@@ -1,6 +1,14 @@
 {
     "name": "Midnight Angel Armor",
     "modifiers": {
+      "fiskheroes:cooldown": {
+        "cooldown": {
+            "toggleData": " entity.isOnGround() && entity.motionY() == 0 && entity.motionX() == 0 && entity.motionZ() == 0 &&  entity.getHeldItem().nbt().getString('WeaponType') == 'misc:staff'",
+            "cooldownData": "misc:dyn/power_charge",
+            "duration": 50,
+            "recovery": 50
+        }
+    },
       "fiskheroes:controlled_flight": {
         "speed": 0.15,
         "boostSpeed": 0.3,

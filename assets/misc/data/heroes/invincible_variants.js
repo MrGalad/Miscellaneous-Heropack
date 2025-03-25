@@ -48,6 +48,10 @@ function init(hero) {
         if (entity.getData("fiskheroes:flight_boost_timer") == 0 && entity.isSprinting() && entity.getData("fiskheroes:flying")) {
             manager.setData(entity, "misc:dyn/random_digit", Math.floor(Math.random() * 2) + 1);
         }
+
+        if (!entity.getWornChestplate().nbt().getBoolean('locked')) {
+            manager.setData(entity, "misc:dyn/charge_timer", 0)
+        }
     });
 }
 

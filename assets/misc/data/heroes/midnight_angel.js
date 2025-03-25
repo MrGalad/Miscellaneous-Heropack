@@ -27,7 +27,11 @@ function init(hero) {
     });
 
     hero.setTickHandler((entity, manager) => {
-        manager.incrementData(entity, "misc:dyn/float_interp", 20, 6, entity.getHeldItem().nbt().getString("WeaponType") == "misc:staff" && (!entity.getData("fiskheroes:moving") && !entity.isPunching() || !entity.getData("fiskheroes:flying") && entity.motionX() == 0 && entity.motionZ() == 0 && !entity.isPunching()));
+        manager.incrementData(entity, "misc:dyn/float_interp", 20, 6, entity.getData("misc:dyn/power_charge") > 0.8 && !entity.isPunching());
+
+        if (entity.isPunching()) {
+            manager.setData(entity, "misc:dyn/power_charge", 0);
+        }
    
         var flying = entity.getData("fiskheroes:flying");
         manager.incrementData(entity, "fiskheroes:dyn/booster_timer", 2, flying);
