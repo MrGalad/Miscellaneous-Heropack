@@ -1,0 +1,19 @@
+{animation2_time}={data}
+{animation2_0}=curve animate2({animation2_time},0,0,0,0)
+
+{bone_rotX}+=-90'{animation2_0}
+{bone_posZ}+=-14{animation2_0}
+
+{head_rotX}+=17.5'{animation2_0}
+
+{rightArm_rotX}+=-205.3112300539'{animation2_0}
+{rightArm_rotY}+=16.6657686741'{animation2_0}
+{rightArm_rotZ}+=31.2325185415'{animation2_0}
+
+{leftLeg_rotX}+=-20.7062021945'{animation2_0}
+{leftLeg_rotY}+=15.5950983969'{animation2_0}
+{leftLeg_rotZ}+=28.8106165377'{animation2_0}
+
+{leftArm_rotX}+=-203.369646356'{animation2_0}
+{leftArm_rotY}+=-6.8637857728'{animation2_0}
+{leftArm_rotZ}+=-26.6945834399'{animation2_0}

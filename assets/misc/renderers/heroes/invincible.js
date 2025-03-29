@@ -126,7 +126,7 @@ function initAnimations(renderer) {
     renderer.removeCustomAnimation("basic.BLOCKING");
     renderer.removeCustomAnimation("basic.AIMING");
     renderer.removeCustomAnimation("basic.ENERGY_PROJ");
-    addAnimationWithData(renderer, "invincible.BLOCKING", "misc:invincible_block", "fiskheroes:shield_blocking_timer");
+    /* addAnimationWithData(renderer, "invincible.BLOCKING", "misc:invincible_block", "fiskheroes:shield_blocking_timer"); */
     addAnimationWithData(renderer, "invincible.LAND", "misc:invincible_landing", "fiskheroes:dyn/superhero_landing_timer")
         .priority = -8;
     addAnimationWithData(renderer, "invincible.CHARGE", "fiskheroes:superhero_landing", "misc:dyn/charge_timer")
@@ -144,12 +144,12 @@ function initAnimations(renderer) {
         }).setCondition(entity => entity.getData('misc:dyn/random_digit') == 2)
         .priority = -10;
 
-    addAnimation(renderer, "invincible.FLIGHT1", "fiskheroes:flight/default_arms_forward.anim.json")
+    addAnimation(renderer, "invincible.FLIGHT1", "misc:invincible_relax_flight")
         .setData((entity, data) => {
             data.load(0, entity.getInterpolatedData("fiskheroes:flight_timer"));
             data.load(1, entity.getInterpolatedData("fiskheroes:flight_boost_timer"));
         }).setCondition(entity => entity.getData('misc:dyn/random_digit') == 1)
-        .priority = -10;
+        .priority = 10;
 
     addAnimation(renderer, "invincible.FLIGHT2", "fiskheroes:flight/propelled_hands.anim.json")
         .setData((entity, data) => {

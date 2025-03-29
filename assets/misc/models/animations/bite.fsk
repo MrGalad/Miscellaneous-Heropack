@@ -1,0 +1,10 @@
+{bite_time}={data}
+{bite_0}=curve animate2({bite_time},1,0,0.6,0.4)
+
+{head_rotX}+=15'{bite_0}
+
+{rightArm_rotX}+=-157'{bite_0}
+{rightArm_rotY}+=4'{bite_0}
+{rightArm_rotZ}+=45'{bite_0}
+{rightArm_posY}+=6.5{bite_0}
+{rightArm_posZ}+=-1.5{bite_0}

@@ -1,0 +1,45 @@
+{x} = min({vel}, 1){data_1}{d1}{d} / 2.5
+
+{rightArm_rotX} @ {data_0} -> 0
+{leftArm_rotX} @ {data_0} -> 0
+{rightLeg_rotX} @ {data_0} -> 0
+{leftLeg_rotX} @ {data_0} -> 0
+
+{bone_posY}+=-4 {data_0}
+
+{head_posY}+=0.25 {data_0}
+{head_posZ}+=-4 {data_0}
+
+{body_rotX}+=27.5' {data_0}
+{body_posZ}+=-4.25 {data_0}
+
+{leftArm_rotX}+=2' {data_0} + 0.5abs({x})
+{leftArm_rotY}+=5' {data_0}
+{leftArm_rotZ}+=-53' {data_0}
+{leftArm_posX}+=1.25 {data_0}
+{leftArm_posY}+=2 {data_0}
+{leftArm_posZ}+=-2.75 {data_0}
+
+{rightArm_rotX}+=7' {data_0} + 0.5abs({x})
+{rightArm_rotY}+=-3' {data_0}
+{rightArm_rotZ}+=44' {data_0}
+{rightArm_posX}+=-1 {data_0}  
+{rightArm_posY}+=1.75 {data_0}
+{rightArm_posZ}+=-2.75 {data_0}
+
+{leftLeg_rotX}+=12' {data_0}
+{leftLeg_rotY}+=-12' {data_0}
+{leftLeg_rotZ}+=-12' {data_0}
+{leftLeg_posX}+=2 {data_0}
+{leftLeg_posY}+=-2.5 {data_0}
+{leftLeg_posZ}+=-3.5 {data_0}
+
+{rightLeg_rotX}+=12' {data_0}
+{rightLeg_rotY}+=12' {data_0}
+{rightLeg_rotZ}+=11' {data_0}
+{rightLeg_posX}+=-1.75 {data_0}
+{rightLeg_posY}+=-2.5 {data_0}
+{rightLeg_posZ}+=-4.25 {data_0}
+
+{d} *= {data_1} / 1'
+{x} = min({vel} / 2, 1) / 2

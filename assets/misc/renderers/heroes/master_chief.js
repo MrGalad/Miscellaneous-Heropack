@@ -38,13 +38,7 @@ function initEffects(renderer) {
     helm.setScale(1.1)
     helm.anchor.set("head");
     helm.mirror = false;
- 
-    mac = renderer.createEffect("fiskheroes:model");
-    mac.setModel(utils.createModel(renderer, "fisktag:MA5C", "mac"));
-    mac.anchor.set("body");
-    mac.setOffset(12, 2, 3);
-    mac.setRotation(270, 225, 90);
-    mac.setScale(0.8); */
+ */
 
     renderer.bindProperty("fiskheroes:equipped_item").setItems([
         { "anchor": "body", "scale": 0.7,"offset": [7, 1, 5.0], "rotation": [400.0, 90.0, 0.0] }
@@ -56,12 +50,6 @@ function initEffects(renderer) {
     webs.textureRope.set("rope", null);
     webs.textureRopeBase.set("rope_end", null);
 
-   /*  grapple = renderer.createResource("MODEL", "misc:grapple");
-    grapple.texture.set("grapple");
-	grapple_arm = renderer.createEffect("fiskheroes:model").setModel(grapple);
-	grapple_arm.anchor.set("rightArm");
-    grapple_arm.setOffset(-1.5, 11.0, 0.0).setRotation(90, 0, 0.0)
- */
     blade = renderer.createEffect("fiskheroes:shield");
     blade.texture.set(null, "blade");
     blade.anchor.set("rightArm");
@@ -162,30 +150,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
         aura_legs.render();
         aura_legs2.render();
 
-    } /* else if (entity.getHeldItem().nbt().getString("WeaponType") != "fisktag:ma5c"){
-        mac.render();
-    } */
-  /* aura_head.opacity = glow;
-  aura_head.render();
-  aura_head2.opacity = glow;
-  aura_head2.render()
-
-  aura_body.opacity = glow;
-  aura_body.render();
-
-  aura_arms.opacity = glow;
-  aura_arms.render();
-  aura_arms2.opacity = glow;
-  aura_arms2.render();
-
-  aura_legs.opacity = glow;
-  aura_legs.render();
-  aura_legs2.opacity = glow;
-  aura_legs2.render(); */
-
-   //grapple_arm.render()
-   //grapple_arm.setOffset(0, -13, 4.0).setRotation(0, 0.5, -0.22);
-   //webs.render()
+    }
 
   blade.unfold = entity.getInterpolatedData("fiskheroes:blade_timer");
   blade.render();

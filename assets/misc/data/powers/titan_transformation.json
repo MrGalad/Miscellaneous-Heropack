@@ -1,0 +1,18 @@
+{
+    "name": "Viltrumite Physiology",
+    "modifiers": {
+      "fiskheroes:transformation": {
+          "key": "TITAN",
+          "transformation": {
+            "toggleData": "misc:dyn/boolean",
+            "timerData": "misc:dyn/float_interp",
+            "time": 50
+          }
+        },
+        "fiskheroes:size_manipulation|giant": {
+            "isInstant": true,
+            "minSize": 1.0,
+            "maxSize": 8.0
+          }
+    }
+}

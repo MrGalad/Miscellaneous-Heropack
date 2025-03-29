@@ -1,0 +1,8 @@
+{
+    "inputs": [
+      "fiskheroes:flight/header",
+      "fiskheroes:flight/hover/default",
+      "misc:invincible_relax_flight"
+    ]
+  }
+  

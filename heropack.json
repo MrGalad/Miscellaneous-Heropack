@@ -90,13 +90,27 @@
       "type": "BOOLEAN",
       "resetWithoutSuit": true
     },
-    "boolean": "BOOLEAN",
+    "boolean": {
+      "type": "BOOLEAN",
+      "resetWithoutSuit": true
+    },
     "float_interp": {
       "type": "FLOAT_INTERP",
       "resetWithoutSuit": true
     },
-    "boolean1": "BOOLEAN",
+    "boolean1": {
+      "type": "BOOLEAN",
+      "resetWithoutSuit": true
+    },
+    "boolean2": {
+      "type": "BOOLEAN",
+      "resetWithoutSuit": true
+    },
     "float_interp1": {
+      "type": "FLOAT_INTERP",
+      "resetWithoutSuit": true
+    },
+    "float_interp2": {
       "type": "FLOAT_INTERP",
       "resetWithoutSuit": true
     },
@@ -361,6 +375,22 @@
 },
 "slot_changed": {
   "type": "BOOLEAN",
+  "resetWithoutSuit": true
+},
+"headbutt": {
+  "type": "BOOLEAN",
+  "resetWithoutSuit": true
+},
+"headbutt_timer": {
+  "type": "FLOAT_INTERP",
+  "resetWithoutSuit": true
+},
+"stomp": {
+  "type": "BOOLEAN",
+  "resetWithoutSuit": true
+},
+"stomp_timer": {
+  "type": "FLOAT_INTERP",
   "resetWithoutSuit": true
 }
   },
