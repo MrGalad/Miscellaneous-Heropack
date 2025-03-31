@@ -1,72 +1,138 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-    "layer1": "misc:eren/eren_yeager",
-    "layer2": "misc:eren/eren_yeager",
-    "titan": "misc:eren/eren_titan",
-    "gear": "misc:eren/odm_gear",
-    "blade": "misc:eren/odm_blade"
+  "layer1": "misc:eren/eren_yeager_layer1",
+  "layer2": "misc:eren/eren_yeager_layer2",
+  "titan": "misc:eren/eren_titan",
+  "eyes": "misc:eren/eren_yeager_titan_eyes",
+  "gear": "misc:eren/odm_gear",
+  "blade": "misc:eren/odm_blade",
+  "rope": "misc:master_chief/rope",
+    "rope_end": "misc:master_chief/rope_end",
 });
 var utils = implement("fiskheroes:external/utils");
+var overlay;
 
 function init(renderer) {
-    parent.init(renderer);
-    renderer.setTexture((entity, renderLayer) => {
-       if (!entity.is("DISPLAY") && entity.getData("misc:dyn/float_interp1") > 0.1) {
-            return "titan";
-        } return "layer1";
-    });
-    renderer.showModel("CHESTPLATE", "head", "headwear", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
-/*     renderer.fixHatLayer("CHESTPLATE"); */
+  parent.init(renderer);
+  renderer.setTexture((entity, renderLayer) => {
+    if (!entity.is("DISPLAY") && entity.getData("misc:dyn/float_interp1") > 0.1) {
+      return "titan";
+    } return "layer1";
+  });
+
+  /*  renderer.setLights((entity, renderLayer) => {
+     if (!entity.is("DISPLAY") && entity.getData("misc:dyn/float_interp1") > 0.1) {
+       return "eyes";
+     } return renderLayer == "LEGGINGS" ? null : null
+   }) */
+
+  renderer.showModel("CHESTPLATE", "head", "headwear", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
+  /*     renderer.fixHatLayer("CHESTPLATE"); */
 
 }
 
 function initAnimations(renderer) {
-    parent.initAnimations(renderer);
-    addAnimation(renderer, "eren.BITE", "misc:bite") 
+  parent.initAnimations(renderer);
+  addAnimation(renderer, "eren.BITE", "misc:bite")
     .setData((entity, data) => {
-    data.load(entity.getInterpolatedData("misc:dyn/float_interp"));
-})
+      data.load(entity.getInterpolatedData("misc:dyn/float_interp"));
+    }).priority = -8
+  addAnimation(renderer, "eren.BLADE", "misc:eren_blade")
+    .setData((entity, data) => {
+      data.load(/* entity.getData("misc:dyn/float_interp3") == 0 ? 0 : */ entity.getInterpolatedData("misc:dyn/float_interp3"));
+    }).priority = -8
+
+  addAnimation(renderer, "eren.TITAN", "misc:eren_yeager_titan_animation")
+    .setData((entity, data) => {
+      data.load(/* entity.getData("misc:dyn/float_interp2") == 0 ? 0 :  */entity.getInterpolatedData("misc:dyn/float_interp2"));
+    }).priority = -8
+
+  addAnimation(renderer, "eren.PUNCH", "misc:dual_punch")
+    .setData((entity, data) => {
+      data.load(entity.isPunching() ? entity.getInterpolatedData("fiskheroes:blade_timer") : 0);
+    }).priority = -8;
 }
 
 function initEffects(renderer) {
-    utils.bindTrail(renderer, "misc:powerplex_flicker_beam").setCondition(entity => entity.getData("misc:dyn/float_interp1") > 0.3  && entity.getData("misc:dyn/float_interp1") < 1)
-    utils.bindTrail(renderer, "misc:powerplex_flicker").setCondition(entity => entity.getData("misc:dyn/float_interp1") > 0.8 && entity.getData("misc:dyn/float_interp1") < 1)
-    utils.bindParticles(renderer, "misc:shazam").setCondition((entity => entity.getData("misc:dyn/float_interp1") > 0.2 && entity.getData("misc:dyn/float_interp1") < 1));
-  
-    var forcefield = renderer.bindProperty("fiskheroes:forcefield");
-    forcefield.color.set(0xFFD700);
-    forcefield.setOffset(0.0, 6.0, 0.0)
-    forcefield.setCondition(entity => {
-      forcefield.opacity = Math.max((entity.getInterpolatedData("misc:dyn/float_interp1") < 1 && entity.getInterpolatedData("misc:dyn/float_interp1") > 0.2));
-      forcefield.setScale(entity.getData("misc:dyn/float_interp1") * 2);
-      return true;
-    });
+  var bladeRight = renderer.createResource("MODEL", "misc:odm_blade_right");
+  bladeRight.texture.set("blade");
+  bladeRightEffect = renderer.createEffect("fiskheroes:model").setModel(bladeRight);
+  bladeRightEffect.anchor.set("rightArm");
 
-    var beam_1 = renderer.createResource("BEAM_RENDERER", "misc:shazam");
-    var color = 0xFFD700;
-  
-    shazam = utils.createLines(renderer, beam_1, color, [
-      {
-        "start": [0, -80, 0],
-        "end": [0, -5, 0],
-        "size": [20.0, 20.0]
-      },
-    ])
-  
-    shazam.anchor.set("body");
-    shazam.setOffset(1.5, 97.0, -4.5).setRotation(0, 90.0, 0).setScale(15.0);
-    shazam.mirror = false;
+  var bladeLeft = renderer.createResource("MODEL", "misc:odm_blade");
+  bladeLeft.texture.set("blade");
+  bladeLeftEffect = renderer.createEffect("fiskheroes:model").setModel(bladeLeft);
+  bladeLeftEffect.anchor.set("leftArm");
 
-    utils.addCameraShake(renderer, 0.015, 1.5, "misc:dyn/float_interp1");
+  var webs = renderer.bindProperty("fiskheroes:webs");
+  webs.anchor.set("body");
+  webs.textureRope.set("rope", null);
+  webs.textureRopeBase.set("rope_end", null);
+
+
+  var gear = renderer.createResource("MODEL", "misc:odm_gear");
+  gear.texture.set("gear");
+  gearEffect = renderer.createEffect("fiskheroes:model").setModel(gear);
+  /* gearEffect.anchor.set("gear");
+  gearEffect.setScale(1.4);
+ */
+  utils.bindTrail(renderer, "misc:powerplex_flicker_beam").setCondition(entity => entity.getData("misc:dyn/float_interp") > 0.8 && entity.getData("misc:dyn/float_interp1") < 1)
+  utils.bindTrail(renderer, "misc:powerplex_flicker").setCondition(entity => entity.getData("misc:dyn/float_interp") > 0.8 && entity.getData("misc:dyn/float_interp1") < 1)
+  utils.bindParticles(renderer, "misc:shazam").setCondition((entity => entity.getData("misc:dyn/float_interp1") > 0.2 && entity.getData("misc:dyn/float_interp1") < 1));
+
+  var forcefield = renderer.bindProperty("fiskheroes:forcefield");
+  forcefield.color.set(0xFFD700);
+  forcefield.setOffset(0.0, 6.0, 0.0)
+  forcefield.setCondition(entity => {
+    forcefield.opacity = Math.max((entity.getInterpolatedData("misc:dyn/float_interp1") < 1 && entity.getInterpolatedData("misc:dyn/float_interp1") > 0.2));
+    forcefield.setScale(entity.getData("misc:dyn/float_interp1") * 2);
+    return true;
+  });
+
+  var beam_1 = renderer.createResource("BEAM_RENDERER", "misc:shazam");
+  var color = 0xFFD700;
+
+  shazam = utils.createLines(renderer, beam_1, color, [
+    {
+      "start": [0, -80, 0],
+      "end": [0, -5, 0],
+      "size": [20.0, 20.0]
+    },
+  ])
+
+  shazam.anchor.set("body");
+  shazam.setOffset(1.5, 97.0, -4.5).setRotation(0, 90.0, 0).setScale(15.0);
+  shazam.mirror = false;
+
+  utils.addCameraShake(renderer, 0.015, 1.5, "misc:dyn/float_interp1");
   var shake = renderer.bindProperty("fiskheroes:camera_shake").setCondition(entity => {
     shake.factor = entity.getData("misc:dyn/float_interp1") > 0.1 && entity.getData("misc:dyn/float_interp1") < 1
     return true;
   });
   shake.intensity = 0.0;
+
+  overlay = renderer.createEffect("fiskheroes:overlay");
+  overlay.texture.set(null, "eyes");
+  layer2 = renderer.createEffect("fiskheroes:overlay");
+  layer2.texture.set("layer2");
 }
 
 function render(entity, renderLayer, isFirstPersonArm) {
-    if (entity.getData("misc:dyn/float_interp1") > 0.1 && entity.getData("misc:dyn/float_interp1") < 1) {
-      shazam.render()
-    }
+  if (entity.getData("misc:dyn/float_interp1") > 0.1 && entity.getData("misc:dyn/float_interp1") < 1) {
+    shazam.render()
+  } if (!entity.is("DISPLAY") && entity.getData("misc:dyn/float_interp1") > 0.1) {
+    overlay.render()
+  } if (renderLayer == "LEGGINGS" && entity.getData("misc:dyn/float_interp1") < 0.1) {
+    layer2.render();
+  }
+
+  if (entity.getData("misc:dyn/float_interp3") > 0.4 && entity.getData("misc:dyn/float_interp1") < 0.1) {
+    bladeRightEffect.render()
+    bladeRightEffect.setOffset(-5, -2.0, -1)
+    bladeLeftEffect.render()
+    bladeLeftEffect.setOffset(5, -2.0, -1)
+  } if (entity.getData("misc:dyn/float_interp1") < 0.1) {
+    gearEffect.render()
+  }
+  webs.setOffset(0, -3.0, 0.0);
 }

@@ -1,0 +1,30 @@
+{
+    "name": "ODM Gear",
+    "modifiers": {
+      "fiskheroes:blade": {
+        "soundEvents": {
+          "ENABLE": "misc:agent_liberty_blade_enable",
+          "DISABLE": "misc:agent_liberty_blade_disable"
+        }
+      },
+      "fiskheroes:web_swinging": {
+        "cooldownTime": 5,
+        "soundEvents": {
+          "ENABLE": "fiskheroes:web_swinging_enable",
+          "DISABLE": "fiskheroes:web_swinging_disable",
+          "SHOOT": "fiskheroes:web_shoot",
+          "RELEASE": ["fiskheroes:web_swinging_whoosh", "fiskheroes:web_swinging_fall_loop"],
+          "SWING": ["fiskheroes:web_swinging", "fiskheroes:web_stress_loop"],
+          "IMPACT": "fiskheroes:flight_impact_entity"
+        }
+      },
+      "fiskheroes:web_zip": {
+        "range": 48.0,
+        "cooldownTime": 20,
+        "soundEvents": {
+          "SHOOT": "fiskheroes:web_zip"
+        }
+      }
+    }
+  }
+  

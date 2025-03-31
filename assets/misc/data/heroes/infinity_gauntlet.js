@@ -49,6 +49,7 @@ function init(hero) {
             snap(hero, entity)
         }
         snap2(hero, entity);
+        
         if (entity.getData("misc:dyn/snap_timer") == 1) {
             manager.setData(entity, "misc:dyn/snap", false);
             manager.setData(entity, "misc:dyn/snap_timer", 0);

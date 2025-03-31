@@ -46,6 +46,10 @@
     "speed_punches": {
         "distance": 10.0,
         "sendToAll": true
+      },
+      "titan_transformation": {
+        "distance": 32.0,
+        "sendToAll": true
       }
     },
   "damageTypes": {
@@ -111,6 +115,10 @@
       "resetWithoutSuit": true
     },
     "float_interp2": {
+      "type": "FLOAT_INTERP",
+      "resetWithoutSuit": true
+    },
+    "float_interp3": {
       "type": "FLOAT_INTERP",
       "resetWithoutSuit": true
     },

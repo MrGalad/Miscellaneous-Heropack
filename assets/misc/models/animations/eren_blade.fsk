@@ -1,0 +1,21 @@
+{blades_time}={data}
+{blades_0}=curve animate2({blades_time},0.6666666667,0,0.3333333333,0.3333333333)
+{blades_1}=curve animate2({blades_time},0.6666666667,0.33333333333333337,0.3333333333,0.3333333333)
+
+{leftArm_rotX}+=-86.8337747635'{blades_0}
+{leftArm_rotY}+=45.5326003344'{blades_0}
+{leftArm_rotZ}+=-68.4749981166'{blades_0}
+{leftArm_rotY}+=-25'{blades_1}
+{leftArm_rotZ}+=-27.5'{blades_1}
+{leftArm_posX}+=0.25{blades_0}
+{leftArm_posY}+=3.5{blades_0}
+{leftArm_posY}+=2{blades_1}
+
+{rightArm_rotX}+=-95.9318662317'{blades_0}
+{rightArm_rotY}+=-51.0427904337'{blades_0}
+{rightArm_rotZ}+=75.5054054668'{blades_0}
+{rightArm_rotX}+=7.0959697007'{blades_1}
+{rightArm_rotY}+=18.747237251'{blades_1}
+{rightArm_rotZ}+=38.6728321851'{blades_1}
+{rightArm_posY}+=3{blades_0}
+{rightArm_posY}+=2{blades_1}

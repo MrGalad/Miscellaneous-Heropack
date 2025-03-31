@@ -7,6 +7,16 @@
             "toggleData": "misc:dyn/boolean",
             "timerData": "misc:dyn/float_interp",
             "time": 50
+          },
+          "soundEvents": {
+            "ENABLE": "misc:titan_transformation"
+          }
+        },
+        "fiskheroes:transformation|anim": {
+          "transformation": {
+            "toggleData": "misc:dyn/boolean1",
+            "timerData": "misc:dyn/float_interp2",
+            "time": 110
           }
         },
         "fiskheroes:size_manipulation|giant": {
