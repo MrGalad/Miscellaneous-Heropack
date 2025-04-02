@@ -1,0 +1,26 @@
+{
+    "particles": [
+      {
+        "maxDistance": 256,
+        "type": "ENERGY_SMOKE",
+        "amount": {
+          "tp": 7,
+          "fp": 1
+        },
+        "offset": {
+          "tp": [0.0, 0.6, 0.2],
+          "fp": [0.0, 2.0, 0.0]
+        },
+        "randOffset": {
+          "tp": [0.1, 0.1, 0.1],
+          "fp": [0.0, 0.0, 0.0]
+        },
+        "randMotion": {
+          "tp": [0.05, 0.05, 0.05],
+          "fp": [0.0, 0.0, 0.0]
+        },
+        "motion":[2.55, 2.55, 2.55],
+        "mirror": false
+      }
+    ]
+  }

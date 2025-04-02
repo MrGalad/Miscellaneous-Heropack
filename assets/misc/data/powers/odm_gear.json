@@ -10,9 +10,7 @@
       "fiskheroes:web_swinging": {
         "cooldownTime": 5,
         "soundEvents": {
-          "ENABLE": "fiskheroes:web_swinging_enable",
-          "DISABLE": "fiskheroes:web_swinging_disable",
-          "SHOOT": "fiskheroes:web_shoot",
+          "SHOOT": "misc:grapple",
           "RELEASE": ["fiskheroes:web_swinging_whoosh", "fiskheroes:web_swinging_fall_loop"],
           "SWING": ["fiskheroes:web_swinging", "fiskheroes:web_stress_loop"],
           "IMPACT": "fiskheroes:flight_impact_entity"
@@ -22,7 +20,7 @@
         "range": 48.0,
         "cooldownTime": 20,
         "soundEvents": {
-          "SHOOT": "fiskheroes:web_zip"
+          "SHOOT": "misc:grapple"
         }
       }
     }

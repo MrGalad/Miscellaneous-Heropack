@@ -1,0 +1,28 @@
+{x} = curve {data}
+{data} = sin(pi(1 - {data}))^3
+
+{head_rotX} @ {data} -> max({head_rotX} - 0.4, -90')
+
+{data_time}={data}
+{data_0}=curve animate2({data_time},1,0,0.5,0.5)
+
+{body_rotX}+=7.5'{data_0}
+
+{leftArm_rotX}+=5'{data_0}
+{leftArm_rotY}+=-12.5'{data_0}
+{leftArm_rotZ}+=-50'{data_0}
+{leftArm_posY}+=2{data_0}
+
+{rightArm_rotX}+=10'{data_0}
+{rightArm_rotY}+=12.5'{data_0}
+{rightArm_rotZ}+=50'{data_0}
+{rightArm_posY}+=2{data_0}
+
+{leftLeg_rotX}+=15'{data_0}
+{leftLeg_posZ}+=1.75{data_0}
+
+{rightLeg_rotX}+=12.6044295435'{data_0}
+{rightLeg_rotY}+=7.3212340667'{data_0}
+{rightLeg_rotZ}+=1.6321910212'{data_0}
+{rightLeg_posY}+=-4{data_0}
+{rightLeg_posZ}+=-3{data_0}
