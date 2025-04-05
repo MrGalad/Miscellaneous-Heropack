@@ -1,2 +1,2 @@
-{rightArm_posY}+=4
-{leftArm_posY}+=4
+{leftArm_posX} @ {data} -> 3
+{rightArm_posX} @ {data} -> -3

@@ -12,6 +12,17 @@
             "ENABLE": "misc:titan_transformation"
           }
         },
+      "fiskheroes:transformation|harden": {
+          "key": "HARDEN",
+          "transformation": {
+            "toggleData": "misc:dyn/hardened",
+            "timerData": "misc:dyn/hardened_timer",
+            "time": 30
+          },
+          "soundEvents": {
+            "ENABLE": "fiskheroes:cryo_charge"
+          }
+        },
         "fiskheroes:transformation|anim": {
           "transformation": {
             "toggleData": "misc:dyn/boolean1",

@@ -31,11 +31,29 @@ var portal
 
 function init(renderer) {
     parent.init(renderer);
+    var time = 0;
+    var currentSlot = 1;
+    
     renderer.setTexture((entity, renderLayer) => {
         var slot = entity.getWornChestplate().nbt().getByte("slot") | 0;
+        
+        if (slot === 0 && entity.is("DISPLAY") && entity.as("DISPLAY").getDisplayType() === "HOLOGRAM") {
+            var now = Date.now();
+            
+            if (now - time > 1000) {
+                time = now;
+                currentSlot = Math.floor(Math.random() * 18) + 1; 
+            }
+            
+            slot = currentSlot;
+        }
+    
         var textures = ["blank", "capevincible", "movincihawk", "mustachible", "maskvincible", "stripevincible", "hoodvincible", "hairvincible", "capvincible", "sportvincible", "lightblueincible", "omnivincible", "viltrumincible", "bulletproofible", "prisonincible", "flaxancible", "gogglesvincible", "nogogglesible", "nomaskible"];
+        
         return textures[slot] || "blank";
     });
+    
+    
     renderer.showModel("CHESTPLATE", "head", "headwear", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
     renderer.fixHatLayer("CHESTPLATE");
 

@@ -22,7 +22,35 @@
         "soundEvents": {
           "SHOOT": "misc:grapple"
         }
-      }
+      },
+      "fiskheroes:controlled_flight": {
+      "speed": 0.2,
+      "boostSpeed": 0.2,
+      "canBoost": true,
+      "canRoll": true,
+      "collision": {
+        "blocks": {
+          "stopFlying": true,
+          "takeDamage": false
+        },
+        "entities": {
+          "stopFlying": true,
+          "dealDamage": true
+        }
+      },
+      "knockback": 0.0
+    },
+    "fiskheroes:transformation|boost": {
+          "key": "BOOST",
+          "transformation": {
+            "toggleData": "misc:dyn/eren_boost",
+            "timerData": "misc:dyn/eren_boost_timer",
+            "time": 10
+          },
+          "soundEvents": {
+            "ENABLE": "fiskheroes:cryo_charge"
+          }
+        }
     }
   }
   

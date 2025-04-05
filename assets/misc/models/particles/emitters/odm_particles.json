@@ -2,7 +2,7 @@
     "particles": [
       {
         "maxDistance": 256,
-        "type": "ENERGY_SMOKE",
+        "type": "minecraft:explode",
         "amount": {
           "tp": 7,
           "fp": 1
@@ -19,7 +19,6 @@
           "tp": [0.05, 0.05, 0.05],
           "fp": [0.0, 0.0, 0.0]
         },
-        "motion":[2.55, 2.55, 2.55],
         "mirror": false
       }
     ]

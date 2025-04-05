@@ -400,6 +400,26 @@
 "stomp_timer": {
   "type": "FLOAT_INTERP",
   "resetWithoutSuit": true
+},
+"eren_boost": {
+  "type": "BOOLEAN",
+  "resetWithoutSuit": true
+},
+"eren_boost_timer": {
+  "type": "FLOAT_INTERP",
+  "resetWithoutSuit": true
+},
+"hardened": {
+  "type": "BOOLEAN",
+  "resetWithoutSuit": true
+},
+"hardened_timer": {
+  "type": "FLOAT_INTERP",
+  "resetWithoutSuit": true
+},
+"eyemarks_timer": {
+  "type": "FLOAT_INTERP",
+  "resetWithoutSuit": true
 }
   },
   "alts": {
