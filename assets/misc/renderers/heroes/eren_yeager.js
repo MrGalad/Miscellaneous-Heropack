@@ -25,7 +25,7 @@ var eyemarks
 function init(renderer) {
   parent.init(renderer);
   renderer.setTexture((entity, renderLayer) => {
-    if (!entity.is("DISPLAY") && entity.getData("misc:dyn/float_interp1") < 0.1) {
+    if (!entity.is("DISPLAY") && entity.getData("misc:dyn/float_interp1") < 0.2) {
       return "base";
     } return "blank";
   });
@@ -37,7 +37,7 @@ function initAnimations(renderer) {
   addAnimation(renderer, "eren.BITE", "misc:bite")
     .setData((entity, data) => {
       data.load(entity.getInterpolatedData("misc:dyn/float_interp"));
-    }).priority = -8
+    }).priority = 8
   addAnimation(renderer, "eren.BLADE", "misc:eren_blade")
     .setData((entity, data) => {
       data.load(entity.getInterpolatedData("misc:dyn/float_interp3"));
@@ -201,6 +201,9 @@ function render(entity, renderLayer, isFirstPersonArm) {
   titan.render()
   hardened.opacity = entity.getData("misc:dyn/hardened_timer")
   hardened.render()
+  eyemarks.opacity = (entity.getData("misc:dyn/float_interp1") < 0.1) ? entity.getData("misc:dyn/charge_timer") * 0.5 : 0;
+
+  eyemarks.render()
 
 /*   if (!isFirstPersonArm && entity.getData("misc:dyn/float_interp1") < 0.1) {
     arm1.render()

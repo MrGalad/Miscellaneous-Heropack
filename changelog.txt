@@ -1,5 +1,7 @@
 ### Miscellaneous Heropack 3.3 ###
 
+- Added Eren Yeager suit
+
 - Fixed Invincible Variants's style not appearing on display stands
 - Fixed being locked in charged flight animation when pressing 'Change Variant Design' with Invincible Variants suit
 - Fixed being able to use Lightning Cast with other abilities with Powerplex

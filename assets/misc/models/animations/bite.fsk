@@ -1,10 +1,15 @@
-{bite_time}={data}
-{bite_0}=curve animate2({bite_time},1,0,0.6,0.4)
+{data} = sin(pi(1 - {data}))^2
 
-{head_rotX}+=15'{bite_0}
+{rightArm_rotX} @ {data} -> {head.rotX} - 1.9
+{rightArm_rotY} @ {data} -> {head.rotY} - 0.8
+{rightArm_rotZ} @ {data} -> {head.rotZ}
 
-{rightArm_rotX}+=-157'{bite_0}
-{rightArm_rotY}+=4'{bite_0}
-{rightArm_rotZ}+=45'{bite_0}
-{rightArm_posY}+=6.5{bite_0}
-{rightArm_posZ}+=-1.5{bite_0}
+{head_rotX} @ {data} -> 0.0
+{head_rotY} @ {data} -> 0.0
+{head_rotZ} @ {data} -> 0.0
+
+out "firstPerson" (true)
+out "translate" (-0.35{data}, 0, 0.15{data})
+out "rotate" (0{data}, 0, 1, 0)
+out "rotate" (-90{data}, 1, 0, 0)
+out "rotate" (0{data}, 0, 0, 1)

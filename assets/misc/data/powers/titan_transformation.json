@@ -1,39 +1,47 @@
 {
-    "name": "Titan Shift",
-    "modifiers": {
-      "fiskheroes:transformation": {
-          "key": "TITAN",
-          "transformation": {
-            "toggleData": "misc:dyn/boolean",
-            "timerData": "misc:dyn/float_interp",
-            "time": 50
-          },
-          "soundEvents": {
-            "ENABLE": "misc:titan_transformation"
-          }
-        },
-      "fiskheroes:transformation|harden": {
-          "key": "HARDEN",
-          "transformation": {
-            "toggleData": "misc:dyn/hardened",
-            "timerData": "misc:dyn/hardened_timer",
-            "time": 30
-          },
-          "soundEvents": {
-            "ENABLE": "fiskheroes:cryo_charge"
-          }
-        },
-        "fiskheroes:transformation|anim": {
-          "transformation": {
-            "toggleData": "misc:dyn/boolean1",
-            "timerData": "misc:dyn/float_interp2",
-            "time": 110
-          }
-        },
-        "fiskheroes:size_manipulation|giant": {
-            "isInstant": true,
-            "minSize": 1.0,
-            "maxSize": 8.0
-          }
+  "name": "Titan Shift",
+  "modifiers": {
+    "fiskheroes:transformation": {
+      "key": "TITAN",
+      "transformation": {
+        "toggleData": "misc:dyn/boolean",
+        "timerData": "misc:dyn/float_interp",
+        "time": 50
+      },
+      "soundEvents": {
+        "ENABLE": "misc:titan_transformation"
+      }
+    },
+    "fiskheroes:transformation|harden": {
+      "key": "HARDEN",
+      "transformation": {
+        "toggleData": "misc:dyn/hardened",
+        "timerData": "misc:dyn/hardened_timer",
+        "time": 30
+      },
+      "soundEvents": {
+        "ENABLE": "fiskheroes:cryo_charge"
+      }
+    },
+    "fiskheroes:transformation|anim": {
+      "transformation": {
+        "toggleData": "misc:dyn/boolean1",
+        "timerData": "misc:dyn/float_interp2",
+        "time": 110
+      }
+    },
+    "fiskheroes:size_manipulation|giant": {
+      "isInstant": true,
+      "minSize": 1.0,
+      "maxSize": 8.0
+    },
+    "fiskheroes:cooldown|eyemarks": {
+      "cooldown": {
+        "toggleData": "!entity.getData('misc:dyn/boolean') && entity.getData('misc:dyn/eyemarks')",
+        "cooldownData": "misc:dyn/charge_timer",
+        "duration": 100,
+        "recovery": 0.1
+      }
     }
+  }
 }

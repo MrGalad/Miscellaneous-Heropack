@@ -27,8 +27,10 @@ function init(hero) {
     hero.setKeyBindEnabled(isKeyBindEnabled);
     hero.setModifierEnabled(isModifierEnabled);
     hero.setTickHandler((entity, manager) => {
-        /* var swing = entity.getData("fiskheroes:swing_progress")
-        PackLoader.printChat("swing: " + swing) */
+       /*  var chat = entity.getData("misc:dyn/eyemarks")
+        var chat2 = entity.getData("misc:dyn/charge_timer")
+        PackLoader.printChat("eyemarks: " + chat)
+        PackLoader.printChat("charge: " + chat2) */
         var cond = entity.getData("misc:dyn/boolean") && entity.getData("misc:dyn/float_interp2") < 1 && entity.getData("misc:dyn/float_interp1") > 0.2
         var titanOn = !(entity.getData("misc:dyn/float_interp1") > 0.2 /* && entity.getData("misc:dyn/float_interp1") < 1 */)
         manager.incrementData(entity, "misc:dyn/float_interp1", 50, entity.getData("misc:dyn/float_interp") > 0.8);
@@ -55,6 +57,10 @@ function init(hero) {
             manager.setData(entity, "fiskheroes:flying", false);
         } if (entity.getData("misc:dyn/eren_boost_timer") > 0 && !entity.getData("fiskheroes:flying")) {
             manager.setData(entity, "fiskheroes:flying", true);
+        } if (entity.getData("misc:dyn/float_interp1") > 0) {
+            manager.setData(entity, "misc:dyn/eyemarks", true)
+        } else if (entity.getData("misc:dyn/charge_timer") == 1) {
+            manager.setData(entity, "misc:dyn/eyemarks", false)
         }
     });
 }

@@ -417,8 +417,8 @@
   "type": "FLOAT_INTERP",
   "resetWithoutSuit": true
 },
-"eyemarks_timer": {
-  "type": "FLOAT_INTERP",
+"eyemarks": {
+  "type": "BOOLEAN",
   "resetWithoutSuit": true
 }
   },
