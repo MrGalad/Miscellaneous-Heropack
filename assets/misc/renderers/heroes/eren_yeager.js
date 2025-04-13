@@ -25,7 +25,7 @@ var eyemarks
 function init(renderer) {
   parent.init(renderer);
   renderer.setTexture((entity, renderLayer) => {
-    if (!entity.is("DISPLAY") && entity.getData("misc:dyn/float_interp1") < 0.2) {
+    if (!entity.is("DISPLAY") && entity.getData("misc:dyn/float_interp1") < 0.8) {
       return "base";
     } return "blank";
   });
@@ -57,10 +57,10 @@ function initAnimations(renderer) {
       data.load(entity.getData("fiskheroes:web_swinging_timer") / 4);
     }).priority = -8; */
 
- //addAnimation(renderer, "eren.ARM", "misc:eren_zip")
- //  .setData((entity, data) => {
- //    data.load(entity.getInterpolatedData("fiskheroes:blade_timer") && entity.getInterpolatedData("misc:dyn/eren_boost_timer") > 0);
- //  }).setCondition(entity => /* entity.getData("misc:dyn/eren_boost_timer") > 0.2 && */ !entity.isPunching() && entity.getInterpolatedData("fiskheroes:blade_timer") /* && !entity.isSprinting()  *//* && !entity.getData("fiskheroes:moving") */ && entity.getInterpolatedData("misc:dyn/float_interp3") > 0.8 && !entity.getData("misc:dyn/boolean") && entity.getData("misc:dyn/float_interp1") < 0.1).priority = -8;
+  //addAnimation(renderer, "eren.ARM", "misc:eren_zip")
+  //  .setData((entity, data) => {
+  //    data.load(entity.getInterpolatedData("fiskheroes:blade_timer") && entity.getInterpolatedData("misc:dyn/eren_boost_timer") > 0);
+  //  }).setCondition(entity => /* entity.getData("misc:dyn/eren_boost_timer") > 0.2 && */ !entity.isPunching() && entity.getInterpolatedData("fiskheroes:blade_timer") /* && !entity.isSprinting()  *//* && !entity.getData("fiskheroes:moving") */ && entity.getInterpolatedData("misc:dyn/float_interp3") > 0.8 && !entity.getData("misc:dyn/boolean") && entity.getData("misc:dyn/float_interp1") < 0.1).priority = -8;
 
   addAnimationWithData(renderer, "ezio.SPRINT", "fiskheroes:speedster_sprint", "misc:dyn/sprinting").priority = -1;
   utils.addAnimationEvent(renderer, "WEBSWING_DEFAULT", "misc:odm_dive");
@@ -84,20 +84,20 @@ function initAnimations(renderer) {
 }
 
 function initEffects(renderer) {
- /*  renderer.bindProperty("fiskheroes:opacity").setOpacity((entity, renderLayer) => {
-    return 0.99999;
-  });
-
-  var armModel = renderer.createResource("MODEL", "misc:invincible_arm");
-  armModel.texture.set("arms");
-
-  arm1 = renderer.createEffect("fiskheroes:model").setModel(armModel);
-  arm1.anchor.set("leftArm");
-  arm1.setScale(1);
-
-  arm2 = renderer.createEffect("fiskheroes:model").setModel(armModel);
-  arm2.anchor.set("rightArm");
-  arm2.setScale(1); */
+  /*  renderer.bindProperty("fiskheroes:opacity").setOpacity((entity, renderLayer) => {
+     return 0.99999;
+   });
+ 
+   var armModel = renderer.createResource("MODEL", "misc:invincible_arm");
+   armModel.texture.set("arms");
+ 
+   arm1 = renderer.createEffect("fiskheroes:model").setModel(armModel);
+   arm1.anchor.set("leftArm");
+   arm1.setScale(1);
+ 
+   arm2 = renderer.createEffect("fiskheroes:model").setModel(armModel);
+   arm2.anchor.set("rightArm");
+   arm2.setScale(1); */
 
   var bladeRight = renderer.createResource("MODEL", "misc:odm_blade_right");
   bladeRight.texture.set("blade");
@@ -118,19 +118,56 @@ function initEffects(renderer) {
   gear.texture.set("gear");
   gearEffect = renderer.createEffect("fiskheroes:model").setModel(gear);
 
-  utils.bindTrail(renderer, "misc:powerplex_flicker_beam").setCondition(entity => entity.getData("misc:dyn/float_interp") > 0.8 && entity.getData("misc:dyn/float_interp1") < 1)
+  utils.bindTrail(renderer, "misc:powerplex_flicker_beam").setCondition(entity => entity.getData("misc:dyn/float_interp") > 0.8 && entity.getData("misc:dyn/float_interp2") < 1)
   utils.bindTrail(renderer, "misc:powerplex_flicker").setCondition(entity => entity.getData("misc:dyn/float_interp") > 0.8 && entity.getData("misc:dyn/float_interp1") < 1)
   utils.bindParticles(renderer, "misc:shazam").setCondition((entity => entity.getData("misc:dyn/float_interp1") > 0.2 && entity.getData("misc:dyn/float_interp1") < 1));
   utils.bindParticles(renderer, "misc:odm_particles").setCondition((entity => entity.getData("misc:dyn/eren_boost_timer") > 0 /* && entity.isSprinting() && !entity.isOnGround() */));
+  utils.bindParticles(renderer, "misc:eren_regen").setCondition((entity => entity.getData("misc:dyn/regen_timer") > 0 /* && entity.isSprinting() && !entity.isOnGround() */));
 
-  var forcefield = renderer.bindProperty("fiskheroes:forcefield");
-  forcefield.color.set(0xFFD700);
-  forcefield.setOffset(0.0, 6.0, 0.0)
-  forcefield.setCondition(entity => {
-    forcefield.opacity = Math.max((entity.getInterpolatedData("misc:dyn/float_interp1") < 1 && entity.getInterpolatedData("misc:dyn/float_interp1") > 0.2));
-    forcefield.setScale(entity.getData("misc:dyn/float_interp1") * 2);
+  // Core - White Hot Center
+var ff1 = renderer.bindProperty("fiskheroes:forcefield");
+ff1.color.set(0xFFFFFF); // White
+ff1.setOffset(0.0, 6.0, 0.0);
+ff1.setCondition(function (entity) {
+    var interp = entity.getInterpolatedData("misc:dyn/float_interp1");
+    var pulse = Math.sin(Date.now() * 0.015) * 0.15;
+    var scale = interp * 1.0 + pulse;
+
+    ff1.opacity = Math.max(interp < 1 && interp > 0.2 ? 0.7 : 0.0);
+    ff1.setScale(scale);
     return true;
-  });
+});
+
+// Middle - Orange Glow
+var ff2 = renderer.bindProperty("fiskheroes:forcefield");
+ff2.color.set(0xFF9900); // Deep Orange
+ff2.setOffset(0.0, 6.0, 0.0);
+ff2.setCondition(function (entity) {
+    var interp = entity.getInterpolatedData("misc:dyn/float_interp1");
+    var pulse = Math.sin(Date.now() * 0.02 + 1) * 0.25;
+    var scale = interp * 1.8 + pulse;
+
+    ff2.opacity = Math.max(interp < 1 && interp > 0.2 ? 0.5 : 0.0);
+    ff2.setScale(scale);
+    return true;
+});
+
+// Outer - Yellow Burst
+var ff3 = renderer.bindProperty("fiskheroes:forcefield");
+ff3.color.set(0xFFD700); // Bright Gold
+ff3.setOffset(0.0, 6.0, 0.0);
+ff3.setCondition(function (entity) {
+    var interp = entity.getInterpolatedData("misc:dyn/float_interp1");
+    var pulse = Math.sin(Date.now() * 0.025 + 2) * 0.35;
+    var scale = interp * 2.6 + pulse;
+
+    ff3.opacity = Math.max(interp < 1 && interp > 0.2 ? 0.4 : 0.0);
+    ff3.setScale(scale);
+    return true;
+});
+
+
+
 
   var beam_1 = renderer.createResource("BEAM_RENDERER", "misc:shazam");
   var color = 0xFFD700;
@@ -139,7 +176,7 @@ function initEffects(renderer) {
     {
       "start": [0, -80, 0],
       "end": [0, -5, 0],
-      "size": [20.0, 20.0]
+      "size": [5.0, 5.0]
     },
   ])
 
@@ -168,6 +205,9 @@ function initEffects(renderer) {
 
   eyemarks = renderer.createEffect("fiskheroes:overlay");
   eyemarks.texture.set("eyemarks");
+
+  /* glow = renderer.createEffect("fiskheroes:glowerlay");
+  glow.color.set(0xAA7700); */
 }
 
 function render(entity, renderLayer, isFirstPersonArm) {
@@ -197,16 +237,17 @@ function render(entity, renderLayer, isFirstPersonArm) {
   //  bladeLeftEffect.setOffset(5, -3.0, -1)
   //}
 
-  titan.opacity = entity.getData("misc:dyn/float_interp1")
+  titan.opacity = entity.getData("misc:dyn/float_interp1") > 0.7
   titan.render()
+  /* glow.opacity = entity.getData("misc:dyn/float_interp1") > 0.2 && entity.getData("misc:dyn/float_interp1") < 1
+  glow.render() */
   hardened.opacity = entity.getData("misc:dyn/hardened_timer")
   hardened.render()
-  eyemarks.opacity = (entity.getData("misc:dyn/float_interp1") < 0.1) ? entity.getData("misc:dyn/charge_timer") * 0.5 : 0;
-
+  eyemarks.opacity = (!entity.getData("misc:dyn/boolean") && entity.getData("misc:dyn/float_interp1") < 0.1) ? entity.getData("misc:dyn/charge_timer") * 0.5 : 0;
   eyemarks.render()
 
-/*   if (!isFirstPersonArm && entity.getData("misc:dyn/float_interp1") < 0.1) {
-    arm1.render()
-    arm2.render()
-  } */
+  /*   if (!isFirstPersonArm && entity.getData("misc:dyn/float_interp1") < 0.1) {
+      arm1.render()
+      arm2.render()
+    } */
 }

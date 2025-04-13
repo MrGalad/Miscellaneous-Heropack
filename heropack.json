@@ -420,6 +420,14 @@
 "eyemarks": {
   "type": "BOOLEAN",
   "resetWithoutSuit": true
+},
+"regen": {
+  "type": "BOOLEAN",
+  "resetWithoutSuit": true
+},
+"regen_timer": {
+  "type": "FLOAT_INTERP",
+  "resetWithoutSuit": true
 }
   },
   "alts": {

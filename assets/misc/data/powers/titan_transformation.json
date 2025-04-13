@@ -30,6 +30,14 @@
         "time": 110
       }
     },
+    "fiskheroes:transformation|regen": {
+      "key": "REGEN",
+      "transformation": {
+        "toggleData": "misc:dyn/regen",
+        "timerData": "misc:dyn/regen_timer",
+        "time": 30
+      }
+    },
     "fiskheroes:size_manipulation|giant": {
       "isInstant": true,
       "minSize": 1.0,
@@ -41,6 +49,12 @@
         "cooldownData": "misc:dyn/charge_timer",
         "duration": 100,
         "recovery": 0.1
+      }
+    },
+    "fiskheroes:healing_factor": {
+      "delay": 200,
+      "soundEvents": {
+        "HEAL": "fiskheroes:healing_factor"
       }
     }
   }

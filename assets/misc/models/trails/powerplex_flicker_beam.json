@@ -2,9 +2,9 @@
     "flicker": {
       "color": "0xFFD700",
       "density": 16,
-      "frequency": 0.8,
-      "length": 0.1,
-      "spread": 1.7,
+      "frequency": 1.2,
+      "length": 2,
+      "spread": 3,
       "opacity": 1.0,
       "confined": true
     }
