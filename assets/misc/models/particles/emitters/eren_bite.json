@@ -1,0 +1,24 @@
+{
+    "particles": [
+        {
+            "type": "minecraft:blockcrack_152_0",
+            "anchor": "head",
+            "amount": 2,
+            "motion": [
+                255,
+                0,
+                0
+            ],
+            "offset": [
+                0.0,
+                -1.5,
+                -5.0
+            ],
+            "randOffset": [
+                0.3,
+                0.2,
+                0.4
+            ]
+        }
+    ]
+}

@@ -2,6 +2,6 @@
   "parent": "fiskheroes:sound_base",
   "sound": "misc:main.titan_transformation",
   "condition": "entity.getData('misc:dyn/boolean')",
-  "fadeOut": 10,
-  "delay": 23
+  "fadeOut": 20,
+  "delay": 5
 }

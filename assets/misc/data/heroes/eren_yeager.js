@@ -10,7 +10,7 @@ function init(hero) {
     hero.addAttribute("PUNCH_DAMAGE", 3.0, 0);
     hero.addAttribute("SPRINT_SPEED", 0.6, 1);
     hero.addAttribute("WEAPON_DAMAGE", 4, 0)
-    profile.addAttribute("FALL_RESISTANCE", 0.4, 1);
+    hero.addAttribute("FALL_RESISTANCE", 0.4, 1);
 
     hero.addKeyBind("TITAN", "Titan Shift", 1);
     hero.addKeyBind("BLADE", "Toggle Blades", 2);
@@ -35,7 +35,7 @@ function init(hero) {
         PackLoader.printChat("charge: " + chat2) */
         var cond = entity.getData("misc:dyn/boolean") && entity.getData("misc:dyn/float_interp2") < 1 && entity.getData("misc:dyn/float_interp1") > 0.2
         var titanOn = !(entity.getData("misc:dyn/float_interp1") > 0.7 /* && entity.getData("misc:dyn/float_interp1") < 1 */)
-        manager.incrementData(entity, "misc:dyn/float_interp1", 50, entity.getData("misc:dyn/float_interp") > 0.8);
+        manager.incrementData(entity, "misc:dyn/float_interp1", 50, entity.getData("misc:dyn/float_interp") > 0.6);
         manager.incrementData(entity, "misc:dyn/float_interp3", 30, entity.getData("fiskheroes:blade"));
         manager.setData(entity, "fiskheroes:size_state", titanOn ? -1 : 1);
         manager.setDataWithNotify(entity, "fiskheroes:web_swinging", entity.getData("fiskheroes:blade"));

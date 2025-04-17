@@ -7,6 +7,7 @@ loadTextures({
   "eyemarks": "misc:eren/eren_eyemarks",
   "titan": "misc:eren/eren_titan",
   "eyes": "misc:eren/eren_yeager_titan_eyes",
+  "Ereneyes": "misc:powerplex/powerplex_light_eyes",
   "hardened": "misc:eren/eren_hardened_hands",
   "gear": "misc:eren/odm_gear",
   "blade": "misc:eren/odm_blade",
@@ -21,6 +22,7 @@ var arm2
 var titan
 var hardened
 var eyemarks
+var Ereneyes
 
 function init(renderer) {
   parent.init(renderer);
@@ -119,10 +121,11 @@ function initEffects(renderer) {
   gearEffect = renderer.createEffect("fiskheroes:model").setModel(gear);
 
   utils.bindTrail(renderer, "misc:powerplex_flicker_beam").setCondition(entity => entity.getData("misc:dyn/float_interp") > 0.8 && entity.getData("misc:dyn/float_interp2") < 1)
-  utils.bindTrail(renderer, "misc:powerplex_flicker").setCondition(entity => entity.getData("misc:dyn/float_interp") > 0.8 && entity.getData("misc:dyn/float_interp1") < 1)
+  utils.bindTrail(renderer, "misc:powerplex_flicker").setCondition(entity => entity.getData("misc:dyn/boolean") && entity.getData("misc:dyn/float_interp") > 0.5 && entity.getData("misc:dyn/float_interp1") < 1)
   utils.bindParticles(renderer, "misc:shazam").setCondition((entity => entity.getData("misc:dyn/float_interp1") > 0.2 && entity.getData("misc:dyn/float_interp1") < 1));
   utils.bindParticles(renderer, "misc:odm_particles").setCondition((entity => entity.getData("misc:dyn/eren_boost_timer") > 0 /* && entity.isSprinting() && !entity.isOnGround() */));
-  utils.bindParticles(renderer, "misc:eren_regen").setCondition((entity => entity.getData("misc:dyn/regen_timer") > 0 /* && entity.isSprinting() && !entity.isOnGround() */));
+  utils.bindParticles(renderer, "misc:eren_regen").setCondition((entity => (entity.getData("misc:dyn/regen_timer") > 0) || (entity.getData("misc:dyn/float_interp1") > 0.2 && entity.getData("misc:dyn/float_interp1") < 1) /* && entity.isSprinting() && !entity.isOnGround() */));
+  utils.bindParticles(renderer, "misc:eren_bite").setCondition((entity => entity.getData("misc:dyn/float_interp") > 0.4 && entity.getData("misc:dyn/float_interp") < 0.7  /* && entity.isSprinting() && !entity.isOnGround() */));
 
   // Core - White Hot Center
 var ff1 = renderer.bindProperty("fiskheroes:forcefield");
@@ -133,7 +136,7 @@ ff1.setCondition(function (entity) {
     var pulse = Math.sin(Date.now() * 0.015) * 0.15;
     var scale = interp * 1.0 + pulse;
 
-    ff1.opacity = Math.max(interp < 1 && interp > 0.2 ? 0.7 : 0.0);
+    ff1.opacity = Math.max(interp < 1 && interp > 0 ? 0.7 : 0.0);
     ff1.setScale(scale);
     return true;
 });
@@ -147,7 +150,7 @@ ff2.setCondition(function (entity) {
     var pulse = Math.sin(Date.now() * 0.02 + 1) * 0.25;
     var scale = interp * 1.8 + pulse;
 
-    ff2.opacity = Math.max(interp < 1 && interp > 0.2 ? 0.5 : 0.0);
+    ff2.opacity = Math.max(interp < 1 && interp > 0 ? 0.5 : 0.0);
     ff2.setScale(scale);
     return true;
 });
@@ -161,7 +164,7 @@ ff3.setCondition(function (entity) {
     var pulse = Math.sin(Date.now() * 0.025 + 2) * 0.35;
     var scale = interp * 2.6 + pulse;
 
-    ff3.opacity = Math.max(interp < 1 && interp > 0.2 ? 0.4 : 0.0);
+    ff3.opacity = Math.max(interp < 1 && interp > 0 ? 0.4 : 0.0);
     ff3.setScale(scale);
     return true;
 });
@@ -186,13 +189,13 @@ ff3.setCondition(function (entity) {
 
   utils.addCameraShake(renderer, 0.015, 1.5, "misc:dyn/float_interp1");
   var shake = renderer.bindProperty("fiskheroes:camera_shake").setCondition(entity => {
-    shake.factor = entity.getData("misc:dyn/float_interp1") > 0.1 && entity.getData("misc:dyn/float_interp1") < 1
+    shake.factor = entity.getData("misc:dyn/float_interp1") > 0 && entity.getData("misc:dyn/float_interp2") < 1
     return true;
   });
   shake.intensity = 0.0;
 
-  overlay = renderer.createEffect("fiskheroes:overlay");
-  overlay.texture.set("arms");
+  /* overlay = renderer.createEffect("fiskheroes:overlay");
+  overlay.texture.set("arms"); */
 
   layer2 = renderer.createEffect("fiskheroes:overlay");
   layer2.texture.set("layer2");
@@ -206,17 +209,22 @@ ff3.setCondition(function (entity) {
   eyemarks = renderer.createEffect("fiskheroes:overlay");
   eyemarks.texture.set("eyemarks");
 
+  Ereneyes = renderer.createEffect("fiskheroes:overlay");
+  Ereneyes.texture.set(null, "Ereneyes");
+
   /* glow = renderer.createEffect("fiskheroes:glowerlay");
   glow.color.set(0xAA7700); */
 }
 
 function render(entity, renderLayer, isFirstPersonArm) {
-  if (entity.getData("misc:dyn/float_interp1") > 0.1 && entity.getData("misc:dyn/float_interp1") < 1) {
+  if (entity.getData("misc:dyn/float_interp1") > 0 && entity.getData("misc:dyn/float_interp1") < 1) {
     shazam.render()
   }/*  if (isFirstPersonArm && entity.getData("misc:dyn/float_interp1") < 0.1) {
     overlay.render()
   }  */if (renderLayer == "LEGGINGS" && entity.getData("misc:dyn/float_interp") < 0.7) {
     layer2.render();
+  } if (entity.getData("misc:dyn/boolean") && entity.getData("misc:dyn/float_interp") > 0.5 && entity.getData("misc:dyn/float_interp1") < 1) {
+    Ereneyes.render();
   }
 
   if (entity.getData("misc:dyn/float_interp3") > 0.4 && entity.getData("misc:dyn/float_interp") < 0.1) {
@@ -237,7 +245,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
   //  bladeLeftEffect.setOffset(5, -3.0, -1)
   //}
 
-  titan.opacity = entity.getData("misc:dyn/float_interp1") > 0.7
+  titan.opacity = entity.getData("misc:dyn/float_interp1") > 0.6
   titan.render()
   /* glow.opacity = entity.getData("misc:dyn/float_interp1") > 0.2 && entity.getData("misc:dyn/float_interp1") < 1
   glow.render() */
