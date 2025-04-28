@@ -25,8 +25,7 @@
                 "damage": 7.0,
                 "types": {
                     "ENERGY": 1.0,
-                    "FIRE": 0.5,
-                    "KRYPTONITE": 4
+                    "FIRE": 0.5
                 },
                 "properties": {
                     "COOK_ENTITY": true,

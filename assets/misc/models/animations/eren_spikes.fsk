@@ -1,0 +1,40 @@
+{protrude_time}={data}
+{protrude_0}=curve animate2({protrude_time},0.775,0,0,0.775)
+{protrude_1}=curve animate2({protrude_time},4,0,0.775,3.225)
+{protrude_2}=curve animate2({protrude_time},0.675,0,0,0.675)
+{protrude_3}=curve animate2({protrude_time},4,0,0.675,3.325)
+{protrude_4}=curve animate2({protrude_time},1,0,0,1)
+{protrude_5}=curve animate2({protrude_time},4,0,1,3)
+{protrude_6}=curve animate2({protrude_time},0.875,0,0,0.875)
+{protrude_7}=curve animate2({protrude_time},4,0,0.875,3.125)
+{protrude_8}=curve animate2({protrude_time},0.725,0,0,0.725)
+{protrude_9}=curve animate2({protrude_time},4,0,0.725,3.275)
+
+{bone_posX}+=8{protrude_0}
+{bone_posY}+=-29{protrude_1}
+
+{bone2_posZ}+=-8{protrude_2}
+{bone2_posX}+=5.5303787796{protrude_3}
+{bone2_posY}+=-24.945926594{protrude_3}
+{bone2_posZ}+=1.2542511122{protrude_3}
+
+{bone3_posX}+=-8{protrude_4}
+{bone3_posX}+=2.1871563829{protrude_5}
+{bone3_posY}+=-28.2146635959{protrude_5}
+{bone3_posZ}+=0.393195885{protrude_5}
+
+{bone4_posX}+=6{protrude_6}
+{bone4_posX}+=-3.5785155738{protrude_7}
+{bone4_posY}+=-28.351122948{protrude_7}
+{bone4_posZ}+=2.1132598038{protrude_7}
+
+{bone5_posX}+=-4{protrude_8}
+{bone5_posY}+=3{protrude_8}
+{bone5_posX}+=1.1929131528{protrude_9}
+{bone5_posY}+=-28.4107456758{protrude_9}
+{bone5_posZ}+=-3.2247029494{protrude_9}
+
+{bone6_posX}+=-8{protrude_4}
+{bone6_posX}+=-1.6176212855{protrude_5}
+{bone6_posY}+=-31.2185176249{protrude_5}
+{bone6_posZ}+=2.9443843563{protrude_5}

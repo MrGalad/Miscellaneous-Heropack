@@ -14,40 +14,38 @@
 {body_posY} @ {data} -> 4
 {body_posZ} @ {data} -> -4
 
-; Arms moved inward & raised
 {rightArm_rotX} @ {data} -> -2'
 {rightArm_rotY} @ {data} -> 10'
-{rightArm_rotZ} @ {data} -> 40'  ; More inward
+{rightArm_rotZ} @ {data} -> 40'  
 
 {rightArm_posX} @ {data} -> -6
-{rightArm_posY} @ {data} -> 7   ; Raised back up
+{rightArm_posY} @ {data} -> 7   
 {rightArm_posZ} @ {data} -> -3
 
 {leftArm_rotX} @ {data} -> -2'
 {leftArm_rotY} @ {data} -> -10'
-{leftArm_rotZ} @ {data} -> -40'  ; More inward
+{leftArm_rotZ} @ {data} -> -40'  
 
 {leftArm_posX} @ {data} -> 6
-{leftArm_posY} @ {data} -> 7   ; Raised back up
+{leftArm_posY} @ {data} -> 7   
 {leftArm_posZ} @ {data} -> -3
 
-; Legs moved up + increased bend
 {d} = sin(pi{data})
 
-{rightLeg_rotX} @ {data} -> 60'   ; More bent
+{rightLeg_rotX} @ {data} -> 60'   
 {rightLeg_rotY} @ {data} -> 0'
 {rightLeg_rotZ} @ {data} -> 5'
 
 {rightLeg_posX} @ {data} -> -3
-{rightLeg_posY} @ {data} -> 14  ; Raised back up
+{rightLeg_posY} @ {data} -> 14  
 {rightLeg_posZ} @ {data} -> -2
 
-{leftLeg_rotX} @ {data} -> 60'   ; More bent
+{leftLeg_rotX} @ {data} -> 60'   
 {leftLeg_rotY} @ {data} -> -10'
 {leftLeg_rotZ} @ {data} -> -5'
 
 {leftLeg_posX} @ {data} -> 3
-{leftLeg_posY} @ {data} -> 14  ; Raised back up
+{leftLeg_posY} @ {data} -> 14 
 {leftLeg_posZ} @ {data} -> -2
 
 out "pivot" (0, 0.56, 0)

@@ -6,10 +6,18 @@
       "transformation": {
         "toggleData": "misc:dyn/boolean",
         "timerData": "misc:dyn/float_interp",
-        "time": 50
+        "time": 5
       },
       "soundEvents": {
         "ENABLE": "misc:titan_transformation"
+      }
+    },
+    "fiskheroes:transformation|release": {
+      "key": "RELEASE",
+      "transformation": {
+        "toggleData": "misc:dyn/release",
+        "timerData": "misc:dyn/release_timer",
+        "time": 30
       }
     },
     "fiskheroes:transformation|harden": {
@@ -38,6 +46,15 @@
         "time": 30
       }
     },
+    "fiskheroes:transformation|raise": {
+      "key": "RAISE",
+      "isToggle": false,
+      "transformation": {
+        "toggleData": "misc:dyn/raise",
+        "timerData": "misc:dyn/raise_timer",
+        "time": 10
+      }
+    },
     "fiskheroes:size_manipulation|giant": {
       "isInstant": true,
       "minSize": 1.0,
@@ -55,6 +72,22 @@
       "delay": 200,
       "soundEvents": {
         "HEAL": "fiskheroes:healing_factor"
+      }
+    },
+    "fiskheroes:charged_beam": {
+      "damageProfile": {
+        "damage": 7.0,
+        "types": {
+          "SHARP": 1.0
+        }
+      },
+      "chargeTime": 50,
+      "duration": 60,
+      "cooldownTime": 40,
+      "range": 32.0,
+      "radius": 0.1,
+      "soundEvents": { 
+        "CHARGE": "misc:eren_spikes_sound"
       }
     }
   }

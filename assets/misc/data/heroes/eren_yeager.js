@@ -12,27 +12,33 @@ function init(hero) {
     hero.addAttribute("WEAPON_DAMAGE", 4, 0)
     hero.addAttribute("FALL_RESISTANCE", 0.4, 1);
 
-    hero.addKeyBind("TITAN", "Titan Shift", 1);
+    hero.addKeyBind("AIM", "Bite", -1);
+    /* hero.addKeyBind("TITAN", "Bite", -1); */
+    hero.addKeyBind("RAISE", "Raise Hand", 1);
+    hero.addKeyBind("RELEASE", "Release", 1);
     hero.addKeyBind("BLADE", "Toggle Blades", 2);
     hero.addKeyBind("WEB_ZIP", "key.webZip", 3);
-    hero.addKeyBind("HARDEN", "Harden Skin", 4);
+    hero.addKeyBind("HARDEN", "Harden Fists", 4);
     hero.addKeyBind("BOOST", "Boost", 5);
     hero.addKeyBind("REGEN", "Regenerate", 5);
+    hero.addKeyBind("CHARGED_BEAM", "Hardened Spikes", 5);
 
     hero.addAttributeProfile("BLADE", bladeProfile);
     hero.addAttributeProfile("TITAN", titanProfile);
     hero.addAttributeProfile("HARDENED", hardenProfile);
     hero.setTierOverride(getTierOverride);
     hero.setDamageProfile(getAttributeProfile);
+    hero.supplyFunction("canAim", canAim);
     hero.addDamageProfile("BLADE", { "types": { "SHARP": 1.0 } });
     hero.setAttributeProfile(getAttributeProfile);
     hero.setKeyBindEnabled(isKeyBindEnabled);
     hero.setModifierEnabled(isModifierEnabled);
+
     hero.setTickHandler((entity, manager) => {
-       /*  var chat = entity.getData("misc:dyn/eyemarks")
-        var chat2 = entity.getData("misc:dyn/charge_timer")
-        PackLoader.printChat("eyemarks: " + chat)
-        PackLoader.printChat("charge: " + chat2) */
+        // var chat = entity.getData("misc:dyn/boolean")
+        // var chat2 = entity.getData("misc:dyn/charge_timer")
+        // PackLoader.printChat("eyemarks: " + chat)
+        // PackLoader.printChat("charge: " + chat2)
         var cond = entity.getData("misc:dyn/boolean") && entity.getData("misc:dyn/float_interp2") < 1 && entity.getData("misc:dyn/float_interp1") > 0.2
         var titanOn = !(entity.getData("misc:dyn/float_interp1") > 0.7 /* && entity.getData("misc:dyn/float_interp1") < 1 */)
         manager.incrementData(entity, "misc:dyn/float_interp1", 50, entity.getData("misc:dyn/float_interp") > 0.6);
@@ -40,6 +46,13 @@ function init(hero) {
         manager.setData(entity, "fiskheroes:size_state", titanOn ? -1 : 1);
         manager.setDataWithNotify(entity, "fiskheroes:web_swinging", entity.getData("fiskheroes:blade"));
         manager.incrementData(entity, "misc:dyn/sprinting", 7, entity.isSprinting() && entity.isOnGround())
+        manager.incrementData(entity, "misc:dyn/detransformation_timer", 90, entity.getData("misc:dyn/release"))
+        if (entity.getData("fiskheroes:aiming")) {
+            manager.setData(entity, "misc:dyn/boolean", true)
+            entity.playSound("misc:main.titan_transformation", 1, 1);
+        } /* else if (!entity.getData("fiskheroes:aiming")) {
+            manager.setData(entity, "misc:dyn/boolean", false)
+        } */
 
         if (entity.getData("misc:dyn/float_interp1") > 0.8)
             manager.setData(entity, "misc:dyn/boolean1", true);
@@ -50,11 +63,12 @@ function init(hero) {
             manager.setData(entity, "misc:dyn/float_interp2", 0);
             manager.setData(entity, "misc:dyn/boolean1", false);
             manager.setData(entity, "misc:dyn/boolean2", true);
+            manager.setData(entity, "misc:dyn/hardened", false)
+            manager.setData(entity, "misc:dyn/hardened_timer", 0)
         } if (entity.getData("misc:dyn/eren_boost_timer") == 1) {
             manager.setData(entity, "misc:dyn/eren_boost", false)
             manager.setData(entity, "misc:dyn/eren_boost_timer", 0)
-            
-        }  if (entity.getData("misc:dyn/eren_boost_timer") == 0 && entity.getData("fiskheroes:flying")) {
+        } if (entity.getData("misc:dyn/eren_boost_timer") == 0 && entity.getData("fiskheroes:flying")) {
             manager.setData(entity, "fiskheroes:flying", false);
         } if (entity.getData("misc:dyn/eren_boost_timer") > 0 && !entity.getData("fiskheroes:flying")) {
             manager.setData(entity, "fiskheroes:flying", true);
@@ -62,13 +76,17 @@ function init(hero) {
             manager.setData(entity, "misc:dyn/eyemarks", true)
         } else if (entity.getData("misc:dyn/charge_timer") == 1) {
             manager.setData(entity, "misc:dyn/eyemarks", false)
-        } if (entity.getData("misc:dyn/eyemarks")) { 
+        } if (entity.getData("misc:dyn/eyemarks")) {
             manager.setData(entity, "misc:dyn/charge_timer", 1)
-        } if (!entity.getData("misc:dyn/boolean")) {
-            manager.setData(entity, "misc:dyn/hardened", false)
-            manager.setData(entity, "misc:dyn/hardened_timer", 0)
+        } if (entity.getData("misc:dyn/detransformation_timer") == 1) {
+            manager.setData(entity, "misc:dyn/boolean", false)
+            manager.setData(entity, "misc:dyn/release", false)
+            manager.setData(entity, "misc:dyn/release_timer", 0)
         }
-        });
+    });
+    hero.addSoundEvent("LAND", "fiskheroes:anti_land");
+    hero.addSoundEvent("PUNCH", "fiskheroes:anti_punch");
+    hero.addSoundEvent("STEP", "fiskheroes:anti_walk");
 }
 
 function getAttributeProfile(entity) {
@@ -76,7 +94,7 @@ function getAttributeProfile(entity) {
         return "BLADE"
     } if (entity.getData("misc:dyn/float_interp1") > 0.5) {
         return "TITAN"
-    } if (entity.getData("misc:dyn/hardened_timer") > 0.5) { 
+    } if (entity.getData("misc:dyn/hardened_timer") > 0.5) {
         return "HARDENED"
     }
     return true;
@@ -123,14 +141,27 @@ function isModifierEnabled(entity, modifier) {
 
 function isKeyBindEnabled(entity, keyBind) {
     switch (keyBind) {
-        case "HARDEN": 
-        return entity.getData("misc:dyn/float_interp1") > 0.5
+        case "HARDEN":
+        case "CHARGED_BEAM":
+            return entity.getData("misc:dyn/float_interp1") > 0.5
         case "BLADE":
             return entity.getData("misc:dyn/float_interp2") < 0.2 && entity.getData("misc:dyn/float_interp2") < 1 && !entity.getData("misc:dyn/boolean")
         case "WEB_ZIP":
             return entity.getData("misc:dyn/float_interp1") < 0.2 && entity.getData("misc:dyn/float_interp2") < 1 && !entity.getData("misc:dyn/boolean") && entity.getData("fiskheroes:web_swinging")
-         case "BOOST":
-             return (!entity.isOnGround() && entity.getData("fiskheroes:web_swinging") && entity.getData("misc:dyn/float_interp1") < 0.2)
+        case "BOOST":
+            return (!entity.isOnGround() && entity.getData("fiskheroes:web_swinging") && entity.getData("misc:dyn/float_interp1") < 0.2)
+        case "AIM":
+            return entity.getData("misc:dyn/raise")
+        case "RAISE":
+            return !entity.getData("misc:dyn/boolean")
+        case "REGEN":
+            return !entity.getData("misc:dyn/boolean")
+        case "RELEASE":
+            return entity.getData("misc:dyn/boolean")
     }
     return true;
+}
+
+function canAim(entity) {
+    return entity.getHeldItem().isEmpty() && !entity.getData("fiskheroes:flying");
 }

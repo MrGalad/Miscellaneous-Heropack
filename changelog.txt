@@ -1,6 +1,7 @@
 ### Miscellaneous Heropack 3.3 ###
 DO INVINCIBLE ANIM FLYING
 - Added Eren Yeager suit
+- Added shuffling to Invincible Variants suit when no style is selected and when on holo display stand
 
 - Fixed Invincible Variants's style not appearing on display stands
 - Fixed being locked in charged flight animation when pressing 'Change Variant Design' with Invincible Variants suit

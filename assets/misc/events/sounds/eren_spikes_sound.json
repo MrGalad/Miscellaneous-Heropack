@@ -1,0 +1,7 @@
+{
+    "parent": "fiskheroes:sound_base",
+    "sound": "misc:main.eren_spikes_sound",
+    "volume": 7,
+    "condition": "fiskheroes:beam_charging"
+  }
+  
