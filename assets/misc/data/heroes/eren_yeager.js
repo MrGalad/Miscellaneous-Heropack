@@ -12,13 +12,22 @@ function init(hero) {
     hero.addAttribute("WEAPON_DAMAGE", 4, 0)
     hero.addAttribute("FALL_RESISTANCE", 0.4, 1);
 
-    hero.addKeyBind("AIM", "Bite", -1);
-    /* hero.addKeyBind("TITAN", "Bite", -1); */
-    hero.addKeyBind("RAISE", "Raise Hand", 1);
-    hero.addKeyBind("RELEASE", "Release", 1);
+    // hero.addKeyBind("AIM", "Bite", -1);
+    // /* hero.addKeyBind("TITAN", "Bite", -1); */
+    // hero.addKeyBind("RAISE", "Raise Hand", 1);
+    // hero.addKeyBind("RELEASE", "Release", 1);
+    // hero.addKeyBind("BLADE", "Toggle Blades", 2);
+    // hero.addKeyBind("WEB_ZIP", "key.webZip", 3);
+    // hero.addKeyBind("HARDEN", "Harden Fists", 4);
+    // hero.addKeyBind("BOOST", "Boost", 5);
+    // hero.addKeyBind("REGEN", "Regenerate", 5);
+    // hero.addKeyBind("CHARGED_BEAM", "Hardened Spikes", 5);
+
+    hero.addKeyBind("TITAN", "Titan Shift", 1);
+    hero.addKeyBind("RELEASE", "Release", 3);
     hero.addKeyBind("BLADE", "Toggle Blades", 2);
     hero.addKeyBind("WEB_ZIP", "key.webZip", 3);
-    hero.addKeyBind("HARDEN", "Harden Fists", 4);
+    hero.addKeyBind("HARDEN", "Harden Skin", 4);
     hero.addKeyBind("BOOST", "Boost", 5);
     hero.addKeyBind("REGEN", "Regenerate", 5);
     hero.addKeyBind("CHARGED_BEAM", "Hardened Spikes", 5);
@@ -47,12 +56,12 @@ function init(hero) {
         manager.setDataWithNotify(entity, "fiskheroes:web_swinging", entity.getData("fiskheroes:blade"));
         manager.incrementData(entity, "misc:dyn/sprinting", 7, entity.isSprinting() && entity.isOnGround())
         manager.incrementData(entity, "misc:dyn/detransformation_timer", 90, entity.getData("misc:dyn/release"))
-        if (entity.getData("fiskheroes:aiming")) {
-            manager.setData(entity, "misc:dyn/boolean", true)
-            entity.playSound("misc:main.titan_transformation", 1, 1);
-        } /* else if (!entity.getData("fiskheroes:aiming")) {
-            manager.setData(entity, "misc:dyn/boolean", false)
-        } */
+       //if (entity.getData("fiskheroes:aiming")) {
+       //    manager.setData(entity, "misc:dyn/boolean", true)
+       //    entity.playSound("misc:main.titan_transformation", 1, 1);
+       //} /* else if (!entity.getData("fiskheroes:aiming")) {
+       //    manager.setData(entity, "misc:dyn/boolean", false)
+       //} */
 
         if (entity.getData("misc:dyn/float_interp1") > 0.8)
             manager.setData(entity, "misc:dyn/boolean1", true);
@@ -150,14 +159,16 @@ function isKeyBindEnabled(entity, keyBind) {
             return entity.getData("misc:dyn/float_interp1") < 0.2 && entity.getData("misc:dyn/float_interp2") < 1 && !entity.getData("misc:dyn/boolean") && entity.getData("fiskheroes:web_swinging")
         case "BOOST":
             return (!entity.isOnGround() && entity.getData("fiskheroes:web_swinging") && entity.getData("misc:dyn/float_interp1") < 0.2)
-        case "AIM":
-            return entity.getData("misc:dyn/raise")
-        case "RAISE":
-            return !entity.getData("misc:dyn/boolean")
+        /* case "AIM":
+            return entity.getData("misc:dyn/raise") */
+        /* case "RAISE":
+            return !entity.getData("misc:dyn/boolean") */
         case "REGEN":
             return !entity.getData("misc:dyn/boolean")
         case "RELEASE":
-            return entity.getData("misc:dyn/boolean")
+            return entity.getData("misc:dyn/float_interp1") > 0.5
+        case "TITAN":
+            return !entity.getData("misc:dyn/boolean")
     }
     return true;
 }

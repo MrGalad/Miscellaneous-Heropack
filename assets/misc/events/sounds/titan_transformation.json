@@ -2,5 +2,5 @@
   "parent": "fiskheroes:sound_base",
   "sound": "misc:main.titan_transformation",
   "fadeOut": 20,
-  "delay": 40
+  "delay": 5
 }

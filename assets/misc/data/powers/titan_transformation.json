@@ -6,7 +6,7 @@
       "transformation": {
         "toggleData": "misc:dyn/boolean",
         "timerData": "misc:dyn/float_interp",
-        "time": 5
+        "time": 50
       },
       "soundEvents": {
         "ENABLE": "misc:titan_transformation"
@@ -44,15 +44,6 @@
         "toggleData": "misc:dyn/regen",
         "timerData": "misc:dyn/regen_timer",
         "time": 30
-      }
-    },
-    "fiskheroes:transformation|raise": {
-      "key": "RAISE",
-      "isToggle": false,
-      "transformation": {
-        "toggleData": "misc:dyn/raise",
-        "timerData": "misc:dyn/raise_timer",
-        "time": 10
       }
     },
     "fiskheroes:size_manipulation|giant": {

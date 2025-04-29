@@ -40,7 +40,7 @@ function initAnimations(renderer) {
   renderer.removeCustomAnimation("basic.AIMING");
   addAnimation(renderer, "eren.BITE", "misc:bite")
     .setData((entity, data) => {
-      data.load(entity.getInterpolatedData("misc:dyn/raise_timer"));
+      data.load(entity.getInterpolatedData("misc:dyn/float_interp"));
     }).priority = 8
   addAnimation(renderer, "eren.BLADE", "misc:eren_blade")
     .setData((entity, data) => {
@@ -120,7 +120,7 @@ function initEffects(renderer) {
 
   var spikes = renderer.createResource("MODEL", "misc:eren_spikes");
   spikes.bindAnimation("misc:eren_spikes").setData((entity, data) => {
-    data.load(0, entity.getInterpolatedData("fiskheroes:beam_charge") * 2);
+    data.load(0, entity.getInterpolatedData("fiskheroes:beam_charge"));
 });
   spikes.texture.set("spikes");
   spikesEffect = renderer.createEffect("fiskheroes:model").setModel(spikes);
@@ -142,47 +142,47 @@ function initEffects(renderer) {
   utils.bindParticles(renderer, "misc:eren_regen").setCondition((entity =>(entity.getData("misc:dyn/detransformation_timer") > 0) || (entity.getData("misc:dyn/regen_timer") > 0) || (entity.getData("misc:dyn/charge_timer") > 0.9) ));
   utils.bindParticles(renderer, "misc:eren_bite").setCondition((entity => entity.getData("misc:dyn/float_interp") > 0.4 && entity.getData("misc:dyn/float_interp") < 0.7));
 
-// Core - White Hot Center
-var ff1 = renderer.bindProperty("fiskheroes:forcefield");
-ff1.color.set(0xFFFFFF); // Pure White
-ff1.setOffset(0.0, 6.0, 0.0);
-ff1.setCondition(function (entity) {
-    var interp = entity.getInterpolatedData("misc:dyn/float_interp1");
-    var pulse = Math.sin(Date.now() * 0.02) * 0.2; // Faster, more intense pulsing
-    var scale = interp * 0.8 + pulse; // Smaller core with dynamic scaling
-
-    ff1.opacity = Math.max(interp < 1 && interp > 0.1 ? 0.9 : 0.0); // Brighter core
-    ff1.setScale(scale);
-    return true;
-});
-
-// Middle - Orange Glow
-var ff2 = renderer.bindProperty("fiskheroes:forcefield");
-ff2.color.set(0xFF4500); // Fiery Orange (more intense than deep orange)
-ff2.setOffset(0.0, 6.0, 0.0);
-ff2.setCondition(function (entity) {
-    var interp = entity.getInterpolatedData("misc:dyn/float_interp1");
-    var pulse = Math.sin(Date.now() * 0.025 + 1) * 0.3; // Slightly offset pulsing
-    var scale = interp * 1.5 + pulse; // Medium layer expands faster
-
-    ff2.opacity = Math.max(interp < 1 && interp > 0.1 ? 0.7 : 0.0); // Reduced opacity for glow
-    ff2.setScale(scale);
-    return true;
-});
-
-// Outer - Yellow Burst
-var ff3 = renderer.bindProperty("fiskheroes:forcefield");
-ff3.color.set(0xFFD700); // Bright Gold
-ff3.setOffset(0.0, 6.0, 0.0);
-ff3.setCondition(function (entity) {
-    var interp = entity.getInterpolatedData("misc:dyn/float_interp1");
-    var pulse = Math.sin(Date.now() * 0.03 + 2) * 0.4; // Fastest, most chaotic pulsing
-    var scale = interp * 2.5 + pulse; // Largest layer with aggressive expansion
-
-    ff3.opacity = Math.max(interp < 1 && interp > 0.1 ? 0.5 : 0.0); // Faint outer glow
-    ff3.setScale(scale);
-    return true;
-});
+ // Core - White Hot Center
+ var ff1 = renderer.bindProperty("fiskheroes:forcefield");
+ ff1.color.set(0xFFFFFF); // White
+ ff1.setOffset(0.0, 6.0, 0.0);
+ ff1.setCondition(function (entity) {
+     var interp = entity.getInterpolatedData("misc:dyn/float_interp1");
+     var pulse = Math.sin(Date.now() * 0.015) * 0.15;
+     var scale = interp * 1.0 + pulse;
+ 
+     ff1.opacity = Math.max(interp < 1 && interp > 0 ? 0.7 : 0.0);
+     ff1.setScale(scale);
+     return true;
+ });
+ 
+ // Middle - Orange Glow
+ var ff2 = renderer.bindProperty("fiskheroes:forcefield");
+ ff2.color.set(0xFF9900); // Deep Orange
+ ff2.setOffset(0.0, 6.0, 0.0);
+ ff2.setCondition(function (entity) {
+     var interp = entity.getInterpolatedData("misc:dyn/float_interp1");
+     var pulse = Math.sin(Date.now() * 0.02 + 1) * 0.25;
+     var scale = interp * 1.8 + pulse;
+ 
+     ff2.opacity = Math.max(interp < 1 && interp > 0 ? 0.5 : 0.0);
+     ff2.setScale(scale);
+     return true;
+ });
+ 
+ // Outer - Yellow Burst
+ var ff3 = renderer.bindProperty("fiskheroes:forcefield");
+ ff3.color.set(0xFFD700); // Bright Gold
+ ff3.setOffset(0.0, 6.0, 0.0);
+ ff3.setCondition(function (entity) {
+     var interp = entity.getInterpolatedData("misc:dyn/float_interp1");
+     var pulse = Math.sin(Date.now() * 0.025 + 2) * 0.35;
+     var scale = interp * 2.6 + pulse;
+ 
+     ff3.opacity = Math.max(interp < 1 && interp > 0 ? 0.4 : 0.0);
+     ff3.setScale(scale);
+     return true;
+ });
 
 utils.bindBeam(renderer, "fiskheroes:charged_beam", "misc:invis", "head", 0xAA00AA, [{
   "firstPerson": [0, 0, 0],
@@ -257,8 +257,8 @@ function render(entity, renderLayer, isFirstPersonArm) {
   }
 
   if (entity.getData("fiskheroes:beam_charge") != 0) {
-    spikesEffect.setOffset(0, 32, 0);
-    spikesEffect.setScale(Math.min(10*entity.getInterpolatedData("fiskheroes:beam_charge"), 1));
+    spikesEffect.setOffset(0, 15, 0);
+    /* spikesEffect.setScale(7); */
     spikesEffect.render();
 }
   //arm1.setOffset(4.5, -2.4, 0)
