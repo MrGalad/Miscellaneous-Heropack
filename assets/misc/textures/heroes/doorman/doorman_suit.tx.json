@@ -1,6 +1,6 @@
 {
   "texture": {
-    "in": "misc:doorman/doorman_suit",
+    "in": "misc:doorman/doorman_transformed",
     "transform": [
       {
         "operation": "XOR",

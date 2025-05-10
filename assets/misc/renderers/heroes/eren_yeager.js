@@ -118,7 +118,7 @@ function initEffects(renderer) {
   bladeLeftEffect = renderer.createEffect("fiskheroes:model").setModel(bladeLeft);
   bladeLeftEffect.anchor.set("leftArm");
 
-  var spikes = renderer.createResource("MODEL", "misc:eren_spikes");
+  var spikes = renderer.createResource("MODEL", "misc:spikes_new");
   spikes.bindAnimation("misc:eren_spikes").setData((entity, data) => {
     data.load(0, entity.getInterpolatedData("fiskheroes:beam_charge"));
 });
@@ -139,6 +139,7 @@ function initEffects(renderer) {
   utils.bindTrail(renderer, "misc:powerplex_flicker").setCondition(entity => entity.getData("misc:dyn/boolean") && entity.getData("misc:dyn/float_interp") > 0.5 && entity.getData("misc:dyn/float_interp1") < 1)
   utils.bindParticles(renderer, "misc:shazam").setCondition((entity => entity.getData("misc:dyn/float_interp1") > 0.2 && entity.getData("misc:dyn/float_interp1") < 1));
   utils.bindParticles(renderer, "misc:odm_particles").setCondition((entity => entity.getData("misc:dyn/eren_boost_timer") > 0));
+  utils.bindParticles(renderer, "misc:titan_release").setCondition((entity => entity.getData("misc:dyn/release")));
   utils.bindParticles(renderer, "misc:eren_regen").setCondition((entity =>(entity.getData("misc:dyn/detransformation_timer") > 0) || (entity.getData("misc:dyn/regen_timer") > 0) || (entity.getData("misc:dyn/charge_timer") > 0.9) ));
   utils.bindParticles(renderer, "misc:eren_bite").setCondition((entity => entity.getData("misc:dyn/float_interp") > 0.4 && entity.getData("misc:dyn/float_interp") < 0.7));
 
@@ -257,7 +258,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
   }
 
   if (entity.getData("fiskheroes:beam_charge") != 0) {
-    spikesEffect.setOffset(0, 15, 0);
+   /*  spikesEffect.setOffset(0, 15, 0); */
     /* spikesEffect.setScale(7); */
     spikesEffect.render();
 }

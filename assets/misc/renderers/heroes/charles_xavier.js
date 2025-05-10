@@ -1,7 +1,7 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-    "layer1": "misc:charles/baldy",
-    "layer2": "misc:charles/baldy",
+    "layer1": "misc:charles/xavier_layer1",
+    "layer2": "misc:charles/xavier_layer2",
     "chair": "misc:charles/chair"
 });
 var utils = implement("fiskheroes:external/utils");

@@ -1,7 +1,7 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-    "base": "misc:sentinal/sentinel",
-    "head": "misc:sentinal/sentHead",
+    "base": "misc:sentinal/sentinelScales",
+    "head": "misc:sentinal/sentinelScales",
     "glow": "misc:sentinal/sentGlow",
     "layer1": "misc:sentinal/null",
     "layer2": "misc:sentinal/null"

@@ -9,6 +9,7 @@ DO INVINCIBLE ANIM FLYING
 
 - Removed 'Chestburster' from Reverse Flash
 
+- Updated all skins in the heropack
 - Updated Okoye's spear model
 
 ### Miscellaneous Heropack 3.2 ###

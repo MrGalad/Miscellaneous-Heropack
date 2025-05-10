@@ -1,7 +1,7 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-    "layer1": "misc:ray/theray_layer1",
-    "layer2": "misc:ray/theray_layer2",
+    "layer1": "misc:ray/the_ray_layer1",
+    "layer2": "misc:ray/the_ray_layer2",
     "eyes": "misc:ray/theray_eyes"
 });
 var utils = implement("fiskheroes:external/utils");

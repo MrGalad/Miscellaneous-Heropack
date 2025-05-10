@@ -1,7 +1,7 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-    "layer1": "misc:rf/rf1",
-    "layer2": "misc:rf/rf2",
+    "layer1": "misc:rf/reverse_flash_layer1",
+    "layer2": "misc:rf/reverse_flash_layer2",
     "nomask": "misc:rf/rf1_nomask",
     "eyes": "fiskheroes:reverse_flash_eyes"
 });

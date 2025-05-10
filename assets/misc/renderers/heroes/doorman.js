@@ -1,8 +1,9 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-    "suit": "misc:doorman/doorman_base",
+    "layer1": "misc:doorman/doorman_layer1",
+    "layer2": "misc:doorman/doorman_layer2",
     "xor": "misc:doorman/doorman_suit.tx.json",
-    "base": "misc:doorman/doorman_suit",
+    "base": "misc:doorman/doorman_transformed",
     "cape": "misc:doorman/doorman_cape.tx.json",
     "fullcape": "misc:doorman/doorman_cape",
     "blank": "misc:blank"
@@ -14,6 +15,7 @@ var capes = implement("fiskheroes:external/capes");
 var suit
 var cape
 var glow
+var layer2
 
 
 function init(renderer) {
@@ -27,7 +29,7 @@ function init(renderer) {
         if (entity.getInterpolatedData("misc:dyn/transformation_timer") > 0.4){
             return "base"
         }
-        return "suit"
+        return "layer1"
     });
     renderer.showModel("CHESTPLATE", "head", "headwear", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
 }
@@ -35,6 +37,8 @@ function init(renderer) {
 function initEffects(renderer) {
     suit = renderer.createEffect("fiskheroes:overlay");
     suit.texture.set("xor");
+    layer2 = renderer.createEffect("fiskheroes:overlay");
+    layer2.texture.set("layer2");
     var physics = renderer.createResource("CAPE_PHYSICS", null);
     physics.weight = 1.0;
     physics.maxFlare = 0.5;
@@ -65,6 +69,8 @@ function render (entity, renderLayer, isFirstPersonArm) {
     }   
      if (!isFirstPersonArm && renderLayer == "CHESTPLATE" && entity.getInterpolatedData("misc:dyn/transformation_timer") > 0.4) {
         cape.render(entity);
+    } if (entity.getInterpolatedData("misc:dyn/transformation_timer") < 0.4){
+        layer2.render();
     }
 
     glow.opacity = 1 * (1 - Math.abs(2 * entity.getInterpolatedData("misc:dyn/transformation_timer") - 1));

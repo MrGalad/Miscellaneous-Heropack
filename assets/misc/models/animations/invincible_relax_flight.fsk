@@ -1,140 +1,25 @@
-{rightArm_rotX} @ {data_0} -> 0
-{leftArm_rotX} @ {data_0} -> 0
-{rightLeg_rotX} @ {data_0} -> 0
-{leftLeg_rotX} @ {data_0} -> 0
-
 {x} = min({vel}, 1){data_1}{d1}{d} / 2.5
+{head_rotX} += 20'
 
-{invincible_relax_flight_time}={data}
-{invincible_relax_flight_0}=curve animate2({invincible_relax_flight_time},0.28,0,0.09,0.19)
-{invincible_relax_flight_1}=curve animate2({invincible_relax_flight_time},0.46,0.09,0.19,0.27)
-{invincible_relax_flight_2}=curve animate2({invincible_relax_flight_time},0.72,0.28,0.27,0.45)
-{invincible_relax_flight_3}=curve animate2({invincible_relax_flight_time},9.45,0.55,0.45,9)
-{invincible_relax_flight_4}=curve animate2({invincible_relax_flight_time},10,0,1,9)
-{invincible_relax_flight_5}=curve animate2({invincible_relax_flight_time},0.68,0,0.49,0.19)
-{invincible_relax_flight_6}=curve animate2({invincible_relax_flight_time},0.34,0.49,0.19,0.15)
-{invincible_relax_flight_7}=curve animate2({invincible_relax_flight_time},0.24,0.68,0.15,0.09)
-{invincible_relax_flight_8}=curve animate2({invincible_relax_flight_time},0.17,0.83,0.09,0.08)
-{invincible_relax_flight_9}=curve animate2({invincible_relax_flight_time},9.08,0.92,0.08,9)
-{invincible_relax_flight_10}=curve animate2({invincible_relax_flight_time},1,0,0.49,0.51)
-{invincible_relax_flight_11}=curve animate2({invincible_relax_flight_time},9.51,0.49,0.51,9)
-{invincible_relax_flight_12}=curve animate2({invincible_relax_flight_time},0.49,0,0.26,0.23)
-{invincible_relax_flight_13}=curve animate2({invincible_relax_flight_time},0.42,0.26,0.23,0.19)
-{invincible_relax_flight_14}=curve animate2({invincible_relax_flight_time},0.51,0.49,0.19,0.32)
-{invincible_relax_flight_15}=curve animate2({invincible_relax_flight_time},9.32,0.68,0.32,9)
-{invincible_relax_flight_16}=curve animate2({invincible_relax_flight_time},0.3,0,0.21,0.09)
-{invincible_relax_flight_17}=curve animate2({invincible_relax_flight_time},0.28,0.21,0.09,0.19)
-{invincible_relax_flight_18}=curve animate2({invincible_relax_flight_time},0.29,0.3,0.19,0.1)
-{invincible_relax_flight_19}=curve animate2({invincible_relax_flight_time},0.51,0.49,0.1,0.41)
-{invincible_relax_flight_20}=curve animate2({invincible_relax_flight_time},9.41,0.59,0.41,9)
+{rightArm_rotX} += -220'
+{rightArm_rotZ} += 50'
+{rightArm_rotY} += -3'
+{leftArm_rotX} += -220'
+{leftArm_rotZ} += -50'
+{leftArm_rotY} += -3'
 
-{head_rotX}+=30.9751791422'{invincible_relax_flight_0}
-{head_rotY}+=-22.117795561'{invincible_relax_flight_0}
-{head_rotZ}+=-7.2931245611'{invincible_relax_flight_0}
-{head_rotX}+=113.0026538225'{invincible_relax_flight_1}
-{head_rotY}+=0.7345583898'{invincible_relax_flight_1}
-{head_rotZ}+=-115.920243225'{invincible_relax_flight_1}
-{head_rotX}+=113.0026538225'{invincible_relax_flight_2}
-{head_rotZ}+=-115.920243225'{invincible_relax_flight_2}
-{head_rotX}+=102.5'{invincible_relax_flight_3}
-{head_rotZ}+=-180'{invincible_relax_flight_3}
-{head_posY}+=22{invincible_relax_flight_4}
-{head_posZ}+=-10{invincible_relax_flight_4}
+{leftLeg_posZ} += -1.5
+{leftLeg_posX} += 1.5
+{leftLeg_rotZ} += 1
 
-{body_rotX}+=100.2590502141'{invincible_relax_flight_5}
-{body_rotY}+=-7.4288257687'{invincible_relax_flight_5}
-{body_rotZ}+=-114.5116888612'{invincible_relax_flight_5}
-{body_rotX}+=92.3885318729'{invincible_relax_flight_6}
-{body_rotY}+=-0.3285736784'{invincible_relax_flight_6}
-{body_rotZ}+=-142.8670581678'{invincible_relax_flight_6}
-{body_rotX}+=95.5822750239'{invincible_relax_flight_7}
-{body_rotY}+=-3.0350285382'{invincible_relax_flight_7}
-{body_rotZ}+=-183.38626397'{invincible_relax_flight_7}
-{body_rotX}+=92.9881548782'{invincible_relax_flight_8}
-{body_rotY}+=-3.0997451684'{invincible_relax_flight_8}
-{body_rotZ}+=-181.6271482113'{invincible_relax_flight_8}
-{body_rotX}+=94.9933281858'{invincible_relax_flight_9}
-{body_rotY}+=-0.5094975715'{invincible_relax_flight_9}
-{body_rotZ}+=-179.7821706379'{invincible_relax_flight_9}
-{body_posY}+=22{invincible_relax_flight_4}
-{body_posZ}+=-10{invincible_relax_flight_4}
-
-{leftArm_rotX}+=-50.533888762'{invincible_relax_flight_10}
-{leftArm_rotY}+=-41.5887768495'{invincible_relax_flight_10}
-{leftArm_rotZ}+=-127.9051171931'{invincible_relax_flight_10}
-{leftArm_rotX}+=-124.8295211078'{invincible_relax_flight_11}
-{leftArm_rotY}+=19.7561450373'{invincible_relax_flight_11}
-{leftArm_rotZ}+=-191.7526396862'{invincible_relax_flight_11}
-{leftArm_posX}+=-0.1431586189{invincible_relax_flight_12}
-{leftArm_posY}+=-1.8038015148{invincible_relax_flight_12}
-{leftArm_posZ}+=-0.3776010776{invincible_relax_flight_12}
-{leftArm_posX}+=-6.91{invincible_relax_flight_13}
-{leftArm_posY}+=4.02{invincible_relax_flight_13}
-{leftArm_posZ}+=-2.67{invincible_relax_flight_13}
-{leftArm_posX}+=-8.9331418534{invincible_relax_flight_14}
-{leftArm_posY}+=11.2543329019{invincible_relax_flight_14}
-{leftArm_posZ}+=-4.8216547344{invincible_relax_flight_14}
-{leftArm_posX}+=-9{invincible_relax_flight_15}
-{leftArm_posY}+=22.5{invincible_relax_flight_15}
-{leftArm_posZ}+=-8{invincible_relax_flight_15}+ 0.5abs({x})
-
-{rightArm_rotX}+=230.0483652259'{invincible_relax_flight_10}
-{rightArm_rotY}+=20.8791459348'{invincible_relax_flight_10}
-{rightArm_rotZ}+=-113.0264470065'{invincible_relax_flight_10}
-{rightArm_rotX}+=239.9505682784'{invincible_relax_flight_11}
-{rightArm_rotY}+=-17.4569931085'{invincible_relax_flight_11}
-{rightArm_rotZ}+=-161.1458075878'{invincible_relax_flight_11}
-{rightArm_posX}+=4.8957189281{invincible_relax_flight_10}
-{rightArm_posY}+=12.7345164056{invincible_relax_flight_10}
-{rightArm_posZ}+=-4.8398244582{invincible_relax_flight_10}
-{rightArm_posX}+=8.026286947{invincible_relax_flight_11}+ 0.5abs({x})
-{rightArm_posY}+=21.9873996385{invincible_relax_flight_11}
-{rightArm_posZ}+=-8.9458273617{invincible_relax_flight_11}
-
-{leftLeg_rotX}+=39.2736407042'{invincible_relax_flight_10}
-{leftLeg_rotY}+=-9.2190537086'{invincible_relax_flight_10}
-{leftLeg_rotZ}+=-103.6962812518'{invincible_relax_flight_10}
-{leftLeg_rotX}+=63.4778695866'{invincible_relax_flight_11}
-{leftLeg_rotY}+=-54.7321245458'{invincible_relax_flight_11}
-{leftLeg_rotZ}+=-159.168553909'{invincible_relax_flight_11}
-{leftLeg_posX}+=5.0743124375{invincible_relax_flight_16}
-{leftLeg_posY}+=-2.9651128285{invincible_relax_flight_16}
-{leftLeg_posZ}+=5.2339796638{invincible_relax_flight_16}
-{leftLeg_posX}+=2.2090561696{invincible_relax_flight_17}
-{leftLeg_posY}+=-4.734022312{invincible_relax_flight_17}
-{leftLeg_posZ}+=7.8843002726{invincible_relax_flight_17}
-{leftLeg_posX}+=-4.0839862803{invincible_relax_flight_18}
-{leftLeg_posY}+=-2.2918177243{invincible_relax_flight_18}
-{leftLeg_posZ}+=7.1996605442{invincible_relax_flight_18}
-{leftLeg_posX}+=-4.2148203789{invincible_relax_flight_19}
-{leftLeg_posY}+=1.0342150258{invincible_relax_flight_19}
-{leftLeg_posZ}+=6.0186072315{invincible_relax_flight_19}
-{leftLeg_posX}+=-6.75{invincible_relax_flight_20}
-{leftLeg_posY}+=10.25{invincible_relax_flight_20}
-{leftLeg_posZ}+=2.75{invincible_relax_flight_20}
-
-{rightLeg_rotX}+=91.5730704533'{invincible_relax_flight_10}
-{rightLeg_rotY}+=3.9423248678'{invincible_relax_flight_10}
-{rightLeg_rotZ}+=-98.4295263001'{invincible_relax_flight_10}
-{rightLeg_rotX}+=97.48'{invincible_relax_flight_11}
-{rightLeg_rotY}+=3.98'{invincible_relax_flight_11}
-{rightLeg_rotZ}+=-180.44'{invincible_relax_flight_11}
-{rightLeg_posX}+=6.077726258{invincible_relax_flight_16}
-{rightLeg_posY}+=-0.1260839459{invincible_relax_flight_16}
-{rightLeg_posZ}+=5.9100115483{invincible_relax_flight_16}
-{rightLeg_posX}+=5.9932256273{invincible_relax_flight_17}
-{rightLeg_posY}+=-0.7385180839{invincible_relax_flight_17}
-{rightLeg_posZ}+=6.954708762{invincible_relax_flight_17}
-{rightLeg_posX}+=1.1791647931{invincible_relax_flight_18}
-{rightLeg_posY}+=2.5874882134{invincible_relax_flight_18}
-{rightLeg_posZ}+=6.8291185066{invincible_relax_flight_18}
-{rightLeg_posX}+=2.1438669151{invincible_relax_flight_19}
-{rightLeg_posY}+=5.2877277117{invincible_relax_flight_19}
-{rightLeg_posZ}+=5.8988808964{invincible_relax_flight_19}
-{rightLeg_posX}+=4{invincible_relax_flight_20}
-{rightLeg_posY}+=11.75{invincible_relax_flight_20}
-{rightLeg_posZ}+=1.75{invincible_relax_flight_20}
 
 
 {d} *= {data_1} / 1'
 {x} = min({vel} / 2, 1) / 2
+
+out "rotate" (-{data_1}({pitch} + 285), 1, 0, 0)
+out "rotate" (0, 0, 1, 0)
+out "translate" (0, -0.8{data_1}, 0)
+out "rotate" ({0}{0}, 0, 1, 0)
+out "rotate" ({0}{0}{0}, 0, 0, 1)
+out "rotate" ({0}{0}, 1, 0, 0)
