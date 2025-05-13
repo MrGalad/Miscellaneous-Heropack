@@ -452,6 +452,18 @@
 "detransformation_timer": {
   "type": "FLOAT_INTERP",
   "resetWithoutSuit": true
+},
+"refill": {
+  "type": "BOOLEAN",
+  "resetWithoutSuit": true
+},
+"refill_timer": {
+  "type": "FLOAT_INTERP",
+  "resetWithoutSuit": true
+},
+"refill_timer2": {
+  "type": "FLOAT_INTERP",
+  "resetWithoutSuit": true
 }
   },
   "alts": {

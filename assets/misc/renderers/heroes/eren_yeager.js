@@ -87,7 +87,7 @@ function initAnimations(renderer) {
   utils.addAnimationEvent(renderer, "WEBSWING_TRICK_LEFT", "fiskheroes:swing_rotate_left");
   utils.addAnimationEvent(renderer, "WEBSWING_ZIP", "misc:odm_dive");
   utils.addAnimationEvent(renderer, "WEBSWING_DIVE", [
-    "fiskheroes:swing_dive",
+    /* "fiskheroes:swing_dive", */
     "fiskheroes:swing_dive2"
   ]);
 }
@@ -120,7 +120,7 @@ function initEffects(renderer) {
 
   var spikes = renderer.createResource("MODEL", "misc:spikes_new");
   spikes.bindAnimation("misc:eren_spikes").setData((entity, data) => {
-    data.load(0, entity.getInterpolatedData("fiskheroes:beam_charge"));
+    data.load(Math.min(1, entity.getInterpolatedData("fiskheroes:beam_charge") *2));
 });
   spikes.texture.set("spikes");
   spikesEffect = renderer.createEffect("fiskheroes:model").setModel(spikes);
@@ -140,7 +140,7 @@ function initEffects(renderer) {
   utils.bindParticles(renderer, "misc:shazam").setCondition((entity => entity.getData("misc:dyn/float_interp1") > 0.2 && entity.getData("misc:dyn/float_interp1") < 1));
   utils.bindParticles(renderer, "misc:odm_particles").setCondition((entity => entity.getData("misc:dyn/eren_boost_timer") > 0));
   utils.bindParticles(renderer, "misc:titan_release").setCondition((entity => entity.getData("misc:dyn/release")));
-  utils.bindParticles(renderer, "misc:eren_regen").setCondition((entity =>(entity.getData("misc:dyn/detransformation_timer") > 0) || (entity.getData("misc:dyn/regen_timer") > 0) || (entity.getData("misc:dyn/charge_timer") > 0.9) ));
+  utils.bindParticles(renderer, "misc:eren_regen").setCondition((entity =>(entity.getData("misc:dyn/detransformation_timer") > 0) || (entity.getData("misc:dyn/regen_timer") > 0) || (entity.getData("misc:dyn/charge_timer") > 0.9) && !entity.getHealth() == 20 ));
   utils.bindParticles(renderer, "misc:eren_bite").setCondition((entity => entity.getData("misc:dyn/float_interp") > 0.4 && entity.getData("misc:dyn/float_interp") < 0.7));
 
  // Core - White Hot Center

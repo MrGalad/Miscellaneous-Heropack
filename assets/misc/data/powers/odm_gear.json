@@ -1,29 +1,35 @@
 {
-    "name": "ODM Gear",
-    "modifiers": {
-      "fiskheroes:blade": {
-        "soundEvents": {
-          "ENABLE": "misc:agent_liberty_blade_enable",
-          "DISABLE": "misc:agent_liberty_blade_disable"
-        }
-      },
-      "fiskheroes:web_swinging": {
-        "cooldownTime": 5,
-        "soundEvents": {
-          "SHOOT": "misc:grapple",
-          "RELEASE": ["fiskheroes:web_swinging_whoosh", "fiskheroes:web_swinging_fall_loop"],
-          "SWING": ["fiskheroes:web_swinging", "fiskheroes:web_stress_loop"],
-          "IMPACT": "fiskheroes:flight_impact_entity"
-        }
-      },
-      "fiskheroes:web_zip": {
-        "range": 48.0,
-        "cooldownTime": 20,
-        "soundEvents": {
-          "SHOOT": "misc:grapple"
-        }
-      },
-      "fiskheroes:controlled_flight": {
+  "name": "ODM Gear",
+  "modifiers": {
+    "fiskheroes:blade": {
+      "soundEvents": {
+        "ENABLE": "misc:agent_liberty_blade_enable",
+        "DISABLE": "misc:agent_liberty_blade_disable"
+      }
+    },
+    "fiskheroes:web_swinging": {
+      "cooldownTime": 5,
+      "soundEvents": {
+        "SHOOT": "misc:grapple",
+        "RELEASE": [
+          "fiskheroes:web_swinging_whoosh",
+          "fiskheroes:web_swinging_fall_loop"
+        ],
+        "SWING": [
+          "fiskheroes:web_swinging",
+          "fiskheroes:web_stress_loop"
+        ],
+        "IMPACT": "fiskheroes:flight_impact_entity"
+      }
+    },
+    "fiskheroes:web_zip": {
+      "range": 48.0,
+      "cooldownTime": 20,
+      "soundEvents": {
+        "SHOOT": "misc:grapple"
+      }
+    },
+    "fiskheroes:controlled_flight": {
       "speed": 0.0,
       "boostSpeed": 0.2,
       "canBoost": true,
@@ -41,17 +47,41 @@
       "knockback": 0.0
     },
     "fiskheroes:transformation|boost": {
-          "key": "BOOST",
-          "isToggle": false,
-          "transformation": {
-            "toggleData": "misc:dyn/eren_boost",
-            "timerData": "misc:dyn/eren_boost_timer",
-            "time": 10
-          },
-          "soundEvents": {
-            "ENABLE": "fiskheroes:cryo_charge"
-          }
-        }
+      "key": "BOOST",
+      "isToggle": false,
+      "transformation": {
+        "toggleData": "misc:dyn/eren_boost",
+        "timerData": "misc:dyn/eren_boost_timer",
+        "time": 10
+      },
+      "soundEvents": {
+        "ENABLE": "fiskheroes:cryo_charge"
+      }
+    },
+    "fiskheroes:transformation|refill": {
+      "key": "REFILL",
+      "isToggle": false,
+      "transformation": {
+        "toggleData": "misc:dyn/refill",
+        "timerData": "misc:dyn/refill_timer2",
+        "time": 10
+      }
+    },
+
+    "fiskheroes:cooldown": {
+      "cooldown": {
+        "toggleData": "misc:dyn/eren_boost",
+        "cooldownData": "misc:dyn/refill_timer",
+        "duration": 100,
+        "recovery": 0
+      }
     }
-  }
-  
+  },
+  "hud": [
+    {
+      "type": "CHARGE",
+      "texture": "fiskheroes:textures/gui/bars/cryo_charge.png",
+      "data": "1 - entity.getData('misc:dyn/refill_timer')"
+    }
+  ]
+}
