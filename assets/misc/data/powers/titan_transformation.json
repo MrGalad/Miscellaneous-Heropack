@@ -80,6 +80,21 @@
       "soundEvents": { 
         "CHARGE": "misc:eren_spikes_sound"
       }
+    },
+   "fiskheroes:cooldown": {
+      "cooldown": {
+        "toggleData": "misc:dyn/boolean1",
+        "cooldownData": "misc:dyn/titan_cooldown_timer",
+        "duration": 1500,
+        "recovery": 1
+      }
     }
-  }
+  },
+  "hud": [
+    {
+      "type": "CHARGE",
+      "texture": "misc:textures/gui/bars/powerplex_charge.png",
+      "data": "1 - entity.getData('misc:dyn/titan_cooldown_timer')"
+    }
+  ]
 }

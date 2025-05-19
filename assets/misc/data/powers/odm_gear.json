@@ -72,7 +72,7 @@
       "cooldown": {
         "toggleData": "misc:dyn/eren_boost",
         "cooldownData": "misc:dyn/refill_timer",
-        "duration": 100,
+        "duration": 500,
         "recovery": 0
       }
     }

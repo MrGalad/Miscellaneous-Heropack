@@ -1,0 +1,23 @@
+{data1} = curve (sin(pi(1 - {data}))^1.5)
+{data2} = curve min(animate({data}, 1.0, 0.0), 1)
+{data} = sin(pi(1 - {data}))^2
+
+{head_rotX} @ {data} -> 0.5
+{head_rotY} @ {data} -> -0.3 - 0.3{data2}
+{rightArm_rotX} @ {data} -> 0
+{rightArm_rotY} @ {data} -'> -0.8
+{rightArm_rotZ} @ {data} -> 2
+{leftArm_rotX} @ {data} -> 1
+{leftArm_rotY} @ {data} -'> 0.9
+{leftArm_rotZ} @ {data} -> -0.9
+
+{rightLeg_rotX} @ {data} -> -0.4 + 0.2{data2}
+{leftLeg_rotX} @ {data} -> -0.1 + 0.2{data2}
+
+{rightLeg_rotZ} @ {data} -> -0.4
+{leftLeg_rotZ} @ {data} -> 0.2
+
+out "pivot" (0, 0.6, 0)
+
+out "rotate" (105{data1}, 1, 0, 0)
+out "rotate" (720{data2}, 0, 1, 0)

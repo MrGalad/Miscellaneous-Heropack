@@ -455,15 +455,23 @@
 },
 "refill": {
   "type": "BOOLEAN",
-  "resetWithoutSuit": true
+  "resetWithoutSuit": false
 },
 "refill_timer": {
   "type": "FLOAT_INTERP",
   "resetWithoutSuit": true
 },
+"titan_cooldown": {
+  "type": "BOOLEAN",
+  "resetWithoutSuit": false
+},
+"titan_cooldown_timer": {
+  "type": "FLOAT_INTERP",
+  "resetWithoutSuit": false
+},
 "refill_timer2": {
   "type": "FLOAT_INTERP",
-  "resetWithoutSuit": true
+  "resetWithoutSuit": false
 }
   },
   "alts": {

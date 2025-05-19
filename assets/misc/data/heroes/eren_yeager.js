@@ -28,7 +28,7 @@ function init(hero) {
     hero.addKeyBind("RELEASE", "Release", 3);
     hero.addKeyBind("BLADE", "Toggle Blades", 2);
     hero.addKeyBind("WEB_ZIP", "key.webZip", 3);
-    hero.addKeyBind("HARDEN", "Harden Skin", 4);
+    hero.addKeyBind("HARDEN", "Harden Fists", 4);
     hero.addKeyBind("BOOST", "Boost", 4);
     hero.addKeyBind("REGEN", "Regenerate", 5);
     hero.addKeyBind("CHARGED_BEAM", "Hardened Spikes", 5);
@@ -36,6 +36,8 @@ function init(hero) {
     hero.addAttributeProfile("BLADE", bladeProfile);
     hero.addAttributeProfile("TITAN", titanProfile);
     hero.addAttributeProfile("HARDENED", hardenProfile);
+    hero.addAttributeProfile("NOMOVE", nomoveProfile);
+    hero.addAttributeProfile("FALL", fallProfile);
     hero.setTierOverride(getTierOverride);
     hero.setDamageProfile(getAttributeProfile);
     hero.supplyFunction("canAim", canAim);
@@ -57,17 +59,17 @@ function init(hero) {
         manager.setDataWithNotify(entity, "fiskheroes:web_swinging", entity.getData("fiskheroes:blade"));
         manager.incrementData(entity, "misc:dyn/sprinting", 7, entity.isSprinting() && entity.isOnGround())
         manager.incrementData(entity, "misc:dyn/detransformation_timer", 90, entity.getData("misc:dyn/release"))
-       //if (entity.getData("fiskheroes:aiming")) {
-       //    manager.setData(entity, "misc:dyn/boolean", true)
-       //    entity.playSound("misc:main.titan_transformation", 1, 1);
-       //} /* else if (!entity.getData("fiskheroes:aiming")) {
-       //    manager.setData(entity, "misc:dyn/boolean", false)
-       //} */
+        //if (entity.getData("fiskheroes:aiming")) {
+        //    manager.setData(entity, "misc:dyn/boolean", true)
+        //    entity.playSound("misc:main.titan_transformation", 1, 1);
+        //} /* else if (!entity.getData("fiskheroes:aiming")) {
+        //    manager.setData(entity, "misc:dyn/boolean", false)
+        //} */
 
         if (entity.getData("misc:dyn/float_interp1") > 0.8)
             manager.setData(entity, "misc:dyn/boolean1", true);
 
-        if (!entity.getData("misc:dyn/boolean")) {
+        if (!entity.getData("misc:dyn/boolean") || entity.getData("misc:dyn/titan_cooldown_timer") == 1) {
             manager.setData(entity, "misc:dyn/float_interp", 0);
             manager.setData(entity, "misc:dyn/float_interp1", 0);
             manager.setData(entity, "misc:dyn/float_interp2", 0);
@@ -75,6 +77,7 @@ function init(hero) {
             manager.setData(entity, "misc:dyn/boolean2", true);
             manager.setData(entity, "misc:dyn/hardened", false)
             manager.setData(entity, "misc:dyn/hardened_timer", 0)
+            /* manager.setData(entity, "misc:dyn/boolean", false) */
         } if (entity.getData("misc:dyn/eren_boost_timer") == 1) {
             manager.setData(entity, "misc:dyn/eren_boost", false)
             manager.setData(entity, "misc:dyn/eren_boost_timer", 0)
@@ -92,11 +95,16 @@ function init(hero) {
             manager.setData(entity, "misc:dyn/boolean", false)
             manager.setData(entity, "misc:dyn/release", false)
             manager.setData(entity, "misc:dyn/release_timer", 0)
-        } if (entity.getData("misc:dyn/refill")) { 
+        } if (entity.getData("misc:dyn/refill")) {
             manager.setData(entity, "misc:dyn/refill_timer", entity.getData("misc:dyn/refill_timer") - 0.00625)
         } if (entity.getData("misc:dyn/refill_timer") == 0) {
-        manager.setData(entity, "misc:dyn/refill", false)
-    }
+            manager.setData(entity, "misc:dyn/refill", false)
+        } if (entity.getHealth() == 20) {
+            manager.setData(entity, "misc:dyn/regen_timer", 0)
+            manager.setData(entity, "misc:dyn/regen", false)
+        } if (entity.getData("misc:dyn/titan_cooldown_timer") > 0.9) {
+            manager.setData(entity, "misc:dyn/release", true)
+        }
 
     });
     hero.addSoundEvent("LAND", "fiskheroes:anti_land");
@@ -113,33 +121,57 @@ function init(hero) {
 } */
 
 function getAttributeProfile(entity) {
+    // NOMOVE: Highest priority
+
+    if (entity.getData("misc:dyn/eren_boost_timer") > 0 /* || entity.getData("misc:dyn/float_interp") > 0 */) {
+        return "FALL";
+    }
+    if (
+        entity.getData("misc:dyn/release") ||
+        entity.getData("fiskheroes:beam_charging") ||
+        entity.getData("fiskheroes:beam_shooting_timer") > 0 ||
+        (entity.getData("misc:dyn/float_interp2") < 0.8 && entity.getData("misc:dyn/boolean"))
+    ) {
+        return "NOMOVE";
+    }
     if (entity.getData("fiskheroes:blade")) {
-        return "BLADE"
-    } if (entity.getData("misc:dyn/float_interp1") > 0.5) {
-        return "TITAN"
-    } else if (entity.getData("misc:dyn/hardened_timer") > 0.5) {
-        return "HARDENED"
+        return "BLADE";
+    }
+    if (entity.getData("misc:dyn/hardened")) {
+        return "HARDENED";
+    }
+    if (entity.getData("misc:dyn/boolean")) {
+        return "TITAN";
     }
     return true;
 }
-
 function bladeProfile(profile) {
     profile.inheritDefaults();
     profile.addAttribute("PUNCH_DAMAGE", 7.0, 0);
 }
 
 function titanProfile(profile) {
-    profile.revokeAugments();
+    profile.inheritDefaults();
     profile.addAttribute("SPRINT_SPEED", 2, 1);
     profile.addAttribute("PUNCH_DAMAGE", 5, 0);
     profile.addAttribute("MAX_HEALTH", 1, 0);
     profile.addAttribute("WEAPON_DAMAGE", 5.0, 0);
     profile.addAttribute("FALL_RESISTANCE", 1.0, 1);
 }
+function nomoveProfile(profile) {
+    profile.inheritDefaults();
+    profile.addAttribute("SPRINT_SPEED", -100000, 1);
+    profile.addAttribute("BASE_SPEED", -100000, 1)
+}
+
+function fallProfile(profile) {
+    /*    profile.inheritDefaults(); */
+    profile.addAttribute("FALL_RESISTANCE", 100.0, 1);
+}
 
 function hardenProfile(profile) {
     /* profile.inheritDefaults(); */
-    profile.revokeAugments();
+    profile.inheritDefaults();
     profile.addAttribute("PUNCH_DAMAGE", 8.0, 0);
 }
 
@@ -185,7 +217,7 @@ function isKeyBindEnabled(entity, keyBind) {
         case "TITAN":
             return !entity.getData("misc:dyn/boolean") && !entity.isSneaking()
         case "REFILL":
-            return entity.isSneaking() && entity.isOnGround()
+            return entity.isSneaking() && entity.isOnGround() && !entity.getData("misc:dyn/boolean") && entity.getData("misc:dyn/refill_timer") > 0
     }
     return true;
 }

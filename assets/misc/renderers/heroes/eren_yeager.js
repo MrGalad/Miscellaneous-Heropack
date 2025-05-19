@@ -79,12 +79,13 @@ function initAnimations(renderer) {
   utils.addAnimationEvent(renderer, "WEBSWING_RIGHT", "misc:odm_dive");
   utils.addAnimationEvent(renderer, "WEBSWING_LEFT", "misc:odm_dive");
   utils.addAnimationEvent(renderer, "WEBSWING_TRICK_DEFAULT", [
-    "fiskheroes:swing_roll",
-    "fiskheroes:swing_roll2",
-    "fiskheroes:swing_roll5"
+    "misc:swing_release_eren",
+    "misc:swing_release_eren2",
+    "misc:swing_release_eren3",
+    "misc:swing_release_eren4"
   ]);
-  utils.addAnimationEvent(renderer, "WEBSWING_TRICK_RIGHT", "fiskheroes:swing_rotate_right");
-  utils.addAnimationEvent(renderer, "WEBSWING_TRICK_LEFT", "fiskheroes:swing_rotate_left");
+  utils.addAnimationEvent(renderer, "WEBSWING_TRICK_RIGHT", "misc:swing_release_eren");
+  utils.addAnimationEvent(renderer, "WEBSWING_TRICK_LEFT", "misc:swing_release_eren");
   utils.addAnimationEvent(renderer, "WEBSWING_ZIP", "misc:odm_dive");
   utils.addAnimationEvent(renderer, "WEBSWING_DIVE", [
     /* "fiskheroes:swing_dive", */
@@ -139,8 +140,8 @@ function initEffects(renderer) {
   utils.bindTrail(renderer, "misc:powerplex_flicker").setCondition(entity => entity.getData("misc:dyn/boolean") && entity.getData("misc:dyn/float_interp") > 0.5 && entity.getData("misc:dyn/float_interp1") < 1)
   utils.bindParticles(renderer, "misc:shazam").setCondition((entity => entity.getData("misc:dyn/float_interp1") > 0.2 && entity.getData("misc:dyn/float_interp1") < 1));
   utils.bindParticles(renderer, "misc:odm_particles").setCondition((entity => entity.getData("misc:dyn/eren_boost_timer") > 0));
-  utils.bindParticles(renderer, "misc:titan_release").setCondition((entity => entity.getData("misc:dyn/release")));
-  utils.bindParticles(renderer, "misc:eren_regen").setCondition((entity =>(entity.getData("misc:dyn/detransformation_timer") > 0) || (entity.getData("misc:dyn/regen_timer") > 0) || (entity.getData("misc:dyn/charge_timer") > 0.9) && !entity.getHealth() == 20 ));
+  utils.bindParticles(renderer, "misc:titan_release").setCondition((entity => entity.getData("misc:dyn/release_timer") > 0.3));
+  utils.bindParticles(renderer, "misc:eren_regen").setCondition((entity =>(entity.getData("misc:dyn/detransformation_timer") > 0) || (entity.getData("misc:dyn/regen_timer") > 0 && entity.getHealth() < 20 ) || (entity.getData("misc:dyn/charge_timer") > 0.9)));
   utils.bindParticles(renderer, "misc:eren_bite").setCondition((entity => entity.getData("misc:dyn/float_interp") > 0.4 && entity.getData("misc:dyn/float_interp") < 0.7));
 
  // Core - White Hot Center
@@ -213,10 +214,21 @@ utils.bindBeam(renderer, "fiskheroes:charged_beam", "misc:invis", "head", 0xAA00
     return true;
   });
   shake.intensity = 0.0;
-
-  utils.addCameraShake(renderer, 0.3, 0.6, "misc:dyn/boolean" && "misc:dyn/sprinting");
-  utils.addCameraShake(renderer, 0.3, 0.6, "fiskheroes:beam_charging");
+  var shakeRun = renderer.bindProperty("fiskheroes:camera_shake").setCondition(entity => {
+    shakeRun.factor = entity.getData("misc:dyn/boolean") && entity.getData("misc:dyn/sprinting") > 0
+    return true;
+  });
+  shakeRun.intensity = 0.003;
   
+  var shakeSpikes = renderer.bindProperty("fiskheroes:camera_shake").setCondition(entity => {
+    shakeSpikes.factor = entity.getData("fiskheroes:beam_charge") > 0.1 && !entity.getData("fiskheroes:moving") 
+    return true;
+  });
+  shakeSpikes.intensity = 0.5;
+
+/*  utils.addCameraShake(renderer, 0.3, 0.6, "misc:dyn/boolean" && "misc:dyn/sprinting");
+ utils.addCameraShake(renderer, 0.3, 0.6, "fiskheroes:beam_charging");
+   */
 
   /* overlay = renderer.createEffect("fiskheroes:overlay");
   overlay.texture.set("arms"); */
@@ -225,7 +237,7 @@ utils.bindBeam(renderer, "fiskheroes:charged_beam", "misc:invis", "head", 0xAA00
   layer2.texture.set("layer2");
 
   titan = renderer.createEffect("fiskheroes:overlay");
-  titan.texture.set("titan", "eyes");
+  titan.texture.set("titan"/* , "eyes" */);
 
   hardened = renderer.createEffect("fiskheroes:overlay");
   hardened.texture.set("hardened");
