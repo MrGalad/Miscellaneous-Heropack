@@ -9,6 +9,8 @@
 - Fixed being able to use Lightning Cast with other abilities with Powerplex
 
 - Removed 'Chestburster' from Reverse Flash
+- Removed Superboy suit
+- Removed Green Goblin suit
 
 - Updated most skins in the heropack
 - Updated Okoye's spear model

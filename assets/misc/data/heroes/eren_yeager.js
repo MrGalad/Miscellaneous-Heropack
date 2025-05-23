@@ -17,7 +17,7 @@ function init(hero) {
     hero.addKeyBind("REFILL", "Refill Gas", 1);
     hero.addKeyBind("RELEASE", "Release", 3);
     hero.addKeyBind("BLADE", "Toggle Blades", 3);
-    hero.addKeyBind("WEB_ZIP", "key.webZip", 2);
+    hero.addKeyBind("WEB_ZIP", "ODM Zip", 2);
     hero.addKeyBind("HARDEN", "Harden Fists", 4);
     hero.addKeyBind("BOOST", "Boost", 4);
     hero.addKeyBind("REGEN", "Regenerate", 5);
@@ -107,14 +107,6 @@ function shiftDamage(hero, entity) {
         }
     }
 }
-
-/* function refill(entity, manager) {
-    manager.setData(entity, "misc:dyn/refill", true)
-    if (entity.getData("misc:dyn/refill_timer") == 0) {
-        manager.setData(entity, "misc:dyn/refill", false)
-    }
-    return true;
-} */
 
 function getAttributeProfile(entity) {
     if (entity.getData("misc:dyn/eren_boost_timer") > 0 /* || entity.getData("misc:dyn/float_interp") > 0 */) {

@@ -105,7 +105,7 @@ function isKeyBindEnabled(entity, keyBind) {
         case "SUPER_SPEED":
             return !entity.getData("fiskheroes:flying");
         case "ENERGY_PROJECTION":
-            return !(entity.isSprinting() && entity.getData("fiskheroes:flying")) && !entity.getData("misc:dyn/charge_timer");
+            return !(entity.isSprinting() && entity.getData("fiskheroes:flying")) && !entity.getData("misc:dyn/charge_timer") && entity.getData("misc:dyn/texture") < 0.25;
         default:
             return true;
     }
