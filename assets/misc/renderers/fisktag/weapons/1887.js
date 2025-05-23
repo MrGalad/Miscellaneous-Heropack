@@ -17,7 +17,7 @@ function init(renderer) {
             data.load(0);
             return;
         }
-        data.load(entity.getInterpolatedData("fiskheroes:weapon_animation_timer"));
+        data.load(entity.getInterpolatedData("fiskheroes:reload_timer"));
     });
     renderer.setModel(model);
 

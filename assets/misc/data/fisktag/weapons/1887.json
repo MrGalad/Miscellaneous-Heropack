@@ -3,7 +3,7 @@
     "permission": "USE_WINNY",
     "holdingPose": "SINGLE",
     "isHidden": true,
-    "cooldown": 28,
+    "cooldown": 0,
     "damage": 1,
     "fisktag": {
       "sprintShootDelay": 8,
@@ -22,10 +22,14 @@
       "amount": 2.0,
       "cameraShake": 6.0
     },
+  "ammo": {
+    "amount": 1,
+    "reloadTime": 35
+  },
     "projectiles": [
       {
         "type": "BEAM",
-        "amount": 5,
+        "amount": 7,
         "spread": 5.0,
         "speed": 12.0,
         "trail": 2

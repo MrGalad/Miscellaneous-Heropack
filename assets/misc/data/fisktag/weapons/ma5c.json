@@ -4,7 +4,7 @@
   "holdingPose": "DOUBLE",
   "isHidden": false,
   "damage":0.0,
-  "cooldown": 40,
+  "cooldown": 0,
   "damageProfile": {
     "damage": 5.0,
     "types": {
@@ -13,9 +13,8 @@
       "properties": {
         "HIT_COOLDOWN": 2.0,
         "REDUCE_KNOCKBACK": 0.5
-      }
-    
-  },
+      }    
+  },  
   "fisktag": {
     "sprintShootDelay": 0,
     "sprintDelay": 0
@@ -29,6 +28,10 @@
     "rate": 1.5,
     "windup": 1,
     "maxDuration": 30
+  },
+  "ammo": {
+    "amount": 30,
+    "reloadTime": 30
   },
   "spread": {
     "sprintingFactor": 1.5,

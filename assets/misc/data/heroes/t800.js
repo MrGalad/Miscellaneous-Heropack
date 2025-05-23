@@ -37,7 +37,7 @@ function init(hero) {
     hero.setDefaultScale(1.1);
     hero.setHasPermission((entity, permission) => permission == "USE_FISKTAG_GUN" || permission == "USE_GUN" || permission == "USE_WINNY");
     hero.supplyFunction("canAim", entity => entity.getHeldItem().isGun() || entity.getHeldItem().nbt().getString("WeaponType") == "misc:1887");
-    hero.setHasProperty((entity, property) => property == "MASK_TOGGLE");
+    /* hero.setHasProperty((entity, property) => property == "MASK_TOGGLE"); */
 
     hero.setTickHandler((entity, manager) => {
         manager.incrementData(entity, "misc:dyn/holoanimation", 20, 20, entity.is("DISPLAY") && !entity.as("DISPLAY").isStatic() && entity.as("DISPLAY").getDisplayType() === "HOLOGRAM");
@@ -123,7 +123,7 @@ function getAttributeProfile(entity) {
 function isKeyBindEnabled(entity, keyBind) {
     switch (keyBind) {
         case "GUN_RELOAD":
-            return entity.getHeldItem().isGun() && !entity.getData("fiskheroes:aiming");
+            return entity.getHeldItem().nbt().getString("WeaponType") == "misc:1887" && !entity.getData("fiskheroes:aiming");
         default:
             return true;
     }

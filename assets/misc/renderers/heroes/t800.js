@@ -1,7 +1,7 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-    "layer1": "misc:terminator/t-800_layer1",
-    "layer2": "misc:terminator/t-800_layer2",
+    "layer1": "misc:terminator/terminator_layer1",
+    "layer2": "misc:terminator/terminator_layer2",
     "bike": "misc:t800_bike",
     "eye": "misc:eye"
 });

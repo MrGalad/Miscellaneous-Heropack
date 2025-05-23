@@ -27,6 +27,7 @@ function init(hero) {
     hero.addKeyBind("NIGHT_VISION", "Toggle Night Vision", 4);
     hero.addKeyBind("TOGGLE_SHIELD", "Toggle Overshield", 4);
     hero.addKeyBindFunc("RUNN", run , "Run Diagnostics", 4);
+    hero.addKeyBind("GUN_RELOAD", "key.reload", 5);
     hero.addKeyBindFunc("func_CORTANA", cortanaOn, "Toggle Cortana", 1);
     //hero.addKeyBind("TOGGLE_GRAPPLE", "Toggle Grapplehook", 5)
 
@@ -132,7 +133,7 @@ function isKeyBindEnabled(entity, keyBind) {
         case "TOGGLE_SHIELD":
             return entity.getData("fiskheroes:shield_cooldown") == 0 && slot == 2 && !entity.isSneaking();
         case "GUN_RELOAD":
-            return entity.getHeldItem().isGun() && !entity.getData("fiskheroes:aiming");
+            return entity.getHeldItem().nbt().getString("WeaponType") == "misc:ma5c" && !entity.getData("fiskheroes:aiming");
         case "func_CORTANA":
             return entity.isSneaking();
             case "SHADOWDOME":
