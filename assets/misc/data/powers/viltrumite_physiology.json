@@ -228,22 +228,6 @@
               "SPRINT": "fiskheroes:super_speed_sprint_shazam_dceu"
           }
       },
-      "fiskheroes:shield": {
-          "shield": {
-              "health": 140.0,
-              "regeneration": 15.0,
-              "recoveryDelay": 100,
-              "cooldown": 240
-          },
-          "coverage": {
-              "yawRadius": 35.0,
-              "pitchRadius": 60.0,
-              "yawOffset": 0.0,
-              "pitchOffset": 0.0
-          },
-          "knockback": 0.1,
-          "isToggle": false
-      },
       "fiskheroes:cooldown|charge": {
       "cooldown": {
         "toggleData": "entity.isSneaking() && entity.isOnGround() && entity.motionY() == 0 && entity.motionX() == 0 && entity.motionZ() == 0 && entity.getHeldItem().isEmpty()",

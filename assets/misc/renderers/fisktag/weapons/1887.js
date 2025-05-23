@@ -38,7 +38,7 @@ function render(renderer, entity, glProxy, renderType, scopeTimer, recoil, isLef
     if (renderType === "EQUIPPED_FIRST_PERSON") {
         var f = easeInOutSine(entity.getInterpolatedData("fiskheroes:scope_timer"));
         glProxy.rotate(-7 * f, 1, 0, 0);
-        glProxy.translate(-0.1 * f, -0.1 * f, -0.2 * f + recoil * (0.7 - 0.2 * scopeTimer));
+        glProxy.translate(-0.5 * f, -0.4 * f, -0.2 * f + recoil * (0.7 - 0.2 * scopeTimer));
     }
     else if (renderType === "EQUIPPED") {
         //left n right, forward n backward,  up n down

@@ -20,7 +20,7 @@ function init(hero) {
     hero.addKeyBind("HARDEN", "Harden Fists", 4);
     hero.addKeyBind("BOOST", "Boost", 4);
     hero.addKeyBind("REGEN", "Regenerate", 5);
-    hero.addKeyBind("CHARGED_BEAM", "Hardened Spikes", 5);
+    /* hero.addKeyBind("CHARGED_BEAM", "Hardened Spikes", 5); */
 
     hero.addAttributeProfile("BLADE", bladeProfile);
     hero.addAttributeProfile("TITAN", titanProfile);
@@ -36,6 +36,7 @@ function init(hero) {
     hero.setModifierEnabled(isModifierEnabled);
 
     hero.setTickHandler((entity, manager) => {
+        shiftDamage(hero, entity);
         var titanOn = !(entity.getData("misc:dyn/float_interp1") > 0.7)
         manager.incrementData(entity, "misc:dyn/float_interp1", 50, entity.getData("misc:dyn/float_interp") > 0.6);
         manager.incrementData(entity, "misc:dyn/float_interp3", 30, entity.getData("fiskheroes:blade"));
@@ -84,6 +85,26 @@ function init(hero) {
     hero.addSoundEvent("LAND", "fiskheroes:anti_land");
     hero.addSoundEvent("PUNCH", "fiskheroes:anti_punch");
     hero.addSoundEvent("STEP", "fiskheroes:anti_walk");
+
+     hero.addDamageProfile("SHIFT", {
+        "types": {
+            "ENERGY": 1
+        }
+    });
+}
+
+function shiftDamage(hero, entity) {
+    if (entity.getData("misc:dyn/float_interp1") > 0 && entity.getData("misc:dyn/float_interp1") < 1) {
+        var range = 5;
+        var list = entity.world().getEntitiesInRangeOf(entity.pos(), range);
+
+        for (var i = 0; i < list.size(); ++i) {
+            var other = list.get(i);
+            if (other.isLivingEntity() && !entity.equals(other)) { 
+                other.hurtByAttacker(hero, "SHIFT", "%s was fried during Titan shifting", 5, entity);
+            }
+        }
+    }
 }
 
 /* function refill(entity, manager) {
@@ -170,8 +191,8 @@ function isModifierEnabled(entity, modifier) {
 function isKeyBindEnabled(entity, keyBind) {
     switch (keyBind) {
         case "HARDEN":
-        case "CHARGED_BEAM":
-            return entity.getData("misc:dyn/float_interp1") > 0.5
+        /* case "CHARGED_BEAM": */
+            return entity.getData("misc:dyn/float_interp1") > 0.5 && entity.getData("misc:dyn/float_interp2") == 1
         case "BLADE":
             return entity.getData("misc:dyn/float_interp2") < 0.2 && entity.getData("misc:dyn/float_interp2") < 1 && !entity.getData("misc:dyn/boolean")
         case "WEB_ZIP":

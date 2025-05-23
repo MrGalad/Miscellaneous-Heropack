@@ -21,19 +21,9 @@ function init(hero) {
     hero.addKeyBind("AIM", "key.aim", -1);
     hero.addKeyBind("GUN_RELOAD", "key.reload", 1);
     hero.addKeyBind("SUPER_SPEED", "Toggle Bike", 2)
-   // hero.addKeyBind("SEARCH", "Toggle Search", 3);
-   // hero.addKeyBind("REPAIR", "Repair Suit", 3)
 
-  /*  hero.addAttributeProfile("FIX", fixProfile);
-    hero.addAttributeProfile("POINTSEVEN", pointsevenProfile);
-    hero.addAttributeProfile("POINTSIX", pointsixProfile);
-    hero.addAttributeProfile("HALF", halfProfile);
-    hero.addAttributeProfile("POINTFOUR", pointfourProfile);
-    hero.addAttributeProfile("END", pointendProfile);
-    hero.setAttributeProfile(getAttributeProfile);*/
     hero.addSoundEvent("MASK_OPEN", "misc:termy_voice");
     hero.setKeyBindEnabled(isKeyBindEnabled);
-   // hero.setModifierEnabled(isModifierEnabled);
     hero.setDefaultScale(1.1);
     hero.setHasPermission((entity, permission) => permission == "USE_FISKTAG_GUN" || permission == "USE_GUN" || permission == "USE_WINNY");
     hero.supplyFunction("canAim", entity => entity.getHeldItem().isGun() || entity.getHeldItem().nbt().getString("WeaponType") == "misc:1887");
@@ -41,96 +31,14 @@ function init(hero) {
 
     hero.setTickHandler((entity, manager) => {
         manager.incrementData(entity, "misc:dyn/holoanimation", 20, 20, entity.is("DISPLAY") && !entity.as("DISPLAY").isStatic() && entity.as("DISPLAY").getDisplayType() === "HOLOGRAM");
-     
-       /*  if (entity.getData("misc:dyn/boolean") && entity.getData("misc:dyn/float_interp") == 1 ) {
-            var list = entity.world().getEntitiesInRangeOf(entity.eyePos(), 10.0)
-        
-            list.forEach(other => {
-                if (entity.world().isUnobstructed(other.pos(), entity.pos()) && other.getUUID() !== entity.getUUID() && other.isLivingEntity()) {
-                    entity.as("PLAYER").addChatMessage(String(other.getName()))
-                }
-            });
-            manager.setData(entity, "misc:dyn/boolean", false)
-        } */
-        /*   var time = 20;
-        if (entity.getData("misc:dyn/worn_suit") < 10) {
-            manager.setData(entity, "misc:dyn/worn_suit", entity.getData("misc:dyn/worn_suit") + 0.1);
+    })
+
+    function isKeyBindEnabled(entity, keyBind) {
+        switch (keyBind) {
+            case "GUN_RELOAD":
+                return entity.getHeldItem().nbt().getString("WeaponType") == "misc:1887" && !entity.getData("fiskheroes:aiming");
+            default:
+                return true;
         }
-        if (entity.getData("fiskheroes:time_since_damaged") < time && entity.getData("misc:dyn/worn_suit") > time / 5 && !entity.getData("misc:dyn/repair")) {
-            manager.setData(entity, "misc:dyn/repair", true);
-        } else if (entity.getData("fiskheroes:time_since_damaged") > time && entity.getData("misc:dyn/repair")) {
-            manager.setData(entity, "misc:dyn/repair", false);
-        }
-  */  })
-
-
-/*function fixProfile(profile) {
-    profile.inheritDefaults();
-    profile.addAttribute("SPRINT_SPEED", -1000000, 1);
-    profile.addAttribute("JUMP_HEIGHT", -100000, 1);
-    profile.addAttribute("BASE_SPEED", -100000, 1);
-}
-function pointsevenProfile(profile) {
-    profile.inheritDefaults();
-    profile.addAttribute("SPRINT_SPEED", -0.12, 1);
-    profile.addAttribute("JUMP_HEIGHT", -0.1, 1);
-    profile.addAttribute("BASE_SPEED", -0.1, 1);
-}
-function pointsixProfile(profile) {
-    profile.inheritDefaults();
-    profile.addAttribute("SPRINT_SPEED", -0.13, 1);
-    profile.addAttribute("JUMP_HEIGHT", -0.1, 1);
-    profile.addAttribute("BASE_SPEED", -0.02, 1);
-}
-function halfProfile(profile) {
-    profile.inheritDefaults();
-    profile.addAttribute("SPRINT_SPEED", -0.2, 1);
-    profile.addAttribute("JUMP_HEIGHT", -0.5, 1);
-    profile.addAttribute("BASE_SPEED", -0.03, 1);
-}
-function pointfourProfile(profile) {
-    profile.inheritDefaults();
-    profile.addAttribute("SPRINT_SPEED", -0.3, 1);
-    profile.addAttribute("JUMP_HEIGHT", -0.1, 1);
-    profile.addAttribute("BASE_SPEED", -0.02, 1);
-}
-function pointendProfile(profile) {
-    profile.inheritDefaults();
-    profile.addAttribute("SPRINT_SPEED", -0.7, 1);
-    profile.addAttribute("JUMP_HEIGHT", -1, 1);
-    profile.addAttribute("BASE_SPEED", -0.7, 1);
-}
-
-function getAttributeProfile(entity) {
-    if (entity.getData("misc:dyn/transformation_timer") > 0.5) {
-        return "FIX";
-    } else if (entity.getData("misc:dyn/repair_charge") >= 0.9) {
-        return "END";
-    } else if (entity.getData("misc:dyn/repair_charge") >= 0.7) {
-        return "POINTFOUR";
-    } else if (entity.getData("misc:dyn/repair_charge") >= 0.5) {
-        return "HALF";
-    } else if (entity.getData("misc:dyn/repair_charge") >= 0.4) {
-        return "POINTSIX";
-    } else if (entity.getData("misc:dyn/repair_charge") >= 0.3) {
-        return "POINTSEVEN";
     }
-    return null;
-}*/
-
-
-
-function isKeyBindEnabled(entity, keyBind) {
-    switch (keyBind) {
-        case "GUN_RELOAD":
-            return entity.getHeldItem().nbt().getString("WeaponType") == "misc:1887" && !entity.getData("fiskheroes:aiming");
-        default:
-            return true;
-    }
-}
-
-/*function isModifierEnabled(entity, modifier) {
-    var condition = entity.getData("misc:dyn/transformation")
-    return modifier.name() == "fiskheroes:cooldown" ? modifier.id() == "one" && !condition || modifier.id() == "two" && condition : true
-}*/
 }

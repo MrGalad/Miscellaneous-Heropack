@@ -3,15 +3,20 @@
     "permission": "USE_WINNY",
     "holdingPose": "SINGLE",
     "isHidden": true,
-    "cooldown": 0,
-    "damage": 1,
+    "cooldown": 1,
+    "damageProfile": {
+    "damage": 3,
+    "types": {
+      "BULLET": 1.0
+    },
+    "properties": {
+      "HIT_COOLDOWN": 0,
+      "REDUCE_KNOCKBACK": 0.75
+    }
+  },
     "fisktag": {
       "sprintShootDelay": 8,
       "sprintDelay": 6
-    },
-    "scope": {
-      "zoom": 0.4,
-      "allowHeadshots": false
     },
     "spread": {
       "sprintingFactor": 1.5,

@@ -1,0 +1,8 @@
+{
+  "sound": "fiskheroes:modifier.cryocharge",
+  "condition": "misc:dyn/hardened",
+  "volume": 1.0,
+  "pitch": "0.5 + Math.random()",
+  "loop": false,
+  "delay": 15
+}

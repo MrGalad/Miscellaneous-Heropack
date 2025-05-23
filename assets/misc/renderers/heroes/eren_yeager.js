@@ -144,9 +144,9 @@ function initEffects(renderer) {
   utils.bindParticles(renderer, "misc:eren_regen").setCondition((entity =>(entity.getData("misc:dyn/detransformation_timer") > 0) || (entity.getData("misc:dyn/regen_timer") > 0 && entity.getHealth() < 20 ) || (entity.getData("misc:dyn/charge_timer") > 0.9)));
   utils.bindParticles(renderer, "misc:eren_bite").setCondition((entity => entity.getData("misc:dyn/float_interp") > 0.4 && entity.getData("misc:dyn/float_interp") < 0.7));
 
- // Core - White Hot Center
+ // inner - white 
  var ff1 = renderer.bindProperty("fiskheroes:forcefield");
- ff1.color.set(0xFFFFFF); // White
+ ff1.color.set(0xFFFFFF); 
  ff1.setOffset(0.0, 6.0, 0.0);
  ff1.setCondition(function (entity) {
      var interp = entity.getInterpolatedData("misc:dyn/float_interp1");
@@ -158,9 +158,9 @@ function initEffects(renderer) {
      return entity.getData("misc:dyn/boolean");
  });
  
- // Middle - Orange Glow
+ // middle - orange 
  var ff2 = renderer.bindProperty("fiskheroes:forcefield");
- ff2.color.set(0xFF9900); // Deep Orange
+ ff2.color.set(0xFF9900); 
  ff2.setOffset(0.0, 6.0, 0.0);
  ff2.setCondition(function (entity) {
      var interp = entity.getInterpolatedData("misc:dyn/float_interp1");
@@ -172,9 +172,9 @@ function initEffects(renderer) {
      return entity.getData("misc:dyn/boolean");
  });
  
- // Outer - Yellow Burst
+ // outer - yellow
  var ff3 = renderer.bindProperty("fiskheroes:forcefield");
- ff3.color.set(0xFFD700); // Bright Gold
+ ff3.color.set(0xFFD700);
  ff3.setOffset(0.0, 6.0, 0.0);
  ff3.setCondition(function (entity) {
      var interp = entity.getInterpolatedData("misc:dyn/float_interp1");
@@ -214,7 +214,7 @@ utils.bindBeam(renderer, "fiskheroes:charged_beam", "misc:invis", "head", 0xAA00
     return true;
   });
   shake.intensity = 0.0;
-  var shakeRun = renderer.bindProperty("fiskheroes:camera_shake").setCondition(entity => {
+ /*  var shakeRun = renderer.bindProperty("fiskheroes:camera_shake").setCondition(entity => {
     shakeRun.factor = entity.getData("misc:dyn/boolean") && entity.getData("misc:dyn/sprinting") > 0
     return true;
   });
@@ -224,7 +224,7 @@ utils.bindBeam(renderer, "fiskheroes:charged_beam", "misc:invis", "head", 0xAA00
     shakeSpikes.factor = entity.getData("fiskheroes:beam_charge") > 0.1 && !entity.getData("fiskheroes:moving") 
     return true;
   });
-  shakeSpikes.intensity = 0.5;
+  shakeSpikes.intensity = 0.5; */
 
 /*  utils.addCameraShake(renderer, 0.3, 0.6, "misc:dyn/boolean" && "misc:dyn/sprinting");
  utils.addCameraShake(renderer, 0.3, 0.6, "fiskheroes:beam_charging");

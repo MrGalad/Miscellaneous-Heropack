@@ -28,7 +28,7 @@
         "time": 30
       },
       "soundEvents": {
-        "ENABLE": "fiskheroes:cryo_charge"
+        "ENABLE": "misc:harden"
       }
     },
     "fiskheroes:transformation|anim": {
@@ -63,22 +63,6 @@
       "delay": 200,
       "soundEvents": {
         "HEAL": "fiskheroes:healing_factor"
-      }
-    },
-    "fiskheroes:charged_beam": {
-      "damageProfile": {
-        "damage": 7.0,
-        "types": {
-          "SHARP": 1.0
-        }
-      },
-      "chargeTime": 50,
-      "duration": 60,
-      "cooldownTime": 40,
-      "range": 32.0,
-      "radius": 0.1,
-      "soundEvents": { 
-        "CHARGE": "misc:eren_spikes_sound"
       }
     },
    "fiskheroes:cooldown": {

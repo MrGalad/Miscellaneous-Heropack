@@ -45,7 +45,7 @@ function init(hero) {
 
         if (entity.getData("misc:dyn/creative")) {
             snapCreative(hero, entity);
-        } else {
+        } if (!entity.getData("misc:dyn/creative")){
             snap(hero, entity)
         }
         snap2(hero, entity);
@@ -135,7 +135,7 @@ function init(hero) {
     hero.addKeyBind("CHARGED_BEAM", "\u00A7eMind Stone Blast", 3);
 
     // SNAP
-    hero.addKeyBind("SNAP", "\u00A7cYOU SHOULD'VE GONE FOR THE HEAD", 5);
+    hero.addKeyBind("SNAP", "\u00A7cSnap", 5);
 
     hero.setKeyBindEnabled(isKeyBindEnabled);
     hero.setModifierEnabled(isModifierEnabled);
@@ -188,7 +188,7 @@ function snap(hero, entity) {
         }
         for (var i=0; i<allowedList.length;i++) {
             if (i >= Math.floor(allowedList.length / 2)) {
-                allowedList[i].hurtByAttacker(hero, "SNAP", "%s dusted away", other.getMaxHealth() / 2, entity);
+                allowedList[i].hurtByAttacker(hero, "SNAP", "%s dusted away", (other.getHealth() / 2), entity);
             }
         }
     }
