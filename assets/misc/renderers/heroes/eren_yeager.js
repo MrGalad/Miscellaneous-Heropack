@@ -61,17 +61,18 @@ function initAnimations(renderer) {
     .setData((entity, data) => {
       data.load(entity.getInterpolatedData("misc:dyn/release_timer"));
     }).priority = 10;
-  /* addAnimation(renderer, "eren.SWING", "misc:odm_dive")
+
+  addAnimation(renderer, "eren.BOOST", "misc:odm_dive")
     .setData((entity, data) => {
-      data.load(entity.getData("fiskheroes:web_swinging_timer") / 4);
-    }).priority = -8; */
+      data.load(entity.getInterpolatedData("misc:dyn/eren_boost_timer") && entity.isSprinting());
+    }).priority = 10;
 
   //addAnimation(renderer, "eren.ARM", "misc:eren_zip")
   //  .setData((entity, data) => {
   //    data.load(entity.getInterpolatedData("fiskheroes:blade_timer") && entity.getInterpolatedData("misc:dyn/eren_boost_timer") > 0);
   //  }).setCondition(entity => /* entity.getData("misc:dyn/eren_boost_timer") > 0.2 && */ !entity.isPunching() && entity.getInterpolatedData("fiskheroes:blade_timer") /* && !entity.isSprinting()  *//* && !entity.getData("fiskheroes:moving") */ && entity.getInterpolatedData("misc:dyn/float_interp3") > 0.8 && !entity.getData("misc:dyn/boolean") && entity.getData("misc:dyn/float_interp1") < 0.1).priority = -8;
 
-  addAnimationWithData(renderer, "ezio.SPRINT", "fiskheroes:speedster_sprint", "misc:dyn/sprinting").priority = -1;
+  addAnimationWithData(renderer, "eren.SPRINT", "fiskheroes:speedster_sprint", "misc:dyn/sprinting").priority = -1;
   utils.addAnimationEvent(renderer, "WEBSWING_DEFAULT", "misc:odm_dive");
   addAnimationWithData(renderer, "spiderman.WEB_RAPPEL", "fiskheroes:web_rappel", "fiskheroes:web_rappel_timer")
     .priority = 5;
@@ -125,7 +126,6 @@ function initEffects(renderer) {
 });
   spikes.texture.set("spikes");
   spikesEffect = renderer.createEffect("fiskheroes:model").setModel(spikes);
-  /* spikesEffect.anchor.set("leftArm"); */
 
   var webs = renderer.bindProperty("fiskheroes:webs");
   webs.textureRope.set("rope", null);
@@ -155,7 +155,7 @@ function initEffects(renderer) {
  
      ff1.opacity = Math.max(interp < 1 && interp > 0 ? 0.7 : 0.0);
      ff1.setScale(scale);
-     return true;
+     return entity.getData("misc:dyn/boolean");
  });
  
  // Middle - Orange Glow
@@ -169,7 +169,7 @@ function initEffects(renderer) {
  
      ff2.opacity = Math.max(interp < 1 && interp > 0 ? 0.5 : 0.0);
      ff2.setScale(scale);
-     return true;
+     return entity.getData("misc:dyn/boolean");
  });
  
  // Outer - Yellow Burst
@@ -183,7 +183,7 @@ function initEffects(renderer) {
  
      ff3.opacity = Math.max(interp < 1 && interp > 0 ? 0.4 : 0.0);
      ff3.setScale(scale);
-     return true;
+     return entity.getData("misc:dyn/boolean");
  });
 
 utils.bindBeam(renderer, "fiskheroes:charged_beam", "misc:invis", "head", 0xAA00AA, [{
@@ -196,7 +196,7 @@ utils.bindBeam(renderer, "fiskheroes:charged_beam", "misc:invis", "head", 0xAA00
   var beam_1 = renderer.createResource("BEAM_RENDERER", "misc:shazam");
   var color = 0xFFD700;
 
-  shazam = utils.createLines(renderer, beam_1, color, [
+  lightning = utils.createLines(renderer, beam_1, color, [
     {
       "start": [0, -80, 0],
       "end": [0, -5, 0],
@@ -204,9 +204,9 @@ utils.bindBeam(renderer, "fiskheroes:charged_beam", "misc:invis", "head", 0xAA00
     },
   ])
 
-  shazam.anchor.set("body");
-  shazam.setOffset(1.5, 97.0, -4.5).setRotation(0, 90.0, 0).setScale(15.0);
-  shazam.mirror = false;
+  lightning.anchor.set("body");
+  lightning.setOffset(1.5, 97.0, -4.5).setRotation(0, 90.0, 0).setScale(15.0);
+  lightning.mirror = false;
 
   utils.addCameraShake(renderer, 0.015, 1.5, "misc:dyn/float_interp1");
   var shake = renderer.bindProperty("fiskheroes:camera_shake").setCondition(entity => {
@@ -251,7 +251,7 @@ utils.bindBeam(renderer, "fiskheroes:charged_beam", "misc:invis", "head", 0xAA00
 
 function render(entity, renderLayer, isFirstPersonArm) {
   if (entity.getData("misc:dyn/float_interp1") > 0 && entity.getData("misc:dyn/float_interp1") < 1) {
-    shazam.render()
+    lightning.render()
   }/*  if (isFirstPersonArm && entity.getData("misc:dyn/float_interp1") < 0.1) {
     overlay.render()
   }  */if (renderLayer == "LEGGINGS" && entity.getData("misc:dyn/float_interp") < 0.7) {
@@ -288,7 +288,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
   titan.render()
   hardened.opacity = entity.getData("misc:dyn/hardened_timer")
   hardened.render()
-  eyemarks.opacity = (!entity.getData("misc:dyn/boolean") && entity.getData("misc:dyn/float_interp1") < 0.1) ? entity.getData("misc:dyn/charge_timer") * 0.5 : 0;
+  eyemarks.opacity = (entity.getData("misc:dyn/float_interp1") < 1 && entity.getData("misc:dyn/float_interp1") < 0.1) ? entity.getData("misc:dyn/charge_timer") * 0.5 : 0;
   eyemarks.render()
 
   /*   if (!isFirstPersonArm && entity.getData("misc:dyn/float_interp1") < 0.1) {

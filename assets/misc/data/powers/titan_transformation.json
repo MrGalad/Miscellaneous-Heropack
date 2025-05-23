@@ -85,7 +85,7 @@
       "cooldown": {
         "toggleData": "misc:dyn/boolean1",
         "cooldownData": "misc:dyn/titan_cooldown_timer",
-        "duration": 1500,
+        "duration": 2500,
         "recovery": 1
       }
     }

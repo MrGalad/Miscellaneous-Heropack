@@ -167,7 +167,7 @@ function initAnimations(renderer) {
     addAnimationWithData(renderer, "gauntlet.AIMING", "misc:aiming_left", "fiskheroes:aiming_timer");
     addAnimation(renderer, "gauntlet.SNAP", "misc:snap")
         .setData((entity, data) => {
-            var data11 = entity.getData("misc:dyn/snap_timer") * 2;
+            var data11 = entity.getInterpolatedData("misc:dyn/snap_timer") * 2;
             var newData = Math.max(data11 - 0.9, 0);
             data.load(0, newData);
         });
