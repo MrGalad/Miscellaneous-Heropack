@@ -72,12 +72,15 @@
         "duration": 2500,
         "recovery": 1
       }
+    },
+    "fiskheroes:hover": {
+      "isToggle": false
     }
   },
   "hud": [
     {
       "type": "CHARGE",
-      "texture": "misc:textures/gui/bars/powerplex_charge.png",
+      "texture": "misc:textures/gui/bars/titan_charge.png",
       "data": "1 - entity.getData('misc:dyn/titan_cooldown_timer')"
     }
   ]

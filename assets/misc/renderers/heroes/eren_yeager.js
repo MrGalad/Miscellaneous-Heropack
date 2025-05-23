@@ -1,8 +1,10 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-  "layer1": "misc:blank",
+  "layer1": "misc:eren/eren_yeager",
   "base": "misc:eren/eren_yeager",
   "layer2": "misc:eren/eren_yeager_layer2",
+  "chest": "misc:eren/eren_yeager_chestpiece",
+  "titanChest": "misc:eren/eren_titan_chestpiece",
   "arms": "misc:eren/eren_yeager_arms",
   "eyemarks": "misc:eren/eren_eyemarks",
   "titan": "misc:eren/eren_titan",
@@ -27,11 +29,29 @@ var Ereneyes
 
 function init(renderer) {
   parent.init(renderer);
-  renderer.setTexture((entity, renderLayer) => {
+ /*  renderer.setTexture((entity, renderLayer) => {
     if (!entity.is("DISPLAY") && entity.getData("misc:dyn/float_interp1") < 0.8) {
-      return "base";
+      return "layer1";
     } return "blank";
-  });
+  }); */
+  renderer.setTexture((entity, renderLayer) => {
+        if (/* renderLayer == "CHESTPLATE"  || */ renderLayer == "HELMET" || renderLayer == "BOOTS") {
+            var timer = entity.getInterpolatedData("misc:dyn/float_interp1") ;
+            var stand = entity.isDisplayStand();
+            return stand ? "blank" : timer == 0 ? "layer1" : timer > 0 ? "titan" : "blank";
+        }
+        if (renderLayer == "LEGGINGS") {
+            var timer = entity.getInterpolatedData("misc:dyn/float_interp1");
+            var stand = entity.isDisplayStand();
+            return stand ? "blank" : timer == 0 ? "layer2" : timer > 0 ? "titan" : "blank";
+        }
+        if (renderLayer == "CHESTPLATE") {
+            var timer = entity.getInterpolatedData("misc:dyn/float_interp1");
+            var stand = entity.isDisplayStand();
+            return stand ? "blank" : timer == 0 ? "chest" : timer > 0 ? "titan" : "titanChest";
+        }
+        return "blank";
+    });
   renderer.showModel("CHESTPLATE", "head", "headwear", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
 }
 
@@ -254,9 +274,9 @@ function render(entity, renderLayer, isFirstPersonArm) {
     lightning.render()
   }/*  if (isFirstPersonArm && entity.getData("misc:dyn/float_interp1") < 0.1) {
     overlay.render()
-  }  */if (renderLayer == "LEGGINGS" && entity.getData("misc:dyn/float_interp") < 0.7) {
+  }  *//* if (renderLayer == "LEGGINGS" && entity.getData("misc:dyn/float_interp") < 0.7) {
     layer2.render();
-  } if (entity.getData("misc:dyn/boolean") && entity.getData("misc:dyn/float_interp") > 0.5 && entity.getData("misc:dyn/float_interp1") < 1) {
+  } */ if (entity.getData("misc:dyn/boolean") && entity.getData("misc:dyn/float_interp") > 0.5 && entity.getData("misc:dyn/float_interp1") < 1) {
     Ereneyes.render();
   }
 
@@ -284,8 +304,8 @@ function render(entity, renderLayer, isFirstPersonArm) {
   //  bladeLeftEffect.setOffset(5, -3.0, -1)
   //}
 
-  titan.opacity = entity.getData("misc:dyn/float_interp1") > 0.6
-  titan.render()
+  /* titan.opacity = entity.getData("misc:dyn/float_interp1") > 0.6
+  titan.render() */
   hardened.opacity = entity.getData("misc:dyn/hardened_timer")
   hardened.render()
   eyemarks.opacity = (entity.getData("misc:dyn/float_interp1") < 1 && entity.getData("misc:dyn/float_interp1") < 0.1) ? entity.getData("misc:dyn/charge_timer") * 0.5 : 0;

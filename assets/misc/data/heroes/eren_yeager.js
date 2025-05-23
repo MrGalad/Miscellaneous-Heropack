@@ -2,6 +2,7 @@ function init(hero) {
     hero.setName("Eren Yeager")
     hero.setTier(4);
 
+    hero.setHelmet("Head");
     hero.setChestplate("Jacket");
     hero.setLeggings("item.superhero_armor.piece.leggings");
     hero.setBoots("item.superhero_armor.piece.boots");
@@ -166,10 +167,15 @@ function fallProfile(profile) {
 function hardenProfile(profile) {
     /* profile.inheritDefaults(); */
     profile.addAttribute("PUNCH_DAMAGE", 8.0, 0);
+    profile.addAttribute("SPRINT_SPEED", 2, 1);
+    profile.addAttribute("MAX_HEALTH", 1, 0);
+    profile.addAttribute("WEAPON_DAMAGE", 5.0, 0);
+    profile.addAttribute("FALL_RESISTANCE", 1.0, 1);
+    profile.addAttribute("JUMP_HEIGHT", 2, 0);
 }
 
 function getTierOverride(entity) {
-    return entity.getData("misc:dyn/float_interp1") ? 9 : 2;
+    return entity.getData("misc:dyn/float_interp1") ? 8 : 2;
 }
 
 function isModifierEnabled(entity, modifier) {
@@ -181,7 +187,9 @@ function isModifierEnabled(entity, modifier) {
         case "fiskheroes:blade":
             return entity.getData("misc:dyn/float_interp1") < 0.5
         case "fiskheroes:healing_factor":
-            return entity.getData("misc:dyn/regen_timer") > 0.8 && entity.getHealth() < 20
+            return (entity.getData("misc:dyn/regen_timer") > 0.8 && entity.getHealth() < 20) || (entity.getData("misc:dyn/boolean"))
+        case "fiskheroes:hover":
+            return entity.getData("misc:dyn/float_interp1") > 0 && entity.getData("misc:dyn/float_interp1") < 1
 
     }
     return true;
@@ -192,7 +200,7 @@ function isKeyBindEnabled(entity, keyBind) {
     switch (keyBind) {
         case "HARDEN":
         /* case "CHARGED_BEAM": */
-            return entity.getData("misc:dyn/float_interp1") > 0.5 && entity.getData("misc:dyn/float_interp2") == 1
+            return entity.getData("misc:dyn/float_interp1") > 0.5 && entity.getData("misc:dyn/float_interp2") == 1 && !entity.getData("misc:dyn/hardened")
         case "BLADE":
             return entity.getData("misc:dyn/float_interp2") < 0.2 && entity.getData("misc:dyn/float_interp2") < 1 && !entity.getData("misc:dyn/boolean")
         case "WEB_ZIP":
@@ -208,7 +216,7 @@ function isKeyBindEnabled(entity, keyBind) {
         case "RELEASE":
             return entity.getData("misc:dyn/float_interp1") > 0.5 && entity.getData("misc:dyn/float_interp2") == 1
         case "TITAN":
-            return !entity.getData("misc:dyn/boolean") && !entity.isSneaking()
+            return !entity.getData("misc:dyn/boolean") && !entity.isSneaking() && entity.getData("misc:dyn/regen_timer") == 0 && entity.getData("misc:dyn/titan_cooldown_timer") < 0.5
         case "REFILL":
             return entity.isSneaking() && entity.isOnGround() && !entity.getData("misc:dyn/boolean") && entity.getData("misc:dyn/refill_timer") > 0
     }

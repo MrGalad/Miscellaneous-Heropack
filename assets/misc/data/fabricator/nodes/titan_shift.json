@@ -1,0 +1,32 @@
+{
+    "display": {
+      "name": {
+        "translate": "Titan Shift"
+      },
+      "icon": {
+        "texture": "misc:textures/gui/nodes/titan_shifting.png"
+      }
+    },
+    "requirements": [
+      "misc:misc"
+    ],
+    "criteria": {
+    "req": {
+      "trigger": "fiskheroes:tick",
+      "description": {
+      "translate": "Unlock Titan shifting through agony and unbroken will"
+      },
+      "condition": {
+        "variables": {
+          "player": "PLAYER_TICKING"
+        },
+        "check": "player.getHealth() < 5 "
+      }
+    }
+  },
+    "price": {
+      "IRID_GOLD": 6,
+      "XP_LEVELS": 20
+    }
+  }
+  

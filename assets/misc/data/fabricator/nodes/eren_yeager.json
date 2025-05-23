@@ -1,0 +1,11 @@
+{
+    "suit": "misc:eren_yeager",
+    "requirements": [
+      "fiskheroes:flight",
+      "fiskheroes:tier4_5",
+      "fiskheroes:melee3",
+      "fiskheroes:regeneration",
+      "misc:titan_shift",
+      "misc:misc"
+    ]
+}

@@ -1,11 +1,11 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-  "layer1": "misc:adam/adam_suit",
-  "layer2": "misc:adam/adam_suit",
-  "lights": "misc:adam/adam_light",
+  "layer1": "misc:adam/black_adam",
+  "layer2": "misc:adam/black_adam",
+  "lights": "misc:adam/black_adam_light",
   "charge": "misc:adam/adam_lightning",
   "harley": "misc:adam/1harleyeyes",
-  "full": "misc:adam/adam_suit",
+  "full": "misc:adam/black_adam",
   "blank": "misc:adam/adam_robes"
 });
 

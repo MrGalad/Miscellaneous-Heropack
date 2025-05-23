@@ -52,7 +52,7 @@
       "transformation": {
         "toggleData": "misc:dyn/eren_boost",
         "timerData": "misc:dyn/eren_boost_timer",
-        "time": 25
+        "time": 1
       },
       "soundEvents": {
         "ENABLE": "fiskheroes:cryo_charge"
