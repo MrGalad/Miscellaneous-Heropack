@@ -1,0 +1,6 @@
+{slide_time}={data}
+{slide_0}=curve animate2({slide_time},0.875,0,0.125,0.75)
+{slide_1}=curve animate2({slide_time},0.875,0.125,0.75,0.125)
+
+{slide_posZ}+=2{slide_0}
+{slide_posZ}+=2{slide_1}
