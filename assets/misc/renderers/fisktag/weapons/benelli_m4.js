@@ -1,5 +1,5 @@
 loadTextures({
-    "base":       "misc:hk_p30l",
+    "base":       "misc:benelli_m4",
     "crosshair":  "misc:crosshairs/pistol"
 });
 
@@ -10,7 +10,7 @@ var model;
 var cancelAnimations = false;
 
 function init(renderer) {
-    model = utils.createModel(renderer, "misc:hk_p30l", "base");
+    model = utils.createModel(renderer, "misc:benelli_m4", "base");
     model.bindAnimation("misc:john/hk_p30l_reload").setData((entity, data) => {
         if (cancelAnimations) {
             data.load(0, 0);
