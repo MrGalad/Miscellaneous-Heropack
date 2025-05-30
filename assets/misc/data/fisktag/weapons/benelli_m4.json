@@ -28,7 +28,7 @@
       "cameraShake": 6.0
     },
   "ammo": {
-    "amount": 1,
+    "amount": 5,
     "reloadTime": 35
   },
     "projectiles": [
