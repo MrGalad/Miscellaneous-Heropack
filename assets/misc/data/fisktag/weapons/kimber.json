@@ -1,10 +1,10 @@
 {
-  "name": "Heckler & Koch P30L",
+  "name": "Kimber Super Carry Custom",
   "permission": "USE_GUN",
   "holdingPose": "SINGLE",
   "cooldown": 5,
   "damageProfile": {
-    "damage": 4,
+    "damage": 4.5,
     "types": {
       "BULLET": 1.0
     }
@@ -13,7 +13,7 @@
     "zoom": 0.4
   },
   "ammo": {
-    "amount": 13,
+    "amount": 8,
     "reloadTime": 30
   },
   "spread": {

@@ -7,6 +7,7 @@ function init(hero) {
     hero.setBoots("item.superhero_armor.piece.shoes");
     hero.addPrimaryEquipment("fisktag:weapon{WeaponType:misc:hk_p30l}", true, item => item.nbt().getString("WeaponType") == 'misc:hk_p30l');
     hero.addPrimaryEquipment("fisktag:weapon{WeaponType:misc:benelli_m4}", true, item => item.nbt().getString("WeaponType") == 'misc:benelli_m4');
+    hero.addPrimaryEquipment("fisktag:weapon{WeaponType:misc:kimber}", true, item => item.nbt().getString("WeaponType") == 'misc:kimber');
 
     hero.addAttribute("PUNCH_DAMAGE", 5.5, 0);
     hero.addAttribute("WEAPON_DAMAGE", 3, 0);
