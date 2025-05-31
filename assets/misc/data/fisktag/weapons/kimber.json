@@ -34,6 +34,6 @@
     }
   ],
   "soundEvents": {
-    "SHOOT": "fisktag:pistol_shoot"
+    "SHOOT": "misc:kimber"
   }
 }

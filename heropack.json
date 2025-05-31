@@ -14,6 +14,22 @@
         "distance": 32.0,
         "sendToAll": true
       },
+      "hk_p30l": {
+        "distance": 32.0,
+        "sendToAll": true
+      },
+      "benelli_m4": {
+        "distance": 32.0,
+        "sendToAll": true
+      },
+      "tr1_ar": {
+        "distance": 32.0,
+        "sendToAll": true
+      },
+      "kimber": {
+        "distance": 32.0,
+        "sendToAll": true
+      },
       "frost_breath": {
         "distance": 32.0,
         "sendToAll": true
@@ -44,14 +60,14 @@
       }
     },
     "speed_punches": {
-        "distance": 10.0,
-        "sendToAll": true
-      },
-      "titan_transformation": {
-        "distance": 32.0,
-        "sendToAll": true
-      }
+      "distance": 10.0,
+      "sendToAll": true
     },
+    "titan_transformation": {
+      "distance": 32.0,
+      "sendToAll": true
+    }
+  },
   "damageTypes": {
     "KRYPTONITE": "Kryptonite",
     "TELEPATIC": "Telepathy",
@@ -297,232 +313,232 @@
       "type": "FLOAT_INTERP",
       "resetWithoutSuit": false
     },
-  "power_charge": {
+    "power_charge": {
       "type": "FLOAT_INTERP",
       "resetWithoutSuit": true
-  },
-  "cooldown":{
+    },
+    "cooldown":{
       "type": "FLOAT",
       "resetWithoutSuit": true
-},
+    },
 "random_digit": {
-  "type": "INTEGER",
-  "resetWithoutSuit": true
-},
+    "type": "INTEGER",
+    "resetWithoutSuit": true
+  },
 "boost": {
   "type": "INTEGER",
   "resetWithoutSuit": true
 },
 "boost1": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": true
+"type": "BOOLEAN",
+"resetWithoutSuit": true
 },
 "boost2": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": true
+"type": "BOOLEAN",
+"resetWithoutSuit": true
 },
 "boost3": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": true
+"type": "BOOLEAN",
+"resetWithoutSuit": true
 },
 "boost4": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": true
+"type": "BOOLEAN",
+"resetWithoutSuit": true
 },
 "flight_boost1": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": true
+"type": "BOOLEAN",
+"resetWithoutSuit": true
 },
 "flight_boost2": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": true
+"type": "BOOLEAN",
+"resetWithoutSuit": true
 },
 "flight_boost3": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": true
+"type": "BOOLEAN",
+"resetWithoutSuit": true
 },
 "flight_boost4": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": true
+"type": "BOOLEAN",
+"resetWithoutSuit": true
 },
 "flight_boost0": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": true
+"type": "BOOLEAN",
+"resetWithoutSuit": true
 },
 "boost1_deactivation_timer": {
-  "type": "FLOAT_INTERP",
-  "resetWithoutSuit": true
+"type": "FLOAT_INTERP",
+"resetWithoutSuit": true
 },
 "boost2_deactivation_timer": {
-  "type": "FLOAT_INTERP",
-  "resetWithoutSuit": true
+"type": "FLOAT_INTERP",
+"resetWithoutSuit": true
 },
 "boost3_deactivation_timer": {
-  "type": "FLOAT_INTERP",
-  "resetWithoutSuit": true
+"type": "FLOAT_INTERP",
+"resetWithoutSuit": true
 },
 "boost4_deactivation_timer": {
-  "type": "FLOAT_INTERP",
-  "resetWithoutSuit": true
+"type": "FLOAT_INTERP",
+"resetWithoutSuit": true
 },
 "reactivation_count": {
-  "type": "FLOAT_INTERP",
-  "resetWithoutSuit": true
+"type": "FLOAT_INTERP",
+"resetWithoutSuit": true
 },
 "charge_timer": {
-  "type": "FLOAT_INTERP",
-  "resetWithoutSuit": true
+"type": "FLOAT_INTERP",
+"resetWithoutSuit": true
 },
 "recover": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": true
+"type": "BOOLEAN",
+"resetWithoutSuit": true
 },
 "punched": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": true
+"type": "BOOLEAN",
+"resetWithoutSuit": true
 },
 "slot_changed": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": true
+"type": "BOOLEAN",
+"resetWithoutSuit": true
 },
 "headbutt": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": true
+"type": "BOOLEAN",
+"resetWithoutSuit": true
 },
 "headbutt_timer": {
-  "type": "FLOAT_INTERP",
-  "resetWithoutSuit": true
+"type": "FLOAT_INTERP",
+"resetWithoutSuit": true
 },
 "stomp": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": true
+"type": "BOOLEAN",
+"resetWithoutSuit": true
 },
 "stomp_timer": {
-  "type": "FLOAT_INTERP",
-  "resetWithoutSuit": true
+"type": "FLOAT_INTERP",
+"resetWithoutSuit": true
 },
 "eren_boost": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": true
+"type": "BOOLEAN",
+"resetWithoutSuit": true
 },
 "eren_boost_timer": {
-  "type": "FLOAT_INTERP",
-  "resetWithoutSuit": true
+"type": "FLOAT_INTERP",
+"resetWithoutSuit": true
 },
 "hardened": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": true
+"type": "BOOLEAN",
+"resetWithoutSuit": true
 },
 "hardened_timer": {
-  "type": "FLOAT_INTERP",
-  "resetWithoutSuit": true
+"type": "FLOAT_INTERP",
+"resetWithoutSuit": true
 },
 "eyemarks": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": true
+"type": "BOOLEAN",
+"resetWithoutSuit": true
 },
 "regen": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": true
+"type": "BOOLEAN",
+"resetWithoutSuit": true
 },
 "regen_timer": {
-  "type": "FLOAT_INTERP",
-  "resetWithoutSuit": true
+"type": "FLOAT_INTERP",
+"resetWithoutSuit": true
 },
 "detransformation": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": true
+"type": "BOOLEAN",
+"resetWithoutSuit": true
 },
 "raise": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": true
+"type": "BOOLEAN",
+"resetWithoutSuit": true
 },
 "raise_timer": {
-  "type": "FLOAT_INTERP",
-  "resetWithoutSuit": true
+"type": "FLOAT_INTERP",
+"resetWithoutSuit": true
 },
 "release": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": true
+"type": "BOOLEAN",
+"resetWithoutSuit": true
 },
 "release_timer": {
-  "type": "FLOAT_INTERP",
-  "resetWithoutSuit": true
+"type": "FLOAT_INTERP",
+"resetWithoutSuit": true
 },
 "detransformation_timer": {
-  "type": "FLOAT_INTERP",
-  "resetWithoutSuit": true
+"type": "FLOAT_INTERP",
+"resetWithoutSuit": true
 },
 "refill": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": false
+"type": "BOOLEAN",
+"resetWithoutSuit": false
 },
 "refill_timer": {
-  "type": "FLOAT_INTERP",
-  "resetWithoutSuit": true
+"type": "FLOAT_INTERP",
+"resetWithoutSuit": true
 },
 "titan_cooldown": {
-  "type": "BOOLEAN",
-  "resetWithoutSuit": false
+"type": "BOOLEAN",
+"resetWithoutSuit": false
 },
 "titan_cooldown_timer": {
-  "type": "FLOAT_INTERP",
-  "resetWithoutSuit": false
+"type": "FLOAT_INTERP",
+"resetWithoutSuit": false
 },
 "refill_timer2": {
-  "type": "FLOAT_INTERP",
-  "resetWithoutSuit": false
+"type": "FLOAT_INTERP",
+"resetWithoutSuit": false
 }
-  },
-  "alts": {
-    "misc:green_goblin": {
-      "drip": "Drip Or Drown"
-    },
-    "misc:black_adam": {
-      "cape": "With Cape"
-    },
-    "misc:invincible": {
-      "blue": "Invinciboy"
-    },
-    "misc:master_chief": {
-      "$DEFAULT": {
-        "maskToggleTicks": 30
-      }
-    },
-    "misc:reverse_flash": {
-      "$DEFAULT": {
-        "maskToggleTicks": 30
-      }
-    }
-  },
-  "remap": { 
-    "mhp:black_adam": "misc:black_adam",
-    "mhp:charles_xavier": "misc:charles_xavier",
-    "mhp:doorman": "misc:doorman",
-    "mhp:ezio": "misc:ezio",
-    "mhp:green_goblin": "misc:green_goblin",
-    "mhp:infinity_gauntlet": "misc:infinity_gauntlet",
-    "mhp:invincible": "misc:invincible",
-    "mhp:invincible_variants": "misc:invincible_variants",
-    "mhp:master_chief": "misc:master_chief",
-    "mhp:metallo": "misc:metallo",
-    "mhp:metro_man": "misc:metro_man",
-    "mhp:midnight_angel": "misc:midnight_angel",
-    "mhp:mind_stone": "misc:mind_stone",
-    "mhp:power_stone": "misc:power_stone",
-    "mhp:powerplex": "misc:powerplex",
-    "mhp:reality_stone": "misc:reality_stone",
-    "mhp:reverse_flash": "misc:reverse_flash",
-    "mhp:robocop": "misc:robocop",
-    "mhp:sentinel": "misc:sentinel",
-    "mhp:soul_stone": "misc:soul_stone",
-    "mhp:space_stone": "misc:space_stone",
-    "mhp:striker_eureka": "misc:striker_eureka",
-    "mhp:sunspot": "misc:sunspot",
-    "mhp:superboy": "misc:superboy",
-    "mhp:t800": "misc:t800",
-    "mhp:the_ray": "misc:the_ray",
-    "mhp:time_stone": "misc:time_stone"
+},
+"alts": {
+"misc:green_goblin": {
+"drip": "Drip Or Drown"
+},
+"misc:black_adam": {
+"cape": "With Cape"
+},
+"misc:invincible": {
+"blue": "Invinciboy"
+},
+"misc:master_chief": {
+"$DEFAULT": {
+"maskToggleTicks": 30
+}
+},
+"misc:reverse_flash": {
+"$DEFAULT": {
+"maskToggleTicks": 30
+}
+}
+},
+"remap": { 
+"mhp:black_adam": "misc:black_adam",
+"mhp:charles_xavier": "misc:charles_xavier",
+"mhp:doorman": "misc:doorman",
+"mhp:ezio": "misc:ezio",
+"mhp:green_goblin": "misc:green_goblin",
+"mhp:infinity_gauntlet": "misc:infinity_gauntlet",
+"mhp:invincible": "misc:invincible",
+"mhp:invincible_variants": "misc:invincible_variants",
+"mhp:master_chief": "misc:master_chief",
+"mhp:metallo": "misc:metallo",
+"mhp:metro_man": "misc:metro_man",
+"mhp:midnight_angel": "misc:midnight_angel",
+"mhp:mind_stone": "misc:mind_stone",
+"mhp:power_stone": "misc:power_stone",
+"mhp:powerplex": "misc:powerplex",
+"mhp:reality_stone": "misc:reality_stone",
+"mhp:reverse_flash": "misc:reverse_flash",
+"mhp:robocop": "misc:robocop",
+"mhp:sentinel": "misc:sentinel",
+"mhp:soul_stone": "misc:soul_stone",
+"mhp:space_stone": "misc:space_stone",
+"mhp:striker_eureka": "misc:striker_eureka",
+"mhp:sunspot": "misc:sunspot",
+"mhp:superboy": "misc:superboy",
+"mhp:t800": "misc:t800",
+"mhp:the_ray": "misc:the_ray",
+"mhp:time_stone": "misc:time_stone"
 }
 
 }

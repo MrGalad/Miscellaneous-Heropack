@@ -7,11 +7,18 @@ loadTextures({
     "hk_p30l": "misc:john/hk_p30l",
     "benelli_m4": "misc:john/benelli_m4",
     "kimber": "misc:john/kimber",
+    "tr1_ar": "misc:john/tr1_ar"
 });
 
 var utils = implement("fiskheroes:external/utils");
 
-var hk_p30l, benelli_m4, kimber;
+var hk_p30l, benelli_m4, kimber, tr1_ar;
+
+function init(renderer) {
+    parent.init(renderer);
+    
+   renderer.showModel("CHESTPLATE", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
+}
 
 function initEffects(renderer) {
     hk_p30l = renderer.createEffect("fiskheroes:model");
@@ -20,14 +27,21 @@ function initEffects(renderer) {
     hk_p30l.setOffset(0, 0, 0);
     hk_p30l.setRotation(0, 0, 0);
     hk_p30l.setScale(0.9, 0.9, 0.9);
-
+    
     benelli_m4 = renderer.createEffect("fiskheroes:model");
     benelli_m4.setModel(utils.createModel(renderer, "misc:benelli_m4_back", "benelli_m4"));
     benelli_m4.anchor.set("body");
     benelli_m4.setOffset(0, 0, 0);
     benelli_m4.setRotation(0, 0, 0);
     benelli_m4.setScale(0.8, 0.8, 0.8);
-
+    
+    tr1_ar = renderer.createEffect("fiskheroes:model");
+    tr1_ar.setModel(utils.createModel(renderer, "misc:tr1_ar_back", "tr1_ar"));
+    tr1_ar.anchor.set("body");
+    tr1_ar.setOffset(0, 0, 0);
+    tr1_ar.setRotation(0, 0, 0);
+    tr1_ar.setScale(0.8, 0.8, 0.8);
+    
     kimber = renderer.createEffect("fiskheroes:model");
     kimber.setModel(utils.createModel(renderer, "misc:kimber_hip", "kimber"));
     kimber.anchor.set("leftLeg");
@@ -36,10 +50,20 @@ function initEffects(renderer) {
     kimber.setScale(0.9, 0.9, 0.9);
 }
 
+function initAnimations(renderer) {
+    parent.initAnimations(renderer);
+
+    addAnimationWithData(renderer, "john_wick.SPRINT", "fiskheroes:speedster_sprint", "misc:dyn/sprinting").priority = -1;
+
+}
+
 function render(entity, renderLayer) {
     if (renderLayer == "CHESTPLATE") {
         if (equipment.isItemEquipped(entity, "misc:benelli_m4")) {
             benelli_m4.render();
+        }
+        if (equipment.isItemEquipped(entity, "misc:tr1_ar")) {
+            tr1_ar.render();
         }
     }
     if (renderLayer == "LEGGINGS") {

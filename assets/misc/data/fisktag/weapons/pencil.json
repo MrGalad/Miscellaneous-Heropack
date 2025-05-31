@@ -1,0 +1,7 @@
+{
+  "name": "#2 Pencil",
+  "holdingPose": "SINGLE",
+  "melee": {
+    "attackDamage": 5
+  }
+}

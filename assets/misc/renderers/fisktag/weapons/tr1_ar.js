@@ -1,6 +1,6 @@
 loadTextures({
-    "base":       "misc:benelli_m4",
-    "crosshair":  "fisktag:crosshairs/shotgun"
+    "base":       "misc:tr1_ar",
+    "crosshair":  "fisktag:crosshairs/rifle"
 });
 
 var utils = implement("fisktag:external/utils");
@@ -10,8 +10,8 @@ var model;
 var cancelAnimations = false;
 
 function init(renderer) {
-    model = utils.createModel(renderer, "misc:benelli_m4", "base");
-    model.bindAnimation("misc:john/hk_p30l_reload").setData((entity, data) => {
+    model = utils.createModel(renderer, "misc:tr1_ar", "base");
+    model.bindAnimation("misc:john/tr1_ar_slide").setData((entity, data) => {
         if (cancelAnimations) {
             data.load(0, 0);
             data.load(1, 0);
@@ -22,7 +22,7 @@ function init(renderer) {
     });
     renderer.setModel(model);	
 
-    utils.addPlayerAnimation(renderer, "misc:john/benelli_m4_reload")
+    utils.addPlayerAnimation(renderer, "misc:john/tr1_ar_reload")
     .setData((entity, data) => {
         data.load(0, entity.getInterpolatedData("fiskheroes:reload_timer"));
     });
@@ -36,7 +36,7 @@ function init(renderer) {
     ], 3, 4, 3.33);
     
     utils.bindScopedBeam(renderer, "misc:bullet", 0xFFA03A, [
-        { "firstPerson": [-5.0, 2.0, -18.0], "offset": [-3, 19, -16], "size": [1.0, 1.0] }
+        { "firstPerson": [-5.0, 1.0, -18.0], "offset": [-3, 18, -18], "size": [1.0, 1.0] }
     ], [4.0, -1.0, -2.0]);
 }
 
