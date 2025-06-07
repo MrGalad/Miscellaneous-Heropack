@@ -31,6 +31,11 @@
     "amount": 30,
     "reloadTime": 30
   },
+   "scope": {
+    "zoom": 1.0,
+    "allowHeadshots": true,
+    "headshotDamageBonus": 2
+  },
   "projectiles": [
     {
       "type": "BEAM",

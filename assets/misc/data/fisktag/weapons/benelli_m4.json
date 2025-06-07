@@ -3,7 +3,7 @@
   "permission": "USE_GUN",
   "holdingPose": "DOUBLE",
   "isHidden": false,
-  "cooldown": 10,
+  "cooldown": 15,
   "damageProfile": {
     "damage": 1,
     "types": {
