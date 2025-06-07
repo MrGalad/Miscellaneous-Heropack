@@ -1,0 +1,45 @@
+{
+  "name": "Taran Tactical Innovations TR-1 Ultralight",
+  "permission": "USE_GUN",
+  "holdingPose": "DOUBLE",
+  "isHidden": false,
+  "cooldown": 2,
+  "damageProfile": {
+    "damage": 3,
+    "types": {
+      "BULLET": 1.0
+    },
+    "properties": {
+      "HIT_COOLDOWN": 0,
+      "REDUCE_KNOCKBACK": 0.75
+    }
+  },
+  "fisktag": {
+    "sprintShootDelay": 8,
+    "sprintDelay": 6
+  },
+  "spread": {
+    "sprintingFactor": 1.5,
+    "fallingFactor": 1.6,
+    "scopingFactor": 0.7
+  },
+  "recoil": {
+    "amount": 1.0,
+    "cameraShake": 3.0
+  },
+  "ammo": {
+    "amount": 30,
+    "reloadTime": 30
+  },
+  "projectiles": [
+    {
+      "type": "BEAM",
+      "amount": 1,
+      "spread": 1,
+      "trail": 1
+    }
+  ],
+  "soundEvents": {
+    "SHOOT": "misc:tr1_ar"
+  }
+}

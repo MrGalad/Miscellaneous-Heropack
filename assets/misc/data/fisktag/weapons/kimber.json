@@ -1,0 +1,39 @@
+{
+  "name": "Kimber Super Carry Custom",
+  "permission": "USE_GUN",
+  "holdingPose": "SINGLE",
+  "cooldown": 5,
+  "damageProfile": {
+    "damage": 4.5,
+    "types": {
+      "BULLET": 1.0
+    }
+  },
+  "scope": {
+    "zoom": 0.4
+  },
+  "ammo": {
+    "amount": 8,
+    "reloadTime": 30
+  },
+  "spread": {
+    "sprintingFactor": 1.3,
+    "fallingFactor": 1.1,
+    "scopingFactor": 0.7
+  },
+  "recoil": {
+    "amount": 0.6,
+    "cameraShake": 0.8
+  },
+  "projectiles": [
+    {
+      "type": "BEAM",
+      "spread": 1.5,
+      "speed": 15.0,
+      "trail": 1
+    }
+  ],
+  "soundEvents": {
+    "SHOOT": "misc:kimber"
+  }
+}

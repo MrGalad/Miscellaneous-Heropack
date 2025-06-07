@@ -1,0 +1,10 @@
+{tr1_ar_reload_time}={data_0}
+{tr1_ar_reload_0}=curve animate2({tr1_ar_reload_time},0.4,0.3333333333333333,0.1666666667,0.2333333333)
+{tr1_ar_reload_1}=curve animate2({tr1_ar_reload_time},0.6666666667,0,0.1666666667,0.5)
+{tr1_ar_reload_2}=curve animate2({tr1_ar_reload_time},0.5666666667,0.16666666666666666,0.5,0.0666666667)
+
+{leftArm_rotX}+=54.8836273373'{tr1_ar_reload_0}
+{leftArm_rotY}+=-60.3696654971'{tr1_ar_reload_0}
+{leftArm_rotZ}+=-16.9509203045'{tr1_ar_reload_0}
+{leftArm_posY}+=1{tr1_ar_reload_1}
+{leftArm_posY}+=1{tr1_ar_reload_2}

@@ -1,0 +1,4 @@
+{kimber_reload_time}={data_0}
+{kimber_reload_0}=curve animate2({kimber_reload_time},1,0,0.5,0.5)
+
+{slide_posZ}+=2{kimber_reload_0}

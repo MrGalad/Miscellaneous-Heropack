@@ -1,0 +1,50 @@
+{fix}= curve animate2({data},1,0,0.05,0.15)
+{rightArm_rotX} @ {fix} -> 0'
+
+{leftArm_rotX} @ {fix} -> 0'
+
+{reload_time}={data} 
+{reload_0}=curve animate2({reload_time},0.2794117647,0,0.1838235294,0.0955882353)
+{reload_1}=curve animate2({reload_time},0.1838235294,0.1838235294117647,0.0955882353,0.0882352941)
+{reload_2}=curve animate2({reload_time},0.2352941176,0.27941176470588236,0.0882352941,0.1470588235)
+{reload_3}=curve animate2({reload_time},0.2205882353,0.3676470588235294,0.1470588235,0.0735294118)
+{reload_4}=curve animate2({reload_time},0.1544117647,0.5147058823529411,0.0735294118,0.0808823529)
+{reload_5}=curve animate2({reload_time},0.4044117647,0.5882352941176471,0.0808823529,0.3235294118)
+{reload_6}=curve animate2({reload_time},0.3676470588,0,0.1838235294,0.1838235294)
+{reload_7}=curve animate2({reload_time},0.3382352941,0.1838235294117647,0.1838235294,0.1544117647)
+{reload_8}=curve animate2({reload_time},0.3455882353,0.3676470588235294,0.1544117647,0.1911764706)
+{reload_9}=curve animate2({reload_time},0.4705882353,0.5220588235294117,0.1911764706,0.2794117647)
+{reload_10}=curve animate2({reload_time},0.8455882353,0,0.0514705882,0.7941176471)
+{reload_11}=curve animate2({reload_time},0.9411764706,0.05147058823529412,0.7941176471,0.1470588235)
+
+{leftArm_rotX}+=-20.1132539033'{reload_0}
+{leftArm_rotY}+=22.6186260739'{reload_0}
+{leftArm_rotZ}+=29.5532942976'{reload_0}
+{leftArm_rotX}+=-25.1132539033'{reload_1}
+{leftArm_rotY}+=22.6186260739'{reload_1}
+{leftArm_rotZ}+=29.5532942976'{reload_1}
+{leftArm_rotX}+=-20.1132539033'{reload_2}
+{leftArm_rotY}+=22.6186260739'{reload_2}
+{leftArm_rotZ}+=29.5532942976'{reload_2}
+{leftArm_rotX}+=-79.6559756871'{reload_3}
+{leftArm_rotY}+=44.0423217933'{reload_3}
+{leftArm_rotZ}+=-29.3811064062'{reload_3}
+{leftArm_rotX}+=-87.1559756871'{reload_4}
+{leftArm_rotY}+=44.0423217933'{reload_4}
+{leftArm_rotZ}+=-29.3811064062'{reload_4}
+{leftArm_rotX}+=-79.6559756871'{reload_5}
+{leftArm_rotY}+=44.0423217933'{reload_5}
+{leftArm_rotZ}+=-29.3811064062'{reload_5}
+
+{rightArm_rotX}+=-25.7893164613'{reload_6}
+{rightArm_rotY}+=-1.3168739721'{reload_6}
+{rightArm_rotZ}+=-29.4536303167'{reload_6}
+{rightArm_rotX}+=-25.6981179724'{reload_7}
+{rightArm_rotY}+=-0.7313978771'{reload_7}
+{rightArm_rotZ}+=-30.1824639884'{reload_7}
+{rightArm_rotX}+=-32.8707337754'{reload_8}
+{rightArm_rotY}+=-33.1358547759'{reload_8}
+{rightArm_rotZ}+=8.8608924507'{reload_8}
+{rightArm_rotX}+=-32.8707337754'{reload_9}
+{rightArm_rotY}+=-33.1358547759'{reload_9}
+{rightArm_rotZ}+=8.8608924507'{reload_9}

@@ -1,0 +1,6 @@
+{
+  "parent": "fiskheroes:sound_base",
+  "sound": "misc:main.benelli_m4",
+  "pitch": "0.8 + Math.random() * 0.2",
+  "fadeOut": 20
+}
