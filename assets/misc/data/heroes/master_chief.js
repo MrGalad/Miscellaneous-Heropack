@@ -139,7 +139,7 @@ function isKeyBindEnabled(entity, keyBind) {
             case "SHADOWDOME":
             return entity.isSneaking() && entity.getData("misc:dyn/mob_timer") == 0 && entity.getData("misc:dyn/cortana");
             case "RUNN":
-            return entity.isSneaking() && !entity.getData("misc:dyn/float_interp1")
+            return entity.isSneaking() && !entity.getData("misc:dyn/float_interp1") && entity.getData("misc:dyn/cortana");
         default:
             return true;
     }
