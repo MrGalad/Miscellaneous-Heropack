@@ -1,3 +1,8 @@
+### Miscellaneous Heropack 3.3.1 ###
+
+- Fixed 'Run Diagnostics' appearing when Cortana isn't on
+
+
 ### Miscellaneous Heropack 3.3 ###
 
 - Added Eren Yeager suit
