@@ -2,7 +2,7 @@ extend("misc:black_adam");
 loadTextures({
     "layer1": "misc:adam/adam_suit_cape",
     "layer2": "misc:adam/adam_suit_cape",
-    "lights": "misc:adam/adam_light",
+    "lights": "misc:adam/black_adam_light",
     "charge": "misc:adam/adam_lightning",
     "harley": "misc:adam/1harleyeyes",
     "cape": "misc:adam/adam_cape",
