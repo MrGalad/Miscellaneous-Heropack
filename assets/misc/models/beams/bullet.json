@@ -10,8 +10,8 @@
         "size": 0.1
       },
       "bloom": {
-        "strength": 1,
-        "spread": 5,
+        "strength": 0.5,
+        "spread": 1.5,
         "dropoff": 3.0,
         "quality": 1.0,
         "scaleToSize": false
