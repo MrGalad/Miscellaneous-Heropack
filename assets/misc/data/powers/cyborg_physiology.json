@@ -3,21 +3,21 @@
     "modifiers": {
         "fiskheroes:heat_vision": {
             "damageProfile": {
-              "damage": 5.0,
-              "types": {
-                "KRYPTONITE": 4
-              },
-              "properties": {
-                "COOK_ENTITY": true,
-                "HEAT_TRANSFER": 140
-              }
+                "damage": 5.0,
+                "types": {
+                    "KRYPTONITE": 4
+                },
+                "properties": {
+                    "COOK_ENTITY": true,
+                    "HEAT_TRANSFER": 140
+                }
             },
             "range": 32.0,
             "radius": 0.0,
             "soundEvents": {
-              "BEAM_AMBIENT": "fiskheroes:heat_vision"
+                "BEAM_AMBIENT": "fiskheroes:heat_vision"
             }
-          },
+        },
         "fiskheroes:charged_beam": {
             "damageProfile": {
                 "damage": 7.0,
@@ -35,15 +35,18 @@
             "range": 32.0,
             "radius": 0.1,
             "soundEvents": {
-        "SHOOT": "fiskheroes:manta_beam_start",
-        "SHOOT_STOP": "fiskheroes:manta_beam_stop",
-        "BEAM_AMBIENT": "fiskheroes:manta_beam_loop",
-        "CHARGE": "fiskheroes:manta_beam_charge"
-      }
+                "SHOOT": "fiskheroes:manta_beam_start",
+                "SHOOT_STOP": "fiskheroes:manta_beam_stop",
+                "BEAM_AMBIENT": "fiskheroes:manta_beam_loop",
+                "CHARGE": "fiskheroes:manta_beam_charge"
+            }
         },
         "fiskheroes:metal_skin": {},
         "fiskheroes:leaping": {
-            "leapAmount": [1.5, 0.2]
+            "leapAmount": [
+                1.5,
+                0.2
+            ]
         },
         "fiskheroes:damage_immunity": {
             "damageType": "BULLET"
@@ -75,13 +78,19 @@
         "fiskheroes:projectile_immunity": {},
         "fiskheroes:damage_immunity|Explosion": {
             "damageType": "EXPLOSION"
+        },
+        "fiskheroes:blade": {
+            "soundEvents": {
+                "ENABLE": "fiskheroes:agent_liberty_blade_enable",
+                "DISABLE": "fiskheroes:agent_liberty_blade_disable"
+            }
         }
     },
     "hud": [
         {
-          "type": "CIRCLE",
-          "color": "fiskheroes:charged_beam",
-          "data": "fiskheroes:beam_charge"
+            "type": "CIRCLE",
+            "color": "fiskheroes:charged_beam",
+            "data": "fiskheroes:beam_charge"
         }
-      ]
+    ]
 }

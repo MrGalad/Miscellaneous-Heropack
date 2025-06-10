@@ -16,14 +16,45 @@ function init(hero) {
 
     hero.addKeyBind("HEAT_VISION", "Optic Blast", 1);
     hero.addKeyBind("CHARGED_BEAM", "Kryptonite Energy Blast", 2);
+    hero.addKeyBind("BLADE", "Toggle Chainsaw & Hammer", 3);
+
+    hero.addDamageProfile("BLADE", {
+        "types": {
+            "SHARP": 0.5,
+            "BLUNT": 0.5,
+        }
+    });
+    hero.addAttributeProfile("BLADE", bladeProfile);
+    hero.setAttributeProfile(getProfile);
+    hero.setDamageProfile(getProfile);
 
     hero.setKeyBindEnabled((entity, keyBind) => {
         switch (keyBind) {
             case "HEAT_VISION":
                 return !entity.getData("fiskheroes:beam_charging");
-                case "CHARGED_BEAM":
-                    return !entity.getData("fiskheroes:heat_vision")
+            case "CHARGED_BEAM":
+                return !entity.getData("fiskheroes:heat_vision")
+            default:
+                return true;
         }
-        return true
-    })
+    });
+    hero.setTickHandler(tick);
+}
+function getProfile(entity) {
+    return entity.getData("fiskheroes:blade") ? "BLADE" : null
+}
+
+function bladeProfile(profile) {
+    profile.inheritDefaults();
+    profile.addAttribute("PUNCH_DAMAGE", 10, 0);
+}
+
+function tick(entity, manager) {
+    manager.incrementData(entity, "misc:dyn/float_interp", 2, !entity.getData("misc:dyn/boolean"));
+    if(entity.getData("misc:dyn/float_interp") >= 1){
+        manager.setData(entity, "misc:dyn/boolean", true);
+    }
+    else if(entity.getData("misc:dyn/float_interp") <= 0){
+        manager.setData(entity, "misc:dyn/boolean", false);
+    }
 }
