@@ -1,0 +1,48 @@
+{
+  "name": "MJOLNIR Powered Assault Armor",
+  "modifiers": {
+    "fiskheroes:transformation|night": {
+      "key": "NIGHT_VISION",
+      "transformation": {
+        "toggleData": "misc:dyn/nv",
+        "timerData": "misc:dyn/nv_timer",
+        "time": 13
+      },
+      "soundEvents": {
+        "ENABLE": "fiskheroes:utility_belt_switch",
+        "DISABLE": "fiskheroes:utility_belt_switch"
+      }
+    },
+     "fiskheroes:transformation": {
+        "key": "NANITE_TRANSFORM",
+        "transformation": {
+          "toggleData": "misc:dyn/solar",
+          "timerData": "misc:dyn/solar_timer",
+          "time": 150
+        },
+        "soundEvents": {
+          "ENABLE": "fiskheroes:flame_on",
+          "DISABLE": "fiskheroes:flame_off"
+        }
+      },
+       "fiskheroes:energy_projection": {
+      "damageProfile": {
+        "damage": 5,
+        "types": {
+          "ENERGY": 1.0
+        },
+        "properties": {
+          "COOK_ENTITY": true,
+          "HEAT_TRANSFER": 20
+        }
+      },
+      "range": 15.0,
+      "radius": 0.1,
+      "soundEvents": {
+        "SHOOT": "fiskheroes:mysterio_beam_start",
+        "SHOOT_STOP": "fiskheroes:mysterio_beam_stop",
+        "BEAM_AMBIENT": "fiskheroes:mysterio_beam_loop"
+      }
+    }
+  }
+}

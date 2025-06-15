@@ -26,7 +26,8 @@ function isKeyBindEnabled(entity, keyBind) {
     switch (keyBind) {
         case "GUN_RELOAD":
         return (entity.getHeldItem().isGun() || (entity.getHeldItem().name() == "fisktag:weapon" && !entity.getHeldItem().isWeapon())) && !entity.getData("fiskheroes:aiming");
-        default: return true;
+        default: 
+        return true;
     }
 } 
 

@@ -1,0 +1,58 @@
+{shadow_equip_time}={data}
+{shadow_equip_0}=curve animate2({shadow_equip_time},0.2375,0.05,0.1125,0.125)
+{shadow_equip_1}=curve animate2({shadow_equip_time},0.525,0.1625,0.125,0.4)
+{shadow_equip_2}=curve animate2({shadow_equip_time},0.5875,0.2875,0.4,0.1875)
+{shadow_equip_3}=curve animate2({shadow_equip_time},0.2625,0.05,0.1375,0.125)
+{shadow_equip_4}=curve animate2({shadow_equip_time},0.5,0.1875,0.125,0.375)
+{shadow_equip_5}=curve animate2({shadow_equip_time},0.3125,0.6875,0.1875,0.125)
+
+{head_rotX}+=-52.5'{shadow_equip_0}
+{head_rotX}+=-52.5'{shadow_equip_1}
+{head_rotX}+=-32.5'{shadow_equip_2}
+{head_posY}+=35{shadow_equip_3}
+{head_posY}+=35{shadow_equip_4}
+
+{body_posY}+=35{shadow_equip_3}
+{body_posY}+=35{shadow_equip_4}
+
+{leftArm_rotX}+=-177.5'{shadow_equip_0}
+{leftArm_rotY}+=-20'{shadow_equip_0}
+{leftArm_rotZ}+=12.5'{shadow_equip_0}
+{leftArm_rotX}+=-177.5'{shadow_equip_1}
+{leftArm_rotY}+=-20'{shadow_equip_1}
+{leftArm_rotZ}+=12.5'{shadow_equip_1}
+{leftArm_rotX}+=-177.5'{shadow_equip_2}
+{leftArm_rotZ}+=67.5'{shadow_equip_2}
+{leftArm_rotX}+=-177.5'{shadow_equip_5}
+{leftArm_rotZ}+=67.5'{shadow_equip_5}
+{leftArm_posY}+=35{shadow_equip_3}
+{leftArm_posY}+=35{shadow_equip_4}
+
+{rightArm_rotX}+=-180'{shadow_equip_0}
+{rightArm_rotY}+=20'{shadow_equip_0}
+{rightArm_rotZ}+=-17.5'{shadow_equip_0}
+{rightArm_rotX}+=-180'{shadow_equip_1}
+{rightArm_rotY}+=20'{shadow_equip_1}
+{rightArm_rotZ}+=-17.5'{shadow_equip_1}
+{rightArm_rotX}+=-167.5'{shadow_equip_2}
+{rightArm_rotZ}+=-60'{shadow_equip_2}
+{rightArm_rotX}+=-167.5'{shadow_equip_5}
+{rightArm_rotZ}+=-60'{shadow_equip_5}
+{rightArm_posY}+=35{shadow_equip_3}
+{rightArm_posY}+=35{shadow_equip_4}
+
+{leftLeg_rotX}+=1.3378029844'{shadow_equip_0}
+{leftLeg_rotY}+=-14.9415876115'{shadow_equip_0}
+{leftLeg_rotZ}+=-5.1754392272'{shadow_equip_0}
+{leftLeg_rotX}+=1.3378029844'{shadow_equip_1}
+{leftLeg_rotY}+=-14.9415876115'{shadow_equip_1}
+{leftLeg_rotZ}+=-5.1754392272'{shadow_equip_1}
+{leftLeg_posY}+=35{shadow_equip_3}
+{leftLeg_posY}+=35{shadow_equip_4}
+
+{rightLeg_rotY}+=25'{shadow_equip_0}
+{rightLeg_rotZ}+=10'{shadow_equip_0}
+{rightLeg_rotY}+=25'{shadow_equip_1}
+{rightLeg_rotZ}+=10'{shadow_equip_1}
+{rightLeg_posY}+=35{shadow_equip_3}
+{rightLeg_posY}+=35{shadow_equip_4}
