@@ -6,7 +6,8 @@ function init(hero) {
     hero.setChestplate("item.superhero_armor.piece.jacket");
     hero.setLeggings("item.superhero_armor.piece.pants");
     hero.setBoots("item.superhero_armor.piece.boots");
-    
+    hero.addPrimaryEquipment("fisktag:weapon{WeaponType:misc:benelli_m4}", true, item => item.nbt().getString("WeaponType") == 'misc:benelli_m4');
+
     hero.addAttribute("PUNCH_DAMAGE", 6, 0);
     hero.addAttribute("WEAPON_DAMAGE", 4, 0);
     hero.addAttribute("JUMP_HEIGHT", 0.6, 0);
