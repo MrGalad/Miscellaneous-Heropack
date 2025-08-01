@@ -1,0 +1,40 @@
+{
+    "name": "Barrett M82",
+    "permission": "USE_GUN",
+    "holdingPose": "DOUBLE",
+    "cooldown": 50,
+    "damageProfile": {
+        "damage": 10,
+        "types": {
+            "BULLET": 1.0
+        },
+        "properties": {
+            "HIT_COOLDOWN": 0,
+            "REDUCE_KNOCKBACK": 0.75
+        }
+    },
+    "spread": {
+        "sprintingFactor": 1.5,
+        "fallingFactor": 1.6,
+        "scopingFactor": 0.7
+    },
+    "recoil": {
+        "amount": 2.0,
+        "cameraShake": 6.0
+    },
+    "ammo": {
+        "amount": 10,
+        "reloadTime": 30
+    },
+    "projectiles": [
+        {
+            "type": "BEAM",
+            "spread": 1.5,
+            "speed": 15.0,
+            "trail": 1
+        }
+    ],
+    "soundEvents": {
+        "SHOOT": "misc:benelli_m4"
+    }
+}
