@@ -3,7 +3,7 @@
     "modifiers": {
       "fiskheroes:cooldown": {
         "cooldown": {
-            "toggleData": " entity.isOnGround() && entity.motionY() == 0 && entity.motionX() == 0 && entity.motionZ() == 0 &&  entity.getHeldItem().nbt().getString('WeaponType') == 'misc:staff'",
+            "toggleData": "entity.isOnGround() && entity.motionY() == 0 && entity.motionX() == 0 && entity.motionZ() == 0 &&  entity.getHeldItem().nbt().getString('WeaponType') == 'misc:staff' && !entity.isSneaking()",
             "cooldownData": "misc:dyn/power_charge",
             "duration": 50,
             "recovery": 50

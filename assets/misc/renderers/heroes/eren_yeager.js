@@ -61,7 +61,7 @@ function initAnimations(renderer) {
   addAnimation(renderer, "eren.BITE", "misc:bite")
     .setData((entity, data) => {
       data.load(entity.getInterpolatedData("misc:dyn/float_interp"));
-    }).priority = 8
+    }).setCondition(entity => entity.getData("misc:dyn/boolean")).priority = 8
   addAnimation(renderer, "eren.BLADE", "misc:eren_blade")
     .setData((entity, data) => {
       data.load(entity.getInterpolatedData("misc:dyn/float_interp3"));
@@ -70,7 +70,7 @@ function initAnimations(renderer) {
   addAnimation(renderer, "eren.TITAN", "misc:eren_yeager_titan_animation")
     .setData((entity, data) => {
       data.load(entity.getInterpolatedData("misc:dyn/float_interp2"));
-    }).priority = -8
+    }).setCondition(entity => entity.getData("misc:dyn/boolean1")).priority = -8
 
   addAnimation(renderer, "eren.PUNCH", "misc:dual_punch")
     .setData((entity, data) => {
@@ -85,6 +85,7 @@ function initAnimations(renderer) {
   addAnimation(renderer, "eren.BOOST", "misc:odm_dive")
     .setData((entity, data) => {
       data.load(entity.getInterpolatedData("misc:dyn/eren_boost_timer") && entity.isSprinting());
+      data.load(1, entity.getInterpolatedData("fiskheroes:flight_boost_timer"));
     }).priority = 10;
 
   //addAnimation(renderer, "eren.ARM", "misc:eren_zip")
