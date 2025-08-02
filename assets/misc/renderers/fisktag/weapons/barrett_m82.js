@@ -1,13 +1,14 @@
 loadTextures({
-    "base":       "misc:barrett_m82",
-    "crosshair":  "fisktag:crosshairs/sniper",
-    "scope":       "misc:barrett_scope",
-    
+    "base": "misc:barrett_m82",
+    "crosshair": "fisktag:crosshairs/sniper",
+    "scope": "misc:barrett_scope",
+
 });
 
 var utils = implement("fisktag:external/utils");
 
 var model;
+var scope;
 
 var cancelAnimations = false;
 
@@ -23,12 +24,13 @@ function init(renderer) {
         data.load(1, entity.getInterpolatedData("fiskheroes:weapon_animation_timer"));
     });
     renderer.setModel(model);
-    
+    scope = renderer.bindOverlay();
+
     utils.addPlayerAnimation(renderer, "misc:john/tr1_ar_reload")
-    .setData((entity, data) => {
-        data.load(0, entity.getInterpolatedData("fiskheroes:reload_timer"));
-    });
-    
+        .setData((entity, data) => {
+            data.load(0, entity.getInterpolatedData("fiskheroes:reload_timer"));
+        });
+
     utils.makeDilatingCrosshair(renderer, "crosshair", 22, 18, [
         { "pos": [9, 7], "size": [5, 5] }, // Center
         { "pos": [1, 7], "size": [8, 5], "axis": [-1, 0] }, // Left
@@ -36,7 +38,7 @@ function init(renderer) {
         { "pos": [9, 1], "size": [5, 6], "axis": [0, -1] }, // Top
         { "pos": [9, 12], "size": [5, 6], "axis": [0, 1] } // Bottom
     ], 18, 18);
-    
+
     utils.bindScopedBeam(renderer, "misc:bullet", 0xFFA03A, [
         { "firstPerson": [-5.0, 1.0, -18.0], "offset": [-3, 18, -18], "size": [1.0, 1.0] }
     ], [4.0, -1.0, -2.0]);
@@ -44,17 +46,23 @@ function init(renderer) {
 
 function render(renderer, entity, glProxy, renderType, scopeTimer, recoil, isLeftSide) {
     cancelAnimations = false;
-    
+
+    if (renderType == "HUD") {
+        scope.texture.set("scope");
+        scope.opacity = scopeTimer * scopeTimer * scopeTimer;
+        renderer.crosshair.opacity = 1 - scope.opacity;
+    }
+
     if (renderType === "EQUIPPED" || renderType === "EQUIPPED_FIRST_PERSON") {
         cancelAnimations = false;
         if (renderType === "EQUIPPED_FIRST_PERSON") {
-            var reload = Math.sin(Math.PI*entity.getInterpolatedData("fiskheroes:reload_timer"))
-            glProxy.translate(0.05, -0.05+1*reload, 0);
-            
+            var reload = Math.sin(Math.PI * entity.getInterpolatedData("fiskheroes:reload_timer"))
+            glProxy.translate(0.05, -0.05 + 1 * reload, 0);
+
             var f = 1 - scopeTimer * 0.4;
             recoil *= 0.3;
             glProxy.rotate(-recoil * (20 - scopeTimer * 7), 1, 0, 0);
-            glProxy.translate(-0.05*scopeTimer, -0.65*scopeTimer * -0.125, scopeTimer * 0.2);
+            glProxy.translate(-0.05 * scopeTimer, -15 * scopeTimer * -0.125, scopeTimer * 0.2);
             glProxy.translate(0.02 * recoil * (1 - scopeTimer), -0.04 * recoil * f, (Math.sin(recoil * Math.PI) * 0.1) * f);
         }
     }
@@ -64,9 +72,9 @@ function render(renderer, entity, glProxy, renderType, scopeTimer, recoil, isLef
     else if (renderType === "ENTITY" || renderType === "INVENTORY") {
         cancelAnimations = true;
     }
-    
+
     glProxy.scale(1.2);
-    
-    
-    
+
+
+
 }

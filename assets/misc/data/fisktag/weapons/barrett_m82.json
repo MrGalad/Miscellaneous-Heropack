@@ -13,6 +13,11 @@
             "REDUCE_KNOCKBACK": 0.75
         }
     },
+  "scope": {
+    "zoom": 1.2,
+    "allowHeadshots": true,
+    "headshotDamageBonus": 1
+  },
     "spread": {
         "sprintingFactor": 1.5,
         "fallingFactor": 1.6,
