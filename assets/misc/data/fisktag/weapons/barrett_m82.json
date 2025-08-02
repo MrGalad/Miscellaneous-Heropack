@@ -35,6 +35,6 @@
         }
     ],
     "soundEvents": {
-        "SHOOT": "misc:benelli_m4"
+        "SHOOT": "misc:sniper"
     }
 }

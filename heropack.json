@@ -18,6 +18,14 @@
         "distance": 32.0,
         "sendToAll": true
       },
+      "revolver": {
+        "distance": 32.0,
+        "sendToAll": true
+      },
+      "sniper": {
+        "distance": 32.0,
+        "sendToAll": true
+      },
       "benelli_m4": {
         "distance": 32.0,
         "sendToAll": true
