@@ -312,7 +312,7 @@ function isKeyBindEnabled(entity, keyBind) {
         case "CHARGED_BEAM":
             return stones[data] == "mind" && nbt.getBoolean("mind");
         case "SNAP":
-          return kebindstone(entity, "power") && kebindstone(entity, "space") && kebindstone(entity, "reality") && kebindstone(entity, "soul") && kebindstone(entity, "time") && kebindstone(entity, "mind");
+          return kebindstone(entity, "power") && kebindstone(entity, "space") && kebindstone(entity, "reality") && kebindstone(entity, "soul") && kebindstone(entity, "time") && kebindstone(entity, "mind") && entity.getData("misc:dyn/snap_timer") == 0;
     } return true
 }
 

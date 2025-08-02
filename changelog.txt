@@ -1,7 +1,12 @@
-### Miscellaneous Heropack 3.3.1 ###
+### Miscellaneous Heropack 3.4 ###
+- Added John Wick suit
+- Added Punisher suit
 
 - Fixed 'Run Diagnostics' appearing when Cortana isn't on
+- Fixed Black Adam not being weaker when having Eternium Affection
+- Other bug fixes
 
+- Decreased the factor of sound weakness for Invincible
 
 ### Miscellaneous Heropack 3.3 ###
 

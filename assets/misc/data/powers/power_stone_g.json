@@ -1,20 +1,20 @@
 {
-    "name": "Power Stone",
-    "modifiers": {
-        "fiskheroes:charged_punch": {
-            "chargeTime": 20,
-            "isToggle": true
-        },
-        "fiskheroes:transformation|snap": {
-            "key": "SNAP",
-            "transformation": {
-              "toggleData": "misc:dyn/snap",
-              "timerData": "misc:dyn/snap_timer",
-              "time": 100
-            },
-            "soundEvents": {
-              "ENABLE": "misc:snap"
-            }
-          }
+  "name": "Power Stone",
+  "modifiers": {
+    "fiskheroes:charged_punch": {
+      "chargeTime": 20,
+      "isToggle": true
+    },
+    "fiskheroes:transformation|snap": {
+      "key": "SNAP",
+      "transformation": {
+        "toggleData": "misc:dyn/snap",
+        "timerData": "misc:dyn/snap_timer",
+        "time": 100
+      },
+      "soundEvents": {
+        "ENABLE": "misc:snap"
+      }
     }
+  }
 }

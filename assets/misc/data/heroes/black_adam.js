@@ -26,6 +26,8 @@ function init(hero) {
     hero.setKeyBindEnabled(isKeyBindEnabled);
     hero.setModifierEnabled(isModifierEnabled);
     hero.addAttributeProfile("INACTIVE", inactiveProfile);
+    hero.addAttributeProfile("ETERNIUM", ete)
+
     hero.setDefaultScale(1.1);
     hero.setTickHandler((entity, manager) => {
         burst(hero, entity)
@@ -39,26 +41,35 @@ function burst(hero, entity) {
 
         for (var i = 0; i < list.size(); ++i) {
             var other = list.get(i);
-            if (other.isLivingEntity() && !entity.equals(other)) { 
+            if (other.isLivingEntity() && !entity.equals(other)) {
                 other.hurtByAttacker(hero, "ELEC", "%s was electrecuted", 5, entity);
             }
         }
     }
 }
 
+
 function inactiveProfile(profile) {
     profile.revokeAugments();
 }
+function ete(profile) {
+    profile.inheritDefaults();
+    profile.addAttribute("PUNCH_DAMAGE", 6.5, 0);
+    profile.addAttribute("SPRINT_SPEED", 0.2, 1);
+    profile.addAttribute("FALL_RESISTANCE", 0.2, 1);
+}
 
 function getProfile(entity) {
-    if (!entity.getData("misc:dyn/shazam_timer") > 0.5) {
+    if (entity.getData("misc:dyn/shazam_timer") < 0.5) {
         return "INACTIVE";
+    } if (entity.hasStatusEffect("fiskheroes:eternium")) {
+        return "ETERNIUM";
     }
-    return null;
+    return true;
 }
 
 function getTierOverride(entity) {
-    return entity.getData("misc:dyn/shazam_timer") > 0.5 ? 9 : 0;
+   return entity.getData("misc:dyn/shazam_timer") > 0.5 ? 9 : 0;
 }
 
 function isModifierEnabled(entity, modifier) {

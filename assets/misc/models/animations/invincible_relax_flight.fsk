@@ -1,25 +1,29 @@
-{x} = min({vel}, 1){data_1}{d1}{d} / 2.5
-{head_rotX} += 20'
+{data_1} = curve min(animate({data_1}, 1.0, 0.0), 1)
 
-{rightArm_rotX} += -220'
-{rightArm_rotZ} += 50'
-{rightArm_rotY} += -3'
-{leftArm_rotX} += -220'
-{leftArm_rotZ} += -50'
-{leftArm_rotY} += -3'
+{head_rotX} @ {data_1} -> 0.5{data_1}
+{head_posZ} @ {data_1} -> -1{data_1}
+{head_rotY} @ {data_1} -> -0.3 - 0.3{data_1}
 
-{leftLeg_posZ} += -1.5
-{leftLeg_posX} += 1.5
-{leftLeg_rotZ} += 1
+{rightArm_rotX} @ {data_1} -> -200'
+{rightArm_rotY} @ {data_1} -'> -0.3
+{rightArm_rotZ} @ {data_1} -> 0.5
+
+{leftArm_rotX} @ {data_1} -> -200'
+{leftArm_rotY} @ {data_1} -> -0.3
+{leftArm_rotZ} @ {data_1} -> -0.5
+
+{rightLeg_rotX} @ {data_1} -> -0.4 + 0.2{data_1}
+{leftLeg_rotX} @ {data_1} -> -0.1 + 0.2{data_1}
 
 
+{rightLeg_rotX} @ {data_1} -> 0 + 0.1{data_1}
+{leftLeg_rotX} @ {data_1} -> -0.6 + 0.2{data_1}
+{leftLeg_rotZ} @ {data_1} -> 0.2 + 0.2{data_1}
 
-{d} *= {data_1} / 1'
-{x} = min({vel} / 2, 1) / 2
+{rightLeg_rotZ} @ {data_1} -> -0.4
+{leftLeg_rotZ} @ {data_1} -> 0.2
 
-out "rotate" (-{data_1}({pitch} + 285), 1, 0, 0)
-out "rotate" (0, 0, 1, 0)
-out "translate" (0, -0.8{data_1}, 0)
-out "rotate" ({0}{0}, 0, 1, 0)
-out "rotate" ({0}{0}{0}, 0, 0, 1)
-out "rotate" ({0}{0}, 1, 0, 0)
+out "pivot" (0, 0.6, 0)
+
+out "rotate" (90{data_1}, 1, 0, 0)
+out "rotate" (360{data_1}, 0, 1, 0)
