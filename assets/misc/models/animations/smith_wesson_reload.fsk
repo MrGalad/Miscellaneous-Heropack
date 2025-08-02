@@ -1,0 +1,76 @@
+{fix}= curve animate2({data},1,0,0.05,0.15)
+{rightArm_rotX} @ {fix} -> 0'
+
+{leftArm_rotX} @ {fix} -> 0'
+
+{big_iron_reload_time}={data}
+{big_iron_reload_0}=curve animate2({big_iron_reload_time},0.255,0,0.21,0.045)
+{big_iron_reload_1}=curve animate2({big_iron_reload_time},0.09,0.21,0.045,0.045)
+{big_iron_reload_2}=curve animate2({big_iron_reload_time},0.09,0.255,0.045,0.045)
+{big_iron_reload_3}=curve animate2({big_iron_reload_time},0.09,0.3,0.045,0.045)
+{big_iron_reload_4}=curve animate2({big_iron_reload_time},0.09,0.345,0.045,0.045)
+{big_iron_reload_5}=curve animate2({big_iron_reload_time},0.09,0.39,0.045,0.045)
+{big_iron_reload_6}=curve animate2({big_iron_reload_time},0.095,0.435,0.045,0.05)
+{big_iron_reload_7}=curve animate2({big_iron_reload_time},0.1,0.48,0.05,0.05)
+{big_iron_reload_8}=curve animate2({big_iron_reload_time},0.095,0.53,0.05,0.045)
+{big_iron_reload_9}=curve animate2({big_iron_reload_time},0.095,0.58,0.045,0.05)
+{big_iron_reload_10}=curve animate2({big_iron_reload_time},0.095,0.625,0.05,0.045)
+{big_iron_reload_11}=curve animate2({big_iron_reload_time},0.085,0.675,0.045,0.04)
+{big_iron_reload_12}=curve animate2({big_iron_reload_time},0.1,0.72,0.04,0.06)
+{big_iron_reload_13}=curve animate2({big_iron_reload_time},0.14,0.76,0.06,0.08)
+{big_iron_reload_14}=curve animate2({big_iron_reload_time},0.18,0.82,0.08,0.1)
+{big_iron_reload_15}=curve animate2({big_iron_reload_time},0.9,0,0.2,0.7)
+{big_iron_reload_16}=curve animate2({big_iron_reload_time},0.795,0.2,0.7,0.095)
+
+{leftArm_rotX}+=-83.5040708983'{big_iron_reload_0}
+{leftArm_rotY}+=27.6588366458'{big_iron_reload_0}
+{leftArm_rotZ}+=-47.1703862785'{big_iron_reload_0}
+{leftArm_rotX}+=-96.0040708983'{big_iron_reload_1}
+{leftArm_rotY}+=27.6588366458'{big_iron_reload_1}
+{leftArm_rotZ}+=-47.1703862785'{big_iron_reload_1}
+{leftArm_rotX}+=-83.5040708983'{big_iron_reload_2}
+{leftArm_rotY}+=27.6588366458'{big_iron_reload_2}
+{leftArm_rotZ}+=-47.1703862785'{big_iron_reload_2}
+{leftArm_rotX}+=-96.0040708983'{big_iron_reload_3}
+{leftArm_rotY}+=27.6588366458'{big_iron_reload_3}
+{leftArm_rotZ}+=-47.1703862785'{big_iron_reload_3}
+{leftArm_rotX}+=-83.5040708983'{big_iron_reload_4}
+{leftArm_rotY}+=27.6588366458'{big_iron_reload_4}
+{leftArm_rotZ}+=-47.1703862785'{big_iron_reload_4}
+{leftArm_rotX}+=-96.0040708983'{big_iron_reload_5}
+{leftArm_rotY}+=27.6588366458'{big_iron_reload_5}
+{leftArm_rotZ}+=-47.1703862785'{big_iron_reload_5}
+{leftArm_rotX}+=-83.5040708983'{big_iron_reload_6}
+{leftArm_rotY}+=27.6588366458'{big_iron_reload_6}
+{leftArm_rotZ}+=-47.1703862785'{big_iron_reload_6}
+{leftArm_rotX}+=-96.0040708983'{big_iron_reload_7}
+{leftArm_rotY}+=27.6588366458'{big_iron_reload_7}
+{leftArm_rotZ}+=-47.1703862785'{big_iron_reload_7}
+{leftArm_rotX}+=-83.5040708983'{big_iron_reload_8}
+{leftArm_rotY}+=27.6588366458'{big_iron_reload_8}
+{leftArm_rotZ}+=-47.1703862785'{big_iron_reload_8}
+{leftArm_rotX}+=-96.0040708983'{big_iron_reload_9}
+{leftArm_rotY}+=27.6588366458'{big_iron_reload_9}
+{leftArm_rotZ}+=-47.1703862785'{big_iron_reload_9}
+{leftArm_rotX}+=-83.5040708983'{big_iron_reload_10}
+{leftArm_rotY}+=27.6588366458'{big_iron_reload_10}
+{leftArm_rotZ}+=-47.1703862785'{big_iron_reload_10}
+{leftArm_rotX}+=-96.0040708983'{big_iron_reload_11}
+{leftArm_rotY}+=27.6588366458'{big_iron_reload_11}
+{leftArm_rotZ}+=-47.1703862785'{big_iron_reload_11}
+{leftArm_rotX}+=-83.5040708983'{big_iron_reload_12}
+{leftArm_rotY}+=27.6588366458'{big_iron_reload_12}
+{leftArm_rotZ}+=-47.1703862785'{big_iron_reload_12}
+{leftArm_rotX}+=-96.0040708983'{big_iron_reload_13}
+{leftArm_rotY}+=27.6588366458'{big_iron_reload_13}
+{leftArm_rotZ}+=-47.1703862785'{big_iron_reload_13}
+{leftArm_rotX}+=-108.5040708983'{big_iron_reload_14}
+{leftArm_rotY}+=27.6588366458'{big_iron_reload_14}
+{leftArm_rotZ}+=-47.1703862785'{big_iron_reload_14}
+
+{rightArm_rotX}+=-53.8487795242'{big_iron_reload_15}
+{rightArm_rotY}+=-56.5911058643'{big_iron_reload_15}
+{rightArm_rotZ}+=21.6721264023'{big_iron_reload_15}
+{rightArm_rotX}+=-53.8487795242'{big_iron_reload_16}
+{rightArm_rotY}+=-56.5911058643'{big_iron_reload_16}
+{rightArm_rotZ}+=21.6721264023'{big_iron_reload_16}
