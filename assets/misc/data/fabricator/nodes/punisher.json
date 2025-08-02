@@ -1,0 +1,10 @@
+{
+    "suit": "misc:punisher",
+    "requirements": [
+      "fiskheroes:tier4_5",
+      "fiskheroes:marksmanship",
+      "fiskheroes:ranged2",
+      "misc:misc"
+    ]
+  }
+  

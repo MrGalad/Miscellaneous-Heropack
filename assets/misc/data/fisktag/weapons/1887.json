@@ -3,7 +3,7 @@
     "permission": "USE_WINNY",
     "holdingPose": "SINGLE",
     "isHidden": true,
-    "cooldown": 1,
+    "cooldown": 20,
     "damageProfile": {
     "damage": 3,
     "types": {

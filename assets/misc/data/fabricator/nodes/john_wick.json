@@ -1,0 +1,10 @@
+{
+    "suit": "misc:john_wick",
+    "requirements": [
+      "fiskheroes:tier4_5",
+      "fiskheroes:marksmanship",
+      "fiskheroes:ranged",
+      "misc:misc"
+    ]
+  }
+  
