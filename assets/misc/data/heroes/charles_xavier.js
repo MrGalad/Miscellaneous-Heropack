@@ -35,6 +35,9 @@ function init(hero) {
         } else if (entity.getData("misc:dyn/tele_timer") < 0.8) {
             manager.setData(entity, "fiskheroes:telekinesis", false)
         }
+        var angle = entity.rotYaw() * Math.PI / 180;
+        var offset = entity.motionZ() * Math.cos(angle) - entity.motionX() * Math.sin(angle);
+        manager.setData(entity, "misc:dyn/wheel_timer", entity.getData("misc:dyn/wheel_timer") + offset);
     })
 }
 

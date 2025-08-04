@@ -4,7 +4,7 @@
     "holdingPose": "DOUBLE",
     "cooldown": 50,
     "damageProfile": {
-        "damage": 10,
+        "damage": 15,
         "types": {
             "BULLET": 1.0
         },
@@ -16,7 +16,7 @@
   "scope": {
     "zoom": 1.2,
     "allowHeadshots": true,
-    "headshotDamageBonus": 1
+    "headshotDamageBonus": 5
   },
     "spread": {
         "sprintingFactor": 1.5,

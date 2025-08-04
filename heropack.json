@@ -496,6 +496,10 @@
 "refill_timer2": {
 "type": "FLOAT_INTERP",
 "resetWithoutSuit": false
+},
+"wheel_timer": {
+"type": "FLOAT_INTERP",
+"resetWithoutSuit": false
 }
 },
 "alts": {

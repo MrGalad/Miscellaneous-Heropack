@@ -1,9 +1,15 @@
+### Miscellaneous Heropack 3.5 ###
+
+- Fixed Charles Xavier's chair wheels funky rotation
+
+
 ### Miscellaneous Heropack 3.4 ###
 - Added John Wick suit
 - Added Punisher suit
 
 - Fixed 'Run Diagnostics' appearing when Cortana isn't on
 - Fixed Black Adam not being weaker when having Eternium Affection
+- Fixed Winchester 1887 bug
 - Other bug fixes
 
 - Decreased the factor of sound weakness for Invincible

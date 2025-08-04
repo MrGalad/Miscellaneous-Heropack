@@ -2,7 +2,7 @@ extend("fiskheroes:hero_basic");
 loadTextures({
     "layer1": "misc:charles/xavier_layer1",
     "layer2": "misc:charles/xavier_layer2",
-    "chair": "misc:charles/chair"
+    "chair": "misc:charles/chair_new"
 });
 var utils = implement("fiskheroes:external/utils");
 var chair
@@ -30,9 +30,9 @@ function initEffects(renderer) {
     }
     ]);
 
-    var chairModel = renderer.createResource("MODEL", "misc:chair2");
+    var chairModel = renderer.createResource("MODEL", "misc:chair_new");
     chairModel.bindAnimation("misc:wheels").setData((entity, data) => {
-        data.load(0, entity.motion().equals(0, 0, 0) ? 0 : entity.loop(20));
+        data.load(0, entity.getInterpolatedData("misc:dyn/wheel_timer"));
     });
     chairModel.texture.set("chair");
     chair = renderer.createEffect("fiskheroes:model").setModel(chairModel);
