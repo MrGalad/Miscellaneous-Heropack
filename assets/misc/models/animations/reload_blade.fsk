@@ -1,0 +1,22 @@
+{reload_blade_time}={data}
+{reload_blade_0}=curve animate2({reload_blade_time},0.5,0,0.25,0.25)
+{reload_blade_1}=curve animate2({reload_blade_time},0.5,0.25,0.25,0.25)
+{reload_blade_2}=curve animate2({reload_blade_time},0.5,0.5,0.25,0.25)
+{reload_blade_3}=curve animate2({reload_blade_time},9.25,0.75,0.25,9)
+{reload_blade_4}=curve animate2({reload_blade_time},0.39,0,0.25,0.14)
+{reload_blade_5}=curve animate2({reload_blade_time},0.25,0.25,0.14,0.11)
+{reload_blade_6}=curve animate2({reload_blade_time},0.36,0.39,0.11,0.25)
+
+{bone_rotX}+=-87.5'{reload_blade_0}
+{bone_rotX}+=-87.5'{reload_blade_1}
+{bone_rotX}+=-227.5'{reload_blade_2}
+{bone_rotX}+=-360'{reload_blade_3}
+{bone_posY}+=4{reload_blade_4}
+{bone_posZ}+=-4{reload_blade_4}
+{bone_posY}+=7{reload_blade_5}
+{bone_posZ}+=-4{reload_blade_5}
+{bone_posY}+=4{reload_blade_6}
+{bone_posZ}+=-4{reload_blade_6}
+{bone_posX}+=4{reload_blade_2}
+
+{slide2_posZ}+=2.1{reload_blade_5}

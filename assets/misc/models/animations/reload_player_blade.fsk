@@ -1,0 +1,11 @@
+{reload_player_blade_time}={data}
+{reload_player_blade_0}=curve animate2({reload_player_blade_time},0.41,0,0.25,0.16)
+{reload_player_blade_1}=curve animate2({reload_player_blade_time},0.27,0.25,0.16,0.11)
+{reload_player_blade_2}=curve animate2({reload_player_blade_time},0.41,0.41,0.11,0.3)
+{reload_player_blade_3}=curve animate2({reload_player_blade_time},0.48,0.52,0.3,0.18)
+{reload_player_blade_4}=curve animate2({reload_player_blade_time},0.25,0.25,0.14,0.11)
+
+{rightArm_rotX}+=-82.5'{reload_player_blade_0}
+{rightArm_rotX}+=-67.5'{reload_player_blade_1}
+{rightArm_rotX}+=-82.5'{reload_player_blade_2}
+{rightArm_rotX}+=-82.5'{reload_player_blade_3}
