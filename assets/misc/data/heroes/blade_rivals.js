@@ -28,6 +28,8 @@ function init(hero) {
     
     hero.setTickHandler((entity, manager) => {
         manager.incrementData(entity, "misc:dyn/sprinting", 7, entity.isSprinting() && entity.isOnGround());
+        
+        manager.incrementData(entity, "misc:dyn/shield_timer", 3, entity.getHeldItem().nbt().getString("WeaponType") == "misc:ancestral_sword" && entity.as("PLAYER").isUsingItem());
     });
     
 }

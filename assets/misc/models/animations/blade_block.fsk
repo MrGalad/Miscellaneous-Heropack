@@ -1,0 +1,14 @@
+{block_blade_time}={data}
+{block_blade_0}=curve animate2({block_blade_time},3,0,1,2)
+
+{body_rotY}+=7.5'{block_blade_0}
+
+{leftArm_rotX}+=-67.5'{block_blade_0}
+{leftArm_rotY}+=67.5'{block_blade_0}
+{leftArm_posZ}+=-1.5{block_blade_0}
+
+{rightArm_rotX}+=-75.175273377'{block_blade_0}
+{rightArm_rotY}+=37.8417082611'{block_blade_0}
+{rightArm_rotZ}+=145.87105959'{block_blade_0}
+{rightArm_posX}+=-2.5{block_blade_0}
+{rightArm_posZ}+=-2.25{block_blade_0}

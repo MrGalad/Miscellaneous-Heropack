@@ -304,6 +304,10 @@
       "type": "FLOAT_INTERP",
       "resetWithoutSuit": true
     },
+    "shield_timer": {
+      "type": "FLOAT_INTERP",
+      "resetWithoutSuit": true
+    },
     "snap": {
       "type": "BOOLEAN",
       "resetWithoutSuit": false

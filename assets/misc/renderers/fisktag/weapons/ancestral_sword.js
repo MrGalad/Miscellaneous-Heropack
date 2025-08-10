@@ -13,6 +13,11 @@ function init(renderer) {
     model = utils.createModel(renderer, "misc:blade/blade_rivals_ancestral_sword", "base");
     renderer.setModel(model);	
     
+    utils.addPlayerAnimation(renderer, "misc:blade_block")
+    .setData((entity, data) => {
+        data.load(0, entity.getInterpolatedData("misc:dyn/shield_timer"));
+    })
+    
 }
 
 function render(renderer, entity, glProxy, renderType, scopeTimer, recoil, isLeftSide) {

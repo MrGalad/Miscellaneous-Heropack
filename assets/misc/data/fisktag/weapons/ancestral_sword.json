@@ -1,6 +1,20 @@
 {
   "name": "Ancestral Sword",
   "holdingPose": "SINGLE",
+  "activation": {
+    "type": "SHIELD",
+    "shield": {
+      "health": 30.0,
+      "cooldown": 80,
+      "recoveryDelay": 20,
+      "regeneration": 7.5
+    },
+    "coverage": {
+      "yawRadius": 30.0,
+      "pitchRadius": 30.0
+    },
+    "knockback": 0.25
+  },
   "melee": {
     "attackDamage": 8
   }
