@@ -39,13 +39,13 @@ function initAnimations(renderer) {
 
 	addAnimationWithData(renderer, "ezio.BLADE", "misc:ezio_arms", "fiskheroes:blade_timer");
 
-   /*  addAnimation(renderer, "ezio.VAULT", "misc:vault_galahad")
+     addAnimation(renderer, "ezio.VAULT", "misc:leap_galahad")
     .setData((entity, data) => {
        var data11 = entity.getInterpolatedData("misc:dyn/vault_timer")
        var data1 = Math.max(data11 - 0.2) * 1.2
 
-        data.load(0, (entity.getInterpolatedData("misc:dyn/vault_timer") - 0.25));
-    }).priority = 10; */
+        data.load(0, (entity.getInterpolatedData("misc:dyn/vault_timer")));
+    }).priority = 10; 
 
   /*   addAnimationWithData(renderer, "ezio.SLIDE", "misc:slide_galahad", "misc:dyn/slide_timer")
     .priority = -8;

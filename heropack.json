@@ -292,6 +292,10 @@
       "type": "BOOLEAN",
       "resetWithoutSuit": false
     },
+    "vault": {
+      "type": "BOOLEAN",
+      "resetWithoutSuit": false
+    },
     "sprinting": {
       "type": "FLOAT_INTERP",
       "resetWithoutSuit": true

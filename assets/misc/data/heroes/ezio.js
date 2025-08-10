@@ -1,6 +1,6 @@
 var landing = implement("misc:external/landing");
-/* function vault(entity) {
-    var range = 0.5; // Set the range to 1.1 blocks
+function vault(entity) {
+    var range = 0.5;
     var yawRad = (Math.PI / 180) * entity.rotYaw();
     var offsetX = -Math.sin(yawRad);
     var offsetZ = Math.cos(yawRad);
@@ -31,20 +31,9 @@ var landing = implement("misc:external/landing");
         Math.floor(frontFacePosZ)
     ).isSolid();
 
-    var blockInFrontFeet = world.blockAt(
-        Math.floor(frontFeetPosX),
-        Math.floor(frontFeetPosY),
-        Math.floor(frontFeetPosZ)
-    );
-
-    var isSlabInFrontFeet = blockInFrontFeet == "minecraft:stone_slab" ||
-        blockInFrontFeet == "minecraft:wooden_slab" ||
-        blockInFrontFeet == "minecraft:double_stone_slab" ||
-        blockInFrontFeet == "minecraft:double_wooden_slab";
-
-    return isBlockInFrontFeet && !isBlockInFrontFace && !isSlabInFrontFeet;
+    return isBlockInFrontFeet && !isBlockInFrontFace;
 }
- */
+ 
 
 function ledge(entity) {
     var range = 1;
@@ -135,13 +124,70 @@ function init(hero) {
         if (entity.getData("misc:dyn/slide_timer") == 1) {
             manager.setDataWithNotify(entity, "misc:dyn/slide", false);
         }
-        if (entity.getData("misc:dyn/slide") && entity.isOnGround() && !entity.isInWater()) {
+        if ((entity.getData("misc:dyn/slide") && entity.isOnGround() && !entity.isInWater())) {
             manager.setDataWithNotify(entity, "fiskheroes:flying", true);
             manager.setData(entity, "fiskheroes:flight_boost_timer", 0.825);
         } else {
             manager.setDataWithNotify(entity, "fiskheroes:flying", false);
         }
+
+        if (entity.getData("misc:dyn/vault_timer") > 0.8 && entity.getData("fiskheroes:moving")) {
+            manager.setDataWithNotify(entity, "fiskheroes:flying", true);
+            /* manager.setData(entity, "fiskheroes:flight_boost_timer", 0.825) */;
+        } else if (/* entity.getData("misc:dyn/vault_timer") < 0.8 &&  */entity.getData("fiskheroes:flying")) {
+            manager.setDataWithNotify(entity, "fiskheroes:flying", false);
+        }
+       /*  var isVaulting = vault(entity);
+        if (isVaulting) {
+            manager.setDataWithNotify(entity, "misc:dyn/boolean", true);
+            manager.setData(entity, "misc:dyn/vault_timer", 5); // Set the vault timer to 15 ticks
+            manager.setData(entity, "misc:dyn/vault_delay", 5); // Set a delay before decrementing the vault timer
+        }
+
+        // Decrement the vault delay and then the vault timer
+        var vaultDelay = entity.getData("misc:dyn/vault_delay");
+        if (vaultDelay > 0) {
+            manager.setData(entity, "misc:dyn/vault_delay", vaultDelay - 1);
+        } else {
+            var vaultTimer = entity.getData("misc:dyn/vault_timer");
+            if (vaultTimer > 0) {
+                manager.setData(entity, "misc:dyn/vault_timer", vaultTimer - 1);
+                manager.setDataWithNotify(entity, "misc:dyn/boolean", true);
+            } else {
+                manager.setDataWithNotify(entity, "misc:dyn/boolean", false);
+            }
+        }
+
+        // Initialize vault2_timer to 1 and then immediately to 0 when the suit is put on
+        if (!entity.getData("misc:dyn/vault2_initialized")) {
+            manager.setData(entity, "misc:dyn/vault2_timer", 1);
+            manager.setData(entity, "misc:dyn/vault2_timer", 0);
+            manager.setData(entity, "misc:dyn/vault2_initialized", true);
+        }
+
+        if (entity.getData("misc:dyn/vault2_timer") == 1) {
+            manager.setDataWithNotify(entity, "misc:dyn/boolean", true);
+        } else if (entity.getData("misc:dyn/vault2_timer") > 1) {
+            var newTimer = entity.getData("misc:dyn/vault2_timer") - 0.1;
+            manager.setData(entity, "misc:dyn/vault2_timer", newTimer);
+            manager.setDataWithNotify(entity, "misc:dyn/boolean", true);
+        } else {
+            manager.setDataWithNotify(entity, "misc:dyn/boolean", false);
+        } 
+
+        if (vault(entity)) {
+            manager.setData(entity, "misc:dyn/fire", true)
+        } else {
+            manager.setData(entity, "misc:dyn/fire", false)
+        } */
+
+           if (entity.getData("misc:dyn/vault_timer") > 0 ) {
+            manager.setData(entity,"misc:dyn/vault", true)
+           } 
+        
+    
         manager.incrementData(entity, "misc:dyn/roll_timer", 14, entity.getData("misc:dyn/roll"));
+        manager.incrementData(entity, "misc:dyn/vault_timer", 1, ledge(entity) /* && entity.isSprinting() */);
         manager.incrementData(entity, "misc:dyn/sneaking_timer", 30, (ledge(entity) && entity.isSneaking() && entity.isOnGround() && !entity.getData("fiskheroes:moving")));
         manager.incrementData(entity, "misc:dyn/sprinting", 7, entity.isSprinting() && entity.isOnGround());
     });
@@ -158,7 +204,7 @@ function isKeyBindEnabled(entity, keyBind) {
 function isModifierEnabled(entity, modifier) {
     switch (modifier.name()) {
         case "fiskheroes:controlled_flight":
-            return entity.getData("misc:dyn/slide")
+            return entity.getData("misc:dyn/slide") || entity.getData("misc:dyn/vault")
 
     }
     return true;
@@ -188,6 +234,8 @@ function getAttributeProfile(entity) {
         return "LANDING";
     } else if (entity.getData("fiskheroes:blade")) {
         return "BLADE"
+    } else if (vault(entity)) {
+        return "STEP"
     }
     return true;
 }

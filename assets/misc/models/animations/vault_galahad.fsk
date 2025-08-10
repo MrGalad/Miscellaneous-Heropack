@@ -1,27 +1,25 @@
-{vault_galahad_time}={data}
+{test} = curve {data}*2
+{vault_galahad_time}=curve {data}
+{vault_galahad_4}=curve animate2({vault_galahad_time},1,0,0.2,0.5)
 {vault_galahad_0}=curve animate2({vault_galahad_time},1,0,0.5,0.5)
 {vault_galahad_1}=curve animate2({vault_galahad_time},0.5,0,0.25,0.25)
 {vault_galahad_2}=curve animate2({vault_galahad_time},0.75,0.25,0.25,0.5)
 
-{head_rotZ}+=-15'{vault_galahad_0}
-
-{body_rotZ}+=-30'{vault_galahad_0}
-
-{leftArm_rotZ}+=-62.5'{vault_galahad_0}
+{leftArm_rotZ}+=-40'{vault_galahad_0}
 {leftArm_posX}+=1{vault_galahad_0}
-{leftArm_posY}+=-3{vault_galahad_0}
+{leftArm_posY}+=-0{vault_galahad_0}
 
-{rightArm_rotX}+=-10'{vault_galahad_0}
-{rightArm_rotZ}+=7.5'{vault_galahad_0}
-{rightArm_posY}+=3{vault_galahad_0}
-{rightArm_posX}+=1{vault_galahad_0}
+{rightArm_rotX}+=-10'{vault_galahad_4}
+{rightArm_rotZ}+=30'{vault_galahad_4}
+{rightArm_posY}+=1{vault_galahad_4}
+{rightArm_posX}+=0{vault_galahad_4}
 
 {leftLeg_rotX}+=-14.5156046187'{vault_galahad_1}
 {leftLeg_rotY}+=-5.9272134859'{vault_galahad_1}
 {leftLeg_rotZ}+=-60.1704059447'{vault_galahad_1}
 {leftLeg_rotX}+=-27.5'{vault_galahad_2}
 {leftLeg_rotZ}+=-67.5'{vault_galahad_2}
-{leftLeg_posX}+=6{vault_galahad_0}
+{leftLeg_posX}+=0{vault_galahad_0}
 {leftLeg_posY}+=-3{vault_galahad_0}
 
 {rightLeg_rotX}+=-41.8355807687'{vault_galahad_1}
@@ -30,6 +28,6 @@
 {rightLeg_rotX}+=-83.6458058053'{vault_galahad_2}
 {rightLeg_rotY}+=-5.9175018711'{vault_galahad_2}
 {rightLeg_rotZ}+=-33.3812473001'{vault_galahad_2}
-{rightLeg_posX}+=7{vault_galahad_0}
+{rightLeg_posX}+=0{vault_galahad_0}
 
-out "translate" (0, -0.55{vault_galahad_0}, 0)
+out "rotate" (10{test}, 0, 0, -0.1)
