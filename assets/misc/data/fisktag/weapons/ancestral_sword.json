@@ -1,0 +1,7 @@
+{
+  "name": "Ancestral Sword",
+  "holdingPose": "SINGLE",
+  "melee": {
+    "attackDamage": 8
+  }
+}

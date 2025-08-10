@@ -1,0 +1,7 @@
+{
+  "name": "Sword Of Dracula",
+  "holdingPose": "SINGLE",
+  "melee": {
+    "attackDamage": 10
+  }
+}

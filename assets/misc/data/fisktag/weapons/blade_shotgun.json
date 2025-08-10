@@ -1,0 +1,46 @@
+{
+  "name": "Hunter's Shotgun",
+  "permission": "USE_GUN",
+  "holdingPose": "SINGLE",
+  "isHidden": false,
+  "cooldown": 15,
+  "damageProfile": {
+    "damage": 2,
+    "types": {
+      "BULLET": 1.0
+    },
+    "properties": {
+      "HIT_COOLDOWN": 0,
+      "REDUCE_KNOCKBACK": 0.75
+    }
+  },
+  "fisktag": {
+    "sprintShootDelay": 8,
+    "sprintDelay": 6
+  },
+  "spread": {
+    "sprintingFactor": 1.5,
+    "fallingFactor": 1.6,
+    "scopingFactor": 0.7
+  },
+  "recoil": {
+    "amount": 2.0,
+    "cameraShake": 6.0
+  },
+  "ammo": {
+    "amount": 8,
+    "reloadTime": 30
+  },
+  "projectiles": [
+    {
+      "type": "BEAM",
+      "amount": 6,
+      "spread": 5.0,
+      "speed": 12.0,
+      "trail": 2
+    }
+  ],
+  "soundEvents": {
+    "SHOOT": "misc:benelli_m4"
+  }
+}
