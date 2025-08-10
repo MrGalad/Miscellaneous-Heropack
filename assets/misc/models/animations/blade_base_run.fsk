@@ -1,0 +1,29 @@
+{data} = curve {data}
+{limbSwingAmount} *= {data}
+
+{rightArm_rotZ} @ {data} -> 0
+{rightArm_rotX} @ {data} -> 0
+{rightArm_rotY} @ {data} -> 0
+
+;{rightArm_rotZ} -= 0.3{limbSwingAmount}cos(0.6662{limbSwing} - 0.4)
+;{leftArm_rotZ} -= 0.3{limbSwingAmount}cos(0.6662{limbSwing} - 0.4)
+;{rightArm_rotX} += 0.5{limbSwingAmount}cos(0.6662{limbSwing} + pi)
+;{leftArm_rotX} += 0.5{limbSwingAmount}cos(0.6662{limbSwing})
+
+{head_rotX} -= 10'{data}
+{body_rotY} -= 15'{data}
+{rightArm_posZ} -= 1.25{data}
+{rightArm_rotZ} = 25'{data}
+{rightArm_rotX} -= 80'{data}
+{rightArm_rotY} -= 40'{data}
+{leftArm_posZ} = 1.25{data}
+{leftArm_rotZ} = -10'{data}
+{leftArm_rotY} = 30'{data}
+{leftArm_rotX} = -80'{data}
+
+{rightLeg_rotX} -= 3'{data}
+{rightLeg_posZ} -= 1{data}
+{leftLeg_rotX} -= 3'{data}
+
+out "translate" (0, 0, 0.1{data})
+out "rotate" (-10{data}, 1, 0, 0)
