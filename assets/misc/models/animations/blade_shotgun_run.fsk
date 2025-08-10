@@ -1,9 +1,9 @@
 {data} = curve {data}
 {limbSwingAmount} *= {data}
-{rightArm_rotZ} -= 0.3{limbSwingAmount}cos(0.6662{limbSwing} - 0.4)
-{leftArm_rotZ} -= 0.3{limbSwingAmount}cos(0.6662{limbSwing} - 0.4)
-{rightArm_rotX} += 0.5{limbSwingAmount}cos(0.6662{limbSwing} + pi)
-{leftArm_rotX} += 0.5{limbSwingAmount}cos(0.6662{limbSwing})
+;{rightArm_rotZ} -= 0.3{limbSwingAmount}cos(0.6662{limbSwing} - 0.4)
+;{leftArm_rotZ} -= 0.3{limbSwingAmount}cos(0.6662{limbSwing} - 0.4)
+;{rightArm_rotX} += 0.5{limbSwingAmount}cos(0.6662{limbSwing} + pi)
+;{leftArm_rotX} += 0.5{limbSwingAmount}cos(0.6662{limbSwing})
 
 {f} = {limbSwingAmount}cos(0.6662{limbSwing} - 0.3)
 {rightArm_posZ} -= 0.75{f}

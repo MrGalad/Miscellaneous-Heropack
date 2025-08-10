@@ -61,7 +61,7 @@ function initEffects(renderer) {
 function initAnimations(renderer) {
     parent.initAnimations(renderer);
     
-    addAnimationWithData(renderer, "blade_rivals.SPRINT", "misc:blade_base_run", "misc:dyn/sprinting").priority = -1;
+    addAnimationWithData(renderer, "blade_rivals.SPRINT", "misc:blade_shotgun_run", "misc:dyn/sprinting").priority = -1;
     
 }
 
