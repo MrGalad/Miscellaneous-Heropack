@@ -1,0 +1,14 @@
+{
+  "name": "Master Assassin",
+  "modifiers": {
+    "fiskheroes:transformation|slide": {
+      "key": "SLASH",
+      "transformation": {
+        "toggleData": "misc:dyn/slide",
+        "timerData": "misc:dyn/slide_timer",
+        "time": 10
+      },
+      "soundEvents": {}
+    }
+  }
+}

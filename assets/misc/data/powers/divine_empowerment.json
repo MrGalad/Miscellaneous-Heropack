@@ -35,24 +35,29 @@
       },
       "knockback": 0.7,
       "soundEvents": {
-        "ENABLE": ["fiskheroes:flight_loop", "fiskheroes:flight_cape_loop"],
-          "BOOST": ["fiskheroes:flight_boost", "fiskheroes:flight_boost_super"],
-          "IMPACT_ENTITY": "fiskheroes:flight_impact_entity"
+        "ENABLE": [
+          "fiskheroes:flight_loop",
+          "fiskheroes:flight_cape_loop"
+        ],
+        "BOOST": [
+          "fiskheroes:flight_boost",
+          "fiskheroes:flight_boost_super"
+        ],
+        "IMPACT_ENTITY": "fiskheroes:flight_impact_entity"
       }
     },
-    "fiskheroes:eternium_weakness": {
-    },
-    "fiskheroes:fire_immunity": {
-    },
-    "fiskheroes:projectile_immunity": {
-    },
-    "fiskheroes:arrow_catching": {
-    },
+    "fiskheroes:eternium_weakness": {},
+    "fiskheroes:fire_immunity": {},
+    "fiskheroes:projectile_immunity": {},
+    "fiskheroes:arrow_catching": {},
     "fiskheroes:super_speed": {
       "canUseTreadmill": false,
       "canUseTachyons": false,
       "soundEvents": {
-        "MOVE": ["fiskheroes:super_speed_move_loop_shazam_dceu", "fiskheroes:super_speed_move_loop_cape"],
+        "MOVE": [
+          "fiskheroes:super_speed_move_loop_shazam_dceu",
+          "fiskheroes:super_speed_move_loop_cape"
+        ],
         "SPRINT": "fiskheroes:super_speed_sprint_shazam_dceu"
       }
     },
@@ -106,14 +111,15 @@
         "BEAM_AMBIENT": "fiskheroes:mysterio_charged_beam_loop"
       }
     },
-  "fiskheroes:water_breathing": {
-  },
-  "fiskheroes:damage_immunity": {
-    "damageType": "EXPLOSION"
-  },
-  "fiskheroes:leaping": {
-    "leapAmount": [0, 1]
-  }
-    
+    "fiskheroes:water_breathing": {},
+    "fiskheroes:damage_immunity": {
+      "damageType": "EXPLOSION"
+    },
+    "fiskheroes:leaping": {
+      "leapAmount": [
+        0,
+        1
+      ]
+    }
   }
 }

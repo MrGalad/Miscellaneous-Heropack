@@ -1,9 +1,9 @@
 {
-    "name": "Time Stone",
-    "modifiers": {
-        "fiskheroes:super_speed": {
-            "canUseTreadmill": false
-          },
-          "fiskheroes:slow_motion": {}
-        }
-    }
+  "name": "Time Stone",
+  "modifiers": {
+    "fiskheroes:super_speed": {
+      "canUseTreadmill": false
+    },
+    "fiskheroes:slow_motion": {}
+  }
+}

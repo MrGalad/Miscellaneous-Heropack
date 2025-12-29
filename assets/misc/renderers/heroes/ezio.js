@@ -2,6 +2,7 @@ extend("fiskheroes:hero_basic");
 loadTextures({
     "layer1": "misc:ezio/ezio_layer1",
     "layer2": "misc:ezio/ezio_layer2",
+    "nocowl": "misc:ezio/ezio_layer1_nocowl",
     "leg": "misc:ezio/ezio_leg",
     "blade": "misc:ezio/ezio_blade"
 });
@@ -12,53 +13,63 @@ var leg_left, leg_right, blade, bladeLeft;
 
 function init(renderer) {
     parent.init(renderer);
-    
-   renderer.showModel("CHESTPLATE", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
+    renderer.setTexture((entity, renderLayer) => {
+        return entity.getInterpolatedData("fiskheroes:mask_open_timer2") >= 0.5 ? "nocowl" : "layer1";
+
+    })
+
+    renderer.showModel("CHESTPLATE", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
 }
 
 function initAnimations(renderer) {
     parent.initAnimations(renderer);
-    addAnimation(renderer, "ezio.LAND", "misc:roll_galahad") 
-    .setData((entity, data) => {
-    data.load(entity.getData("misc:dyn/roll") ? entity.getInterpolatedData("misc:dyn/roll_timer") : 0);
-}).priority = 0;
+    addAnimation(renderer, "ezio.LAND", "misc:roll_galahad")
+        .setData((entity, data) => {
+            data.load(entity.getData("misc:dyn/roll") ? entity.getInterpolatedData("misc:dyn/roll_timer") : 0);
+        }).priority = 0;
     /* addAnimationWithData(renderer, "ezio.LAND", "misc:roll_galahad", "fiskheroes:dyn/superhero_landing_timer")
     .priority = -8; */
 
     addAnimationWithData(renderer, "ezio.LEAP", "misc:leap_galahad", "misc:dyn/float_interp")
-    .priority = 10;
+        .priority = 10;
 
     addAnimationWithData(renderer, "ezio.SNEAK", "misc:ezio_crouch", "misc:dyn/sneaking_timer")
-    .priority = 10;
+        .priority = 10;
 
     /* addAnimationWithData(renderer, "ezio.CLIMB", "fiskheroes:crawl_wall", "misc:dyn/climb_timer")
     .priority = 10; */
 
-   /*  addAnimationWithData(renderer, "ezio.VAULT", "misc:vault_galahad", "misc:dyn/vault_timer")
-    .priority = 10; */
+    /*  addAnimationWithData(renderer, "ezio.VAULT", "misc:vault_galahad", "misc:dyn/vault_timer")
+     .priority = 10; */
 
-	addAnimationWithData(renderer, "ezio.BLADE", "misc:ezio_arms", "fiskheroes:blade_timer");
+    addAnimationWithData(renderer, "ezio.BLADE", "misc:ezio_arms", "fiskheroes:blade_timer");
 
-     addAnimation(renderer, "ezio.VAULT", "misc:leap_galahad")
-    .setData((entity, data) => {
-       var data11 = entity.getInterpolatedData("misc:dyn/vault_timer")
-       var data1 = Math.max(data11 - 0.2) * 1.2
+    addAnimation(renderer, "ezio.VAULT", "misc:leap_galahad")
+        .setData((entity, data) => {
+            var data11 = entity.getInterpolatedData("misc:dyn/vault_timer")
+            var data1 = Math.max(data11 - 0.2) * 1.2
 
-        data.load(0, (entity.getInterpolatedData("misc:dyn/vault_timer")));
-    }).priority = 10; 
+            data.load(0, (entity.getInterpolatedData("misc:dyn/vault_timer")));
+        }).priority = 10;
 
-  /*   addAnimationWithData(renderer, "ezio.SLIDE", "misc:slide_galahad", "misc:dyn/slide_timer")
-    .priority = -8;
- */
+    /*   addAnimationWithData(renderer, "ezio.SLIDE", "misc:slide_galahad", "misc:dyn/slide_timer")
+      .priority = -8;
+   */
     addAnimationWithData(renderer, "ezio.SPRINT", "fiskheroes:speedster_sprint", "misc:dyn/sprinting").priority = -1;
-    addAnimation(renderer, "ezio.SLIDE", "misc:slide_galahad") 
-    .setData((entity, data) => {
-    data.load(entity.getData("misc:dyn/slide") ? entity.getInterpolatedData("misc:dyn/slide_timer") : 0);
-}).priority = 0;
+    addAnimation(renderer, "ezio.SLIDE", "misc:slide_galahad")
+        .setData((entity, data) => {
+            data.load(entity.getData("misc:dyn/slide") ? entity.getInterpolatedData("misc:dyn/slide_timer") : 0);
+        }).priority = 0;
+
+    addAnimation(renderer, "ezio.COWL", "fiskheroes:remove_cowl")
+        .setData((entity, data) => {
+            var f = entity.getInterpolatedData("fiskheroes:mask_open_timer2");
+            data.load(f < 1 ? f : 0);
+        });
 }
 
 function initEffects(renderer) {
-    
+
     leg_left = renderer.createEffect("fiskheroes:model");
     leg_left.setModel(utils.createModel(renderer, "misc:ezio_leg_left", "leg"));
     leg_left.anchor.set("leftLeg");
@@ -89,9 +100,9 @@ function initEffects(renderer) {
 }
 
 function render(entity, renderLayer) {
-if (renderLayer == "CHESTPLATE") {
-    leg_left.render();
-    leg_right.render();
-    blade.render();
-}
+    if (renderLayer == "CHESTPLATE") {
+        leg_left.render();
+        leg_right.render();
+        blade.render();
+    }
 }

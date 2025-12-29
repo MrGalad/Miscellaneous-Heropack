@@ -61,7 +61,7 @@ function initAnimations(renderer) {
   addAnimation(renderer, "eren.BITE", "misc:bite")
     .setData((entity, data) => {
       data.load(entity.getInterpolatedData("misc:dyn/float_interp"));
-    }).setCondition(entity => entity.getData("misc:dyn/boolean")).priority = 8
+    }).setCondition(entity => !entity.getData("misc:dyn/nv")).priority = 8
   addAnimation(renderer, "eren.BLADE", "misc:eren_blade")
     .setData((entity, data) => {
       data.load(entity.getInterpolatedData("misc:dyn/float_interp3"));
@@ -163,7 +163,7 @@ function initEffects(renderer) {
   utils.bindParticles(renderer, "misc:odm_particles").setCondition((entity => entity.getData("misc:dyn/eren_boost_timer") > 0));
   utils.bindParticles(renderer, "misc:titan_release").setCondition((entity => entity.getData("misc:dyn/release_timer") > 0.3));
   utils.bindParticles(renderer, "misc:eren_regen").setCondition((entity =>(entity.getData("misc:dyn/detransformation_timer") > 0) || (entity.getData("misc:dyn/regen_timer") > 0 && entity.getHealth() < 20 ) || (entity.getData("misc:dyn/charge_timer") > 0.9)));
-  utils.bindParticles(renderer, "misc:eren_bite").setCondition((entity => entity.getData("misc:dyn/float_interp") > 0.4 && entity.getData("misc:dyn/float_interp") < 0.7));
+  utils.bindParticles(renderer, "misc:eren_bite").setCondition((entity => entity.getHealth() > 6 && entity.getData("misc:dyn/float_interp") > 0.4 && entity.getData("misc:dyn/float_interp") < 0.7));
 
  // inner - white 
  var ff1 = renderer.bindProperty("fiskheroes:forcefield");

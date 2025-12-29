@@ -61,6 +61,10 @@ function init(hero) {
         if (entity.getData("fiskheroes:flight_boost_timer") == 0 && entity.isSprinting() && entity.getData("fiskheroes:flying")) {
             manager.setData(entity, "misc:dyn/random_digit", getRandomInt(1, 2));
         }
+
+        if (entity.getData("fiskheroes:energy_projection_timer")) {
+            supernova(hero, entity)
+        }
     });
 
     hero.addDamageProfile("PUNCH", {
@@ -71,6 +75,29 @@ function init(hero) {
             "ADD_KNOCKBACK": 3
         }
     });
+
+    hero.addDamageProfile("SPEEDPUNCHES", {
+        "types": {
+            "BLUNT": 1
+        },
+        "properties": {
+            "ADD_KNOCKBACK": 0
+        }
+    });
+}
+
+function supernova(hero, entity) {
+    if (entity.getData("fiskheroes:energy_projection_timer") > 0) {
+        var range = 5;
+        var list = entity.world().getEntitiesInRangeOf(entity.pos(), range);
+
+        for (var i = 0; i < list.size(); ++i) {
+            var other = list.get(i);
+            if (other.isLivingEntity() && !entity.equals(other)) {
+                other.hurtByAttacker(hero, "SPEEDPUNCHES", "%s was electrecuted", 5, entity);
+            }
+        }
+    }
 }
 
 function isModifierEnabled(entity, modifier) {

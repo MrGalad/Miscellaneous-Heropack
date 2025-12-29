@@ -1,9 +1,0 @@
-{
-  "texture": "misc:anim/metallo_chainsaw_<TIMER>",
-  "getters": {
-    "TIMER": {
-      "key": "entity.getData('misc:dyn/boolean')",
-      "values": ["true", "false"]
-    }
-  }
-}

@@ -1,0 +1,5 @@
+{data_0} = min(8sin({data_0}),4)
+
+{slash1_posZ} -= 70{data_0}
+
+out "firstPerson" (true)

@@ -1,0 +1,31 @@
+{piercing_blood_time}={data_0}
+{piercing_blood_0}=curve animate2({piercing_blood_time},9.5,0,0.7368421053,8.7631578947)*{data_1}
+{piercing_blood_1}=curve animate2({piercing_blood_time},9.5,0,0.2842105263,9.2157894737)
+
+{head_posZ} @ {piercing_blood_0} -> 2.94
+
+{body_rotX} @ {piercing_blood_0} -> -7.5'
+{body_posZ} @ {piercing_blood_0} -> 2.94
+
+{leftArm_rotX} @ {piercing_blood_1} -> -83.9903392789'
+{leftArm_rotY} @ {piercing_blood_1} -> 24.5947665928'
+{leftArm_rotZ} @ {piercing_blood_1} -> 4.629338271'
+{leftArm_posZ} @ {piercing_blood_0} -> 3
+
+{rightArm_rotX} @ {piercing_blood_1} -> -83.9903392789'
+{rightArm_rotY} @ {piercing_blood_1} -> -24.5947665928'
+{rightArm_rotZ} @ {piercing_blood_1} -> -4.629338271'
+{rightArm_posZ} @ {piercing_blood_0} -> 3
+
+{leftLeg_rotX} @ {piercing_blood_0} -> -7.5'
+{leftLeg_posZ} @ {piercing_blood_0} -> 1
+
+{rightLeg_posZ} @ {piercing_blood_0} -> 1
+{rightLeg_rotZ} @ {piercing_blood_0} -> 0
+
+;out "firstPerson" (true)
+;out "translate" (-0.2{data_0}, 0, 0.15{data_0})
+;out "rotate" (-27{data_0}, 0, 1, 0)
+;out "rotate" (-20{data_0}, 1, 0, 0)
+;out "rotate" (-30{data_0}, 0, 0, 1)
+

@@ -7,61 +7,71 @@
         "ENABLE": [],
         "DISABLE": [],
         "MOVE": "fiskheroes:super_speed_move_loop_cw",
-        "SPRINT": ["fiskheroes:super_speed_sprint_negative", "fiskheroes:super_speed_sprint_negative_roar"],
-        "STOP": ["fiskheroes:super_speed_stop_negative", "fiskheroes:super_speed_stop_negative_roar"]
+        "SPRINT": [
+          "fiskheroes:super_speed_sprint_negative",
+          "fiskheroes:super_speed_sprint_negative_roar"
+        ],
+        "STOP": [
+          "fiskheroes:super_speed_stop_negative",
+          "fiskheroes:super_speed_stop_negative_roar"
+        ]
       }
     },
     "fiskheroes:slow_motion": {
       "soundEvents": {
-        "ENABLE": ["fiskheroes:slow_motion_enable_cw"],
-        "DISABLE": ["fiskheroes:slow_motion_disable_cw"]
+        "ENABLE": [
+          "fiskheroes:slow_motion_enable_cw"
+        ],
+        "DISABLE": [
+          "fiskheroes:slow_motion_disable_cw"
+        ]
       }
     },
-        "fiskheroes:arrow_catching": {},
-        "fiskheroes:regeneration": {
-          "factor": 4
+    "fiskheroes:arrow_catching": {},
+    "fiskheroes:regeneration": {
+      "factor": 4
+    },
+    "fiskheroes:energy_manipulation": {
+      "damageProfile": {
+        "damage": 13.0,
+        "types": {
+          "ENERGY": 1.0,
+          "ELECTRICITY": 0.5
         },
-        "fiskheroes:energy_manipulation": {
-          "damageProfile": {
-            "damage": 13.0,
-            "types": {
-              "ENERGY": 1.0,
-              "ELECTRICITY": 0.5
-            },
-            "properties": {
-              "COOK_ENTITY": true,
-              "LIGHTNING_STRIKE": 0.05
-            }
-          },
-          "chargeTime": 30,
-          "range": 32.0
-        },
-        "fiskheroes:damage_immunity": {
-          "damageType": "BULLET"
-        },
-        "fiskheroes:transformation": {
-          "key": "VIBRATION",
-          "transformation": {
-            "toggleData": "misc:dyn/vibration",
-            "timerData": "misc:dyn/vibration_timer",
-            "time": 5
-          },
-          "soundEvents": {
-            "ENABLE": "misc:vibration"
-          }
-        },
-        "fiskheroes:transformation|chest": {
-          "key": "CHEST",
-          "transformation": {
-            "toggleData": "misc:dyn/charge",
-            "timerData": "misc:dyn/attack_timer",
-            "time": 17
-          },
-          "soundEvents": {
-            "ENABLE": "misc:vibration"
-          }
-        },
-        "fiskheroes:energy_projection": {
+        "properties": {
+          "COOK_ENTITY": true,
+          "LIGHTNING_STRIKE": 0.05
+        }
+      },
+      "chargeTime": 30,
+      "range": 32.0
+    },
+    "fiskheroes:damage_immunity": {
+      "damageType": "BULLET"
+    },
+    "fiskheroes:transformation": {
+      "key": "VIBRATION",
+      "transformation": {
+        "toggleData": "misc:dyn/vibration",
+        "timerData": "misc:dyn/vibration_timer",
+        "time": 5
+      },
+      "soundEvents": {
+        "ENABLE": "misc:vibration"
+      }
+    },
+    "fiskheroes:transformation|chest": {
+      "key": "CHEST",
+      "transformation": {
+        "toggleData": "misc:dyn/charge",
+        "timerData": "misc:dyn/attack_timer",
+        "time": 17
+      },
+      "soundEvents": {
+        "ENABLE": "misc:vibration"
+      }
+    },
+    "fiskheroes:energy_projection": {
       "damageProfile": {
         "damage": 10000,
         "types": {
@@ -80,29 +90,28 @@
         "BEAM_AMBIENT": "fiskheroes:super_speed_sprint_negative_roar"
       }
     },
-        "fiskheroes:potion_immunity": {
-          "potionEffects": [
-            "minecraft:nausea",
-            "minecraft:poison",
-            "minecraft:wither"
-          ]
-        },
-        "fiskheroes:propelled_flight": {
-        },
-        "fiskheroes:intangibility": {
-          "isAbsolute": true,
-          "soundEvents": {
-            "ENABLE": "",
-            "DISABLE": ""
-          }
-        },
-        "fiskheroes:damage_weakness|cold": {
-      "damageType": "COLD",
-	  "factor": 0.3
+    "fiskheroes:potion_immunity": {
+      "potionEffects": [
+        "minecraft:nausea",
+        "minecraft:poison",
+        "minecraft:wither"
+      ]
     },
-	"fiskheroes:damage_weakness|fire": {
-      "damageType": "FIRE",
-	  "factor": 0.3
-    }
+    "fiskheroes:propelled_flight": {},
+    "fiskheroes:intangibility": {
+      "isAbsolute": true,
+      "soundEvents": {
+        "ENABLE": "",
+        "DISABLE": ""
       }
+    },
+    "fiskheroes:damage_weakness|cold": {
+      "damageType": "COLD",
+      "factor": 0.3
+    },
+    "fiskheroes:damage_weakness|fire": {
+      "damageType": "FIRE",
+      "factor": 0.3
     }
+  }
+}

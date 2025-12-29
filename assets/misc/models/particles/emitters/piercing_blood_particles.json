@@ -1,0 +1,53 @@
+{
+    "particles": [
+        {
+            "type": "ENERGY_SMOKE",
+            "anchor": "body",
+            "amount": {
+                "tp": 7,
+                "fp": 1
+            },
+            "offset": {
+                "tp": [
+                    0,
+                    4,
+                    -8
+                ],
+                "fp": [
+                    0,
+                    5,
+                    -10
+                ]
+            },
+            "motion": [
+                1,
+                0,
+                0
+            ],
+            "randOffset": {
+                "tp": [
+                    0,
+                    0,
+                    0
+                ],
+                "fp": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "randMotion": {
+                "tp": [
+                    0,
+                    0,
+                    0
+                ],
+                "fp": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        }
+    ]
+}

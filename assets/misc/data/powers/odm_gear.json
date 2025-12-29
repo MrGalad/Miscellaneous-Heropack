@@ -67,7 +67,6 @@
         "time": 10
       }
     },
-
     "fiskheroes:cooldown": {
       "cooldown": {
         "toggleData": "misc:dyn/eren_boost",

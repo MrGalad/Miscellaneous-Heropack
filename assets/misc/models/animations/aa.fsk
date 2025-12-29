@@ -1,0 +1,1566 @@
+;default stuff
+{data_0} = curve{data_0}
+{data_1} = curve{data_1}
+{data_2} = curve{data_2}
+{data_3} = curve{data_3}
+{data_4} = curve{data_4}
+{data_5} = curve{data_5}
+{data_6} = curve{data_6}
+{data_7} = curve{data_7}
+
+{not_landing} = 1 - {data_7}
+
+{headGD_rotX}={pitch}'*{data_0}
+{headGD_rotY}=({yaw} - {bodyYaw})'*{data_0}
+{not_aiming} = 1 - {data_1}
+
+{not_sword} = 1 - {data_3}
+
+;------------------------------------------------------------------------------
+;blade
+{chainblade_time}=curve{data_3}
+{chainblade_0}=curve animate2({chainblade_time},0.5,0,0.25,0.25)
+{chainblade_1}=curve animate2({chainblade_time},0.31,0.25,0.25,0.06)
+{chainblade_2}=curve animate2({chainblade_time},0.5,0.5,0.06,0.44)
+{chainblade_3}=curve animate2({chainblade_time},0.75,0.25,0.25,0.5)
+{chainblade_4}=curve animate2({chainblade_time},10,0,0.25,9.75)
+{chainblade_5}=curve animate2({chainblade_time},0.48,0,0.35,0.13)
+{chainblade_6}=curve animate2({chainblade_time},0.21,0.35,0.13,0.08)
+{chainblade_7}=curve animate2({chainblade_time},0.18,0.48,0.08,0.1)
+{chainblade_8}=curve animate2({chainblade_time},0.25,0,0,0.25)
+{chainblade_9}=curve animate2({chainblade_time},0.23,0.25,0.1,0.13)
+{chainblade_10}=curve animate2({chainblade_time},9.65,0.35,0.13,9.52)
+{chainblade_11}=curve animate2({chainblade_time},0.35,0,0,0.35)
+{chainblade_12}=curve animate2({chainblade_time},9.52,0.48,0.08,9.44)
+{chainblade_13}=curve animate2({chainblade_time},10,0,0.56,9.44)
+{chainblade_14}=curve animate2({chainblade_time},0.25,0.25,0.16,0.09)
+{chainblade_15}=curve animate2({chainblade_time},0.15,0.41,0.09,0.06)
+{chainblade_16}=curve animate2({chainblade_time},0.15,0.5,0.06,0.09)
+{chainblade_17}=curve animate2({chainblade_time},0.44,0.56,0.09,0.35)
+{chainblade_18}=curve animate2({chainblade_time},1,0,0.25,0.75)
+{chainblade_19}=curve animate2({chainblade_time},9.75,0.25,0.75,9)
+{chainblade_20}=curve animate2({chainblade_time},0.65,0.35,0.13,0.52)
+{chainblade_21}=curve animate2({chainblade_time},9.52,0.48,0.52,9)
+
+
+{rightArmGD_rotX}+=9.6643735018'{chainblade_0}
+{rightArmGD_rotY}+=14.8999947683'{chainblade_0}
+{rightArmGD_rotZ}+=30.5529606278'{chainblade_0}
+{rightArmGD_rotX}+=-49.7810879181'{chainblade_1}
+{rightArmGD_rotY}+=-25.8477167521'{chainblade_1}
+{rightArmGD_rotZ}+=7.6605015851'{chainblade_1}
+{rightArmGD_rotX}+=-51.3073573679'{chainblade_2}
+{rightArmGD_rotY}+=-22.7459907418'{chainblade_2}
+{rightArmGD_rotZ}+=6.7412413949'{chainblade_2}
+
+{lowerArmRight_rotX}+=-48.0751289146'{chainblade_3}
+{lowerArmRight_rotY}+=10.2453413945'{chainblade_3}
+{lowerArmRight_rotZ}+=-44.2904747519'{chainblade_3}
+{lowerArmRight_posY}+=0.1531191411{chainblade_3}
+{lowerArmRight_posZ}+=1.1604113615{chainblade_3}
+
+{chainbladeRight_posX}+=0.2{chainblade_4}
+{chainbladeRight_posY}+=4{chainblade_4}
+{chainbladeRight_posZ}+=-0.6{chainblade_4}
+
+{chainbladeRightFirst_rotX}+=3'{chainblade_5}
+{chainbladeRightFirst_rotX}+=3'{chainblade_6}
+{chainbladeRightFirst_rotX}+=-15'{chainblade_7}
+{chainbladeRightFirst_posZ}+=0.35{chainblade_8}
+{chainbladeRightFirst_posX}+=0.1{chainblade_9}
+{chainbladeRightFirst_posY}+=3{chainblade_9}
+{chainbladeRightFirst_posX}+=0.1{chainblade_10}
+{chainbladeRightFirst_posY}+=3{chainblade_10}
+
+{chainbladeRightSecond_rotX}+=8'{chainblade_5}
+{chainbladeRightSecond_rotX}+=8'{chainblade_6}
+{chainbladeRightSecond_rotX}+=-10'{chainblade_7}
+{chainbladeRightSecond_posX}+=-0.05{chainblade_11}
+{chainbladeRightSecond_posY}+=0.2{chainblade_11}
+{chainbladeRightSecond_posZ}+=-0.3{chainblade_11}
+{chainbladeRightSecond_posX}+=0.25{chainblade_5}
+{chainbladeRightSecond_posY}+=3{chainblade_5}
+{chainbladeRightSecond_posZ}+=-0.7{chainblade_5}
+{chainbladeRightSecond_posX}+=0.25{chainblade_10}
+{chainbladeRightSecond_posY}+=3{chainblade_10}
+{chainbladeRightSecond_posZ}+=-0.7{chainblade_10}
+
+{chainbladeRightThird_rotX}+=8'{chainblade_5}
+{chainbladeRightThird_rotX}+=8'{chainblade_6}
+{chainbladeRightThird_rotX}+=-22'{chainblade_7}
+{chainbladeRightThird_posY}+=2.8{chainblade_12}
+{chainbladeRightThird_posZ}+=-0.3{chainblade_12}
+
+{chainbladeRightFourth_rotX}+=9'{chainblade_5}
+{chainbladeRightFourth_rotX}+=9'{chainblade_6}
+{chainbladeRightFourth_rotX}+=-25'{chainblade_7}
+{chainbladeRightFourth_posX}+=0.3{chainblade_13}
+{chainbladeRightFourth_posY}+=2.5{chainblade_13}
+{chainbladeRightFourth_posZ}+=-0.3{chainblade_13}
+
+{chainbladeRightFifth_rotX}+=14'{chainblade_5}
+{chainbladeRightFifth_rotX}+=14'{chainblade_6}
+{chainbladeRightFifth_rotX}+=-19'{chainblade_7}
+{chainbladeRightFifth_posY}+=3{chainblade_13}
+{chainbladeRightFifth_posZ}+=-0.3{chainblade_13}
+
+{leftArmGD_rotX}+=9.5401323961'{chainblade_0}
+{leftArmGD_rotY}+=-17.6604611087'{chainblade_0}
+{leftArmGD_rotZ}+=-28.9853955669'{chainblade_0}
+{leftArmGD_rotX}+=-46.6413230525'{chainblade_3}
+{leftArmGD_rotY}+=36.7693196504'{chainblade_3}
+{leftArmGD_rotZ}+=4.6080125455'{chainblade_3}
+
+{lowerArmLeft_rotX}+=-57.2367055756'{chainblade_14}
+{lowerArmLeft_rotY}+=14.4053122431'{chainblade_14}
+{lowerArmLeft_rotZ}+=29.3256203144'{chainblade_14}
+{lowerArmLeft_rotX}+=-77.7136024618'{chainblade_15}
+{lowerArmLeft_rotY}+=22.5083003798'{chainblade_15}
+{lowerArmLeft_rotZ}+=45.8212817412'{chainblade_15}
+{lowerArmLeft_rotX}+=-69.4029775659'{chainblade_16}
+{lowerArmLeft_rotY}+=24.6279961967'{chainblade_16}
+{lowerArmLeft_rotZ}+=40.7780929984'{chainblade_16}
+{lowerArmLeft_rotX}+=-60.5569279677'{chainblade_17}
+{lowerArmLeft_rotY}+=-1.5972452056'{chainblade_17}
+{lowerArmLeft_rotZ}+=22.0144945665'{chainblade_17}
+
+{chainbladeLeft_posX}+=0.2{chainblade_18}
+{chainbladeLeft_posY}+=4{chainblade_18}
+{chainbladeLeft_posZ}+=-0.6{chainblade_18}
+{chainbladeLeft_posX}+=-0.2{chainblade_19}
+{chainbladeLeft_posY}+=4{chainblade_19}
+{chainbladeLeft_posZ}+=-0.6{chainblade_19}
+
+{chainbladeLeftFirst_rotX}+=3'{chainblade_5}
+{chainbladeLeftFirst_rotX}+=3'{chainblade_6}
+{chainbladeLeftFirst_rotX}+=-15'{chainblade_7}
+{chainbladeLeftFirst_posZ}+=0.35{chainblade_8}
+{chainbladeLeftFirst_posX}+=0.1{chainblade_9}
+{chainbladeLeftFirst_posY}+=3{chainblade_9}
+{chainbladeLeftFirst_posX}+=0.1{chainblade_20}
+{chainbladeLeftFirst_posY}+=3{chainblade_20}
+{chainbladeLeftFirst_posX}+=-0.1{chainblade_21}
+{chainbladeLeftFirst_posY}+=3{chainblade_21}
+
+{chainbladeLeftSecond_rotX}+=8'{chainblade_5}
+{chainbladeLeftSecond_rotX}+=8'{chainblade_6}
+{chainbladeLeftSecond_rotX}+=-10'{chainblade_7}
+{chainbladeLeftSecond_posX}+=-0.05{chainblade_11}
+{chainbladeLeftSecond_posY}+=0.2{chainblade_11}
+{chainbladeLeftSecond_posZ}+=-0.3{chainblade_11}
+{chainbladeLeftSecond_posX}+=0.25{chainblade_5}
+{chainbladeLeftSecond_posY}+=3{chainblade_5}
+{chainbladeLeftSecond_posZ}+=-0.7{chainblade_5}
+{chainbladeLeftSecond_posX}+=-0.25{chainblade_10}
+{chainbladeLeftSecond_posY}+=3{chainblade_10}
+{chainbladeLeftSecond_posZ}+=-0.7{chainblade_10}
+
+{chainbladeLeftThird_rotX}+=8'{chainblade_5}
+{chainbladeLeftThird_rotX}+=8'{chainblade_6}
+{chainbladeLeftThird_rotX}+=-22'{chainblade_7}
+{chainbladeLeftThird_posY}+=2.8{chainblade_12}
+{chainbladeLeftThird_posZ}+=-0.3{chainblade_12}
+
+{chainbladeLeftFourth_rotX}+=9'{chainblade_5}
+{chainbladeLeftFourth_rotX}+=9'{chainblade_6}
+{chainbladeLeftFourth_rotX}+=-25'{chainblade_7}
+{chainbladeLeftFourth_posX}+=-0.3{chainblade_13}
+{chainbladeLeftFourth_posY}+=2.5{chainblade_13}
+{chainbladeLeftFourth_posZ}+=-0.3{chainblade_13}
+
+{chainbladeLeftFifth_rotX}+=14'{chainblade_5}
+{chainbladeLeftFifth_rotX}+=14'{chainblade_6}
+{chainbladeLeftFifth_rotX}+=-19'{chainblade_7}
+{chainbladeLeftFifth_posY}+=3{chainblade_13}
+{chainbladeLeftFifth_posZ}+=-0.3{chainblade_13}
+;------------------------------------------------------------------------------
+;walk
+{walk_time}=1.15sin(({limbSwing}/7) % 1)
+{cond} = {limbSwingAmount}5 * {not_landing}
+{walk_0}=curve animate2({walk_time},0.25,0,0,0.25){cond}
+{walk_1}=curve animate2({walk_time},0.5,0.25,0.25,0.25){cond}
+{walk_2}=curve animate2({walk_time},19.25,0.75,0.25,19){cond}
+{walk_3}=curve animate2({walk_time},0.5,0,0.25,0.25){cond}
+{walk_4}=curve animate2({walk_time},0.5,0.5,0.25,0.25){cond}
+{walk_5}=curve animate2({walk_time},0.425,0.25,0.25,0.175){cond}
+{walk_6}=curve animate2({walk_time},0.25,0.5,0.175,0.075){cond}
+{walk_7}=curve animate2({walk_time},0.325,0.675,0.075,0.25){cond}
+{walk_8}=curve animate2({walk_time},0.36,0,0.25,0.11){cond}
+{walk_9}=curve animate2({walk_time},0.25,0.25,0.11,0.14){cond}
+{walk_10}=curve animate2({walk_time},0.27,0.36,0.14,0.13){cond}
+{walk_11}=curve animate2({walk_time},0.25,0.5,0.13,0.12){cond}
+{walk_12}=curve animate2({walk_time},0.37,0.63,0.12,0.25){cond}
+{walk_13}=curve animate2({walk_time},0.3,0,0.25,0.05){cond}
+{walk_14}=curve animate2({walk_time},0.11,0.25,0.05,0.06){cond}
+{walk_15}=curve animate2({walk_time},0.2,0.3,0.06,0.14){cond}
+{walk_16}=curve animate2({walk_time},0.265,0.36,0.14,0.125){cond}
+{walk_17}=curve animate2({walk_time},0.25,0.5,0.125,0.125){cond}
+{walk_18}=curve animate2({walk_time},0.375,0.625,0.125,0.25){cond}
+{walk_19}=curve animate2({walk_time},0.125,0,0,0.125){cond}
+{walk_20}=curve animate2({walk_time},0.25,0,0.125,0.125){cond}
+{walk_21}=curve animate2({walk_time},0.245,0.125,0.125,0.12){cond}
+{walk_22}=curve animate2({walk_time},0.25,0.25,0.12,0.13){cond}
+{walk_23}=curve animate2({walk_time},0.38,0.37,0.13,0.25){cond}
+{walk_24}=curve animate2({walk_time},0.2,0.37,0.13,0.07){cond}
+{walk_25}=curve animate2({walk_time},0.16,0.5,0.07,0.09){cond}
+{walk_26}=curve animate2({walk_time},0.18,0.57,0.09,0.09){cond}
+{walk_27}=curve animate2({walk_time},0.125,0.66,0.09,0.035){cond}
+{walk_28}=curve animate2({walk_time},0.1,0.75,0.035,0.065){cond}
+{walk_29}=curve animate2({walk_time},0.155,0.785,0.065,0.09){cond}
+{walk_30}=curve animate2({walk_time},0.15,0.85,0.09,0.06){cond}
+{walk_31}=curve animate2({walk_time},19.06,0.94,0.06,19){cond}
+
+
+{headGD_rotY}+=5'{walk_0}
+{headGD_rotY}+=-5'{walk_1}
+{headGD_rotY}+=5'{walk_2}
+{headGD_posY}+=1{walk_0}
+{headGD_posY}+=2{walk_3}
+{headGD_posY}+=1{walk_1}
+{headGD_posY}+=2{walk_4}
+{headGD_posY}+=1{walk_2}
+
+{bodyGD_rotY}+=20'{walk_0}
+{bodyGD_rotY}+=5'{walk_3}
+{bodyGD_rotY}+=-13'{walk_1}
+{bodyGD_rotY}+=5'{walk_4}
+{bodyGD_rotY}+=20'{walk_2}
+{bodyGD_posY}+=1{walk_0}
+{bodyGD_posY}+=2{walk_3}
+{bodyGD_posY}+=1{walk_1}
+{bodyGD_posY}+=2{walk_4}
+{bodyGD_posY}+=1{walk_2}
+
+{rightArmGD_rotX}+=10'{walk_0}{not_aiming}
+{rightArmGD_rotY}+=19'{walk_0}{not_aiming}
+{rightArmGD_rotZ}+=2'{walk_0}{not_aiming}
+{rightArmGD_rotX}+=-1.15093572'{walk_3}{not_aiming}
+{rightArmGD_rotY}+=20.3303697248'{walk_3}{not_aiming}
+{rightArmGD_rotZ}+=6'{walk_3}{not_aiming}
+{rightArmGD_rotX}+=-17.4642952214'{walk_1}{not_aiming}
+{rightArmGD_rotY}+=-31.1685254099'{walk_1}{not_aiming}
+{rightArmGD_rotZ}+=17.3392558708'{walk_1}{not_aiming}
+{rightArmGD_rotX}+=-3.7617449362'{walk_4}{not_aiming}
+{rightArmGD_rotY}+=-17.170131918'{walk_4}{not_aiming}
+{rightArmGD_rotZ}+=9.0906526588'{walk_4}{not_aiming}
+{rightArmGD_rotX}+=10'{walk_2}{not_aiming}
+{rightArmGD_rotY}+=19'{walk_2}{not_aiming}
+{rightArmGD_rotZ}+=2'{walk_2}{not_aiming}
+{rightArmGD_posX}+=0.9614205346{walk_0}{not_aiming}
+{rightArmGD_posY}+=0.7608421424{walk_0}{not_aiming}
+{rightArmGD_posZ}+=2.1757755004{walk_0}{not_aiming}
+{rightArmGD_posX}+=0.9614205346{walk_3}{not_aiming}
+{rightArmGD_posY}+=1.7608421424{walk_3}{not_aiming}
+{rightArmGD_posZ}+=0.1757755004{walk_3}{not_aiming}
+{rightArmGD_posY}+=1{walk_1}{not_aiming}
+{rightArmGD_posZ}+=-1.8{walk_1}{not_aiming}
+{rightArmGD_posX}+=-0.5{walk_4}{not_aiming}
+{rightArmGD_posY}+=2.1{walk_4}{not_aiming}
+{rightArmGD_posZ}+=0.3{walk_4}{not_aiming}
+{rightArmGD_posX}+=0.9614205346{walk_2}{not_aiming}
+{rightArmGD_posY}+=0.7608421424{walk_2}{not_aiming}
+{rightArmGD_posZ}+=2.1757755004{walk_2}{not_aiming}
+
+{lowerArmRight_rotX}+=-12.5'{walk_0}{not_aiming}
+{lowerArmRight_rotX}+=-12.5'{walk_3}{not_aiming}
+{lowerArmRight_rotX}+=-18'{walk_1}{not_aiming}
+{lowerArmRight_rotY}+=-4'{walk_1}{not_aiming}
+{lowerArmRight_rotZ}+=-9'{walk_1}{not_aiming}
+{lowerArmRight_rotX}+=-34.5246768747'{walk_4}{not_aiming}
+{lowerArmRight_rotY}+=-19.8216921923'{walk_4}{not_aiming}
+{lowerArmRight_rotZ}+=-2.7199427162'{walk_4}{not_aiming}
+{lowerArmRight_rotX}+=-12.5'{walk_2}{not_aiming}
+{lowerArmRight_posY}+=-0.2{walk_0}{not_aiming}
+{lowerArmRight_posY}+=-0.3{walk_3}{not_aiming}
+{lowerArmRight_posX}+=0.8146640796{walk_1}{not_aiming}
+{lowerArmRight_posY}+=-0.218962805{walk_1}{not_aiming}
+{lowerArmRight_posZ}+=0.4662056458{walk_1}{not_aiming}
+{lowerArmRight_posX}+=0.8146640796{walk_4}{not_aiming}
+{lowerArmRight_posY}+=-0.418962805{walk_4}{not_aiming}
+{lowerArmRight_posZ}+=0.4662056458{walk_4}{not_aiming}
+{lowerArmRight_posY}+=-0.2{walk_2}{not_aiming}
+
+{leftArmGD_rotX}+=-17.4642952214'{walk_0}
+{leftArmGD_rotY}+=31.1685254099'{walk_0}
+{leftArmGD_rotZ}+=-17.3392558708'{walk_0}
+{leftArmGD_rotX}+=-4.4491118261'{walk_3}
+{leftArmGD_rotY}+=10.9193541095'{walk_3}
+{leftArmGD_rotZ}+=-15.9949236263'{walk_3}
+{leftArmGD_rotX}+=10.866437716'{walk_1}
+{leftArmGD_rotY}+=-19.9873307149'{walk_1}
+{leftArmGD_rotZ}+=-2.1256505588'{walk_1}
+{leftArmGD_rotX}+=0.9728165892'{walk_4}
+{leftArmGD_rotY}+=-14.9951307201'{walk_4}
+{leftArmGD_rotZ}+=-6.5937769846'{walk_4}
+{leftArmGD_rotX}+=-17.4642952214'{walk_2}
+{leftArmGD_rotY}+=31.1685254099'{walk_2}
+{leftArmGD_rotZ}+=-17.3392558708'{walk_2}
+{leftArmGD_posY}+=1{walk_0}
+{leftArmGD_posZ}+=-2.8{walk_0}
+{leftArmGD_posX}+=0.3087364178{walk_3}
+{leftArmGD_posY}+=1.9062774236{walk_3}
+{leftArmGD_posZ}+=-0.8485224686{walk_3}
+{leftArmGD_posX}+=-0.25{walk_1}
+{leftArmGD_posY}+=1{walk_1}
+{leftArmGD_posZ}+=0.8{walk_1}
+{leftArmGD_posX}+=-0.75{walk_4}
+{leftArmGD_posY}+=2{walk_4}
+{leftArmGD_posZ}+=-1.4{walk_4}
+{leftArmGD_posY}+=1{walk_2}
+{leftArmGD_posZ}+=-2.8{walk_2}
+
+{lowerArmLeft_rotX}+=-18'{walk_0}
+{lowerArmLeft_rotY}+=4'{walk_0}
+{lowerArmLeft_rotZ}+=9'{walk_0}
+{lowerArmLeft_rotX}+=-38.7313553937'{walk_3}
+{lowerArmLeft_rotY}+=0.4335862046'{walk_3}
+{lowerArmLeft_rotZ}+=2.4622075756'{walk_3}
+{lowerArmLeft_rotX}+=-12.5'{walk_1}
+{lowerArmLeft_rotX}+=-9.5'{walk_4}
+{lowerArmLeft_rotX}+=-18'{walk_2}
+{lowerArmLeft_rotY}+=4'{walk_2}
+{lowerArmLeft_rotZ}+=9'{walk_2}
+{lowerArmLeft_posX}+=-0.1580823124{walk_0}
+{lowerArmLeft_posY}+=-1.137652651{walk_0}
+{lowerArmLeft_posZ}+=1.0586578431{walk_0}
+{lowerArmLeft_posX}+=-0.1846897459{walk_3}
+{lowerArmLeft_posY}+=-0.6764660149{walk_3}
+{lowerArmLeft_posZ}+=0.4318864262{walk_3}
+{lowerArmLeft_posX}+=-0.1846897459{walk_1}
+{lowerArmLeft_posY}+=-0.6764660149{walk_1}
+{lowerArmLeft_posZ}+=0.4318864262{walk_1}
+{lowerArmLeft_posX}+=-0.1846897459{walk_4}
+{lowerArmLeft_posY}+=-0.6764660149{walk_4}
+{lowerArmLeft_posZ}+=0.4318864262{walk_4}
+{lowerArmLeft_posX}+=-0.1580823124{walk_2}
+{lowerArmLeft_posY}+=-1.137652651{walk_2}
+{lowerArmLeft_posZ}+=1.0586578431{walk_2}
+
+{leftLegGD_rotX}+=11.768885342'{walk_0}
+{leftLegGD_rotY}+=0.3968494102'{walk_0}
+{leftLegGD_rotZ}+=-1.9491102104'{walk_0}
+{leftLegGD_rotX}+=25.3352319718'{walk_3}
+{leftLegGD_rotY}+=1.0040068556'{walk_3}
+{leftLegGD_rotZ}+=-3.3184586506'{walk_3}
+{leftLegGD_rotX}+=-40.7865153661'{walk_5}
+{leftLegGD_rotY}+=0.0876941368'{walk_5}
+{leftLegGD_rotZ}+=-0.4671465895'{walk_5}
+{leftLegGD_rotX}+=-32.2731468025'{walk_6}
+{leftLegGD_rotY}+=0.2009065864'{walk_6}
+{leftLegGD_rotZ}+=-2.3339457794'{walk_6}
+{leftLegGD_rotX}+=-20.0396669789'{walk_7}
+{leftLegGD_rotY}+=-1.1088372815'{walk_7}
+{leftLegGD_rotZ}+=-1.9150613856'{walk_7}
+{leftLegGD_rotX}+=11.768885342'{walk_2}
+{leftLegGD_rotY}+=0.3968494102'{walk_2}
+{leftLegGD_rotZ}+=-1.9491102104'{walk_2}
+{leftLegGD_posX}+=0.3{walk_0}
+{leftLegGD_posY}+=2.1{walk_0}
+{leftLegGD_posZ}+=0.7{walk_0}
+{leftLegGD_posX}+=0.3{walk_3}
+{leftLegGD_posY}+=1.25{walk_3}
+{leftLegGD_posZ}+=-0.3{walk_3}
+{leftLegGD_posX}+=0.9{walk_5}
+{leftLegGD_posY}+=3{walk_5}
+{leftLegGD_posZ}+=1.5{walk_5}
+{leftLegGD_posX}+=0.95{walk_6}
+{leftLegGD_posY}+=2.6{walk_6}
+{leftLegGD_posZ}+=1.5{walk_6}
+{leftLegGD_posX}+=0.95{walk_7}
+{leftLegGD_posY}+=2.6{walk_7}
+{leftLegGD_posZ}+=1.5{walk_7}
+{leftLegGD_posX}+=0.3{walk_2}
+{leftLegGD_posY}+=2.1{walk_2}
+{leftLegGD_posZ}+=0.7{walk_2}
+
+{leftLegLower_rotX}+=22.5'{walk_0}
+{leftLegLower_rotX}+=30'{walk_8}
+{leftLegLower_rotX}+=44.7'{walk_9}
+{leftLegLower_rotX}+=47.5042149436'{walk_10}
+{leftLegLower_rotY}+=-0.7933384125'{walk_10}
+{leftLegLower_rotZ}+=-0.6088003369'{walk_10}
+{leftLegLower_rotX}+=8.0042149436'{walk_11}
+{leftLegLower_rotY}+=-0.7933384125'{walk_11}
+{leftLegLower_rotZ}+=-0.6088003369'{walk_11}
+{leftLegLower_rotX}+=23.0042149436'{walk_12}
+{leftLegLower_rotY}+=-0.7933384125'{walk_12}
+{leftLegLower_rotZ}+=-0.6088003369'{walk_12}
+{leftLegLower_rotX}+=22.5'{walk_2}
+
+{leftFoot_rotX}+=-28.2416454338'{walk_0}
+{leftFoot_rotY}+=3.7236263552'{walk_0}
+{leftFoot_rotZ}+=1.4326613039'{walk_0}
+{leftFoot_rotX}+=-11.3259154453'{walk_13}
+{leftFoot_rotY}+=1.3908685205'{walk_13}
+{leftFoot_rotZ}+=1.6641572566'{walk_13}
+{leftFoot_rotX}+=-24.8265796175'{walk_14}
+{leftFoot_rotY}+=5.3127177511'{walk_14}
+{leftFoot_rotZ}+=0.8758252514'{walk_14}
+{leftFoot_rotX}+=-24.472034163'{walk_15}
+{leftFoot_rotY}+=5.3127177511'{walk_15}
+{leftFoot_rotZ}+=0.8758252514'{walk_15}
+{leftFoot_rotX}+=-5.0001894268'{walk_16}
+{leftFoot_rotY}+=-0.4980973011'{walk_16}
+{leftFoot_rotZ}+=0.043578969'{walk_16}
+{leftFoot_rotX}+=-5.0716630679'{walk_17}
+{leftFoot_rotY}+=0.3327433784'{walk_17}
+{leftFoot_rotZ}+=1.6083752618'{walk_17}
+{leftFoot_rotX}+=-2.278760416'{walk_18}
+{leftFoot_rotY}+=5.3532934907'{walk_18}
+{leftFoot_rotZ}+=1.8793457656'{walk_18}
+{leftFoot_rotX}+=-28.2416454338'{walk_2}
+{leftFoot_rotY}+=3.7236263552'{walk_2}
+{leftFoot_rotZ}+=1.4326613039'{walk_2}
+
+{rightLegGD_rotX}+=-46.9085021747'{walk_0}
+{rightLegGD_rotY}+=0.7199452222'{walk_0}
+{rightLegGD_rotZ}+=1.5045313983'{walk_0}
+{rightLegGD_rotX}+=-18.8170350367'{walk_3}
+{rightLegGD_rotY}+=-1.7891313637'{walk_3}
+{rightLegGD_rotZ}+=0.8646766859'{walk_3}
+{rightLegGD_rotX}+=-0.7543425051'{walk_1}
+{rightLegGD_rotY}+=1.0622755171'{walk_1}
+{rightLegGD_rotZ}+=2.4189470944'{walk_1}
+{rightLegGD_rotX}+=10.2217103829'{walk_4}
+{rightLegGD_rotY}+=-2.274341822'{walk_4}
+{rightLegGD_rotZ}+=2.8978755169'{walk_4}
+{rightLegGD_rotX}+=-46.9085021747'{walk_2}
+{rightLegGD_rotY}+=0.7199452222'{walk_2}
+{rightLegGD_rotZ}+=1.5045313983'{walk_2}
+{rightLegGD_posX}+=-0.6{walk_0}
+{rightLegGD_posY}+=3.4{walk_0}
+{rightLegGD_posZ}+=1.4{walk_0}
+{rightLegGD_posX}+=-0.6{walk_3}
+{rightLegGD_posY}+=2{walk_3}
+{rightLegGD_posZ}+=2.1{walk_3}
+{rightLegGD_posX}+=-0.59{walk_1}
+{rightLegGD_posY}+=0.97{walk_1}
+{rightLegGD_posZ}+=-0.08{walk_1}
+{rightLegGD_posX}+=-0.3{walk_4}
+{rightLegGD_posY}+=0.7{walk_4}
+{rightLegGD_posZ}+=0.65{walk_4}
+{rightLegGD_posX}+=-0.6{walk_2}
+{rightLegGD_posY}+=3.4{walk_2}
+{rightLegGD_posZ}+=1.4{walk_2}
+
+{rightLegLower_rotX}+=50.0042149436'{walk_19}
+{rightLegLower_rotY}+=0.7933384125'{walk_19}
+{rightLegLower_rotZ}+=0.6088003369'{walk_19}
+{rightLegLower_rotX}+=-2.5'{walk_20}
+{rightLegLower_rotX}+=16.140166542'{walk_21}
+{rightLegLower_rotY}+=-0.5235037008'{walk_21}
+{rightLegLower_rotZ}+=0.7919239005'{walk_21}
+{rightLegLower_rotX}+=19.988013494'{walk_22}
+{rightLegLower_rotY}+=-0.669007773'{walk_22}
+{rightLegLower_rotZ}+=0.7279977912'{walk_22}
+{rightLegLower_rotX}+=27.491330241'{walk_23}
+{rightLegLower_rotY}+=-0.3456383195'{walk_23}
+{rightLegLower_rotZ}+=-0.2651763963'{walk_23}
+{rightLegLower_rotX}+=37.4895754705'{walk_4}
+{rightLegLower_rotY}+=-0.1312628034'{walk_4}
+{rightLegLower_rotZ}+=-0.7571940321'{walk_4}
+{rightLegLower_rotX}+=50.0042149436'{walk_2}
+{rightLegLower_rotY}+=0.7933384125'{walk_2}
+{rightLegLower_rotZ}+=0.6088003369'{walk_2}
+
+{rightFoot_rotX}+=5'{walk_19}
+{rightFoot_rotX}+=7.9186816001'{walk_20}
+{rightFoot_rotY}+=0.1114945499'{walk_20}
+{rightFoot_rotZ}+=-0.881835547'{walk_20}
+{rightFoot_rotX}+=2.8487380346'{walk_21}
+{rightFoot_rotY}+=-0.3281697833'{walk_21}
+{rightFoot_rotZ}+=-1.3310549387'{walk_21}
+{rightFoot_rotX}+=-10.4631716702'{walk_22}
+{rightFoot_rotY}+=-1.0316327163'{walk_22}
+{rightFoot_rotZ}+=-2.0498059654'{walk_22}
+{rightFoot_rotX}+=-17.3934723978'{walk_24}
+{rightFoot_rotY}+=-1.4088277475'{walk_24}
+{rightFoot_rotZ}+=-1.6752101914'{walk_24}
+{rightFoot_rotX}+=-21.8191981591'{walk_25}
+{rightFoot_rotY}+=-1.2909073996'{walk_25}
+{rightFoot_rotZ}+=-1.7186220121'{walk_25}
+{rightFoot_rotX}+=-16.8811920705'{walk_26}
+{rightFoot_rotY}+=-1.1276330717'{walk_26}
+{rightFoot_rotZ}+=-1.7787306869'{walk_26}
+{rightFoot_rotX}+=-10.9431859818'{walk_27}
+{rightFoot_rotY}+=-0.9643587439'{walk_27}
+{rightFoot_rotZ}+=-1.8388393616'{walk_27}
+{rightFoot_rotX}+=-21.3611399444'{walk_28}
+{rightFoot_rotY}+=-0.8293485197'{walk_28}
+{rightFoot_rotZ}+=-1.581401851'{walk_28}
+{rightFoot_rotX}+=-18.5659115891'{walk_29}
+{rightFoot_rotY}+=-0.5786152463'{walk_29}
+{rightFoot_rotZ}+=-1.103303617'{walk_29}
+{rightFoot_rotX}+=-9.4263646356'{walk_30}
+{rightFoot_rotY}+=-0.2314460985'{walk_30}
+{rightFoot_rotZ}+=-0.4413214468'{walk_30}
+{rightFoot_rotX}+=5'{walk_31}
+{rightFoot_posX}+=-0.0377857932{walk_4}
+{rightFoot_posY}+=-0.3199887699{walk_4}
+{rightFoot_posZ}+=-0.2370219841{walk_4}
+
+;------------------------------------------------------------------------------
+;crouch
+{data_2}=curve{data_2} * {not_landing}
+
+{gipsy_posY}+= -2{data_2}
+
+{headGD_posY}+=4.2{data_2}
+{headGD_posZ}+=-4{data_2}
+
+{bodyGD_rotX}+=7.5'{data_2}
+{bodyGD_posY}+=4{data_2}
+{bodyGD_posZ}+=-3.9{data_2}
+
+{rightArmGD_rotZ}+=10'{data_2}{not_aiming}
+{rightArmGD_posY}+=4{data_2}
+{rightArmGD_posZ}+=-4{data_2}{not_aiming}
+
+{lowerArmRight_rotX}+=-12.5'{data_2}{not_aiming}
+
+{leftArmGD_rotZ}+=-7.5'{data_2}
+{leftArmGD_posY}+=4{data_2}
+{leftArmGD_posZ}+=-3{data_2}
+
+{lowerArmLeft_rotX}+=-15'{data_2}
+
+{leftLegGD_rotX}+=-24.4992169966'{data_2}
+{leftLegGD_rotY}+=-13.0703376478'{data_2}
+{leftLegGD_rotZ}+=-5.1964545518'{data_2}
+{leftLegGD_posY}+=4{data_2}
+
+{leftLegLower_rotX}+=37.5'{data_2}
+
+{leftFoot_rotX}+=-12.5047348024'{data_2}
+{leftFoot_rotY}+=-0.2178207497'{data_2}
+{leftFoot_rotZ}+=2.4904987465'{data_2}
+
+{rightLegGD_rotX}+=-21.9620694415'{data_2}
+{rightLegGD_rotY}+=15.3870176286'{data_2}
+{rightLegGD_rotZ}+=4.6975489952'{data_2}
+{rightLegGD_posY}+=4{data_2}
+
+{rightLegLower_rotX}+=37.5'{data_2}
+
+{rightFoot_rotX}+=-14.9863659094'{data_2}
+{rightFoot_rotY}+=-0.6468560589'{data_2}
+{rightFoot_rotZ}+=-2.4149171918'{data_2}
+
+;------------------------------------------------------------------------------
+;elbow rocket
+;{elbowRocket_time}={data}
+{elbowRocket_time} = 0 * {not_landing}
+{elbowRocket_0}=curve animate2({elbowRocket_time},0.552,0,0.4,0.152)
+{elbowRocket_1}=curve animate2({elbowRocket_time},0.4,0.4,0.152,0.248)
+{elbowRocket_2}=curve animate2({elbowRocket_time},0.448,0.5519999999999999,0.248,0.2)
+{elbowRocket_3}=curve animate2({elbowRocket_time},0.6,0,0.4,0.2)
+{elbowRocket_4}=curve animate2({elbowRocket_time},0.4,0.4,0.2,0.2)
+{elbowRocket_5}=curve animate2({elbowRocket_time},0.4,0.6,0.2,0.2)
+{elbowRocket_6}=curve animate2({elbowRocket_time},0.504,0,0.4,0.104)
+{elbowRocket_7}=curve animate2({elbowRocket_time},0.2,0.4,0.104,0.096)
+{elbowRocket_8}=curve animate2({elbowRocket_time},0.296,0.504,0.096,0.2)
+{elbowRocket_9}=curve animate2({elbowRocket_time},0.336,0.4,0.2,0.136)
+{elbowRocket_10}=curve animate2({elbowRocket_time},0.2,0.6,0.136,0.064)
+{elbowRocket_11}=curve animate2({elbowRocket_time},0.264,0.736,0.064,0.2)
+{elbowRocket_12}=curve animate2({elbowRocket_time},12.5,0,0.6,11.9)
+{elbowRocket_13}=curve animate2({elbowRocket_time},0.344,0.2,0.136,0.208)
+{elbowRocket_14}=curve animate2({elbowRocket_time},0.432,0.2,0.2,0.232)
+{elbowRocket_15}=curve animate2({elbowRocket_time},0.296,0.2,0.144,0.152)
+{elbowRocket_16}=curve animate2({elbowRocket_time},0.6,0.4,0.2,0.4)
+{elbowRocket_17}=curve animate2({elbowRocket_time},0.6,0,0.408,0.192)
+{elbowRocket_18}=curve animate2({elbowRocket_time},0.392,0.40800000000000003,0.192,0.2)
+{elbowRocket_19}=curve animate2({elbowRocket_time},0.8,0,0.6,0.2)
+{elbowRocket_20}=curve animate2({elbowRocket_time},0.8,0,0.408,0.392)
+{elbowRocket_21}=curve animate2({elbowRocket_time},0.592,0.40800000000000003,0.392,0.2)
+
+
+{headGD_rotY}+=10'{elbowRocket_0}
+{headGD_rotY}+=10'{elbowRocket_1}
+{headGD_rotY}+=-2.67'{elbowRocket_2}
+{headGD_posX}+=-0.8{elbowRocket_0}
+{headGD_posX}+=-0.8{elbowRocket_1}
+{headGD_posX}+=0.8{elbowRocket_2}
+
+{bodyGD_rotY}+=42.5'{elbowRocket_3}
+{bodyGD_rotY}+=55'{elbowRocket_4}
+{bodyGD_rotY}+=-62.5'{elbowRocket_5}
+
+{rightArmGD_rotX}+=37.3349744068'{elbowRocket_6}
+{rightArmGD_rotY}+=-7.7503812211'{elbowRocket_6}
+{rightArmGD_rotZ}+=88.3128744549'{elbowRocket_6}
+{rightArmGD_rotX}+=37.3349744068'{elbowRocket_7}
+{rightArmGD_rotY}+=-7.7503812211'{elbowRocket_7}
+{rightArmGD_rotZ}+=88.3128744549'{elbowRocket_7}
+{rightArmGD_rotX}+=35.3497136871'{elbowRocket_8}
+{rightArmGD_rotY}+=15.0009822278'{elbowRocket_8}
+{rightArmGD_rotZ}+=58.2397234435'{elbowRocket_8}
+{rightArmGD_rotX}+=-91.3919532405'{elbowRocket_5}
+{rightArmGD_rotY}+=-2.6006463537'{elbowRocket_5}
+{rightArmGD_rotZ}+=87.0010114958'{elbowRocket_5}
+{rightArmGD_posY}+=2.9{elbowRocket_3}
+{rightArmGD_posZ}+=5.9{elbowRocket_3}
+{rightArmGD_posX}+=1{elbowRocket_9}
+{rightArmGD_posY}+=2.9{elbowRocket_9}
+{rightArmGD_posZ}+=8.9{elbowRocket_9}
+{rightArmGD_posX}+=-0.28{elbowRocket_10}
+{rightArmGD_posY}+=2.56{elbowRocket_10}
+{rightArmGD_posZ}+=-6.02{elbowRocket_10}
+{rightArmGD_posX}+=4.7{elbowRocket_11}
+{rightArmGD_posY}+=2.4{elbowRocket_11}
+{rightArmGD_posZ}+=-10.1{elbowRocket_11}
+
+{lowerArmRight_rotX}+=-114'{elbowRocket_3}
+{lowerArmRight_rotX}+=-108.5610102965'{elbowRocket_4}
+{lowerArmRight_rotY}+=9.9797639838'{elbowRocket_4}
+{lowerArmRight_rotZ}+=36.0891074125'{elbowRocket_4}
+{lowerArmRight_rotX}+=-19.0537210643'{elbowRocket_5}
+{lowerArmRight_rotY}+=-10.8316037797'{elbowRocket_5}
+{lowerArmRight_rotZ}+=8.8794983071'{elbowRocket_5}
+{lowerArmRight_posX}+=-0.3285128896{elbowRocket_12}
+{lowerArmRight_posY}+=-0.2226609304{elbowRocket_12}
+{lowerArmRight_posZ}+=0.0500139128{elbowRocket_12}
+
+{frontRight_rotX}+=-24.212669526'{elbowRocket_13}
+{frontRight_rotY}+=-5.5651501615'{elbowRocket_13}
+{frontRight_rotZ}+=33.2464766404'{elbowRocket_13}
+
+{backRight_rotX}+=22.2845560085'{elbowRocket_14}
+{backRight_rotY}+=9.3368242094'{elbowRocket_14}
+{backRight_rotZ}+=30.6825970263'{elbowRocket_14}
+
+{outerRight_rotX}+=1.0186135703'{elbowRocket_15}
+{outerRight_rotY}+=2.3358034129'{elbowRocket_15}
+{outerRight_rotZ}+=-19.606485447'{elbowRocket_15}
+
+{handRight_rotX}+=-9'{elbowRocket_3}
+{handRight_rotZ}+=17.5'{elbowRocket_3}
+{handRight_rotX}+=-11.270606988'{elbowRocket_16}
+{handRight_rotY}+=0.7021276674'{elbowRocket_16}
+{handRight_rotZ}+=16.7103890172'{elbowRocket_16}
+
+{leftArmGD_rotX}+=-36.2039897451'{elbowRocket_3}
+{leftArmGD_rotY}+=51.7100958682'{elbowRocket_3}
+{leftArmGD_rotZ}+=-43.003071527'{elbowRocket_3}
+{leftArmGD_rotX}+=-33.8428626675'{elbowRocket_4}
+{leftArmGD_rotY}+=26.6259059605'{elbowRocket_4}
+{leftArmGD_rotZ}+=-33.9555973778'{elbowRocket_4}
+{leftArmGD_rotX}+=17.4594677492'{elbowRocket_5}
+{leftArmGD_rotY}+=-23.773598996'{elbowRocket_5}
+{leftArmGD_rotZ}+=-22.9977829466'{elbowRocket_5}
+{leftArmGD_posX}+=-1.9{elbowRocket_3}
+{leftArmGD_posZ}+=-7{elbowRocket_3}
+{leftArmGD_posX}+=-2.9{elbowRocket_4}
+{leftArmGD_posY}+=0.7{elbowRocket_4}
+{leftArmGD_posZ}+=-7.6{elbowRocket_4}
+{leftArmGD_posX}+=-4{elbowRocket_5}
+{leftArmGD_posZ}+=7.1{elbowRocket_5}
+
+{lowerArmLeft_rotX}+=-25'{elbowRocket_3}
+{lowerArmLeft_rotX}+=-70'{elbowRocket_4}
+{lowerArmLeft_rotX}+=-5'{elbowRocket_5}
+{lowerArmLeft_posX}+=0.1690473048{elbowRocket_3}
+{lowerArmLeft_posY}+=-0.3625231148{elbowRocket_3}
+{lowerArmLeft_posX}+=1.5865032644{elbowRocket_4}
+{lowerArmLeft_posY}+=-0.3407064899{elbowRocket_4}
+{lowerArmLeft_posZ}+=1.9008277835{elbowRocket_4}
+{lowerArmLeft_posX}+=0.5015661334{elbowRocket_5}
+{lowerArmLeft_posY}+=-1.081344578{elbowRocket_5}
+{lowerArmLeft_posZ}+=-0.457057474{elbowRocket_5}
+
+{leftLegGD_rotX}+=-7.5'{elbowRocket_17}
+{leftLegGD_rotX}+=-7.5'{elbowRocket_18}
+{leftLegGD_rotX}+=-3.0308115458'{elbowRocket_5}
+{leftLegGD_rotY}+=-21.0834334553'{elbowRocket_5}
+{leftLegGD_rotZ}+=-3.6077133265'{elbowRocket_5}
+{leftLegGD_posZ}+=-3.07{elbowRocket_19}
+{leftLegGD_posZ}+=5{elbowRocket_5}
+
+{leftLegLower_rotX}+=7.5'{elbowRocket_20}
+{leftLegLower_rotX}+=2.5244276317'{elbowRocket_21}
+{leftLegLower_rotY}+=-0.4354380629'{elbowRocket_21}
+{leftLegLower_rotZ}+=2.4618103883'{elbowRocket_21}
+
+{leftFoot_rotX}+=5'{elbowRocket_20}
+{leftFoot_rotX}+=2.5095373224'{elbowRocket_21}
+{leftFoot_rotY}+=-0.2174045372'{elbowRocket_21}
+{leftFoot_rotZ}+=-0.0142676354'{elbowRocket_21}
+
+{rightLegGD_rotX}+=27.1990272362'{elbowRocket_3}
+{rightLegGD_rotY}+=18.8585331179'{elbowRocket_3}
+{rightLegGD_rotZ}+=11.9412649786'{elbowRocket_3}
+{rightLegGD_rotX}+=34.6990272362'{elbowRocket_4}
+{rightLegGD_rotY}+=18.8585331179'{elbowRocket_4}
+{rightLegGD_rotZ}+=11.9412649786'{elbowRocket_4}
+{rightLegGD_rotX}+=11.8261015592'{elbowRocket_5}
+{rightLegGD_rotY}+=-13.1385938103'{elbowRocket_5}
+{rightLegGD_rotZ}+=4.0484815623'{elbowRocket_5}
+{rightLegGD_posY}+=0.3{elbowRocket_3}
+{rightLegGD_posZ}+=3.7{elbowRocket_3}
+{rightLegGD_posY}+=0.3{elbowRocket_4}
+{rightLegGD_posZ}+=3.7{elbowRocket_4}
+{rightLegGD_posX}+=1.4{elbowRocket_5}
+{rightLegGD_posY}+=0.3{elbowRocket_5}
+{rightLegGD_posZ}+=-3.3{elbowRocket_5}
+
+{rightLegLower_rotX}+=20'{elbowRocket_3}
+{rightLegLower_rotX}+=15'{elbowRocket_4}
+{rightLegLower_rotX}+=35.0043469689'{elbowRocket_5}
+{rightLegLower_rotY}+=0.7372602513'{elbowRocket_5}
+{rightLegLower_rotZ}+=0.6756274979'{elbowRocket_5}
+
+{rightFoot_rotX}+=-10.3217758645'{elbowRocket_3}
+{rightFoot_rotY}+=-8.6470201177'{elbowRocket_3}
+{rightFoot_rotZ}+=-12.5198399592'{elbowRocket_3}
+{rightFoot_rotX}+=2.1659195724'{elbowRocket_4}
+{rightFoot_rotY}+=-6.1488157606'{elbowRocket_4}
+{rightFoot_rotZ}+=-12.4243003635'{elbowRocket_4}
+{rightFoot_rotX}+=-5.099086969'{elbowRocket_5}
+{rightFoot_rotY}+=1.8990973116'{elbowRocket_5}
+{rightFoot_rotZ}+=-10.3644118426'{elbowRocket_5}
+;------------------------------------------------------------------------------
+;boat lift
+{no_boat} = (1-{data_6})
+{boatLift_time}={data_6}
+{boatLift_0}=curve animate2({boatLift_time},0.6,0,0.4,0.2)
+{boatLift_1}=curve animate2({boatLift_time},0.6,0.4,0.2,0.4)
+{boatLift_2}=curve animate2({boatLift_time},0.4,0.4,0.2,0.2)
+{boatLift_3}=curve animate2({boatLift_time},0.4,0.6,0.2,0.2)
+{boatLift_4}=curve animate2({boatLift_time},11.7,0.8,0.2,11.5)
+{boatLift_5}=curve animate2({boatLift_time},0.608,0.392,0.408,0.2)
+{boatLift_6}=curve animate2({boatLift_time},0.4,0,0.2,0.2)
+{boatLift_7}=curve animate2({boatLift_time},0.4,0.2,0.2,0.2)
+{boatLift_8}=curve animate2({boatLift_time},0.192,0,0,0.192)
+{boatLift_9}=curve animate2({boatLift_time},0.36,0,0.192,0.168)
+{boatLift_10}=curve animate2({boatLift_time},0.208,0.192,0.168,0.04)
+{boatLift_11}=curve animate2({boatLift_time},12.14,0.36,0.04,12.1)
+{boatLift_12}=curve animate2({boatLift_time},0.4,0,0.192,0.208)
+{boatLift_13}=curve animate2({boatLift_time},12.308,0.192,0.208,12.1)
+
+
+{headGD_posX}+=-7{boatLift_0}
+{headGD_posY}+=20{boatLift_0}
+{headGD_posZ}+=-8{boatLift_0}
+{headGD_posX}+=-7{boatLift_1}
+{headGD_posY}+=20{boatLift_1}
+{headGD_posZ}+=-8{boatLift_1}
+
+{bodyGD_rotX}+=7.7858427692'{boatLift_0}
+{bodyGD_rotY}+=8.8717178637'{boatLift_0}
+{bodyGD_rotZ}+=-16.1797263624'{boatLift_0}
+{bodyGD_rotX}+=7.7858427692'{boatLift_1}
+{bodyGD_rotY}+=8.8717178637'{boatLift_1}
+{bodyGD_rotZ}+=-16.1797263624'{boatLift_1}
+{bodyGD_posX}+=-6.9{boatLift_0}
+{bodyGD_posY}+=19.3{boatLift_0}
+{bodyGD_posZ}+=-7.9{boatLift_0}
+{bodyGD_posX}+=-6.9{boatLift_1}
+{bodyGD_posY}+=19.3{boatLift_1}
+{bodyGD_posZ}+=-7.9{boatLift_1}
+
+{rightArmGD_rotX}+=-2.5'{boatLift_0}
+{rightArmGD_rotZ}+=12.5'{boatLift_0}
+{rightArmGD_rotX}+=-2.5'{boatLift_2}
+{rightArmGD_rotZ}+=12.5'{boatLift_2}
+{rightArmGD_rotX}+=-65.117981203'{boatLift_3}
+{rightArmGD_rotY}+=-21.9735383935'{boatLift_3}
+{rightArmGD_rotZ}+=17.0922204369'{boatLift_3}
+{rightArmGD_rotX}+=-59.923660725'{boatLift_4}
+{rightArmGD_rotY}+=-9.4290509805'{boatLift_4}
+{rightArmGD_rotZ}+=15.9826966193'{boatLift_4}
+{rightArmGD_posX}+=-4.9781111206{boatLift_0}
+{rightArmGD_posY}+=22.4548081638{boatLift_0}
+{rightArmGD_posZ}+=-6{boatLift_0}
+{rightArmGD_posX}+=-4.9781111206{boatLift_2}
+{rightArmGD_posY}+=22.4548081638{boatLift_2}
+{rightArmGD_posZ}+=-6{boatLift_2}
+{rightArmGD_posX}+=-3.1959642912{boatLift_3}
+{rightArmGD_posY}+=10.898659108{boatLift_3}
+{rightArmGD_posZ}+=-3.9120458505{boatLift_3}
+
+{lowerArmRight_rotX}+=-24.2876218185'{boatLift_5}
+{lowerArmRight_rotY}+=-5.1882243876'{boatLift_5}
+{lowerArmRight_rotZ}+=-29.2378741561'{boatLift_5}
+{lowerArmRight_rotX}+=-21.3043995418'{boatLift_4}
+{lowerArmRight_rotY}+=-13.0074015879'{boatLift_4}
+{lowerArmRight_rotZ}+=-47.8982890029'{boatLift_4}
+
+{leftArmGD_rotX}+=-13.3484241001'{boatLift_0}
+{leftArmGD_rotY}+=43.8117569486'{boatLift_0}
+{leftArmGD_rotZ}+=-52.3613423001'{boatLift_0}
+{leftArmGD_rotX}+=-13.3484241001'{boatLift_2}
+{leftArmGD_rotY}+=43.8117569486'{boatLift_2}
+{leftArmGD_rotZ}+=-52.3613423001'{boatLift_2}
+{leftArmGD_rotX}+=-56.1050113328'{boatLift_3}
+{leftArmGD_rotY}+=36.342433802'{boatLift_3}
+{leftArmGD_rotZ}+=-31.6599348872'{boatLift_3}
+{leftArmGD_rotX}+=-64.0060058423'{boatLift_4}
+{leftArmGD_rotY}+=23.4609893246'{boatLift_4}
+{leftArmGD_rotZ}+=-1.9912708598'{boatLift_4}
+{leftArmGD_posX}+=-4.8963156235{boatLift_0}
+{leftArmGD_posY}+=16.9479851178{boatLift_0}
+{leftArmGD_posZ}+=-7.2075500665{boatLift_0}
+{leftArmGD_posX}+=-4.8963156235{boatLift_1}
+{leftArmGD_posY}+=16.9479851178{boatLift_1}
+{leftArmGD_posZ}+=-7.2075500665{boatLift_1}
+
+{lowerArmLeft_rotX}+=-50'{boatLift_0}
+{lowerArmLeft_rotX}+=-50'{boatLift_2}
+{lowerArmLeft_rotX}+=-62.4895438864'{boatLift_3}
+{lowerArmLeft_rotY}+=-4.5586332998'{boatLift_3}
+{lowerArmLeft_rotZ}+=17.6982096042'{boatLift_3}
+{lowerArmLeft_rotX}+=-29.7937336568'{boatLift_4}
+{lowerArmLeft_rotY}+=14.726788958'{boatLift_4}
+{lowerArmLeft_rotZ}+=42.926357702'{boatLift_4}
+{lowerArmLeft_posY}+=-0.6850653486{boatLift_0}
+{lowerArmLeft_posZ}+=1.9054357685{boatLift_0}
+{lowerArmLeft_posY}+=-0.6850653486{boatLift_1}
+{lowerArmLeft_posZ}+=1.9054357685{boatLift_1}
+
+{leftLegGD_rotX}+=-17.3950865456'{boatLift_0}
+{leftLegGD_rotY}+=-5.5880714877'{boatLift_0}
+{leftLegGD_rotZ}+=0.0872101868'{boatLift_0}
+{leftLegGD_rotX}+=-17.3950865456'{boatLift_2}
+{leftLegGD_rotY}+=-5.5880714877'{boatLift_2}
+{leftLegGD_rotZ}+=0.0872101868'{boatLift_2}
+{leftLegGD_rotX}+=-26.1975432728'{boatLift_3}
+{leftLegGD_rotY}+=-2.7940357439'{boatLift_3}
+{leftLegGD_rotZ}+=0.0436050934'{boatLift_3}
+{leftLegGD_posY}+=15{boatLift_0}
+{leftLegGD_posZ}+=-4{boatLift_0}
+{leftLegGD_posY}+=15{boatLift_1}
+{leftLegGD_posZ}+=-4{boatLift_1}
+
+{leftLegLower_rotX}+=86.25'{boatLift_6}
+{leftLegLower_rotX}+=112.5'{boatLift_7}
+{leftLegLower_rotX}+=112.5'{boatLift_2}
+{leftLegLower_rotX}+=76.25'{boatLift_3}
+{leftLegLower_posX}+=0.0779005595{boatLift_0}
+{leftLegLower_posY}+=2.3847516241{boatLift_0}
+{leftLegLower_posZ}+=5.7250870713{boatLift_0}
+{leftLegLower_posX}+=0.0779005595{boatLift_1}
+{leftLegLower_posY}+=2.3847516241{boatLift_1}
+{leftLegLower_posZ}+=5.7250870713{boatLift_1}
+
+{leftFoot_rotX}+=-48.75'{boatLift_6}
+{leftFoot_rotX}+=37.5'{boatLift_7}
+{leftFoot_rotX}+=37.5'{boatLift_2}
+{leftFoot_rotX}+=-48.75'{boatLift_3}
+
+{rightLegGD_rotX}+=-67.6285720606'{boatLift_6}
+{rightLegGD_rotY}+=11.6062010148'{boatLift_6}
+{rightLegGD_rotZ}+=-1.1424981332'{boatLift_6}
+{rightLegGD_rotX}+=-110.2571441212'{boatLift_7}
+{rightLegGD_rotY}+=23.2124020296'{boatLift_7}
+{rightLegGD_rotZ}+=-2.2849962664'{boatLift_7}
+{rightLegGD_rotX}+=-110.2571441212'{boatLift_2}
+{rightLegGD_rotY}+=23.2124020296'{boatLift_2}
+{rightLegGD_rotZ}+=-2.2849962664'{boatLift_2}
+{rightLegGD_rotX}+=-67.6285720606'{boatLift_3}
+{rightLegGD_rotY}+=11.6062010148'{boatLift_3}
+{rightLegGD_rotZ}+=-1.1424981332'{boatLift_3}
+{rightLegGD_posX}+=-3{boatLift_0}
+{rightLegGD_posY}+=22.3{boatLift_0}
+{rightLegGD_posZ}+=-3{boatLift_0}
+{rightLegGD_posX}+=-3{boatLift_1}
+{rightLegGD_posY}+=22.3{boatLift_1}
+{rightLegGD_posZ}+=-3{boatLift_1}
+
+{rightLegLower_rotX}+=52.5'{boatLift_6}
+{rightLegLower_rotX}+=80'{boatLift_7}
+{rightLegLower_rotX}+=80'{boatLift_2}
+{rightLegLower_rotX}+=52.5'{boatLift_3}
+{rightLegLower_posX}+=-0.6389396653{boatLift_0}
+{rightLegLower_posY}+=3.6853317878{boatLift_0}
+{rightLegLower_posZ}+=2.1882271419{boatLift_0}
+{rightLegLower_posX}+=-0.6389396653{boatLift_1}
+{rightLegLower_posY}+=3.6853317878{boatLift_1}
+{rightLegLower_posZ}+=2.1882271419{boatLift_1}
+
+{rightFoot_rotX}+=30.477660105'{boatLift_0}
+{rightFoot_rotY}+=-1.1540833125'{boatLift_0}
+{rightFoot_rotZ}+=2.2178270917'{boatLift_0}
+{rightFoot_rotX}+=30.477660105'{boatLift_1}
+{rightFoot_rotY}+=-1.1540833125'{boatLift_1}
+{rightFoot_rotZ}+=2.2178270917'{boatLift_1}
+
+{cargoShip_rotX}+=-90'{boatLift_8}
+{cargoShip_rotX}+=-88.6911362956'{boatLift_9}
+{cargoShip_rotY}+=0.2543392091'{boatLift_9}
+{cargoShip_rotZ}+=-6.3281067181'{boatLift_9}
+{cargoShip_rotX}+=-87.5379335203'{boatLift_10}
+{cargoShip_rotY}+=0.4339868564'{boatLift_10}
+{cargoShip_rotZ}+=-9.9906740596'{boatLift_10}
+{cargoShip_rotX}+=-87.5379335203'{boatLift_11}
+{cargoShip_rotY}+=0.4339868564'{boatLift_11}
+{cargoShip_rotZ}+=-9.9906740596'{boatLift_11}
+{cargoShip_posX}+=-21.5{boatLift_8}
+{cargoShip_posY}+=-3.2{boatLift_8}
+{cargoShip_posZ}+=-41{boatLift_8}
+{cargoShip_posX}+=-16.2003843661{boatLift_12}
+{cargoShip_posY}+=-12.2515545916{boatLift_12}
+{cargoShip_posZ}+=-37.6531326707{boatLift_12}
+{cargoShip_posX}+=-12.1622643657{boatLift_13}
+{cargoShip_posY}+=-22.9350675873{boatLift_13}
+{cargoShip_posZ}+=-34.0478669938{boatLift_13}
+;------------------------------------------------------------------------------
+;boat swing
+{boatSwing_time}=max({data_4}, {data_5})
+{boatSwing_0}=curve animate2({boatSwing_time},0.75,0,0.25,0.5) * {data_6}
+{boatSwing_1}=curve animate2({boatSwing_time},0.75,0.25,0.5,0.25) * {data_6}
+{boatSwing_2}=curve animate2({boatSwing_time},0.5,0,0.25,0.25) * {data_6}
+{boatSwing_3}=curve animate2({boatSwing_time},0.5,0.25,0.25,0.25) * {data_6}
+{boatSwing_4}=curve animate2({boatSwing_time},0.5,0.5,0.25,0.25) * {data_6}
+{boatSwing_5}=curve animate2({boatSwing_time},0.75,0,0.5,0.25) * {data_6}
+{boatSwing_6}=curve animate2({boatSwing_time},1,0,0.25,0.75) * {data_6}
+
+
+{bodyGD_rotY}+=22.5'{boatSwing_0}
+{bodyGD_rotY}+=-17.5'{boatSwing_1}
+
+{rightArmGD_rotX}+=-31.1730074805'{boatSwing_0}
+{rightArmGD_rotY}+=56.887544535'{boatSwing_0}
+{rightArmGD_rotZ}+=-10.0586009409'{boatSwing_0}
+{rightArmGD_rotX}+=16.6193081877'{boatSwing_1}
+{rightArmGD_rotY}+=-48.6224462139'{boatSwing_1}
+{rightArmGD_rotZ}+=-27.4686693311'{boatSwing_1}
+{rightArmGD_posY}+=1.4{boatSwing_0}
+{rightArmGD_posZ}+=5{boatSwing_0}
+{rightArmGD_posY}+=0.8{boatSwing_1}
+{rightArmGD_posZ}+=-2{boatSwing_1}
+
+{lowerArmRight_rotX}+=21.0070430382'{boatSwing_2}
+{lowerArmRight_rotY}+=-7.2119623541'{boatSwing_2}
+{lowerArmRight_rotZ}+=-35.6763552187'{boatSwing_2}
+{lowerArmRight_rotX}+=18.0420555075'{boatSwing_3}
+{lowerArmRight_rotY}+=-3.6629558824'{boatSwing_3}
+{lowerArmRight_rotZ}+=-3.5549893958'{boatSwing_3}
+{lowerArmRight_rotX}+=12.7062859651'{boatSwing_4}
+{lowerArmRight_rotY}+=0.4241559837'{boatSwing_4}
+{lowerArmRight_rotZ}+=36.8927738649'{boatSwing_4}
+
+{handRight_rotX}+=20.0386543424'{boatSwing_3}
+{handRight_rotY}+=29.425893131'{boatSwing_3}
+{handRight_rotZ}+=-4.3756306396'{boatSwing_3}
+{handRight_rotX}+=-2.1456602124'{boatSwing_4}
+{handRight_rotY}+=9.0914365225'{boatSwing_4}
+{handRight_rotZ}+=-14.3640625972'{boatSwing_4}
+{handRight_posX}+=-0.2458404062{boatSwing_5}
+{handRight_posY}+=0.1232469663{boatSwing_5}
+{handRight_posZ}+=-0.2331795016{boatSwing_5}
+{handRight_posX}+=-0.2343961836{boatSwing_4}
+{handRight_posY}+=-0.0546796708{boatSwing_4}
+{handRight_posZ}+=-0.5895045668{boatSwing_4}
+
+{leftArmGD_rotX}+=-38.9792966493'{boatSwing_2}
+{leftArmGD_rotY}+=34.0108964071'{boatSwing_2}
+{leftArmGD_rotZ}+=-10.5594503443'{boatSwing_2}
+{leftArmGD_rotX}+=-13.7742786909'{boatSwing_3}
+{leftArmGD_rotY}+=-16.5181229846'{boatSwing_3}
+{leftArmGD_rotZ}+=-6.9050141692'{boatSwing_3}
+{leftArmGD_rotX}+=15.8359415435'{boatSwing_4}
+{leftArmGD_rotY}+=-55.2029743419'{boatSwing_4}
+{leftArmGD_rotZ}+=-6.4115754288'{boatSwing_4}
+{leftArmGD_posX}+=-1.3175016985{boatSwing_0}
+{leftArmGD_posY}+=-0.4385859225{boatSwing_0}
+{leftArmGD_posZ}+=-4.2274361997{boatSwing_0}
+{leftArmGD_posX}+=-2.712703675{boatSwing_1}
+{leftArmGD_posY}+=0.2596892185{boatSwing_1}
+{leftArmGD_posZ}+=1.4208748115{boatSwing_1}
+
+{lowerArmLeft_rotX}+=12.7120845623'{boatSwing_2}
+{lowerArmLeft_rotY}+=-2.7529291108'{boatSwing_2}
+{lowerArmLeft_rotZ}+=-9.8823803689'{boatSwing_2}
+{lowerArmLeft_rotX}+=17.1596335339'{boatSwing_3}
+{lowerArmLeft_rotY}+=1.651894405'{boatSwing_3}
+{lowerArmLeft_rotZ}+=7.6281851694'{boatSwing_3}
+{lowerArmLeft_rotX}+=17.7762886347'{boatSwing_4}
+{lowerArmLeft_rotY}+=2.3246946237'{boatSwing_4}
+{lowerArmLeft_rotZ}+=10.1142492626'{boatSwing_4}
+
+{handLeft_rotY}+=-42.5'{boatSwing_3}
+{handLeft_rotX}+=-3.7085668965'{boatSwing_4}
+{handLeft_rotY}+=-11.9455617049'{boatSwing_4}
+{handLeft_rotZ}+=17.3881389443'{boatSwing_4}
+{handLeft_posX}+=0.9890853054{boatSwing_3}
+{handLeft_posY}+=0.8855243537{boatSwing_3}
+{handLeft_posZ}+=2.0994182237{boatSwing_3}
+{handLeft_posX}+=-0.0909224771{boatSwing_4}
+{handLeft_posY}+=0.7138880359{boatSwing_4}
+{handLeft_posZ}+=0.4116306162{boatSwing_4}
+
+{leftLegGD_posZ}+=3{boatSwing_4}
+
+{rightLegGD_posZ}+=2{boatSwing_6}
+
+{cargoShip_rotX}+=-17'{boatSwing_0}
+{cargoShip_rotX}+=-7'{boatSwing_1}
+{cargoShip_posX}+=-1.4914369025{boatSwing_0}
+{cargoShip_posY}+=-8.5602101703{boatSwing_0}
+{cargoShip_posZ}+=1.7387025732{boatSwing_0}
+{cargoShip_posX}+=-0.6468234004{boatSwing_1}
+{cargoShip_posY}+=-3.6953806483{boatSwing_1}
+{cargoShip_posZ}+=-0.4599346861{boatSwing_1}
+;------------------------------------------------------------------------------
+;punch right
+{punchRight_time}={data_4}
+{punchRight_0}=curve animate2({punchRight_time},0.45,0,0.2,0.25){not_sword}{no_boat} * {not_landing}
+{punchRight_1}=curve animate2({punchRight_time},0.49,0.2,0.25,0.24){not_sword}{no_boat} * {not_landing}
+{punchRight_2}=curve animate2({punchRight_time},0.55,0.45,0.24,0.31){not_sword}{no_boat} * {not_landing}
+{punchRight_3}=curve animate2({punchRight_time},1,0,0.45,0.55){not_sword}{no_boat} * {not_landing}
+
+
+{headGD_rotY}+=22.5'{punchRight_0}
+{headGD_rotY}+=-15'{punchRight_1}
+{headGD_rotY}+=22.5'{punchRight_2}
+
+{bodyGD_rotY}+=12.5'{punchRight_0}
+{bodyGD_rotY}+=-30'{punchRight_1}
+{bodyGD_rotY}+=12.5'{punchRight_2}
+
+{rightArmGD_rotX}+=9.5412033041'{punchRight_0}{not_aiming}
+{rightArmGD_rotY}+=-12.7373860379'{punchRight_0}{not_aiming}
+{rightArmGD_rotZ}+=15.555010085'{punchRight_0}{not_aiming}
+{rightArmGD_rotX}+=-98.4416751226'{punchRight_1}{not_aiming}
+{rightArmGD_rotY}+=-2.0480339239'{punchRight_1}{not_aiming}
+{rightArmGD_rotZ}+=84.9945343583'{punchRight_1}{not_aiming}
+{rightArmGD_rotX}+=9.5412033041'{punchRight_2}{not_aiming}
+{rightArmGD_rotY}+=-12.7373860379'{punchRight_2}{not_aiming}
+{rightArmGD_rotZ}+=15.555010085'{punchRight_2}{not_aiming}
+{rightArmGD_posX}+=-0.2238842325{punchRight_0}{not_aiming}
+{rightArmGD_posY}+=-0.3898146753{punchRight_0}{not_aiming}
+{rightArmGD_posZ}+=0.096307797{punchRight_0}{not_aiming}
+{rightArmGD_posX}+=-0.32{punchRight_1}{not_aiming}
+{rightArmGD_posY}+=3.36{punchRight_1}{not_aiming}
+{rightArmGD_posZ}+=-5.59{punchRight_1}{not_aiming}
+{rightArmGD_posX}+=-0.2238842325{punchRight_2}{not_aiming}
+{rightArmGD_posY}+=-0.3898146753{punchRight_2}{not_aiming}
+{rightArmGD_posZ}+=0.096307797{punchRight_2}{not_aiming}
+
+{lowerArmRight_rotX}+=-120.0095374084'{punchRight_0}{not_aiming}
+{lowerArmRight_rotY}+=4.995229008'{punchRight_0}{not_aiming}
+{lowerArmRight_rotZ}+=-0.2186512014'{punchRight_0}{not_aiming}
+{lowerArmRight_rotX}+=-2.6057810555'{punchRight_1}{not_aiming}
+{lowerArmRight_rotY}+=0.5613339854'{punchRight_1}{not_aiming}
+{lowerArmRight_rotZ}+=5.1744631009'{punchRight_1}{not_aiming}
+{lowerArmRight_rotX}+=-120.0095374084'{punchRight_2}{not_aiming}
+{lowerArmRight_rotY}+=4.995229008'{punchRight_2}{not_aiming}
+{lowerArmRight_rotZ}+=-0.2186512014'{punchRight_2}{not_aiming}
+{lowerArmRight_posX}+=0.1260695135{punchRight_3}{not_aiming}
+{lowerArmRight_posY}+=0.3061970422{punchRight_3}{not_aiming}
+{lowerArmRight_posZ}+=-0.9301087977{punchRight_3}{not_aiming}
+
+{handRight_rotZ}+=12.5'{punchRight_0}{not_aiming}
+{handRight_rotZ}+=21.25'{punchRight_1}{not_aiming}
+{handRight_rotZ}+=12.5'{punchRight_2}{not_aiming}
+
+{leftArmGD_rotX}+=-43.3815755546'{punchRight_0}
+{leftArmGD_rotY}+=35.4750293684'{punchRight_0}
+{leftArmGD_rotZ}+=-18.897781629'{punchRight_0}
+{leftArmGD_rotX}+=-20.898419872'{punchRight_1}
+{leftArmGD_rotY}+=-14.4974366186'{punchRight_1}
+{leftArmGD_rotZ}+=-24.6873051658'{punchRight_1}
+{leftArmGD_rotX}+=-43.3815755546'{punchRight_2}
+{leftArmGD_rotY}+=35.4750293684'{punchRight_2}
+{leftArmGD_rotZ}+=-18.897781629'{punchRight_2}
+{leftArmGD_posX}+=0.8{punchRight_0}
+{leftArmGD_posY}+=1.4{punchRight_0}
+{leftArmGD_posZ}+=-0.31{punchRight_0}
+{leftArmGD_posX}+=-2.6{punchRight_1}
+{leftArmGD_posY}+=-0.6{punchRight_1}
+{leftArmGD_posZ}+=3.99{punchRight_1}
+{leftArmGD_posX}+=0.8{punchRight_2}
+{leftArmGD_posY}+=1.4{punchRight_2}
+{leftArmGD_posZ}+=-0.31{punchRight_2}
+
+{lowerArmLeft_rotX}+=-90'{punchRight_0}
+{lowerArmLeft_rotY}+=25'{punchRight_0}
+{lowerArmLeft_rotX}+=-59.4121574089'{punchRight_1}
+{lowerArmLeft_rotY}+=39.1927329246'{punchRight_1}
+{lowerArmLeft_rotZ}+=5.7633871354'{punchRight_1}
+{lowerArmLeft_rotX}+=-90'{punchRight_2}
+{lowerArmLeft_rotY}+=25'{punchRight_2}
+
+{leftLegGD_posY}+=-0.01{punchRight_0}
+{leftLegGD_posZ}+=-0.4{punchRight_0}
+{leftLegGD_posX}+=1{punchRight_1}
+{leftLegGD_posY}+=-0.01{punchRight_1}
+{leftLegGD_posZ}+=2.9{punchRight_1}
+{leftLegGD_posY}+=-0.01{punchRight_2}
+{leftLegGD_posZ}+=-0.4{punchRight_2}
+
+{rightLegGD_posX}+=0.03{punchRight_0}
+{rightLegGD_posY}+=0.03{punchRight_0}
+{rightLegGD_posZ}+=2.3{punchRight_0}
+{rightLegGD_posX}+=0.03{punchRight_1}
+{rightLegGD_posY}+=0.03{punchRight_1}
+{rightLegGD_posZ}+=-1.7{punchRight_1}
+{rightLegGD_posX}+=0.03{punchRight_2}
+{rightLegGD_posY}+=0.03{punchRight_2}
+{rightLegGD_posZ}+=2.8{punchRight_2}
+;------------------------------------------------------------------------------
+;punch left
+{punchLeft_time}={data_5}
+{punchLeft_0}=curve animate2({punchLeft_time},0.45,0,0.2,0.25){not_sword}{no_boat} * {not_landing}
+{punchLeft_1}=curve animate2({punchLeft_time},0.4,0.2,0.25,0.15){not_sword}{no_boat} * {not_landing}
+{punchLeft_2}=curve animate2({punchLeft_time},0.55,0.45,0.15,0.4){not_sword}{no_boat} * {not_landing}
+{punchLeft_3}=curve animate2({punchLeft_time},0.31,0,0.2,0.11){not_sword}{no_boat} * {not_landing}
+{punchLeft_4}=curve animate2({punchLeft_time},0.25,0.2,0.11,0.14){not_sword}{no_boat} * {not_landing}
+{punchLeft_5}=curve animate2({punchLeft_time},0.29,0.31,0.14,0.15){not_sword}{no_boat} * {not_landing}
+{punchLeft_6}=curve animate2({punchLeft_time},0.6,0,0.2,0.4){not_sword}{no_boat} * {not_landing}
+{punchLeft_7}=curve animate2({punchLeft_time},0.8,0.2,0.4,0.4){not_sword}{no_boat} * {not_landing}
+{punchLeft_8}=curve animate2({punchLeft_time},1,0,0.2,0.8){not_sword}{no_boat} * {not_landing}
+{punchLeft_9}=curve animate2({punchLeft_time},1,0,0.25,0.75){not_sword}{no_boat} * {not_landing}
+
+
+{headGD_rotY}+=2.5'{punchLeft_0}
+{headGD_rotY}+=7.5'{punchLeft_1}
+{headGD_rotY}+=15'{punchLeft_2}
+
+{bodyGD_rotY}+=7.5'{punchLeft_0}
+{bodyGD_rotY}+=30'{punchLeft_1}
+{bodyGD_rotY}+=45'{punchLeft_2}
+
+{rightArmGD_rotX}+=-30.4659120363'{punchLeft_0}{not_aiming}
+{rightArmGD_rotY}+=-26.1085573225'{punchLeft_0}{not_aiming}
+{rightArmGD_rotZ}+=31.647415101'{punchLeft_0}{not_aiming}
+{rightArmGD_rotX}+=-16.8732944625'{punchLeft_1}{not_aiming}
+{rightArmGD_rotY}+=-3.9221664287'{punchLeft_1}{not_aiming}
+{rightArmGD_rotZ}+=40.7124620664'{punchLeft_1}{not_aiming}
+{rightArmGD_rotX}+=-24.5706654052'{punchLeft_2}{not_aiming}
+{rightArmGD_rotY}+=-22.5908191397'{punchLeft_2}{not_aiming}
+{rightArmGD_rotZ}+=29.1827769512'{punchLeft_2}{not_aiming}
+{rightArmGD_posZ}+=1.1{punchLeft_3}{not_aiming}
+{rightArmGD_posX}+=-0.97{punchLeft_4}{not_aiming}
+{rightArmGD_posY}+=0.22{punchLeft_4}{not_aiming}
+{rightArmGD_posZ}+=-0.54{punchLeft_4}{not_aiming}
+{rightArmGD_posX}+=0.8{punchLeft_5}{not_aiming}
+{rightArmGD_posY}+=0.5{punchLeft_5}{not_aiming}
+{rightArmGD_posZ}+=5{punchLeft_5}{not_aiming}
+{rightArmGD_posX}+=0.8{punchLeft_2}{not_aiming}
+{rightArmGD_posY}+=-0.2{punchLeft_2}{not_aiming}
+{rightArmGD_posZ}+=6.1{punchLeft_2}{not_aiming}
+
+{lowerArmRight_rotX}+=-111'{punchLeft_6}{not_aiming}
+{lowerArmRight_rotX}+=-75.5'{punchLeft_7}{not_aiming}
+{lowerArmRight_posX}+=0.3395135335{punchLeft_8}{not_aiming}
+{lowerArmRight_posY}+=0.9539299591{punchLeft_8}{not_aiming}
+{lowerArmRight_posZ}+=2.1851197208{punchLeft_8}{not_aiming}
+
+{handRight_rotY}+=20'{punchLeft_9}{not_aiming}
+
+{leftArmGD_rotX}+=-30.759044395'{punchLeft_0}
+{leftArmGD_rotY}+=-5.8694203779'{punchLeft_0}
+{leftArmGD_rotZ}+=-5.595573341'{punchLeft_0}
+{leftArmGD_rotX}+=-88.2309549214'{punchLeft_1}
+{leftArmGD_rotY}+=-4.2935660127'{punchLeft_1}
+{leftArmGD_rotZ}+=-83.8448160658'{punchLeft_1}
+{leftArmGD_rotX}+=-30.759044395'{punchLeft_2}
+{leftArmGD_rotY}+=-5.8694203779'{punchLeft_2}
+{leftArmGD_rotZ}+=-5.595573341'{punchLeft_2}
+{leftArmGD_posX}+=-0.7{punchLeft_0}
+{leftArmGD_posZ}+=-2.5{punchLeft_0}
+{leftArmGD_posX}+=-0.75{punchLeft_1}
+{leftArmGD_posY}+=1.75{punchLeft_1}
+{leftArmGD_posZ}+=-9.25{punchLeft_1}
+{leftArmGD_posX}+=-3.5{punchLeft_2}
+{leftArmGD_posY}+=-0.8{punchLeft_2}
+{leftArmGD_posZ}+=-7.5{punchLeft_2}
+
+{lowerArmLeft_rotX}+=-135'{punchLeft_0}
+{lowerArmLeft_rotX}+=5'{punchLeft_1}
+{lowerArmLeft_rotX}+=-135'{punchLeft_2}
+{lowerArmLeft_posX}+=0.1197867969{punchLeft_0}
+{lowerArmLeft_posY}+=1.253309026{punchLeft_0}
+{lowerArmLeft_posZ}+=0.9873538416{punchLeft_0}
+{lowerArmLeft_posX}+=0.3595735939{punchLeft_1}
+{lowerArmLeft_posY}+=-1.7344101786{punchLeft_1}
+{lowerArmLeft_posZ}+=-0.1395576038{punchLeft_1}
+{lowerArmLeft_posX}+=0.1197867969{punchLeft_2}
+{lowerArmLeft_posY}+=1.253309026{punchLeft_2}
+{lowerArmLeft_posZ}+=0.9873538416{punchLeft_2}
+
+{handLeft_rotX}+=-3.1106646299'{punchLeft_8}
+{handLeft_rotY}+=3.2136296294'{punchLeft_8}
+{handLeft_rotZ}+=-17.5174318058'{punchLeft_8}
+{handLeft_posX}+=-0.4657757313{punchLeft_8}
+{handLeft_posY}+=-0.4267361446{punchLeft_8}
+{handLeft_posZ}+=0.1046385722{punchLeft_8}
+
+{leftLegGD_posZ}+=-1{punchLeft_7}
+
+{rightLegGD_posZ}+=1{punchLeft_6}
+{rightLegGD_posZ}+=3.5{punchLeft_7}
+;------------------------------------------------------------------------------
+;sword right
+{swordRight_time}={data_4}
+{swordRight_0}=curve animate2({swordRight_time},1,0,0.25,0.75){data_3} * {not_landing}
+{swordRight_1}=curve animate2({swordRight_time},0.75,0,0.25,0.5){data_3} * {not_landing}
+{swordRight_2}=curve animate2({swordRight_time},0.75,0.25,0.5,0.25){data_3} * {not_landing}
+{swordRight_3}=curve animate2({swordRight_time},0.68,0,0.25,0.43){data_3} * {not_landing}
+{swordRight_4}=curve animate2({swordRight_time},0.75,0.25,0.43,0.32){data_3} * {not_landing}
+{swordRight_5}=curve animate2({swordRight_time},1,0,0.75,0.25){data_3} * {not_landing}
+
+
+{headGD_rotY}+=5'{swordRight_0}
+
+{bodyGD_rotY}+=12.5'{swordRight_1}
+{bodyGD_rotY}+=-27.5'{swordRight_2}
+
+{rightArmGD_rotX}+=-1.6270727634'{swordRight_1}
+{rightArmGD_rotY}+=4.3413798645'{swordRight_1}
+{rightArmGD_rotZ}+=52.8797041827'{swordRight_1}
+{rightArmGD_rotX}+=-134.303362874'{swordRight_2}
+{rightArmGD_rotY}+=-51.1799436168'{swordRight_2}
+{rightArmGD_rotZ}+=107.1738951855'{swordRight_2}
+{rightArmGD_posY}+=1.2{swordRight_1}
+{rightArmGD_posZ}+=2.9{swordRight_1}
+{rightArmGD_posX}+=-1.6{swordRight_2}
+{rightArmGD_posY}+=0.5{swordRight_2}
+{rightArmGD_posZ}+=-5.1{swordRight_2}
+
+{lowerArmRight_rotX}+=-173.6737751752'{swordRight_3}
+{lowerArmRight_rotY}+=56.7652666213'{swordRight_3}
+{lowerArmRight_rotZ}+=-74.8476232638'{swordRight_3}
+{lowerArmRight_rotX}+=-88.5414967832'{swordRight_4}
+{lowerArmRight_rotY}+=40.6487380398'{swordRight_4}
+{lowerArmRight_rotZ}+=-62.6453382747'{swordRight_4}
+{lowerArmRight_posX}+=1.5{swordRight_3}
+{lowerArmRight_posY}+=0.2{swordRight_3}
+{lowerArmRight_posX}+=-2.7{swordRight_4}
+{lowerArmRight_posY}+=0.2{swordRight_4}
+{lowerArmRight_posZ}+=1{swordRight_4}
+
+{handRight_rotZ}+=-15'{swordRight_0}
+
+{leftArmGD_rotX}+=-1.4284804263'{swordRight_1}
+{leftArmGD_rotY}+=26.7952362907'{swordRight_1}
+{leftArmGD_rotZ}+=-14.0327145534'{swordRight_1}
+{leftArmGD_rotX}+=25.8776999227'{swordRight_2}
+{leftArmGD_rotY}+=-38.1864343333'{swordRight_2}
+{leftArmGD_rotZ}+=-12.3855367788'{swordRight_2}
+{leftArmGD_posZ}+=-1.8{swordRight_1}
+{leftArmGD_posZ}+=4{swordRight_2}
+
+{lowerArmLeft_rotX}+=-20'{swordRight_1}
+{lowerArmLeft_rotX}+=-52.5'{swordRight_2}
+
+{leftLegGD_posZ}+=2{swordRight_5}
+
+{rightLegGD_posZ}+=0.75{swordRight_1}
+{rightLegGD_posZ}+=-0.75{swordRight_2}
+
+;------------------------------------------------------------------------------
+;sword left
+{swordLeft_time}={data_5}
+{swordLeft_0}=curve animate2({swordLeft_time},0.7,0,0.25,0.45){data_3} * {not_landing}
+{swordLeft_1}=curve animate2({swordLeft_time},0.75,0.25,0.45,0.3){data_3} * {not_landing}
+{swordLeft_2}=curve animate2({swordLeft_time},1,0,0.7,0.3){data_3} * {not_landing}
+
+
+{bodyGD_rotY}+=-22.5'{swordLeft_0}
+{bodyGD_rotY}+=27.5'{swordLeft_1}
+
+{rightArmGD_rotX}+=-41.8059953'{swordLeft_0}
+{rightArmGD_rotY}+=-38.9256228138'{swordLeft_0}
+{rightArmGD_rotZ}+=11.1972636944'{swordLeft_0}
+{rightArmGD_rotX}+=41.4513567659'{swordLeft_1}
+{rightArmGD_rotY}+=40.0489406774'{swordLeft_1}
+{rightArmGD_rotZ}+=13.357816911'{swordLeft_1}
+{rightArmGD_posY}+=-1.4{swordLeft_0}
+{rightArmGD_posZ}+=-3.2{swordLeft_0}
+{rightArmGD_posX}+=0.25{swordLeft_1}
+{rightArmGD_posY}+=0.35{swordLeft_1}
+{rightArmGD_posZ}+=2.3{swordLeft_1}
+
+{lowerArmRight_rotX}+=-22.5'{swordLeft_0}
+{lowerArmRight_rotX}+=-72.5'{swordLeft_1}
+{lowerArmRight_posZ}+=3{swordLeft_2}
+
+{leftArmGD_rotX}+=-33.3142307592'{swordLeft_0}
+{leftArmGD_rotY}+=-16.5234266589'{swordLeft_0}
+{leftArmGD_rotZ}+=-109.1779248286'{swordLeft_0}
+{leftArmGD_rotX}+=-79.8866161398'{swordLeft_1}
+{leftArmGD_rotY}+=40.9726832747'{swordLeft_1}
+{leftArmGD_rotZ}+=-49.0146872769'{swordLeft_1}
+{leftArmGD_posX}+=3.7{swordLeft_0}
+{leftArmGD_posY}+=3{swordLeft_0}
+{leftArmGD_posZ}+=2.9{swordLeft_0}
+{leftArmGD_posX}+=-2.3{swordLeft_1}
+{leftArmGD_posY}+=1{swordLeft_1}
+{leftArmGD_posZ}+=-5.1{swordLeft_1}
+
+{lowerArmLeft_rotX}+=-126.1115641701'{swordLeft_0}
+{lowerArmLeft_rotY}+=-55.1862891025'{swordLeft_0}
+{lowerArmLeft_rotZ}+=57.8711021919'{swordLeft_0}
+{lowerArmLeft_rotX}+=-21.1521244468'{swordLeft_1}
+{lowerArmLeft_rotY}+=8.0051861234'{swordLeft_1}
+{lowerArmLeft_rotZ}+=40.7041515085'{swordLeft_1}
+{lowerArmLeft_posZ}+=4.3{swordLeft_0}
+{lowerArmLeft_posZ}+=0.3{swordLeft_1}
+
+{leftLegGD_posZ}+=0.8{swordLeft_0}
+{leftLegGD_posZ}+=-1.2{swordLeft_1}
+
+{rightLegGD_posZ}+=-0.4{swordLeft_0}
+{rightLegGD_posZ}+=1.6{swordLeft_1}
+
+;------------------------------------------------------------------------------
+;plasma caster
+{plasma_caster_time}={data_1} * {not_landing}
+{plasma_caster_0}=curve animate2({plasma_caster_time},1,0,0.5,0.5)
+{plasma_caster_1}=curve animate2({plasma_caster_time},9.5,0.5,0.5,9)
+{plasma_caster_2}=curve animate2({plasma_caster_time},1,0,0.65,0.35)
+{plasma_caster_3}=curve animate2({plasma_caster_time},9.35,0.65,0.35,9)
+{plasma_caster_4}=curve animate2({plasma_caster_time},10,0,0.75,9.25)
+{plasma_caster_5}=curve animate2({plasma_caster_time},9.75,0.25,0.5,9.25)
+{plasma_caster_6}=curve animate2({plasma_caster_time},1,0,0.75,0.25)
+{plasma_caster_7}=curve animate2({plasma_caster_time},9.25,0.75,0.25,9)
+{plasma_caster_8}=curve animate2({plasma_caster_time},0.75,0,0.25,0.5)
+{plasma_caster_9}=curve animate2({plasma_caster_time},0.75,0.25,0.5,0.25)
+{plasma_caster_10}=curve animate2({plasma_caster_time},0.5,0.25,0.22,0.28)
+{plasma_caster_11}=curve animate2({plasma_caster_time},0.53,0.47,0.28,0.25)
+{plasma_caster_12}=curve animate2({plasma_caster_time},0.75,0,0.47,0.28)
+{plasma_caster_13}=curve animate2({plasma_caster_time},10,0,0.25,9.75)
+
+{rightPivot_rotX} @ {data_1} -> {pitch}'
+{rightPivot_rotY} @ {data_1} -> ({yaw}-{bodyYaw})'
+{rightPivot_rotZ} @ {data_1} -> 0
+
+{rightArmGD_rotX}@{plasma_caster_0} -> -37.5'
+{rightArmGD_rotX}+=-65'{plasma_caster_1}
+{rightArmGD_posY}+=0.7{plasma_caster_1}
+
+{lowerArmRight_rotX}+=-77'{plasma_caster_2}
+{lowerArmRight_rotX}+=-20'{plasma_caster_3}
+{lowerArmRight_posY}+=-1.1650260819{plasma_caster_3}
+{lowerArmRight_posZ}+=-0.7538596934{plasma_caster_3}
+
+{frontRight_rotX}+=-15.604692571'{plasma_caster_4}
+{frontRight_rotY}+=7.0975459206'{plasma_caster_4}
+{frontRight_rotZ}+=0.4249296979'{plasma_caster_4}
+{frontRight_posX}+=-0.01{plasma_caster_4}
+{frontRight_posY}+=-0.47{plasma_caster_4}
+{frontRight_posZ}+=0.61{plasma_caster_4}
+
+{backRight_rotX}+=3.5868644107'{plasma_caster_4}
+{backRight_rotY}+=-10.3415820472'{plasma_caster_4}
+{backRight_rotZ}+=10.1429092'{plasma_caster_4}
+{backRight_posY}+=-0.1{plasma_caster_4}
+{backRight_posZ}+=-0.3{plasma_caster_4}
+
+{outerRight_rotZ}+=-15'{plasma_caster_5}
+
+{handRight_rotY}+=270'{plasma_caster_6}
+{handRight_rotZ}+=12'{plasma_caster_6}
+{handRight_rotY}+=360'{plasma_caster_7}
+{handRight_rotZ}+=16'{plasma_caster_7}
+
+{indexRight_rotZ}+=12.5'{plasma_caster_8}
+{indexRight_rotX}+=-12.3196871494'{plasma_caster_9}
+{indexRight_rotY}+=39.3522788988'{plasma_caster_9}
+{indexRight_rotZ}+=78.9672879413'{plasma_caster_9}
+{indexRight_rotX}+=-32.6805533799'{plasma_caster_7}
+{indexRight_rotY}+=51.4788643343'{plasma_caster_7}
+{indexRight_rotZ}+=102.5074261519'{plasma_caster_7}
+{indexRight_posX}+=0.0448326272{plasma_caster_9}
+{indexRight_posY}+=-0.3267679917{plasma_caster_9}
+{indexRight_posZ}+=0.1012550719{plasma_caster_9}
+{indexRight_posX}+=0.6880174619{plasma_caster_7}
+{indexRight_posY}+=-0.6096632393{plasma_caster_7}
+{indexRight_posZ}+=-0.1861150853{plasma_caster_7}
+
+{middleRight_rotZ}+=20'{plasma_caster_8}
+{middleRight_rotX}+=-12.4601075218'{plasma_caster_9}
+{middleRight_rotY}+=38.8586604691'{plasma_caster_9}
+{middleRight_rotZ}+=77.9275238382'{plasma_caster_9}
+{middleRight_rotX}+=14.1276523267'{plasma_caster_7}
+{middleRight_rotY}+=30.1032579057'{plasma_caster_7}
+{middleRight_rotZ}+=107.2356054344'{plasma_caster_7}
+{middleRight_posX}+=0.3358382936{plasma_caster_10}
+{middleRight_posY}+=0.0403315978{plasma_caster_10}
+{middleRight_posZ}+=0.0833822032{plasma_caster_10}
+{middleRight_posX}+=-0.1676021972{plasma_caster_11}
+{middleRight_posY}+=0.0620210196{plasma_caster_11}
+{middleRight_posZ}+=-0.2737090802{plasma_caster_11}
+{middleRight_posX}+=0.0087775203{plasma_caster_7}
+{middleRight_posY}+=-0.0421197487{plasma_caster_7}
+{middleRight_posZ}+=0.2242896241{plasma_caster_7}
+
+{ringRight_rotZ}+=5'{plasma_caster_8}
+{ringRight_rotX}+=88.6871508111'{plasma_caster_9}
+{ringRight_rotY}+=25.5616828778'{plasma_caster_9}
+{ringRight_rotZ}+=67.9138408428'{plasma_caster_9}
+{ringRight_rotX}+=83.8720552924'{plasma_caster_7}
+{ringRight_rotY}+=-10.4525025721'{plasma_caster_7}
+{ringRight_rotZ}+=68.3446176936'{plasma_caster_7}
+{ringRight_posX}+=-0.377646986{plasma_caster_12}
+{ringRight_posY}+=0.27063746{plasma_caster_12}
+{ringRight_posZ}+=0.33432055{plasma_caster_12}
+{ringRight_posX}+=1.3517945195{plasma_caster_11}
+{ringRight_posY}+=-0.3687866415{plasma_caster_11}
+{ringRight_posZ}+=1.5274106846{plasma_caster_11}
+{ringRight_posX}+=0.8144514576{plasma_caster_7}
+{ringRight_posY}+=-0.423702083{plasma_caster_7}
+{ringRight_posZ}+=1.5474311486{plasma_caster_7}
+
+{pinkieRight_rotZ}+=7.5'{plasma_caster_8}
+{pinkieRight_rotX}+=91.7051425181'{plasma_caster_9}
+{pinkieRight_rotY}+=22.2511879726'{plasma_caster_9}
+{pinkieRight_rotZ}+=65.0495802794'{plasma_caster_9}
+{pinkieRight_rotX}+=98.9982211629'{plasma_caster_7}
+{pinkieRight_rotY}+=-8.7848445375'{plasma_caster_7}
+{pinkieRight_rotZ}+=64.6878672108'{plasma_caster_7}
+{pinkieRight_posX}+=2.0580351544{plasma_caster_6}
+{pinkieRight_posY}+=-0.7908990407{plasma_caster_6}
+{pinkieRight_posZ}+=0.6254851106{plasma_caster_6}
+{pinkieRight_posX}+=2.7740916624{plasma_caster_7}
+{pinkieRight_posY}+=-1.2020306458{plasma_caster_7}
+{pinkieRight_posZ}+=0.6474311486{plasma_caster_7}
+
+{thumbRight_rotX}+=-35'{plasma_caster_8}
+{thumbRight_rotX}+=-116.1306708707'{plasma_caster_9}
+{thumbRight_rotY}+=-27.4364734923'{plasma_caster_9}
+{thumbRight_rotZ}+=1.1548150957'{plasma_caster_9}
+{thumbRight_rotX}+=-136.1306708707'{plasma_caster_7}
+{thumbRight_rotY}+=-27.4364734923'{plasma_caster_7}
+{thumbRight_rotZ}+=1.1548150957'{plasma_caster_7}
+{thumbRight_posX}+=0.636360961{plasma_caster_5}
+{thumbRight_posY}+=-0.0021467871{plasma_caster_5}
+{thumbRight_posZ}+=0.8880284443{plasma_caster_5}
+
+{palmRight_posX}+=-1.5{plasma_caster_13}
+{palmRight_posY}+=-1.1849647099{plasma_caster_13}
+{palmRight_posZ}+=-0.8523141524{plasma_caster_13}
+
+{middlePlatformRight_posX}+=0.3{plasma_caster_7}
+{middlePlatformRight_posY}+=1{plasma_caster_7}
+;------------------------------------------------------------------------------
+;landing
+{landing_time}={data_7}
+{landing_0}=curve animate2({landing_time},10,0,1,9)
+{landing_1}=curve animate2({landing_time},0.75,0,0.5,0.25)
+{landing_2}=curve animate2({landing_time},0.5,0.5,0.25,0.25)
+{landing_3}=curve animate2({landing_time},9.25,0.75,0.25,9)
+{landing_4}=curve animate2({landing_time},1,0,0.5,0.5)
+{landing_5}=curve animate2({landing_time},9.5,0.5,0.5,9)
+{landing_6}=curve animate2({landing_time},0.5,0,0.25,0.25)
+{landing_7}=curve animate2({landing_time},0.75,0.25,0.25,0.5)
+
+
+{headGD_rotX}+=46.329451749'{landing_0}
+{headGD_rotY}+=7.0859066915'{landing_0}
+{headGD_rotZ}+=19.382925183'{landing_0}
+{headGD_posX}+=8.6500074776{landing_0}
+{headGD_posY}+=15.6382189128{landing_0}
+{headGD_posZ}+=-10.3822845065{landing_0}
+
+{bodyGD_rotX}+=26.710287388'{landing_0}
+{bodyGD_rotY}+=4.0035069419'{landing_0}
+{bodyGD_rotZ}+=24.5093323938'{landing_0}
+{bodyGD_posX}+=8.8{landing_0}
+{bodyGD_posY}+=15.8{landing_0}
+{bodyGD_posZ}+=-10{landing_0}
+
+{rightArmGD_rotX}+=1'{landing_1}
+{rightArmGD_rotY}+=-19'{landing_1}
+{rightArmGD_rotZ}+=63'{landing_1}
+{rightArmGD_rotX}+=4.4025658219'{landing_2}
+{rightArmGD_rotY}+=-18.5273061354'{landing_2}
+{rightArmGD_rotZ}+=52.4489222969'{landing_2}
+{rightArmGD_rotX}+=24'{landing_3}
+{rightArmGD_rotY}+=-30'{landing_3}
+{rightArmGD_rotZ}+=53'{landing_3}
+{rightArmGD_posX}+=1.9390960122{landing_4}
+{rightArmGD_posY}+=7.0705416953{landing_4}
+{rightArmGD_posZ}+=-3.9073531819{landing_4}
+{rightArmGD_posX}+=7.979746371{landing_5}
+{rightArmGD_posY}+=12.0624595704{landing_5}
+{rightArmGD_posZ}+=-7.8787364112{landing_5}
+
+{lowerArmRight_rotX}+=-52.5'{landing_0}
+
+{handRight_rotZ}+=10'{landing_0}
+
+{leftArmGD_rotX}+=-7.5484286713'{landing_1}
+{leftArmGD_rotY}+=2.613964107'{landing_1}
+{leftArmGD_rotZ}+=-50.0738618747'{landing_1}
+{leftArmGD_rotX}+=-6.8090908314'{landing_2}
+{leftArmGD_rotY}+=4.1821921623'{landing_2}
+{leftArmGD_rotZ}+=-37.6503054285'{landing_2}
+{leftArmGD_rotX}+=-8.5471634824'{landing_3}
+{leftArmGD_rotY}+=13.7304421197'{landing_3}
+{leftArmGD_rotZ}+=-10.2403163392'{landing_3}
+{leftArmGD_posX}+=4.6640399864{landing_1}
+{leftArmGD_posY}+=10.2098308356{landing_1}
+{leftArmGD_posZ}+=-5.1887004289{landing_1}
+{leftArmGD_posX}+=5.5408253466{landing_2}
+{leftArmGD_posY}+=15.9947468189{landing_2}
+{leftArmGD_posZ}+=-7.6226214109{landing_2}
+{leftArmGD_posX}+=6.3861018108{landing_3}
+{leftArmGD_posY}+=17.7567926948{landing_3}
+{leftArmGD_posZ}+=-8.3590484243{landing_3}
+
+{lowerArmLeft_rotX}+=-43.5'{landing_0}
+{lowerArmLeft_posX}+=0.2459156188{landing_0}
+{lowerArmLeft_posY}+=-1.0475846006{landing_0}
+{lowerArmLeft_posZ}+=0.0457385316{landing_0}
+
+{handLeft_rotZ}+=-10'{landing_0}
+{handLeft_posY}+=-0.7{landing_0}
+
+{leftLegGD_rotX}+=-16.6778415603'{landing_0}
+{leftLegGD_rotY}+=-12.0115899368'{landing_0}
+{leftLegGD_rotZ}+=1.9370907555'{landing_0}
+{leftLegGD_posX}+=3.0110626664{landing_0}
+{leftLegGD_posY}+=15.3865972272{landing_0}
+{leftLegGD_posZ}+=-0.1133825136{landing_0}
+
+{leftLegLower_rotX}+=65.25'{landing_6}
+{leftLegLower_rotZ}+=-0.5'{landing_6}
+{leftLegLower_rotX}+=85.5'{landing_7}
+{leftLegLower_rotZ}+=-1'{landing_7}
+{leftLegLower_rotX}+=114.9841807696'{landing_5}
+{leftLegLower_rotY}+=1.0744439741'{landing_5}
+{leftLegLower_rotZ}+=-1.6869806667'{landing_5}
+{leftLegLower_posX}+=0.0174524064{landing_4}
+{leftLegLower_posY}+=1.5498476952{landing_4}
+{leftLegLower_posZ}+=2.65{landing_4}
+{leftLegLower_posY}+=1.1{landing_5}
+{leftLegLower_posZ}+=5.3{landing_5}
+
+{leftFoot_rotX}+=-27.5'{landing_6}
+{leftFoot_rotZ}+=0.625'{landing_6}
+{leftFoot_rotX}+=25'{landing_7}
+{leftFoot_rotZ}+=1.25'{landing_7}
+{leftFoot_rotX}+=25.0209036485'{landing_5}
+{leftFoot_rotY}+=-2.2656409803'{landing_5}
+{leftFoot_rotZ}+=1.4429032901'{landing_5}
+
+{rightLegGD_rotX}+=-45.0606757826'{landing_4}
+{rightLegGD_rotY}+=26.5685943736'{landing_4}
+{rightLegGD_rotZ}+=4.768574359'{landing_4}
+{rightLegGD_rotX}+=-50.1213515652'{landing_5}
+{rightLegGD_rotY}+=53.1371887471'{landing_5}
+{rightLegGD_rotZ}+=9.537148718'{landing_5}
+{rightLegGD_posX}+=2.3274000942{landing_0}
+{rightLegGD_posY}+=11.5522228978{landing_0}
+{rightLegGD_posZ}+=1.3269937835{landing_0}
+
+{rightLegLower_rotX}+=64.9515721465'{landing_4}
+{rightLegLower_rotY}+=-1.3695452837'{landing_4}
+{rightLegLower_rotZ}+=-3.0013605083'{landing_4}
+{rightLegLower_rotX}+=74.903144293'{landing_5}
+{rightLegLower_rotY}+=-2.7390905673'{landing_5}
+{rightLegLower_rotZ}+=-6.0027210167'{landing_5}
+{rightLegLower_posY}+=1.2{landing_0}
+{rightLegLower_posZ}+=0.4{landing_0}
+
+{rightFoot_rotX}+=-8.1164373771'{landing_6}
+{rightFoot_rotY}+=-0.2689125639'{landing_6}
+{rightFoot_rotZ}+=-1.2134951244'{landing_6}
+{rightFoot_rotX}+=3.7671252458'{landing_7}
+{rightFoot_rotY}+=-0.5378251278'{landing_7}
+{rightFoot_rotZ}+=-2.4269902488'{landing_7}
+{rightFoot_rotX}+=-17.4657495084'{landing_5}
+{rightFoot_rotY}+=-1.0756502556'{landing_5}
+{rightFoot_rotZ}+=-4.8539804976'{landing_5}

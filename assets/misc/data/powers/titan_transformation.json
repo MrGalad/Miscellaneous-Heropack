@@ -65,7 +65,7 @@
         "HEAL": "fiskheroes:healing_factor"
       }
     },
-   "fiskheroes:cooldown": {
+    "fiskheroes:cooldown": {
       "cooldown": {
         "toggleData": "misc:dyn/boolean1",
         "cooldownData": "misc:dyn/titan_cooldown_timer",

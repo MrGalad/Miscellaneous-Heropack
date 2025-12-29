@@ -32,6 +32,13 @@ function init(hero) {
     hero.setTickHandler((entity, manager) => {
         burst(hero, entity)
     });
+
+    hero.addDamageProfile("ELEC", {
+        "types": {
+            "ELECTRICITY": 1
+        },
+        "properties": {}
+    });
 }
 
 function burst(hero, entity) {
@@ -69,7 +76,7 @@ function getProfile(entity) {
 }
 
 function getTierOverride(entity) {
-   return entity.getData("misc:dyn/shazam_timer") > 0.5 ? 9 : 0;
+    return entity.getData("misc:dyn/shazam_timer") > 0.5 ? 9 : 0;
 }
 
 function isModifierEnabled(entity, modifier) {
@@ -86,7 +93,7 @@ function isModifierEnabled(entity, modifier) {
         case "fiskheroes:damage_immunity":
             return entity.getData("misc:dyn/shazam_timer") > 0.5;
         case "fiskheroes:super_speed":
-            return (entity.getData("misc:dyn/shazam_timer") > 0.5 && !entity.getData("fiskheroes:flying")); ;
+            return (entity.getData("misc:dyn/shazam_timer") > 0.5 && !entity.getData("fiskheroes:flying"));;
     }
     return true;;
 }
@@ -99,7 +106,7 @@ function isKeyBindEnabled(entity, keyBind) {
             return (entity.getData("misc:dyn/shazam_timer") > 0.5 && !entity.getData("fiskheroes:beam_charging"));
         case "CHARGED_BEAM":
             return (entity.getData("misc:dyn/shazam_timer") > 0.5 && !entity.getData("fiskheroes:energy_projection"));
-      // spam fix cuz shadow doesnt like it 
+        // spam fix cuz shadow doesnt like it 
         case "SHAZAM":
             return (entity.getData("misc:dyn/shazam_timer") == 0 || entity.getData("misc:dyn/shazam_timer") == 1 && !entity.getData("fiskheroes:beam_charging")) && !(entity.getData("fiskheroes:flying") && entity.isSprinting());
         default:

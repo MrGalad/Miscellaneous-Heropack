@@ -1,6 +1,21 @@
 ### Miscellaneous Heropack 3.5 ###
+- Added Choso (JJK) suit
+- Added Mecha-Man (Dispatch) suit
+- Added Grand Regent Thragg suit
+- Added Auto Titan transformation to Eren Yeager when health is at 3 hearts or lower
+- Added augments to Master Chief
 
 - Fixed Charles Xavier's chair wheels funky rotation
+- Fixed Charles Xavier's arm in first person
+- Fixed Invincible's speed punches not damaging some suits
+- Fixed Black Adam's Lightning Discharge not dealing damage sometimes
+
+- Removed Doorman suit
+- Removed Metallo suit
+- Removed Midnight Angel suit
+- Removed Robocop suit
+- Removed T800 suit
+- Removed The Ray suit
 
 
 ### Miscellaneous Heropack 3.4 ###

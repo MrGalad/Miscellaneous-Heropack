@@ -46,6 +46,11 @@ function init(hero) {
         manager.incrementData(entity, "misc:dyn/sprinting", 7, entity.isSprinting() && entity.isOnGround())
         manager.incrementData(entity, "misc:dyn/detransformation_timer", 90, entity.getData("misc:dyn/release"))
 
+        if (entity.getHealth() <= 6) {
+            manager.setData(entity, "misc:dyn/boolean", true)
+            //nv for the auto transform
+            manager.setData(entity, "misc:dyn/nv", true)
+        }
         if (entity.getData("misc:dyn/float_interp1") > 0.8)
             manager.setData(entity, "misc:dyn/boolean1", true);
 

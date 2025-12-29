@@ -19,10 +19,10 @@
 {leftLeg_posY} = 7
 {rightLeg_posY} = 7
 
-out "firstPerson" (true)
-out "rotate" (26, 1, 0, 0)
-out "rotate" (42, 0, 1, 0)
-out "rotate" (-45, 0, 0, 1)
-
-
-out "translate" (-0.1, -0.8, -0.6)
+;out "firstPerson" (true)
+;out "rotate" (26, 1, 0, 0)
+;out "rotate" (42, 0, 1, 0)
+;out "rotate" (-45, 0, 0, 1)
+;
+;
+;out "translate" (-0.1, -0.8, -0.6)

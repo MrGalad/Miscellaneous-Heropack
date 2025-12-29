@@ -1,0 +1,72 @@
+{
+  "name": "Death Panting",
+  "modifiers": {
+     "fiskheroes:transformation|slide": {
+        "key": "DMG",
+        "transformation": {
+          "toggleData": "misc:dyn/slide",
+          "timerData": "misc:dyn/slide_timer",
+          "time": 10
+        },
+        "soundEvents": {
+        }
+      },
+    "fiskheroes:charged_beam": {
+      "damageProfile": {
+        "damage": 8.0,
+        "properties": {
+          "COOK_ENTITY": false,
+          "HEAT_TRANSFER": 0,
+          "REDUCE_KNOCKBACK": 1,
+          "EFFECTS": [
+            {
+              "id": "minecraft:poison",
+              "duration": 120,
+              "amplifier": 0,
+              "chance": 1
+            },
+            {
+              "id": "fiskheroes:disable_speed",
+              "duration": 120,
+              "amplifier": 0,
+              "chance": 1
+            },
+            {
+              "id": "fiskheroes:disable_phasing",
+              "duration": 120,
+              "amplifier": 0,
+              "chance": 1
+            }
+          ]
+        }
+        },
+      "chargeTime": 10,
+      "duration": 52,
+      "cooldownTime": 20,
+      "range": 32.0,
+      "radius": 1.0,
+      "soundEvents": {
+        "CHARGE": "misc:piercing_blood"
+      }
+    },
+    "fiskheroes:water_breathing": {},
+    "fiskheroes:damage_immunity": {
+      "damageType": "EXPLOSION"
+    },
+    "fiskheroes:leaping": {
+      "leapAmount": [
+        0,
+        1
+      ]
+    },
+    "fiskheroes:tentacles": {
+      "tentacles": [
+        [0, 0, 0]
+      ],
+      "range": 5.0,
+      "soundEvents": {
+        "GRAB_START": "fiskheroes:ock_grab"
+      }
+    }
+  }
+}

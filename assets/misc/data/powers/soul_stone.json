@@ -1,20 +1,20 @@
 {
-    "name": "Soul Stone",
-    "modifiers": {
-        "fiskheroes:transformation|regentransform": {
-            "key": "REGEN_TRANSFORM",
-            "isToggle": false,
-            "transformation": {
-                "toggleData": "fiskheroes:dyn/steeled",
-                "timerData": "fiskheroes:dyn/steel_timer",
-                "time": 4
-            }
-        },
-        "fiskheroes:healing_factor": {
-            "delay": 80,
-            "soundEvents": {
-              "HEAL": "fiskheroes:healing_factor"
-            }
-          }
-        }
+  "name": "Soul Stone",
+  "modifiers": {
+    "fiskheroes:transformation|regentransform": {
+      "key": "REGEN_TRANSFORM",
+      "isToggle": false,
+      "transformation": {
+        "toggleData": "fiskheroes:dyn/steeled",
+        "timerData": "fiskheroes:dyn/steel_timer",
+        "time": 4
+      }
+    },
+    "fiskheroes:healing_factor": {
+      "delay": 80,
+      "soundEvents": {
+        "HEAL": "fiskheroes:healing_factor"
+      }
     }
+  }
+}

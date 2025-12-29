@@ -1,9 +1,0 @@
-{ 
-"attributes": {
-    "DAMAGE_REDUCTION": [2, 4],
-    "PUNCH_DAMAGE": [2, 4],
-    "WEAPON_DAMAGE": [2, 4],
-    "SPRINT_SPEED": [1, 3],
-    "KNOCKBACK": [1, 3]
-  }
-}
