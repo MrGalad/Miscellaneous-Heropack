@@ -31,7 +31,7 @@
     "amount": 30,
     "reloadTime": 30
   },
-   "scope": {
+  "scope": {
     "zoom": 1.0,
     "allowHeadshots": true,
     "headshotDamageBonus": 2
@@ -45,6 +45,7 @@
     }
   ],
   "soundEvents": {
-    "SHOOT": "misc:tr1_ar"
+    "SHOOT": "misc:tr1_ar",
+    "RELOAD": "misc:reload_rifle"
   }
 }

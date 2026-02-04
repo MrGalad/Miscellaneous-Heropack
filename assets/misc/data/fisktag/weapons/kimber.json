@@ -34,6 +34,7 @@
     }
   ],
   "soundEvents": {
-    "SHOOT": "misc:kimber"
+    "SHOOT": "misc:kimber",
+    "RELOAD": "misc:reload_kimber"
   }
 }

@@ -41,6 +41,7 @@
     }
   ],
   "soundEvents": {
-    "SHOOT": "misc:benelli_m4"
+    "SHOOT": "misc:benelli_m4",
+    "RELOAD": "misc:reload_benelli"
   }
 }

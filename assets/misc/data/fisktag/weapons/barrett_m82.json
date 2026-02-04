@@ -13,11 +13,11 @@
             "REDUCE_KNOCKBACK": 0.75
         }
     },
-  "scope": {
-    "zoom": 1.2,
-    "allowHeadshots": true,
-    "headshotDamageBonus": 5
-  },
+    "scope": {
+        "zoom": 1.2,
+        "allowHeadshots": true,
+        "headshotDamageBonus": 5
+    },
     "spread": {
         "sprintingFactor": 1.5,
         "fallingFactor": 1.6,
@@ -40,6 +40,7 @@
         }
     ],
     "soundEvents": {
-        "SHOOT": "misc:sniper"
+        "SHOOT": "misc:sniper",
+        "RELOAD": "misc:reload_barrett"
     }
 }

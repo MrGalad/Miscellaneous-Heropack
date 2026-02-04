@@ -1,0 +1,9 @@
+{
+  "parent": "fiskheroes:sound_base",
+  "sound": "misc:main.reload_benelli",
+  "condition": {
+    "continue": "entity.getData('fiskheroes:reload_timer')"
+  },
+  "fadeOut": 10,
+  "loop": true
+}
