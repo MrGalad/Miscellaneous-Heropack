@@ -2,7 +2,6 @@
 {sleeve_0}=curve animate2({sleeve_time},0.75,0,0.25,0.5)
 {sleeve_1}=curve animate2({sleeve_time},0.75,0.25,0.5,0.25)
 
-
 {leftArm_rotX}+=-36.2958894958'{sleeve_0}
 {leftArm_rotY}+=21.2154975967'{sleeve_0}
 {leftArm_rotZ}+=29.7921438175'{sleeve_0}
@@ -29,14 +28,15 @@
 {bladeSummon_5}=curve animate2({bladeSummon_time},0.6,0,0.4,0.2)
 {bladeSummon_6}=curve animate2({bladeSummon_time},0.45,0.4,0.2,0.25)
 
+{rightArm_rotX}+=29.0037108296'{bladeSummon_0}
+{rightArm_rotY}+=-5.9031625207'{bladeSummon_0}
+{rightArm_rotZ}+=31.6431448415'{bladeSummon_0}
+{rightArm_rotX}+=16.2407409407'{bladeSummon_1}
+{rightArm_rotY}+=-6.6079583044'{bladeSummon_1}
+{rightArm_rotZ}+=34.056126092'{bladeSummon_1}
 
-{rightArm_rotX}+=17.5'{bladeSummon_0}
-{rightArm_rotZ}+=12.5'{bladeSummon_0}
-{rightArm_rotX}+=16.9383890818'{bladeSummon_1}
-{rightArm_rotY}+=-4.4637522599'{bladeSummon_1}
-{rightArm_rotZ}+=26.8350122092'{bladeSummon_1}
-
-{dagger_rotX}+=72.5'{bladeSummon_2}*sin({bladeSummon_0} * 15)
+{factor} = 3.2
+{dagger_rotX}+=72.5'{bladeSummon_2}*sin({bladeSummon_0} * {factor})
 {dagger_rotX}+=77.6761260713'{bladeSummon_3}
 {dagger_rotY}+=0.0015353538'{bladeSummon_3}
 {dagger_rotZ}+=180.0154113886'{bladeSummon_3}
@@ -46,17 +46,17 @@
 ;{dagger_posY}+=8.7870753076{bladeSummon_3}
 ;{dagger_posZ}+=1.1234249559{bladeSummon_3}
 
-{effect1_rotY} += 360'{bladeSummon_0}*sin({bladeSummon_0} * 15)
+{effect1_rotY} += 360'{bladeSummon_0}*sin({bladeSummon_0} * {factor})
 ;{effect1_posX}+=-0.9803800279{bladeSummon_5}
 ;{effect1_posY}+=0.2462368185{bladeSummon_5}
 ;{effect1_posZ}+=0.9890512778{bladeSummon_5}
 
-{effect4_rotY} -= 360'{bladeSummon_0}*sin({bladeSummon_0} * 15)
+{effect4_rotY} -= 360'{bladeSummon_0}*sin({bladeSummon_0} * {factor})
 ;{effect4_posX}+=-0.9803800279{bladeSummon_5}
 ;{effect4_posY}+=-1.0837631815{bladeSummon_5}
 ;{effect4_posZ}+=0.9890512778{bladeSummon_5}
 
-{effect2_rotY} += 360'{bladeSummon_0}*sin({bladeSummon_0} * 15)
+{effect2_rotY} += 360'{bladeSummon_0}*sin({bladeSummon_0} * {factor})
 ;{effect2_posX}+=0.8468496859{bladeSummon_5}
 ;{effect2_posY}+=1.8875809287{bladeSummon_5}
 ;{effect2_posZ}+=2.3916278654{bladeSummon_5}

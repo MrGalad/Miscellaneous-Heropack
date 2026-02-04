@@ -1,49 +1,35 @@
 {
   "name": "Death Panting",
   "modifiers": {
-     "fiskheroes:transformation|slide": {
-        "key": "DMG",
-        "transformation": {
-          "toggleData": "misc:dyn/slide",
-          "timerData": "misc:dyn/slide_timer",
-          "time": 10
-        },
-        "soundEvents": {
-        }
+    "fiskheroes:transformation|slide": {
+      "key": "DMG",
+      "transformation": {
+        "toggleData": "misc:dyn/slide",
+        "timerData": "misc:dyn/slide_timer",
+        "time": 10
       },
-     "fiskheroes:transformation|fist": {
-        "key": "FIST",
-        "isToggle": true,
-        "transformation": {
-          "toggleData": "misc:dyn/fist",
-          "timerData": "misc:dyn/fist_timer",
-          "time": 30
-        },
-        "soundEvents": {
-        }
+      "soundEvents": {}
+    },
+    "fiskheroes:transformation|fist": {
+      "key": "FIST",
+      "isToggle": true,
+      "transformation": {
+        "toggleData": "misc:dyn/fist",
+        "timerData": "misc:dyn/fist_timer",
+        "time": 30
       },
-     "fiskheroes:transformation|disable": {
-        "key": "DISABLE",
-        "isToggle": true,
-        "transformation": {
-          "toggleData": "misc:dyn/boolean",
-          "timerData": "misc:dyn/float_interp",
-          "time": 30
-        },
-        "soundEvents": {
-        }
+      "soundEvents": {}
+    },
+    "fiskheroes:transformation|edge": {
+      "key": "EDGE",
+      "isToggle": true,
+      "transformation": {
+        "toggleData": "misc:dyn/edge",
+        "timerData": "misc:dyn/edge_timer",
+        "time": 30
       },
-     "fiskheroes:transformation|edge": {
-        "key": "EDGE",
-        "isToggle": true,
-        "transformation": {
-          "toggleData": "misc:dyn/edge",
-          "timerData": "misc:dyn/edge_timer",
-          "time": 30
-        },
-        "soundEvents": {
-        }
-      },
+      "soundEvents": {}
+    },
     "fiskheroes:charged_beam": {
       "damageProfile": {
         "damage": 8.0,
@@ -51,8 +37,7 @@
           "COOK_ENTITY": false,
           "HEAT_TRANSFER": 0,
           "REDUCE_KNOCKBACK": 1,
-          "EFFECTS": [
-            {
+          "EFFECTS": [{
               "id": "minecraft:poison",
               "duration": 120,
               "amplifier": 0,
@@ -60,7 +45,7 @@
             }
           ]
         }
-        },
+      },
       "chargeTime": 10,
       "duration": 52,
       "cooldownTime": 20,
@@ -70,15 +55,14 @@
         "CHARGE": "misc:piercing_blood"
       }
     },
-   "fiskheroes:leaping": {
+    "fiskheroes:leaping": {
       "leapAmount": [1.55, 0.1]
     },
-	"fiskheroes:arrow_catching": {
-    },
-	"fiskheroes:potion_immunity": {
+    "fiskheroes:arrow_catching": {},
+    "fiskheroes:potion_immunity": {
       "potionEffects": ["minecraft:nausea", "minecraft:poison", "minecraft:wither"]
     },
-	"fiskheroes:healing_factor": {
+    "fiskheroes:healing_factor": {
       "delay": 160,
       "soundEvents": {
         "HEAL": "fiskheroes:healing_factor"

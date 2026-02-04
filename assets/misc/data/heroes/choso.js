@@ -1,3 +1,7 @@
+function midTransform(entity, data) {
+    return entity.getData(data) > 0 && entity.getData(data) < 1;
+}
+
 function init(hero) {
     hero.setName("Choso");
     hero.setVersion("JJK");
@@ -19,14 +23,7 @@ function init(hero) {
     hero.addKeyBind("CHARGED_BEAM", "Piercing Blood", 1);
     hero.addKeyBind("FIST", "Blood Fist", 2);
     hero.addKeyBind("EDGE", "Blood Edge", 2);
-    hero.addKeyBind("DISABLE", "Disable", 2);
-    hero.addKeyBindFunc("SLOT", slotChange, "Change Gadget", 2)
     hero.addKeyBind("SLICING", "Slicing Exorcism", 3);
-
-   /*  hero.addKeyBind("DMG", "DMG", 2);
-    hero.addKeyBind("TENTACLE_GRAB", "Select", 3);
-    hero.addKeyBind("TENTACLES", "Activate", 4);
- */
 
     hero.setKeyBindEnabled(isKeyBindEnabled);
     hero.setModifierEnabled(isModifierEnabled);
@@ -36,21 +33,7 @@ function init(hero) {
     hero.addAttributeProfile("FIST", fistProfile);
     hero.addAttributeProfile("EDGE", edgeProfile);
 
-    hero.setTickHandler((entity, manager) => {
-        //PackLoader.printChat("slot: " + entity.getData("misc:dyn/slot"))
-        //PackLoader.printChat("fist: " + entity.getInterpolatedData("misc:dyn/fist_timer"))
-        if (entity.getData("misc:dyn/edge") || entity.getData("misc:dyn/boolean")) {
-            manager.setData(entity, "misc:dyn/fist", false);
-            manager.setData(entity, "misc:dyn/fist_timer", 0);
-        } if (entity.getData("misc:dyn/fist") || entity.getData("misc:dyn/boolean") ) {
-            manager.setData(entity, "misc:dyn/edge", false);
-            //manager.setData(entity, "misc:dyn/edge_timer", 0);
-        } if (entity.getData("misc:dyn/boolean")) {
-            manager.setData(entity, "misc:dyn/boolean", false);
-            manager.setData(entity, "misc:dyn/float_interp", 0);
-        }
- 
-    });
+    hero.setTickHandler((entity, manager) => {});
 
     hero.addDamageProfile("ELEC", {
         "types": {
@@ -60,42 +43,20 @@ function init(hero) {
     });
 }
 
-function slotChange(entity, manager) {
-    var slot = entity.getData("misc:dyn/slot");
-    manager.setData(entity, "misc:dyn/slot", (slot + 1) % 3);
-    return true;
-}
-function supernova(hero, entity) {
-    if (entity.getData("misc:dyn/slide_timer") > 0.4) {
-        var range = 32;
-        var list = entity.world().getEntityById(entity.getData("misc:dyn/grab_id"));
-
-
-        var other = entity.world().getEntityById(entity.getData("misc:dyn/grab_id"))
-        if (other.isLivingEntity() && !entity.equals(other)) {
-            other.hurtByAttacker(hero, "ELEC", "%s was electrecuted", 100, entity);
-
-        }
-    }
-}
-
-
 function isModifierEnabled(entity, modifier) {
-    switch (modifier.name()) {
-    }
-    return true;;
+    switch (modifier.name()) {}
+    return true; ;
 }
 
 function isKeyBindEnabled(entity, keyBind) {
+    var fist_transforming = midTransform(entity, "misc:dyn/fist_timer");
     switch (keyBind) {
-        case "EDGE":
-            return entity.getData("misc:dyn/fist") || entity.getData("misc:dyn/edge");
-        case "FIST":
-            return !entity.getData("misc:dyn/edge") && !entity.getData("misc:dyn/fist") || entity.getData("misc:dyn/boolean");
-        case "DISABLE":
-            return entity.getData("misc:dyn/edge") && !entity.getData("misc:dyn/fist");
-        default:
-            return true;;
+    case "EDGE":
+        return (entity.getData("misc:dyn/fist") || entity.getData("misc:dyn/edge")) && !midTransform(entity, "misc:dyn/edge_timer") && !fist_transforming;
+    case "FIST":
+        return !entity.getData("misc:dyn/edge") && !fist_transforming;
+    default:
+        return true;
     }
 }
 
@@ -116,11 +77,13 @@ function edgeProfile(profile) {
 
 function getProfile(entity) {
     if (entity.getData("fiskheroes:beam_charge") > 0.7) {
-        return "NOMOVE"
-    } if (entity.getData("misc:dyn/edge")) {
-        return "EDGE"
-    } if (entity.getData("misc:dyn/fist")) {
-        return "FIST"
+        return "NOMOVE";
+    }
+    if (entity.getData("misc:dyn/edge")) {
+        return "EDGE";
+    }
+    if (entity.getData("misc:dyn/fist")) {
+        return "FIST";
     }
     return null;
 }
