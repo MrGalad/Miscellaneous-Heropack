@@ -451,6 +451,22 @@
     "grab_id": {
       "type": "INTEGER",
       "resetWithoutSuit": true
+    },
+     "fist": {
+      "type": "BOOLEAN",
+      "resetWithoutSuit": false
+    },
+    "fist_timer": {
+      "type": "FLOAT_INTERP",
+      "resetWithoutSuit": false
+    },
+     "edge": {
+      "type": "BOOLEAN",
+      "resetWithoutSuit": false
+    },
+    "edge_timer": {
+      "type": "FLOAT_INTERP",
+      "resetWithoutSuit": false
     }
   },
   "alts": {

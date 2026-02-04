@@ -1,0 +1,13 @@
+{
+  "texture": "misc:choso/chosoXor/chosoDagger_<DAGGER>",
+  "getters": {
+    "DAGGER": {
+      "key": "(Math.ceil(6 * entity.getInterpolatedData('misc:dyn/edge_timer')) + 1) | 0",
+      "values": {
+        "min": 1,
+        "max": 7
+      }
+    }
+  },
+  "isDynamic": true
+}

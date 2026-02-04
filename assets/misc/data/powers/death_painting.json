@@ -11,6 +11,39 @@
         "soundEvents": {
         }
       },
+     "fiskheroes:transformation|fist": {
+        "key": "FIST",
+        "isToggle": true,
+        "transformation": {
+          "toggleData": "misc:dyn/fist",
+          "timerData": "misc:dyn/fist_timer",
+          "time": 30
+        },
+        "soundEvents": {
+        }
+      },
+     "fiskheroes:transformation|disable": {
+        "key": "DISABLE",
+        "isToggle": true,
+        "transformation": {
+          "toggleData": "misc:dyn/boolean",
+          "timerData": "misc:dyn/float_interp",
+          "time": 30
+        },
+        "soundEvents": {
+        }
+      },
+     "fiskheroes:transformation|edge": {
+        "key": "EDGE",
+        "isToggle": true,
+        "transformation": {
+          "toggleData": "misc:dyn/edge",
+          "timerData": "misc:dyn/edge_timer",
+          "time": 30
+        },
+        "soundEvents": {
+        }
+      },
     "fiskheroes:charged_beam": {
       "damageProfile": {
         "damage": 8.0,
@@ -21,18 +54,6 @@
           "EFFECTS": [
             {
               "id": "minecraft:poison",
-              "duration": 120,
-              "amplifier": 0,
-              "chance": 1
-            },
-            {
-              "id": "fiskheroes:disable_speed",
-              "duration": 120,
-              "amplifier": 0,
-              "chance": 1
-            },
-            {
-              "id": "fiskheroes:disable_phasing",
               "duration": 120,
               "amplifier": 0,
               "chance": 1
@@ -49,15 +70,19 @@
         "CHARGE": "misc:piercing_blood"
       }
     },
-    "fiskheroes:water_breathing": {},
-    "fiskheroes:damage_immunity": {
-      "damageType": "EXPLOSION"
+   "fiskheroes:leaping": {
+      "leapAmount": [1.55, 0.1]
     },
-    "fiskheroes:leaping": {
-      "leapAmount": [
-        0,
-        1
-      ]
+	"fiskheroes:arrow_catching": {
+    },
+	"fiskheroes:potion_immunity": {
+      "potionEffects": ["minecraft:nausea", "minecraft:poison", "minecraft:wither"]
+    },
+	"fiskheroes:healing_factor": {
+      "delay": 160,
+      "soundEvents": {
+        "HEAL": "fiskheroes:healing_factor"
+      }
     },
     "fiskheroes:tentacles": {
       "tentacles": [

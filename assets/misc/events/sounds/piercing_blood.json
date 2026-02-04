@@ -1,6 +1,5 @@
 {
     "parent": "fiskheroes:sound_base",
     "sound": "misc:main.piercing_blood",
-    "condition": "fiskheroes:beam_charging",
-    "fadeOut": 5
+    "condition": "fiskheroes:beam_charging"
 }

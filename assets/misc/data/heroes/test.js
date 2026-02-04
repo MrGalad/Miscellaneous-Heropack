@@ -14,7 +14,7 @@ function init(hero) {
     hero.addAttribute("FALL_RESISTANCE", 4.0, 0);
     hero.addAttribute("BASE_SPEED_LEVELS", 5.0, 0);
 
-    hero.addKeyBind("SLASH", "Slash", 1);
+/*     hero.addKeyBindFunc("TP", teleportBehindTarget, "TP", 1); */
      hero.setTickHandler((entity, manager) => {
         if (entity.getData("misc:dyn/slide_timer") == 1) {
             manager.setData(entity, "misc:dyn/slide", false)
