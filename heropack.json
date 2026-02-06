@@ -452,7 +452,7 @@
       "type": "INTEGER",
       "resetWithoutSuit": true
     },
-     "fist": {
+    "fist": {
       "type": "BOOLEAN",
       "resetWithoutSuit": false
     },
@@ -460,13 +460,17 @@
       "type": "FLOAT_INTERP",
       "resetWithoutSuit": false
     },
-     "edge": {
+    "edge": {
       "type": "BOOLEAN",
       "resetWithoutSuit": false
     },
     "edge_timer": {
       "type": "FLOAT_INTERP",
       "resetWithoutSuit": false
+    },
+    "projectileTravel": {
+      "type": "FLOAT_INTERP",
+      "resetWithoutSuit": true
     }
   },
   "alts": {

@@ -2,5 +2,5 @@
   "parent": "fiskheroes:sound_base",
   "sound": "misc:main.tr1_ar",
   "pitch": "0.8 + Math.random() * 0.2",
-  "fadeOut": 20
+  "fadeOut": 50
 }

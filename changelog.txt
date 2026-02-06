@@ -1,9 +1,8 @@
 ### Miscellaneous Heropack 3.5 ###
 - Added Choso (JJK) suit
-- Added Mecha-Man (Dispatch) suit
-- Added Grand Regent Thragg suit
 - Added Auto Titan transformation to Eren Yeager when health is at 3 hearts or lower
 - Added augments to Master Chief
+- Added reload sounds to guns in the Heropack
 
 - Fixed Charles Xavier's chair wheels funky rotation
 - Fixed Charles Xavier's arm in first person

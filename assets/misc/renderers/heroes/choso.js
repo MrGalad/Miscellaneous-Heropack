@@ -5,6 +5,7 @@ loadTextures({
     "hair": "misc:choso/choso_hair",
     "daggerTexture": "misc:choso/choso_dagger",
     "effectsTexture": "misc:choso/choso_effects",
+    "wheelTexture": "misc:choso/choso_blood_wheel",
     "sleeve": "misc:choso/sleeve.tx.json",
     "effects": "misc:choso/effects.tx.json",
     "dagger": "misc:choso/dagger.tx.json",
@@ -40,11 +41,11 @@ function initEffects(renderer) {
     //utils.bindParticles(renderer, "misc:super_boost").setCondition(entity => entity.getData("fiskheroes:beam_shooting_timer") < 0.3 && entity.getData("fiskheroes:beam_shooting_timer") > 0 && entity.getData("fiskheroes:beam_charging"))
     utils.bindParticles(renderer, "misc:piercing_blood_particles").setCondition((entity => entity.getData("fiskheroes:beam_charge") > 0.4 /* && entity.getData("fiskheroes:beam_charge") < 1 */));
     utils.bindBeam(renderer, "fiskheroes:charged_beam", "misc:piercing_blood", "body", 0xFF0000, [{
-                "firstPerson": [0, 1, -10],
-                "offset": [0, 4, -8],
-                "size": [0.4, 0.4]
-            }
-        ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "misc:piercing_blood_impact")); ;
+        "firstPerson": [0, 1, -10],
+        "offset": [0, 4, -8],
+        "size": [0.4, 0.4]
+    }
+    ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "misc:piercing_blood_impact"));;
     //utils.addCameraShake(renderer, 0.2, 0, "fiskheroes:beam_shooting_timer");
     var shake = renderer.bindProperty("fiskheroes:camera_shake").setCondition(entity => {
         shake.factor = entity.getInterpolatedData("fiskheroes:beam_shooting_timer") > 0 && entity.getInterpolatedData("fiskheroes:beam_shooting_timer") < 0.7 ? 3 : 0.5;
@@ -72,21 +73,34 @@ function initEffects(renderer) {
     dagger = renderer.createEffect("fiskheroes:model").setModel(daggerModel);
     dagger.anchor.set("rightArm");
 
+    var wheelModel = renderer.createResource("MODEL", "misc:choso_blood_wheel");
+    wheelModel.bindAnimation("misc:choso_throw").setData((entity, data) => {
+        data.load(0, entity.getInterpolatedData("misc:dyn/float_interp1"));
+    });
+    wheelModel.texture.set("wheelTexture");
+    wheel = renderer.createEffect("fiskheroes:model").setModel(wheelModel);
+    wheel.setScale(1)
+
 }
 
 function initAnimations(renderer) {
     parent.initAnimations(renderer);
+    renderer.removeCustomAnimation("basic.AIMING");
 
     addAnimation(renderer, "choso.PIERCE", "misc:choso_piercing_blood")
-    .setData((entity, data) => {
-        data.load(0, entity.getInterpolatedData("fiskheroes:beam_charge"));
-        data.load(1, entity.getInterpolatedData("fiskheroes:beam_shooting_timer"));
-    })
+        .setData((entity, data) => {
+            data.load(0, entity.getInterpolatedData("fiskheroes:beam_charge"));
+            data.load(1, entity.getInterpolatedData("fiskheroes:beam_shooting_timer"));
+        })
     addAnimation(renderer, "choso.SLEEVE", "misc:choso_animations")
-    .setData((entity, data) => {
-        data.load(0, entity.getInterpolatedData("misc:dyn/fist_timer"));
-        data.load(1, entity.getInterpolatedData("misc:dyn/edge_timer"));
-    })
+        .setData((entity, data) => {
+            data.load(0, entity.getInterpolatedData("misc:dyn/fist_timer"));
+            data.load(1, entity.getInterpolatedData("misc:dyn/edge_timer"));
+        })
+    addAnimation(renderer, "choso.WHEEL", "misc:choso_throw")
+        .setData((entity, data) => {
+            data.load(0, entity.getInterpolatedData("misc:dyn/float_interp1"));
+        })
 }
 
 function render(entity, renderLayer, isFirstPersonArm) {
@@ -107,5 +121,11 @@ function render(entity, renderLayer, isFirstPersonArm) {
     }
     if (renderLayer == "HELMET") {
         hair.render();
+    }
+
+    if (renderLayer == "CHESTPLATE") {
+        var wheelTimer = entity.getInterpolatedData("misc:dyn/float_interp1");
+        wheel.opacity = 0.7*Math.sin(Math.PI*wheelTimer)*entity.getInterpolatedData('fiskheroes:aiming_timer');
+        wheel.render();
     }
 }
