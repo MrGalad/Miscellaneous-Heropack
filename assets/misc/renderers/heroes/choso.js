@@ -74,7 +74,7 @@ function initEffects(renderer) {
     dagger.anchor.set("rightArm");
 
     var wheelModel = renderer.createResource("MODEL", "misc:choso_blood_wheel");
-    wheelModel.texture.set("wheelTexture");
+    wheelModel.texture.set(null, "wheelTexture");
     wheel = renderer.createEffect("fiskheroes:model").setModel(wheelModel);
     wheel.setScale(1);
     wheel.anchor.set("head");
@@ -97,7 +97,7 @@ function initAnimations(renderer) {
         })
     addAnimation(renderer, "choso.WHEEL", "misc:choso_throw")
         .setData((entity, data) => {
-            data.load(0, entity.getInterpolatedData("misc:dyn/float_interp1"));
+            data.load(0, Math.min(entity.getInterpolatedData("misc:dyn/float_interp1"), entity.getInterpolatedData("fiskheroes:aiming")));
         })
 }
 
@@ -121,10 +121,10 @@ function render(entity, renderLayer, isFirstPersonArm) {
         hair.render();
     }
 
-    if (renderLayer == "CHESTPLATE") {
+    if (renderLayer == "CHESTPLATE" || isFirstPersonArm) {
         var wheelTimer = entity.getInterpolatedData("misc:dyn/float_interp1");
         wheel.opacity = 0.7*wheelTimer * 1 - Math.max(0, entity.getInterpolatedData("misc:dyn/projectileTravel")-0.8)*5;
-        wheel.setOffset(-13, 0, -8 - (entity.getInterpolatedData("misc:dyn/projectileLength") * 16) + 16 * entity.getInterpolatedData("misc:dyn/projectileTravel"));
+        wheel.setOffset(-15, 0, -8 - (entity.getInterpolatedData("misc:dyn/projectileLength") * 16) + 16 * entity.getInterpolatedData("misc:dyn/projectileTravel"));
         wheel.render();
     }
 }

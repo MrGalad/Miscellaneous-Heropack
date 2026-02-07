@@ -94,7 +94,7 @@ function supernova(hero, entity) {
         for (var i = 0; i < list.size(); ++i) {
             var other = list.get(i);
             if (other.isLivingEntity() && !entity.equals(other)) {
-                other.hurtByAttacker(hero, "SPEEDPUNCHES", "%s was electrecuted", 5, entity);
+                other.hurtByAttacker(hero, "SPEEDPUNCHES", "%s was punched to death", 7, entity);
             }
         }
     }

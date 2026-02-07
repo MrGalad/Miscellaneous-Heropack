@@ -46,11 +46,11 @@ function init(hero) {
         manager.incrementData(entity, "misc:dyn/sprinting", 7, entity.isSprinting() && entity.isOnGround())
         manager.incrementData(entity, "misc:dyn/detransformation_timer", 90, entity.getData("misc:dyn/release"))
 
-        if (entity.getHealth() <= 6) {
+       /*  if (entity.getHealth() <= 6) {
             manager.setData(entity, "misc:dyn/boolean", true)
-            //nv for the auto transform
+            //nv for the auto transform, only used for stopping the anim
             manager.setData(entity, "misc:dyn/nv", true)
-        }
+        } */
         if (entity.getData("misc:dyn/float_interp1") > 0.8)
             manager.setData(entity, "misc:dyn/boolean1", true);
 
@@ -107,7 +107,7 @@ function shiftDamage(hero, entity) {
         for (var i = 0; i < list.size(); ++i) {
             var other = list.get(i);
             if (other.isLivingEntity() && !entity.equals(other)) { 
-                other.hurtByAttacker(hero, "SHIFT", "%s was fried during Titan shifting", 5, entity);
+                other.hurtByAttacker(hero, "SHIFT", "%s was fried during Titan shifting", 8, entity);
             }
         }
     }

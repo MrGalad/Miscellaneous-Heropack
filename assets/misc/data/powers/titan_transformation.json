@@ -75,8 +75,26 @@
     },
     "fiskheroes:hover": {
       "isToggle": false
+    },
+     "fiskheroes:shield": {
+      "shield": {
+        "health": 100000.0,
+        "regeneration": 15.0,
+        "recoveryDelay": 100,
+        "cooldown": 0
+      },
+      "coverage": {
+        "yawRadius": 180.0,
+        "pitchRadius": 180.0,
+        "yawOffset": 0.0,
+        "pitchOffset": 0.0
+      },
+      "knockback": 0.0,
+      "isToggle": false,
+      "soundEvents": {
+      }
     }
-  },
+  },  
   "hud": [
     {
       "type": "CHARGE",

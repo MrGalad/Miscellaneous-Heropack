@@ -1,6 +1,5 @@
 ### Miscellaneous Heropack 3.5 ###
 - Added Choso (JJK) suit
-- Added Auto Titan transformation to Eren Yeager when health is at 3 hearts or lower
 - Added augments to Master Chief
 - Added reload sounds to guns in the Heropack
 
@@ -15,6 +14,8 @@
 - Removed Robocop suit
 - Removed T800 suit
 - Removed The Ray suit
+
+- Buffed Titan transformation damage
 
 
 ### Miscellaneous Heropack 3.4 ###

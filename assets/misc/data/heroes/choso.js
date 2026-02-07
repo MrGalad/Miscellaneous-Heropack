@@ -4,7 +4,7 @@ function midTransform(entity, data) {
 
 function slicingExorcism(hero, entity, manager) {
     var isShooting = entity.getData("misc:dyn/float_interp1") == 1;
-    manager.incrementData(entity, "misc:dyn/projectileTravel", 20, isShooting);
+    manager.incrementData(entity, "misc:dyn/projectileTravel", 10, isShooting);
     if (isShooting) {
         var distance = 0;
         while (distance < 32) {
@@ -67,11 +67,12 @@ function init(hero) {
         //PackLoader.printChat("aim: " + entity.getData("fiskheroes:aimed_timer"));
         //PackLoader.printChat("aimed: " + entity.getData("fiskheroes:aiming"));
         //PackLoader.printChat("float: " + entity.getData("misc:dyn/float_interp1"));
+        //PackLoader.printChat("bool: " + entity.getData("misc:dyn/boolean1"));
 
         manager.incrementData(entity, "misc:dyn/float_interp1", 30, entity.getData("fiskheroes:aimed_timer") && entity.getData("fiskheroes:aiming"));
         if (!entity.getData("fiskheroes:aiming")) {
             manager.setData(entity, "misc:dyn/projectileTravel", 0);
-            manager.setData(entity, "misc:dyn/float_interp1", 0);
+           // manager.setData(entity, "misc:dyn/float_interp1", 0);
         }
 
     });
@@ -88,12 +89,7 @@ function init(hero) {
                     "id": "minecraft:poison",
                     "duration": 60,
                     "amplifier": 0,
-                    "chance": 0.8
-                }, {
-                    "id": "minecraft:nausea",
-                    "duration": 60,
-                    "amplifier": 0,
-                    "chance": 0.5
+                    "chance": 1
                 }
             ]
         }
@@ -108,11 +104,17 @@ function isModifierEnabled(entity, modifier) {
 
 function isKeyBindEnabled(entity, keyBind) {
     var fist_transforming = midTransform(entity, "misc:dyn/fist_timer");
+    var aiming = entity.getData("fiskheroes:aiming");
+    var beam = entity.getData("fiskheroes:beam_charge") > 0;
     switch (keyBind) {
     case "EDGE":
-        return (entity.getData("misc:dyn/fist") || entity.getData("misc:dyn/edge")) && !midTransform(entity, "misc:dyn/edge_timer") && !fist_transforming;
+        return (entity.getData("misc:dyn/fist") || entity.getData("misc:dyn/edge")) && !midTransform(entity, "misc:dyn/edge_timer") && !fist_transforming && !aiming && !beam;
     case "FIST":
-        return !entity.getData("misc:dyn/edge") && !fist_transforming;
+        return !entity.getData("misc:dyn/edge") && !fist_transforming && !aiming && !beam;
+    case "CHARGED_BEAM":
+        return !aiming && entity.getHeldItem().isEmpty() && !entity.getData("misc:dyn/edge") && !entity.getData("misc:dyn/fist");
+    case "AIM":
+        return entity.getHeldItem().isEmpty() && !entity.getData("misc:dyn/edge") && !entity.getData("misc:dyn/fist") && !beam ;
     default:
         return true;
     }
