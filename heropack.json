@@ -10,74 +10,23 @@
       "version": 0
     },
     "range": {
-      "bike_start": {
-        "distance": 32.0,
-        "sendToAll": true
-      },
-      "hk_p30l": {
-        "distance": 32.0,
-        "sendToAll": true
-      },
-      "revolver": {
-        "distance": 32.0,
-        "sendToAll": true
-      },
-      "sniper": {
-        "distance": 32.0,
-        "sendToAll": true
-      },
-      "benelli_m4": {
-        "distance": 32.0,
-        "sendToAll": true
-      },
-      "tr1_ar": {
-        "distance": 32.0,
-        "sendToAll": true
-      },
-      "kimber": {
-        "distance": 32.0,
-        "sendToAll": true
-      },
-      "frost_breath": {
-        "distance": 32.0,
-        "sendToAll": true
-      },
-      "frost_charge": {
-        "distance": 32.0,
-        "sendToAll": true
-      },
-      "robocop_step": {
-        "distance": 16.0,
-        "sendToAll": true
-      },
-      "robocop_voice": {
-        "distance": 16.0,
-        "sendToAll": true
-      },
-      "termy_voice": {
-        "distance": 16.0,
-        "sendToAll": true
-      },
-      "sent_shoot": {
-        "distance": 32.0,
-        "sendToAll": true
-      },
-      "rockets": {
-        "distance": 32.0,
-        "sendToAll": true
-      },
-      "speed_punches": {
-        "distance": 10.0,
-        "sendToAll": true
-      },
-      "titan_transformation": {
-        "distance": 32.0,
-        "sendToAll": true
-      },
-      "piercing_blood": {
-        "distance": 16.0,
-        "sendToAll": true
-      }
+      "bike_start": {"distance": 32, "sendToAll": true},
+      "hk_p30l": {"distance": 32, "sendToAll": true},
+      "revolver": {"distance": 32, "sendToAll": true},
+      "sniper": {"distance": 32, "sendToAll": true},
+      "benelli_m4": {"distance": 32, "sendToAll": true},
+      "tr1_ar": {"distance": 32, "sendToAll": true},
+      "kimber": {"distance": 32, "sendToAll": true},
+      "frost_breath": {"distance": 32, "sendToAll": true},
+      "frost_charge": {"distance": 32, "sendToAll": true},
+      "robocop_step": {"distance": 16, "sendToAll": true},
+      "robocop_voice": {"distance": 16, "sendToAll": true},
+      "termy_voice": {"distance": 16, "sendToAll": true},
+      "sent_shoot": {"distance": 32, "sendToAll": true},
+      "rockets": {"distance": 32, "sendToAll": true},
+      "speed_punches": {"distance": 10, "sendToAll": true},
+      "titan_transformation": {"distance": 32, "sendToAll": true},
+      "piercing_blood": {"distance": 16, "sendToAll": true}
     }
   },
   "damageTypes": {
@@ -87,391 +36,116 @@
   },
   "dataVars": {
     "power": "BOOLEAN",
-    "texture": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
+    "texture": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
     "stone": "BOOLEAN",
-    "stone_timer": {
-      "type": "FLOAT_INTERP"
-    },
-    "all_active_timer": {
-      "type": "FLOAT_INTERP"
-    },
-    "time_timer": {
-      "type": "FLOAT_INTERP"
-    },
-    "stone_select": {
-      "type": "INTEGER",
-      "resetWithoutSuit": true
-    },
-    "stone_select_slot": {
-      "type": "INTEGER",
-      "resetWithoutSuit": true
-    },
-    "stone_selecting": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "boolean": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "float_interp": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "boolean1": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "boolean2": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "float_interp1": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "float_interp2": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "float_interp3": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
+    "stone_timer": {"type": "FLOAT_INTERP"},
+    "all_active_timer": {"type": "FLOAT_INTERP"},
+    "time_timer": {"type": "FLOAT_INTERP"},
+    "stone_select": {"type": "INTEGER", "resetWithoutSuit": true},
+    "stone_select_slot": {"type": "INTEGER", "resetWithoutSuit": true},
+    "stone_selecting": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "boolean": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "float_interp": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "boolean1": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "boolean2": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "float_interp1": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "float_interp2": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "float_interp3": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
     "tele": "BOOLEAN",
     "tele_timer": "FLOAT_INTERP",
-    "slot": {
-      "type": "INTEGER",
-      "resetWithoutSuit": false
-    },
+    "slot": {"type": "INTEGER", "resetWithoutSuit": false},
     "grapple": "BOOLEAN",
     "grapple_timer": "FLOAT_INTERP",
     "solar": "BOOLEAN",
     "solar_timer": "FLOAT_INTERP",
     "half_solar": "BOOLEAN",
     "half_solar_timer": "FLOAT_INTERP",
-    "transformation": {
-      "type": "BOOLEAN"
-    },
-    "transformation_timer": {
-      "type": "FLOAT_INTERP"
-    },
-    "worn_suit": {
-      "type": "FLOAT",
-      "resetWithoutSuit": true
-    },
-    "holoanimation": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "nv": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": false
-    },
-    "nv_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "run": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "run_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "cortana": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
+    "transformation": {"type": "BOOLEAN"},
+    "transformation_timer": {"type": "FLOAT_INTERP"},
+    "worn_suit": {"type": "FLOAT", "resetWithoutSuit": true},
+    "holoanimation": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "nv": {"type": "BOOLEAN", "resetWithoutSuit": false},
+    "nv_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "run": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "run_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "cortana": {"type": "BOOLEAN", "resetWithoutSuit": true},
     "energy": "BOOLEAN",
-    "energy_timer": {
-      "type": "FLOAT_INTERP"
-    },
-    "mobscan": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "mob_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
+    "energy_timer": {"type": "FLOAT_INTERP"},
+    "mobscan": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "mob_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
     "vibration": "BOOLEAN",
     "vibration_timer": "FLOAT_INTERP",
     "charge": "BOOLEAN",
     "attack_timer": "FLOAT_INTERP",
-    "shazam": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "shazam_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "chestburst_cd": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "roll": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": false
-    },
-    "roll_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": false
-    },
-    "slide": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": false
-    },
-    "slide_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": false
-    },
-    "sneaking_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "vault_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "vault": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": false
-    },
-    "sprinting": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "climb_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "shield_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "snap": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": false
-    },
-    "snap_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": false
-    },
-    "snap_effect": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": false
-    },
+    "shazam": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "shazam_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "chestburst_cd": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "roll": {"type": "BOOLEAN", "resetWithoutSuit": false},
+    "roll_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": false},
+    "slide": {"type": "BOOLEAN", "resetWithoutSuit": false},
+    "slide_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": false},
+    "sneaking_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "vault_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "vault": {"type": "BOOLEAN", "resetWithoutSuit": false},
+    "sprinting": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "climb_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "shield_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "snap": {"type": "BOOLEAN", "resetWithoutSuit": false},
+    "snap_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": false},
+    "snap_effect": {"type": "FLOAT_INTERP", "resetWithoutSuit": false},
     "creative": "BOOLEAN",
-    "power_charge": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "random_digit": {
-      "type": "INTEGER",
-      "resetWithoutSuit": true
-    },
-    "boost": {
-      "type": "INTEGER",
-      "resetWithoutSuit": true
-    },
-    "boost1": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "boost2": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "boost3": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "boost4": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "flight_boost1": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "flight_boost2": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "flight_boost3": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "flight_boost4": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "flight_boost0": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "boost1_deactivation_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "boost2_deactivation_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "boost3_deactivation_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "boost4_deactivation_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "reactivation_count": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "charge_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "eren_boost": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "eren_boost_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "hardened": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "hardened_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "eyemarks": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "regen": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "regen_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "detransformation": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "raise": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "raise_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "release": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "release_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "detransformation_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "refill": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": false
-    },
-    "refill_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "titan_cooldown": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": false
-    },
-    "titan_cooldown_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": false
-    },
-    "refill_timer2": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": false
-    },
-    "wheel_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": false
-    },
-    "clap": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": false
-    },
-    "clap_animation_cooldown": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": false
-    },
-    "clap_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": false
-    },
-    "punch_right": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "punch_left": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": true
-    },
-    "punch_left_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "punch_right_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    },
-    "punch_decider": {
-      "type": "BYTE",
-      "resetWithoutSuit": true
-    },
-    "grab_id": {
-      "type": "INTEGER",
-      "resetWithoutSuit": true
-    },
-    "fist": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": false
-    },
-    "fist_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": false
-    },
-    "edge": {
-      "type": "BOOLEAN",
-      "resetWithoutSuit": false
-    },
-    "edge_timer": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": false
-    },
-    "projectileTravel": {
-      "type": "FLOAT_INTERP",
-      "resetWithoutSuit": true
-    }
+    "power_charge": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "random_digit": {"type": "INTEGER", "resetWithoutSuit": true},
+    "boost": {"type": "INTEGER", "resetWithoutSuit": true},
+    "boost1": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "boost2": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "boost3": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "boost4": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "flight_boost1": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "flight_boost2": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "flight_boost3": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "flight_boost4": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "flight_boost0": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "boost1_deactivation_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "boost2_deactivation_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "boost3_deactivation_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "boost4_deactivation_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "reactivation_count": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "charge_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "eren_boost": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "eren_boost_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "hardened": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "hardened_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "eyemarks": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "regen": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "regen_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "detransformation": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "raise": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "raise_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "release": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "release_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "detransformation_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "refill": {"type": "BOOLEAN", "resetWithoutSuit": false},
+    "refill_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "titan_cooldown": {"type": "BOOLEAN", "resetWithoutSuit": false},
+    "titan_cooldown_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": false},
+    "refill_timer2": {"type": "FLOAT_INTERP", "resetWithoutSuit": false},
+    "wheel_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": false},
+    "clap": {"type": "BOOLEAN", "resetWithoutSuit": false},
+    "clap_animation_cooldown": {"type": "BOOLEAN", "resetWithoutSuit": false},
+    "clap_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": false},
+    "punch_right": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "punch_left": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "punch_left_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "punch_right_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "punch_decider": {"type": "BYTE", "resetWithoutSuit": true},
+    "grab_id": {"type": "INTEGER", "resetWithoutSuit": true},
+    "fist": {"type": "BOOLEAN", "resetWithoutSuit": false},
+    "fist_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": false},
+    "edge": {"type": "BOOLEAN", "resetWithoutSuit": false},
+    "edge_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": false},
+    "projectileTravel": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "projectileLength": {"type": "FLOAT_INTERP", "resetWithoutSuit": true}
   },
   "alts": {
     "misc:black_adam": {

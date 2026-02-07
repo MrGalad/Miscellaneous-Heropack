@@ -2,15 +2,30 @@ function midTransform(entity, data) {
     return entity.getData(data) > 0 && entity.getData(data) < 1;
 }
 
-function lookVector(entity) {
-    var pitch = entity.rotPitch() / 90;
-    var yaw = entity.rotYaw() / 180;
-    var p = Math.sin(0.5 * Math.PI * pitch + Math.PI / 2);
+function slicingExorcism(hero, entity, manager) {
+    var isShooting = entity.getData("misc:dyn/float_interp1") == 1;
+    manager.incrementData(entity, "misc:dyn/projectileTravel", 20, isShooting);
+    if (isShooting) {
+        var distance = 0;
+        while (distance < 32) {
+            if (entity.world().blockAt(entity.eyePos().add(entity.getLookVector().multiply(distance))).isSolid()) {
+                break;
+            }
+            distance += 0.1;
+        }
 
-    var x = -Math.sin(Math.PI * yaw) * p;
-    var y = -pitch;
-    var z = Math.sin(Math.PI * yaw + (Math.PI / 2)) * p;
-    return PackLoader.asVec3(x, y, z);
+        var currentPos = entity.eyePos().add(entity.getLookVector().multiply(distance).multiply(entity.getData("misc:dyn/projectileTravel")));
+        manager.setData(entity, "misc:dyn/projectileLength", distance * entity.getData("misc:dyn/projectileTravel"));
+        if (!entity.world().blockAt(currentPos).isSolid()) {
+            entity.world().getEntitiesInRangeOf(currentPos, 2).forEach(other => {
+                if (!entity.equals(other) && other.isLivingEntity()) {
+                    other.hurtByAttacker(hero, "SLICING_EXORCISM", "%s got sliced to death", 7, entity);
+                }
+            });
+        }
+    } else if (entity.getData("misc:dyn/projectileLength") != 0) {
+        manager.setInterpolatedData(entity, "misc:dyn/projectileLength", 0);
+    }
 }
 
 function init(hero) {
@@ -46,17 +61,17 @@ function init(hero) {
 
     hero.setTickHandler((entity, manager) => {
         slicingExorcism(hero, entity, manager);
-       //PackLoader.printChat("proj: " + entity.getData('misc:dyn/projectileTravel'));
-       //PackLoader.printChat("aim: " + entity.getData('fiskheroes:aimed_timer'));
-       //PackLoader.printChat("aimed: " + entity.getData('fiskheroes:aiming'));
-       //PackLoader.printChat("float: " + entity.getData('misc:dyn/float_interp1'));
+        //PackLoader.printChat("> " + entity.getData("misc:dyn/projectileTravel") + " " + entity.getData("misc:dyn/projectileLength"));
+        //PackLoader.printChat("proj: " + entity.getData("misc:dyn/projectileTravel"));
+        //PackLoader.printChat("projLength: " + entity.getData("misc:dyn/projectileLength"));
+        //PackLoader.printChat("aim: " + entity.getData("fiskheroes:aimed_timer"));
+        //PackLoader.printChat("aimed: " + entity.getData("fiskheroes:aiming"));
+        //PackLoader.printChat("float: " + entity.getData("misc:dyn/float_interp1"));
 
-        manager.incrementData(entity, 'misc:dyn/float_interp1', 30, entity.getData("fiskheroes:aimed_timer") && entity.getData("fiskheroes:aiming"));
+        manager.incrementData(entity, "misc:dyn/float_interp1", 30, entity.getData("fiskheroes:aimed_timer") && entity.getData("fiskheroes:aiming"));
         if (!entity.getData("fiskheroes:aiming")) {
             manager.setData(entity, "misc:dyn/projectileTravel", 0);
             manager.setData(entity, "misc:dyn/float_interp1", 0);
-        } if (entity.getData('misc:dyn/float_interp1') == 1) {
-            manager.setData(entity, "misc:dyn/boolean1", true);
         }
 
     });
@@ -69,14 +84,12 @@ function init(hero) {
             "HIT_COOLDOWN": 3.0,
             "DAMAGE_DROPOFF": 0.8,
             "ADD_KNOCKBACK": 1,
-            "EFFECTS": [
-                {
+            "EFFECTS": [{
                     "id": "minecraft:poison",
                     "duration": 60,
                     "amplifier": 0,
                     "chance": 0.8
-                },
-                {
+                }, {
                     "id": "minecraft:nausea",
                     "duration": 60,
                     "amplifier": 0,
@@ -89,38 +102,19 @@ function init(hero) {
 }
 
 function isModifierEnabled(entity, modifier) {
-    switch (modifier.name()) { }
-    return true;;
-}
-
-function slicingExorcism(hero, entity, manager) {
-    if (entity.getData('misc:dyn/boolean1')) {
-        var eyePos = entity.eyePos();
-        var currentPos = entity.eyePos()
-        var lookDirection = lookVector(entity);
-        currentPos = eyePos.add(lookDirection.multiply(32 * entity.getData('misc:dyn/float_interp1')/2));
-        var block = entity.world().blockAt(currentPos);
-        if (!block.isSolid() && 32 * entity.getData('misc:dyn/float_interp1')) {
-            var list = entity.world().getEntitiesInRangeOf(currentPos, 3);
-            list.forEach(other => {
-                if (!entity.equals(other) && other.isLivingEntity()) {
-                    other.hurtByAttacker(hero, "SLICING_EXORCISM", "%s got sliced to death", 7, entity);
-                }
-            });
-        }
-
-    }
+    switch (modifier.name()) {}
+    return true; ;
 }
 
 function isKeyBindEnabled(entity, keyBind) {
     var fist_transforming = midTransform(entity, "misc:dyn/fist_timer");
     switch (keyBind) {
-        case "EDGE":
-            return (entity.getData("misc:dyn/fist") || entity.getData("misc:dyn/edge")) && !midTransform(entity, "misc:dyn/edge_timer") && !fist_transforming;
-        case "FIST":
-            return !entity.getData("misc:dyn/edge") && !fist_transforming;
-        default:
-            return true;
+    case "EDGE":
+        return (entity.getData("misc:dyn/fist") || entity.getData("misc:dyn/edge")) && !midTransform(entity, "misc:dyn/edge_timer") && !fist_transforming;
+    case "FIST":
+        return !entity.getData("misc:dyn/edge") && !fist_transforming;
+    default:
+        return true;
     }
 }
 
