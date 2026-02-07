@@ -123,7 +123,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
 
     if (renderLayer == "CHESTPLATE") {
         var wheelTimer = entity.getInterpolatedData("misc:dyn/float_interp1");
-        wheel.opacity = 0.7*wheelTimer;
+        wheel.opacity = 0.7*wheelTimer * 1 - Math.max(0, entity.getInterpolatedData("misc:dyn/projectileTravel")-0.8)*5;
         wheel.setOffset(-13, 0, -8 - (entity.getInterpolatedData("misc:dyn/projectileLength") * 16) + 16 * entity.getInterpolatedData("misc:dyn/projectileTravel"));
         wheel.render();
     }
