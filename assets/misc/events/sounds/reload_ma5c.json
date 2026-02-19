@@ -1,0 +1,8 @@
+{
+  "parent": "fiskheroes:sound_base",
+  "sound": "misc:main.ma5c_reload",
+  "condition": {
+    "continue": "entity.getData('fiskheroes:reload_timer')"
+  },
+  "fadeOut": 10
+}

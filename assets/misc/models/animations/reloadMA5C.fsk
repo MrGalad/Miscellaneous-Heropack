@@ -1,0 +1,17 @@
+{reloadMA5C_time}={data}
+{reloadMA5C_0}=curve animate2({reloadMA5C_time},0.75,0,0.4,0.35)
+{reloadMA5C_1}=curve animate2({reloadMA5C_time},0.6,0.4,0.35,0.25)
+
+
+{leftArm_rotX}+=-47.3876773021'{reloadMA5C_0}
+{leftArm_rotY}+=-60.3874272993'{reloadMA5C_0}
+{leftArm_rotZ}+=81.2446246865'{reloadMA5C_0}
+{leftArm_rotX}+=-12.3876773021'{reloadMA5C_1}
+{leftArm_rotY}+=-60.3874272993'{reloadMA5C_1}
+{leftArm_rotZ}+=81.2446246865'{reloadMA5C_1}
+{leftArm_posX}+=1.7{reloadMA5C_0}
+{leftArm_posY}+=1.7{reloadMA5C_0}
+{leftArm_posZ}+=-2.6{reloadMA5C_0}
+{leftArm_posX}+=1.7{reloadMA5C_1}
+{leftArm_posY}+=1.7{reloadMA5C_1}
+{leftArm_posZ}+=-2.6{reloadMA5C_1}

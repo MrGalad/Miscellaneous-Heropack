@@ -51,6 +51,7 @@
     }
   ],
   "soundEvents": {
-    "SHOOT": "fisktag:rifle_shoot"
+    "SHOOT": "misc:ma5c_fire",
+    "RELOAD": "misc:reload_ma5c"
   }
 }
