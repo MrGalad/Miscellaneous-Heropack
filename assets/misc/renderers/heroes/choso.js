@@ -6,6 +6,7 @@ loadTextures({
     "daggerTexture": "misc:choso/choso_dagger",
     "effectsTexture": "misc:choso/choso_effects",
     "wheelTexture": "misc:choso/choso_blood_wheel",
+    "spikesTexture": "misc:choso/choso_spikes",
     "sleeve": "misc:choso/sleeve.tx.json",
     "effects": "misc:choso/effects.tx.json",
     "dagger": "misc:choso/dagger.tx.json",
@@ -79,6 +80,15 @@ function initEffects(renderer) {
     wheel.setScale(1);
     wheel.anchor.set("head");
 
+    var spikesModel = renderer.createResource("MODEL", "misc:choso_blood_spikes");
+    spikesModel.bindAnimation("misc:choso_spikes_model").setData((entity, data) => {
+        data.load(0, Math.max(entity.getInterpolatedData("misc:dyn/spikes_timer"), !entity.getData("misc:dyn/spikes")));
+    });
+    spikesModel.texture.set("spikesTexture");
+    spikes = renderer.createEffect("fiskheroes:model").setModel(spikesModel);
+    spikes.setScale(3);
+    //spikes.anchor.set("head");
+
 }
 
 function initAnimations(renderer) {
@@ -95,9 +105,13 @@ function initAnimations(renderer) {
             data.load(0, entity.getInterpolatedData("misc:dyn/fist_timer"));
             data.load(1, entity.getInterpolatedData("misc:dyn/edge_timer"));
         })
-    addAnimation(renderer, "choso.WHEEL", "misc:choso_throw")
+   /*  addAnimation(renderer, "choso.WHEEL", "misc:choso_throw")
         .setData((entity, data) => {
             data.load(0, Math.min(entity.getInterpolatedData("misc:dyn/float_interp1"), entity.getInterpolatedData("fiskheroes:aiming")));
+        }) */
+    addAnimation(renderer, "choso.WHEEL", "misc:choso_spikes_player")
+        .setData((entity, data) => {
+            data.load(0, Math.min(entity.getInterpolatedData("misc:dyn/spikes_timer"), entity.getInterpolatedData("misc:dyn/spikes")));
         })
 }
 
@@ -114,6 +128,11 @@ function render(entity, renderLayer, isFirstPersonArm) {
             if (effects.opacity > 0) {
                 effects.render();
             }
+        }
+
+        if (entity.getData("misc:dyn/spikes")) {
+           // spikes.opacity = Math.min(1, entity.getInterpolatedData("misc:dyn/spikes_timer") * 5) - Math.max(0, entity.getInterpolatedData("misc:dyn/spikes_timer") - 0.6) * 5;
+            spikes.render();
         }
 
         hair.render();

@@ -1,14 +1,25 @@
 {
   "name": "Death Panting",
   "modifiers": {
-    "fiskheroes:transformation|slide": {
-      "key": "DMG",
+    "fiskheroes:transformation|spikes": {
+      "key": "SPIKES",
+      "isToggle": false,
       "transformation": {
-        "toggleData": "misc:dyn/slide",
-        "timerData": "misc:dyn/slide_timer",
-        "time": 10
+        "toggleData": "misc:dyn/spikes",
+        "timerData": "misc:dyn/spikes_timer",
+        "time": 30
       },
-      "soundEvents": {}
+      "soundEvents": {
+        "ENABLE": "misc:choso_spikes"
+      }
+    },
+    "fiskheroes:cooldown": {
+      "cooldown": {
+        "toggleData": "entity.getData('misc:dyn/spikes_timer') == 1",
+        "cooldownData": "misc:dyn/spikes_cooldown",
+        "duration": 20,
+        "recovery": 0.3
+      }
     },
     "fiskheroes:transformation|fist": {
       "key": "FIST",
@@ -18,7 +29,9 @@
         "timerData": "misc:dyn/fist_timer",
         "time": 30
       },
-      "soundEvents": {}
+     "soundEvents": {
+        "ENABLE": "misc:choso_fist"
+      }
     },
     "fiskheroes:transformation|edge": {
       "key": "EDGE",
@@ -28,7 +41,9 @@
         "timerData": "misc:dyn/edge_timer",
         "time": 30
       },
-      "soundEvents": {}
+      "soundEvents": {
+        "ENABLE": "misc:choso_edge"
+      }
     },
     "fiskheroes:charged_beam": {
       "damageProfile": {
@@ -37,7 +52,8 @@
           "COOK_ENTITY": false,
           "HEAT_TRANSFER": 0,
           "REDUCE_KNOCKBACK": 1,
-          "EFFECTS": [{
+          "EFFECTS": [
+            {
               "id": "minecraft:poison",
               "duration": 120,
               "amplifier": 0,
@@ -56,25 +72,23 @@
       }
     },
     "fiskheroes:leaping": {
-      "leapAmount": [1.55, 0.1]
+      "leapAmount": [
+        1.55,
+        0.1
+      ]
     },
     "fiskheroes:arrow_catching": {},
     "fiskheroes:potion_immunity": {
-      "potionEffects": ["minecraft:nausea", "minecraft:poison", "minecraft:wither"]
+      "potionEffects": [
+        "minecraft:nausea",
+        "minecraft:poison",
+        "minecraft:wither"
+      ]
     },
     "fiskheroes:healing_factor": {
       "delay": 160,
       "soundEvents": {
         "HEAL": "fiskheroes:healing_factor"
-      }
-    },
-    "fiskheroes:tentacles": {
-      "tentacles": [
-        [0, 0, 0]
-      ],
-      "range": 5.0,
-      "soundEvents": {
-        "GRAB_START": "fiskheroes:ock_grab"
       }
     }
   }

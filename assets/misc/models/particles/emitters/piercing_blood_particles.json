@@ -5,7 +5,7 @@
             "anchor": "body",
             "amount": {
                 "tp": 7,
-                "fp": 1
+                "fp": 0
             },
             "offset": {
                 "tp": [

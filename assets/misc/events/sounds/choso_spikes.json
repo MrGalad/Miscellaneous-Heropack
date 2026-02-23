@@ -1,0 +1,8 @@
+{
+  "parent": "fiskheroes:sound_base",
+  "sound": "misc:main.choso_spikes",
+  "condition": "misc:dyn/spikes",
+  "volume": 1.0,
+  "loop": false,
+  "delay": 20
+}

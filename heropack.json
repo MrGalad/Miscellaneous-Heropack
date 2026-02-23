@@ -1,6 +1,6 @@
 {
   "name": "Miscellaneous Heropack",
-  "description": "\u00A7a\u00A7lv3.4 \u00A77- \u00A7a\u00A7lMiscellaneous Heropack",
+  "description": "\u00A7a\u00A7lv3.5 \u00A77- \u00A7a\u00A7lMiscellaneous Heropack",
   "domain": "misc",
   "watermark": "\u00A7a\u00A7lMiscellaneous \u00A7a\u00A7lHeropack",
   "packFormat": 1,
@@ -26,7 +26,9 @@
       "rockets": {"distance": 32, "sendToAll": true},
       "speed_punches": {"distance": 10, "sendToAll": true},
       "titan_transformation": {"distance": 32, "sendToAll": true},
-      "piercing_blood": {"distance": 16, "sendToAll": true}
+      "piercing_blood": {"distance": 16, "sendToAll": true},
+      "choso_fist": {"distance": 16, "sendToAll": true},
+      "choso_spikes": {"distance": 8, "sendToAll": true}
     }
   },
   "damageTypes": {
@@ -145,7 +147,10 @@
     "edge": {"type": "BOOLEAN", "resetWithoutSuit": false},
     "edge_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": false},
     "projectileTravel": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
-    "projectileLength": {"type": "FLOAT_INTERP", "resetWithoutSuit": true}
+    "projectileLength": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "spikes": {"type": "BOOLEAN", "resetWithoutSuit": true},
+    "spikes_timer": {"type": "FLOAT_INTERP", "resetWithoutSuit": true},
+    "spikes_cooldown": {"type": "FLOAT_INTERP", "resetWithoutSuit": true}
   },
   "alts": {
     "misc:black_adam": {

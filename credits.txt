@@ -1,5 +1,4 @@
-Galad - Coding & Item Textures
+Galad - Coding & Item Textures & Sounds
 Harelyd007 - Skin Textures & Models & Item Textures
-Kim Jong Uno - Fire effect for Green Goblin
-Shadow00dev - Coding assistance and Bug Fixes
+Shadow00dev - Coding assistance & Bug Fixes
 Athnis - Coding assistance
