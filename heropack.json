@@ -17,6 +17,8 @@
       "benelli_m4": {"distance": 32, "sendToAll": true},
       "tr1_ar": {"distance": 32, "sendToAll": true},
       "kimber": {"distance": 32, "sendToAll": true},
+      "ma5c_fire": {"distance": 32, "sendToAll": true},
+      "reload_ma5c": {"distance": 32, "sendToAll": true},
       "frost_breath": {"distance": 32, "sendToAll": true},
       "frost_charge": {"distance": 32, "sendToAll": true},
       "robocop_step": {"distance": 16, "sendToAll": true},

@@ -1,0 +1,13 @@
+{
+    "suit": "misc:choso",
+    "requirements": [
+      "misc:misc",
+      "fiskheroes:tier6_7",
+      "fiskheroes:traversal",
+      "fiskheroes:regeneration2",
+      "fiskheroes:defense",
+      "fiskheroes:melee2",
+      "fiskheroes:ranged3"
+    ]
+  }
+  
