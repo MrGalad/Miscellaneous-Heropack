@@ -1,6 +1,6 @@
 {
   "flicker": {
-    "color": "0xAA0000",
+    "color": "0xFF4E40",
     "density": 16,
     "frequency": 0.8,
     "length": 0.1,

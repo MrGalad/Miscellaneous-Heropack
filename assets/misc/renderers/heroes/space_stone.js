@@ -12,7 +12,7 @@ function initEffects(renderer) {
     utils.bindCloud(renderer, "fiskheroes:teleportation", "fiskheroes:breach")
 
     var forcefield = renderer.bindProperty("fiskheroes:forcefield");
-    forcefield.color.set(0x55FFFF);
+    forcefield.color.set(0x2ECAF9);
     forcefield.setShape(36, 18).setOffset(0.0, 6.0, 0.0).setScale(1.25);
     forcefield.setCondition(entity => {
         forcefield.opacity = entity.getInterpolatedData("fiskheroes:shield_blocking_timer") * 0.15;

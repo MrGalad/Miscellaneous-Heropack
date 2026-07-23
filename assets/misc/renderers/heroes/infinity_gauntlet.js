@@ -31,7 +31,7 @@ var spellq;
 function initEffects(renderer) {
     utils.bindTrail(renderer, "misc:reality_flicker").setCondition(entity => entity.getData("fiskheroes:size_state") > 0)
 
-    var color = 0x55AA55;
+    var color = 0x57ff63;
     var tao_mandala = renderer.createResource("SHAPE", "fiskheroes:tao_mandala");
     var beam = renderer.createResource("BEAM_RENDERER", "fiskheroes:line");
     spell = renderer.createEffect("fiskheroes:lines").setShape(tao_mandala).setRenderer(beam);
@@ -53,7 +53,7 @@ function initEffects(renderer) {
     utils.bindTrail(renderer, "misc:blur_green");
     utils.bindCloud(renderer, "fiskheroes:teleportation", "fiskheroes:breach")
 
-    var powers = 0xAA00AA
+    var powers = 0xb557ff;
     glow = utils.createLines(renderer, "misc:power", powers, [
         { "start": [0.0, 0.0, 0.0], "end": [0.0, -0.5, 0.0], "size": [4.8, 4.8] },
     ]);
@@ -103,6 +103,14 @@ function initEffects(renderer) {
 
     soulq = renderer.createEffect("fiskheroes:overlay");
     soulq.texture.set(null, "soul");
+
+    var forcefield = renderer.bindProperty("fiskheroes:forcefield");
+    forcefield.color.set(0x2ECAF9);
+    forcefield.setShape(36, 18).setOffset(0.0, 6.0, 0.0).setScale(1.25);
+    forcefield.setCondition(entity => {
+        forcefield.opacity = entity.getInterpolatedData("fiskheroes:shield_blocking_timer") * 0.15;
+        return true;
+    });
 }
 
 function render(entity, renderLayer, isFirstPersonArm) {
@@ -179,6 +187,6 @@ function initAnimations(renderer) {
 }
 
 function getBeamColor() {
-    return 0xFFFF6D;
+    return 0xffdd42;
 }
 
