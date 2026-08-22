@@ -3,7 +3,10 @@
   "modifiers": {
     "fiskheroes:teleportation": {
       "canReachMoon": true,
-      "range": 128.0
+      "range": 128.0,
+      "soundEvents": {
+        "TELEPORT": "fiskheroes:glow_teleport"
+      }
     },
     "fiskheroes:telekinesis": {
       "telekinesis": {
