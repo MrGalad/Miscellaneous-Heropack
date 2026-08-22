@@ -38,7 +38,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
 }
 
 function getBeamColor() {
-    return 0x57ff63;
+    return 0xb557ff;
 }
 
 function initAnimations(renderer) {
